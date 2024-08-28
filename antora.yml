@@ -1,7 +1,7 @@
 name: longhorn-product-docs
 title: Docs
-version: 1.7.0
-display_version: 1.7.0 (latest)
+version: 1.8.0
+display_version: 1.8.0
 start_page: en:index.adoc
 nav:
 - modules/en/nav.adoc
