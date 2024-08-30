@@ -30,4 +30,4 @@ image::screenshots/volumes-and-nodes/space-usage-info-node-page.png[Image]
 
 `Used` column: The left part indicates the currently used space of this node. The whole bar indicates the total space of the node.
 
-Notice that the allocable space may be greater than the actual available space of the node when setting `Storage Over Provisioning Percentage` to a value greater than 100. If the volumes are heavily used and lots of historical data will be stored in the volume snapshots, please be careful about using a large value for this setting. For more info about the setting, see xref:references/settings.adoc#storage-over-provisioning-percentage[here] for details.
+Notice that the allocable space may be greater than the actual available space of the node when setting `Storage Over Provisioning Percentage` to a value greater than 100. If the volumes are heavily used and lots of historical data will be stored in the volume snapshots, please be careful about using a large value for this setting. For more info about the setting, see xref:references/settings.adoc#_storage_over_provisioning_percentage[here] for details.

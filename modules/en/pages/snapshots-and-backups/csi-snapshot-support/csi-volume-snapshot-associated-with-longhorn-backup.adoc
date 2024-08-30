@@ -2,7 +2,7 @@
 :weight: 3
 :current-version: {page-origin-branch}
 
-Backups in Longhorn are objects in an off-cluster backupstore, and the endpoint to access the backupstore is the backup target. For more information, see xref:concepts.adoc#31-how-backups-work[this section.]
+Backups in Longhorn are objects in an off-cluster backupstore, and the endpoint to access the backupstore is the backup target. For more information, see xref:concepts.adoc#_3_1_how_backups_work[this section.]
 
 To programmatically create backups, you can use the generic Kubernetes CSI VolumeSnapshot mechanism. To learn more about the CSI VolumeSnapshot mechanism, click https://kubernetes.io/docs/concepts/storage/volume-snapshots/[here].
 
