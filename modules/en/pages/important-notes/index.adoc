@@ -157,7 +157,7 @@ NOTE: In rare circumstances, it is possible for the failover to become deadlocke
 
 === Timeout Configuration for Replica Rebuilding and Snapshot Cloning
 
-Starting with v1.7.0, Longhorn supports configuration of timeouts for replica rebuilding and snapshot cloning. Before v1.7.0, the replica rebuilding timeout was capped at 24 hours, which could cause failures for large volumes in slow bandwidth environments. The default timeout is still 24 hours but you can adjust it to accommodate different environments. For more information, see xref:important-notes/references/settings.adoc#long-grpc-timeout[Long gRPC Timeout].
+Starting with v1.7.0, Longhorn supports configuration of timeouts for replica rebuilding and snapshot cloning. Before v1.7.0, the replica rebuilding timeout was capped at 24 hours, which could cause failures for large volumes in slow bandwidth environments. The default timeout is still 24 hours but you can adjust it to accommodate different environments. For more information, see xref:important-notes/references/settings.adoc#_long_grpc_timeout[Long gRPC Timeout].
 
 == Data Integrity and Reliability
 
@@ -167,13 +167,13 @@ Since Longhorn v1.7.0, periodic and on-demand full backups have been supported t
 
 === High Availability of Backing Images
 
-To address the single point of failure (SPOF) issue with backing images, high availability for backing images was introduced in Longhorn v1.7.0. For more information, please see xref:important-notes/advanced-resources/backing-image/backing-image.adoc#number-of-copies[Backing Image].
+To address the single point of failure (SPOF) issue with backing images, high availability for backing images was introduced in Longhorn v1.7.0. For more information, please see xref:important-notes/advanced-resources/backing-image/backing-image.adoc#_number_of_copies[Backing Image].
 
 == Scheduling
 
 === Auto-Balance Pressured Disks
 
-The replica auto-balancing feature was enhanced in Longhorn v1.7.0 to address disk space pressure from growing volumes. A new setting, called `replica-auto-balance-disk-pressure-percentage`, allows you to set a threshold for automatic actions. The enhancements reduce the need for manual intervention by automatically rebalancing replicas during disk pressure, and improve performance by enabling faster replica rebuilding using local file copying. For more information, see xref:important-notes/references/settings.adoc#replica-auto-balance-disk-pressure-threshold-[`replica-auto-balance-disk-pressure-percentage`] and https://github.com/longhorn/longhorn/issues/4105[Issue #4105].
+The replica auto-balancing feature was enhanced in Longhorn v1.7.0 to address disk space pressure from growing volumes. A new setting, called `replica-auto-balance-disk-pressure-percentage`, allows you to set a threshold for automatic actions. The enhancements reduce the need for manual intervention by automatically rebalancing replicas during disk pressure, and improve performance by enabling faster replica rebuilding using local file copying. For more information, see xref:important-notes/references/settings.adoc#replica-auto-balance-disk-pressure-threshold-[`replica-auto-balance-disk-pressure-percentage`] and https://github.com/longhorn/longhorn/issues/4105[Issue #_4_1_0_5].
 
 == Networking
 
@@ -185,12 +185,12 @@ Multus networks operate within the Kubernetes network namespace, so Longhorn can
 
 Longhorn circumvents this restriction by providing the following settings:
 
-* xref:important-notes/references/settings.adoc#storage-network-for-rwx-volume-enabled[Storage Network For RWX Volume Enabled]: When this setting is disabled, the storage network applies only to RWO volumes. The NFS client for RWX volumes is mounted over the cluster network in the host network namespace. This means that restarting the CSI plugin pod does not affect the NFS mount connections
-* xref:important-notes/references/settings.adoc#automatically-delete-workload-pod-when-the-volume-is-detached-unexpectedly[Automatically Delete Workload Pod when The Volume Is Detached Unexpectedly]: When the RWX volumes are created over the storage network, this setting actively deletes RWX volume workload pods when the CSI plugin pod restarts. This allows the pods to be remounted and prevents dangling mount entries.
+* xref:important-notes/references/settings.adoc#_storage_network_for_rwx_volume_enabled[Storage Network For RWX Volume Enabled]: When this setting is disabled, the storage network applies only to RWO volumes. The NFS client for RWX volumes is mounted over the cluster network in the host network namespace. This means that restarting the CSI plugin pod does not affect the NFS mount connections
+* xref:important-notes/references/settings.adoc#_automatically_delete_workload_pod_when_the_volume_is_detached_unexpectedly[Automatically Delete Workload Pod when The Volume Is Detached Unexpectedly]: When the RWX volumes are created over the storage network, this setting actively deletes RWX volume workload pods when the CSI plugin pod restarts. This allows the pods to be remounted and prevents dangling mount entries.
 
 You can upgrade clusters with pre-existing RWX volume workloads to Longhorn v1.7.0. During and after the upgrade, the workload pod must not be interrupted because the NFS share connection uses the cluster IP, which remains valid in the host network namespace.
 
-To apply the storage network to existing RWX volumes, you must detach the volumes, enable the xref:important-notes/references/settings.adoc#storage-network-for-rwx-volume-enabled[Storage Network For RWX Volume Enabled] setting, and then reattach the volumes.
+To apply the storage network to existing RWX volumes, you must detach the volumes, enable the xref:important-notes/references/settings.adoc#_storage_network_for_rwx_volume_enabled[Storage Network For RWX Volume Enabled] setting, and then reattach the volumes.
 
 For more information, see https://github.com/longhorn/longhorn/issues/8184[Issue #8184].
 
