@@ -119,7 +119,7 @@ WARNING: Can result in slow drains and extra data movement associated with repli
 healthy counterpart and block the drain until eviction is complete.
 WARNING: Can result in slow drains and extra data movement associated with replica rebuilding.
 
-Each option has benefits and drawbacks. See xref:maintenance/maintenance.adoc#node-drain-policy-recommendations[Node Drain Policy
+Each option has benefits and drawbacks. See xref:maintenance/maintenance.adoc#_node_drain_policy_recommendations[Node Drain Policy
 Recommendations] for help deciding which is most
 appropriate in your environment.
 
@@ -166,7 +166,7 @@ If disabled, Longhorn will not delete the workload pod that is managed by a cont
 This setting doesn't apply to below cases.
 
 * The workload pods don't have a controller; Longhorn never deletes them.
-* Workload pods with _cluster network_ RWX volumes. The setting does not apply to such pods because the Longhorn Share Manager, which provides the RWX NFS service, has its own resilience mechanism. This mechanism ensures availability until the volume is reattached without relying on the pod lifecycle to trigger volume reattachment. The setting does apply, however, to workload pods with _storage network_ RWX volumes. For more information, see xref:nodes-and-volumes/volumes/rwx-volumes.adoc[ReadWriteMany (RWX) Volume] and xref:advanced-resources/deploy/storage-network.adoc#limitation[Storage Network].
+* Workload pods with _cluster network_ RWX volumes. The setting does not apply to such pods because the Longhorn Share Manager, which provides the RWX NFS service, has its own resilience mechanism. This mechanism ensures availability until the volume is reattached without relying on the pod lifecycle to trigger volume reattachment. The setting does apply, however, to workload pods with _storage network_ RWX volumes. For more information, see xref:nodes-and-volumes/volumes/rwx-volumes.adoc[ReadWriteMany (RWX) Volume] and xref:advanced-resources/deploy/storage-network.adoc#_limitation[Storage Network].
 ====
 
 ==== Automatic Salvage
@@ -726,7 +726,7 @@ ____
 
 The interval in seconds to poll the backup store for updating volumes' *Last Backup* field. Set to 0 to disable the polling. See xref:snapshots-and-backups/setup-disaster-recovery-volumes.adoc[Setting up Disaster Recovery Volumes] for details.
 
-For more information on how the backupstore poll interval affects the recovery time objective and recovery point objective, refer to the xref:concepts.adoc#34-backupstore-update-intervals-rto-and-rpo[concepts section.]
+For more information on how the backupstore poll interval affects the recovery time objective and recovery point objective, refer to the xref:concepts.adoc#_3_4_backupstore_update_intervals_rto_and_rpo[concepts section.]
 
 ==== Failed Backup Time To Live
 
@@ -935,7 +935,7 @@ ____
 
 With the default setting of 25, the Longhorn Manager will allow scheduling new replicas only after the amount of disk space has been subtracted from the available disk space (*Storage Available*) and the available disk space is still over 25% of actual disk capacity (*Storage Maximum*). Otherwise the disk becomes unschedulable until more space is freed up.
 
-See xref:nodes-and-volumes/nodes/multidisk.adoc#configuration[Multiple Disks Support] for details.
+See xref:nodes-and-volumes/nodes/multidisk.adoc#_configuration[Multiple Disks Support] for details.
 
 ==== Storage Over Provisioning Percentage
 
