@@ -30,9 +30,9 @@ For detailed instructions, see the Talos documentation on https://www.talos.dev/
 
 Longhorn requires pod security `enforce: "privileged"`.
 
-By default, Talos Linux applies a `baseline` pod security profile across namespaces, except for the kube-system namespace. This default setting restricts Longhorn's ability to manage and access system resources. For more information, see xref:deploy/install/index.adoc#root-and-privileged-permission[Root and Privileged Permission].
+By default, Talos Linux applies a `baseline` pod security profile across namespaces, except for the kube-system namespace. This default setting restricts Longhorn's ability to manage and access system resources. For more information, see xref:deploy/install/index.adoc#_root_and_privileged_permission[Root and Privileged Permission].
 
-For detailed instructions, see xref:important-notes/index.adoc#pod-security-policies-disabled--pod-security-admission-introduction[Pod Security Policies Disabled & Pod Security Admission Introduction] and the Talos documentation on https://www.talos.dev/v1.6/kubernetes-guides/configuration/pod-security/[Pod Security].
+For detailed instructions, see xref:important-notes/index.adoc#_pod_security_policies_disabled__pod_security_admission_introduction[Pod Security Policies Disabled & Pod Security Admission Introduction] and the Talos documentation on https://www.talos.dev/v1.6/kubernetes-guides/configuration/pod-security/[Pod Security].
 
 === Data Path Mounts
 

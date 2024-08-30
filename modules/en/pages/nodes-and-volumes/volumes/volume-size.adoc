@@ -127,7 +127,7 @@ Deleting then writing new files would lead to the actual size keeps increasing. 
   *** where `N` is the total number of snapshots the volume contains (including the volume head), and the extra `1` is for the temporary space that may be required by snapshot deletion.
   *** The average actual size of the snapshots varies and depends on the use cases.
 If snapshots are created periodically for a volume (e.g. by relying on snapshot recurring jobs), the average value would be the average modified data size for the volume in the snapshot creation interval.
-If there are heavy writing tasks for volumes, the head/snapshot average actual size would be volume the nominal size. In this case, it's better to set xref:references/settings.adoc#storage-over-provisioning-percentage[`Storage Over Provisioning Percentage`] to be smaller than 100% to avoid disk space exhaustion.
+If there are heavy writing tasks for volumes, the head/snapshot average actual size would be volume the nominal size. In this case, it's better to set xref:references/settings.adoc#_storage_over_provisioning_percentage[`Storage Over Provisioning Percentage`] to be smaller than 100% to avoid disk space exhaustion.
   *** Some extended cases:
    **** There is one snapshot recurring job with retention number is `N`. Then the formula can be extended to:
 +
@@ -143,7 +143,7 @@ If there are heavy writing tasks for volumes, the head/snapshot average actual s
      ****** The 3rd `1` is the system snapshot. If the rebuilding is triggered or the expansion is issued, Longhorn will create a system snapshot before starting the operations. And this system snapshot may not be able to get cleaned up immediately.
      ****** The 4th `1` is for the temporary space that may be required by snapshot deletion/purge.
 
-   **** Users don't want snapshot at all. Neither (manually created) snapshot nor recurring job will be launched. Assume xref:references/settings.adoc#automatically-clean-up-system-generated-snapshot[setting _Automatically Cleanup System Generated Snapshot_] is enabled, then formula would become:
+   **** Users don't want snapshot at all. Neither (manually created) snapshot nor recurring job will be launched. Assume xref:references/settings.adoc#_automatically_clean_up_system_generated_snapshot[setting _Automatically Cleanup System Generated Snapshot_] is enabled, then formula would become:
 +
 ----
   (1 + 1 + 1) x head/snapshot average actual size

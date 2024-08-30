@@ -6,7 +6,7 @@
 
 * Your workstation: Install https://helm.sh/docs/[Helm] v3.0 or later.
 * Kubernetes cluster:
- ** Ensure that each node fulfills the xref:#installation-requirements[installation requirements].
+ ** Ensure that each node fulfills the xref:#_installation_requirements[installation requirements].
  ** Install https://fleet.rancher.io/[Fleet] using Helm.
 +
 [subs="+attributes",bash]
