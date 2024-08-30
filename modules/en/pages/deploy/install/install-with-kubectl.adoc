@@ -5,11 +5,11 @@
 
 == Prerequisites
 
-Each node in the Kubernetes cluster where Longhorn will be installed must fulfill xref:#installation-requirements[these requirements.]
+Each node in the Kubernetes cluster where Longhorn will be installed must fulfill xref:#_installation_requirements[these requirements.]
 
 https://github.com/longhorn/longhorn/blob/v{current-version}/scripts/environment_check.sh[This script] can be used to check the Longhorn environment for potential issues.
 
-The initial settings for Longhorn can be customized by xref:advanced-resources/deploy/customizing-default-settings.adoc#using-the-longhorn-deployment-yaml-file[editing the deployment configuration file.]
+The initial settings for Longhorn can be customized by xref:advanced-resources/deploy/customizing-default-settings.adoc#_using_the_longhorn_deployment_yaml_file[editing the deployment configuration file.]
 
 == Installing Longhorn
 
