@@ -6,7 +6,7 @@ A backup target is an endpoint used to access a backup store in Longhorn. A back
 
 Saving to an object store such as S3 is preferable because it generally offers better reliability.  Another advantage is that you do not need to mount and unmount the target, which can complicate failover and upgrades.
 
-For more information about how the backupstore works in Longhorn, see the xref:concepts.adoc#3-backups-and-secondary-storage[concepts section.]
+For more information about how the backupstore works in Longhorn, see the xref:concepts.adoc#_3_backups_and_secondary_storage[concepts section.]
 
 If you don't have access to AWS S3 or want to give the backupstore a try first, we've also provided a way to <<set-up-a-local-testing-backupstore,setup a local S3 testing backupstore>> using https://minio.io/[MinIO].
 
