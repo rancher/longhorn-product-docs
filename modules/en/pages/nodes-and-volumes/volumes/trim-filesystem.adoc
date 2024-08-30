@@ -61,7 +61,7 @@ To trim an RWX volume, perform the following steps:
 [discrete]
 ==== Periodically trim the filesystem
 
-You can set up a xref:snapshots-and-backups/scheduling-backups-and-snapshots.adoc#set-up-recurring-jobs[RecurringJob] to periodically trim the filesystem.
+You can set up a xref:snapshots-and-backups/scheduling-backups-and-snapshots.adoc#_set_up_recurring_jobs[RecurringJob] to periodically trim the filesystem.
 
 == Automatically Remove Snapshots During Filesystem Trim
 
@@ -70,7 +70,7 @@ By design each valid snapshot of a Longhorn volume is immutable. Hence Longhorn 
 [discrete]
 ==== The Global Setting "Remove Snapshots During Filesystem Trim"
 
-To help reclaim as much space as possible automatically, Longhorn introduces xref:references/settings.adoc#remove-snapshots-during-filesystem-trim[setting _Remove Snapshots During Filesystem Trim_]. This allows Longhorn filesystem trim feature to automatically mark the latest snapshot and its ancestors as removed and stops at the snapshot containing multiple children. As a result, Longhorn can reclaim space for as more snapshots as possible.
+To help reclaim as much space as possible automatically, Longhorn introduces xref:references/settings.adoc#_remove_snapshots_during_filesystem_trim[setting _Remove Snapshots During Filesystem Trim_]. This allows Longhorn filesystem trim feature to automatically mark the latest snapshot and its ancestors as removed and stops at the snapshot containing multiple children. As a result, Longhorn can reclaim space for as more snapshots as possible.
 
 [discrete]
 ==== The Volume Spec Field "UnmapMarkSnapChainRemoved"
