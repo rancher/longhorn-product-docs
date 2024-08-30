@@ -37,11 +37,11 @@ Assume this node has two disks: `Disk X` with available space 1 GB, and `Disk Y`
 
 For more information on settings that are relevant to scheduling replicas on nodes and disks, refer to the settings reference:
 
-* xref:references/settings.adoc#disable-scheduling-on-cordoned-node[Disable Scheduling On Cordoned Node]
-* xref:references/settings.adoc#replica-node-level-soft-anti-affinity[Replica Soft Anti-Affinity] (also called Replica Node Level Soft Anti-Affinity)
-* xref:references/settings.adoc#replica-zone-level-soft-anti-affinity[Replica Zone Level Soft Anti-Affinity]
-* xref:references/settings.adoc#storage-minimal-available-percentage[Storage Minimal Available Percentage]
-* xref:references/settings.adoc#storage-over-provisioning-percentage[Storage Over Provisioning Percentage]
+* xref:references/settings.adoc#_disable_scheduling_on_cordoned_node[Disable Scheduling On Cordoned Node]
+* xref:references/settings.adoc#_replica_node_level_soft_anti_affinity[Replica Soft Anti-Affinity] (also called Replica Node Level Soft Anti-Affinity)
+* xref:references/settings.adoc#_replica_zone_level_soft_anti_affinity[Replica Zone Level Soft Anti-Affinity]
+* xref:references/settings.adoc#_storage_minimal_available_percentage[Storage Minimal Available Percentage]
+* xref:references/settings.adoc#_storage_over_provisioning_percentage[Storage Over Provisioning Percentage]
 
 === Notice
 

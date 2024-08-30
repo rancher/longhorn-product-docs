@@ -125,7 +125,7 @@ Since Longhorn doesn't currently support sharding between the different disks, w
 
 Any extra disks must be written in the `/etc/fstab` file to allow automatic mounting after the machine reboots.
 
-Don't use a symbolic link for the extra disks. Use `mount --bind` instead of `ln -s` and make sure it's in the `fstab` file. For details, see xref:volumes-and-nodes/multidisk.adoc#use-an-alternative-path-for-a-disk-on-the-node[the section about multiple disk support.]
+Don't use a symbolic link for the extra disks. Use `mount --bind` instead of `ln -s` and make sure it's in the `fstab` file. For details, see xref:volumes-and-nodes/multidisk.adoc#_use_an_alternative_path_for_a_disk_on_the_node[the section about multiple disk support.]
 
 == Configuring Default Disks Before and After Installation
 
@@ -155,11 +155,11 @@ You can also set a specific milli CPU value for instance manager pods on a parti
 
 NOTE: This field will overwrite the above setting for the specified node.
 
-Refer to xref:references/settings.adoc#guaranteed-instance-manager-cpu[Guaranteed Instance Manager CPU] for more details.
+Refer to xref:references/settings.adoc#_guaranteed_instance_manager_cpu[Guaranteed Instance Manager CPU] for more details.
 
 == StorageClass
 
-We don't recommend modifying the default StorageClass named `longhorn`, since the change of parameters might cause issues during an upgrade later. If you want to change the parameters set in the StorageClass, you can create a new StorageClass by referring to the xref:references/examples.adoc#storageclass[StorageClass examples].
+We don't recommend modifying the default StorageClass named `longhorn`, since the change of parameters might cause issues during an upgrade later. If you want to change the parameters set in the StorageClass, you can create a new StorageClass by referring to the xref:references/examples.adoc#_storageclass[StorageClass examples].
 
 == Scheduling Settings
 

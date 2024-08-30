@@ -40,7 +40,7 @@ Nodes and disks can be excluded from future scheduling. Notice that any schedule
 In order to remove a disk, two conditions need to be met:
 
 * The scheduling for the disk must be disabled
-* There is no existing replica using the disk, including any replicas in an error state. About how to evict replicas from disabled disks, refer to xref:volumes-and-nodes/disks-or-nodes-eviction.adoc#select-disks-or-nodes-for-eviction[Select Disks or Nodes for Eviction]
+* There is no existing replica using the disk, including any replicas in an error state. About how to evict replicas from disabled disks, refer to xref:volumes-and-nodes/disks-or-nodes-eviction.adoc#_select_disks_or_nodes_for_eviction[Select Disks or Nodes for Eviction]
 
 Once those two conditions are met, you should be allowed to remove the disk.
 
