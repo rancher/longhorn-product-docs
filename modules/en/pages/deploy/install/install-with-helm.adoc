@@ -6,7 +6,7 @@ In this section, you will learn how to install Longhorn with Helm.
 
 === Prerequisites
 
-* Kubernetes cluster: Ensure that each node fulfills the xref:#installation-requirements[installation requirements].
+* Kubernetes cluster: Ensure that each node fulfills the xref:#_installation_requirements[installation requirements].
 * Your workstation: Install https://helm.sh/docs/[Helm] v3.0 or later.
 
 ____
@@ -18,7 +18,7 @@ ____
 ____
 *Note*:
 
-* The initial settings for Longhorn can be found in xref:advanced-resources/deploy/customizing-default-settings.adoc#using-helm[customized using Helm options or by editing the deployment configuration file.]
+* The initial settings for Longhorn can be found in xref:advanced-resources/deploy/customizing-default-settings.adoc#_using_helm[customized using Helm options or by editing the deployment configuration file.]
 * For Kubernetes < v1.25, if your cluster still enables Pod Security Policy admission controller, set the helm value `enablePSP` to `true` to install `longhorn-psp` PodSecurityPolicy resource which allows privileged Longhorn pods to start.
 ____
 
