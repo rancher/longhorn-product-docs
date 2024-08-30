@@ -67,7 +67,7 @@ Backups can be created from snapshots. They contain the state of the volume at t
 
 Backups are made of 2 MB blocks in an object store.
 
-For a longer explanation of how snapshots and backups work, refer to the xref:concepts.adoc#241-how-snapshots-work[conceptual documentation.]
+For a longer explanation of how snapshots and backups work, refer to the xref:concepts.adoc#_2_4_1_how_snapshots_work[conceptual documentation.]
 
 === Block storage
 
@@ -186,7 +186,7 @@ A Kubernetes resource that can be used to automatically provision a PersistentVo
 
 Longhorn uploads the system backup to the backupstore. Each system backup contains the system backup resource bundle of the Longhorn system.
 
-See xref:advanced-resources/system-backup-restore/backup-longhorn-system.adoc#longhorn-system-backup-bundle[Longhorn System Backup Bundle] for details.
+See xref:advanced-resources/system-backup-restore/backup-longhorn-system.adoc#_longhorn_system_backup_bundle[Longhorn System Backup Bundle] for details.
 
 === Thin provisioning
 
