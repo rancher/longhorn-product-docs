@@ -20,7 +20,7 @@ Please note that Longhorn does not support the upgrade when v2 volumes are attac
 Longhorn v1.5.2 introduces a new mechanism to prevent xref:/home/jhk/projects/suse/longhorn-product-docs/modules/ROOT/kb/troubleshooting-unexpected-expansion-leads-to-degradation-or-attach-failure.adoc[unexpected replica
 expansion]. This
 mechanism is entirely transparent. However, a volume is only protected if it is running a new version of longhorn-engine
-inside a new version of longhorn-instance-manager and managed by a new version of longhorn-manager. The xref:deploy/deploy/upgrade/upgrade-engine.adoc#live-upgrade[live upgrade
+inside a new version of longhorn-instance-manager and managed by a new version of longhorn-manager. The xref:deploy/deploy/upgrade/upgrade-engine.adoc#_live_upgrade[live upgrade
 process] results in a volume running a new version of longhorn-engine
 in an old version of longhorn-instance-manager until it is detached (by scaling its consuming workload down) and
 reattached (by scaling its consuming workload up). Consider scaling workloads down and back up again as soon as possible
@@ -41,18 +41,18 @@ The behavior of the recurring job types `Snapshot` and `Backup` will attempt to 
 === Longhorn Uninstallation
 
 To prevent Longhorn from being accidentally uninstalled (which leads to data lost),
-we introduce a new setting, xref:deploy/references/settings.adoc#deleting-confirmation-flag[deleting-confirmation-flag].
+we introduce a new setting, xref:deploy/references/settings.adoc#_deleting_confirmation_flag[deleting-confirmation-flag].
 If this flag is *false*, the Longhorn uninstallation job will fail.
 Set this flag to *true* to allow Longhorn uninstallation.
 See more in the xref:deploy/important-notes/uninstall.adoc[uninstall] section.
 
 === New Node Drain Policies Added
 
-There are two new options for the xref:deploy/references/settings.adoc#node-drain-policy[Node Drain Policy] setting. Both `Block
+There are two new options for the xref:deploy/references/settings.adoc#_node_drain_policy[Node Drain Policy] setting. Both `Block
 For Eviction` and `Block for Eviction If Contains Last Replica` automatically evict replicas from draining nodes in
 addition to preventing drain completion until volume data is sufficiently protected. `Block for Eviction` maintains
 maximum data redundancy during maintenance operations, and both new options enable automated cluster upgrades when some
-volumes have only one replica. See the new xref:deploy/volumes-and-nodes/maintenance.adoc#node-drain-policy-recommendations[Node Drain Policy
+volumes have only one replica. See the new xref:deploy/volumes-and-nodes/maintenance.adoc#_node_drain_policy_recommendations[Node Drain Policy
 Recommendations] section for help deciding which
 policy to use.
 
@@ -99,11 +99,11 @@ If you have Longhorn volume manifests or scripts that are still using `v1beta1` 
 
 === `Custom mkfs.ext4 Parameters` Setting Removed
 
-The `Custom mkfs.ext4 Parameters` setting was deprecated in Longhorn `v1.4.0` and is now removed. The per-StorageClass `mkfsParams` parameter should be used to specify mkfs options (e.g., `+-I 256 -b 4096 -O ^metadata_csum,^64bit+`) instead. See xref:deploy/volumes-and-nodes/create-volumes.adoc#creating-longhorn-volumes-with-kubectl[Creating Longhorn Volumes with kubectl] for details.
+The `Custom mkfs.ext4 Parameters` setting was deprecated in Longhorn `v1.4.0` and is now removed. The per-StorageClass `mkfsParams` parameter should be used to specify mkfs options (e.g., `+-I 256 -b 4096 -O ^metadata_csum,^64bit+`) instead. See xref:deploy/volumes-and-nodes/create-volumes.adoc#_creating_longhorn_volumes_with_kubectl[Creating Longhorn Volumes with kubectl] for details.
 
 === `Disable Replica Rebuild` Setting Removed
 
-The `Disable Replica Rebuild` setting was deprecated and replaced by the xref:deploy/references/settings.adoc#concurrent-replica-rebuild-per-node-limit[Concurrent Replica Rebuild Per Node Limit] setting in Longhorn `v1.2.1`. It should already have been ignored in any Longhorn deployment upgrading to Longhorn v{current-version} and is now removed. To disable replica rebuilding across the cluster, set the `Concurrent Replica Rebuild Per Node Limit` to 0.
+The `Disable Replica Rebuild` setting was deprecated and replaced by the xref:deploy/references/settings.adoc#_concurrent_replica_rebuild_per_node_limit[Concurrent Replica Rebuild Per Node Limit] setting in Longhorn `v1.2.1`. It should already have been ignored in any Longhorn deployment upgrading to Longhorn v{current-version} and is now removed. To disable replica rebuilding across the cluster, set the `Concurrent Replica Rebuild Per Node Limit` to 0.
 
 === `Default Manager Image` Settings Removed
 
@@ -112,7 +112,7 @@ The `Default Backing Image Manager Image`, `Default Instance Manager Image` and 
 === `Allow Node Drain with the Last Healthy Replica` Settings Removed
 
 The `Allow Node Drain with the Last Healthy Replica` setting was deprecated in Longhorn v1.4.2  and is now removed.
-Please use the new setting xref:deploy/references/settings.adoc#node-drain-policy[Node Drain Policy] instead.
+Please use the new setting xref:deploy/references/settings.adoc#_node_drain_policy[Node Drain Policy] instead.
 
 === Instance Managers Consolidated
 

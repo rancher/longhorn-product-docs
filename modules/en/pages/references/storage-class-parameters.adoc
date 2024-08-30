@@ -106,7 +106,7 @@ The desired number of copies (replicas) for redundancy.
 * Replicas will be placed across the widest possible set of zones and nodes in a cluster, subject to other constraints, such as NodeSelector.
 
 ____
-Global setting: xref:references/settings.adoc#default-replica-count[Default Replica Count].
+Global setting: xref:references/settings.adoc#_default_replica_count[Default Replica Count].
 ____
 
 [discrete]
@@ -133,7 +133,7 @@ URL of a backup to be restored from.
 
 ____
 Default: `ext4` +
-For more details, see xref:volumes-and-nodes/create-volumes.adoc#creating-longhorn-volumes-with-kubectl[Creating Longhorn Volumes with Kubernetes]
+For more details, see xref:volumes-and-nodes/create-volumes.adoc#_creating_longhorn_volumes_with_kubectl[Creating Longhorn Volumes with Kubernetes]
 ____
 
 [discrete]
@@ -141,7 +141,7 @@ ____
 
 ____
 Default: `""` +
-For more details, see xref:volumes-and-nodes/create-volumes.adoc#creating-longhorn-volumes-with-kubectl[Creating Longhorn Volumes with Kubernetes]
+For more details, see xref:volumes-and-nodes/create-volumes.adoc#_creating_longhorn_volumes_with_kubectl[Creating Longhorn Volumes with Kubernetes]
 ____
 
 [discrete]
@@ -175,7 +175,7 @@ If enabled, try to keep the data on the same node as the workload for better per
 * If "strict-local" is not possible for whatever other reason, volume creation will be failed.  A "strict-local" replica that becomes displaced from its workload will be marked as "Stopped".
 
 ____
-Global setting: xref:references/settings.adoc#default-data-locality[Default Data Locality] +
+Global setting: xref:references/settings.adoc#_default_data_locality[Default Data Locality] +
  More details in xref:high-availability/data-locality.adoc[Data Locality].
 ____
 
@@ -192,7 +192,7 @@ If enabled, move replicas to more lightly-loaded nodes.
 * Other options are "disabled", "least-effort", "best-effort".
 
 ____
-Global setting: xref:references/settings.adoc#replica-auto-balance[Replica Auto Balance] +
+Global setting: xref:references/settings.adoc#_replica_auto_balance[Replica Auto Balance] +
 More details in xref:high-availability/auto-balance-replicas.adoc[Auto Balance Replicas].
 ____
 
@@ -243,7 +243,7 @@ ____
 
 ____
 Default: `""` +
-See xref:advanced-resources/backing-image.adoc#create-and-use-a-backing-image-via-storageclass-and-pvc[Backing Image]
+See xref:advanced-resources/backing-image.adoc#_create_and_use_a_backing_image_via_storageclass_and_pvc[Backing Image]
 ____
 
 [discrete]
@@ -251,7 +251,7 @@ ____
 
 ____
 Default: `""` +
-See xref:advanced-resources/backing-image.adoc#create-and-use-a-backing-image-via-storageclass-and-pvc[Backing Image]
+See xref:advanced-resources/backing-image.adoc#_create_and_use_a_backing_image_via_storageclass_and_pvc[Backing Image]
 ____
 
 [discrete]
@@ -259,7 +259,7 @@ ____
 
 ____
 Default: `""` +
-See xref:advanced-resources/backing-image.adoc#create-and-use-a-backing-image-via-storageclass-and-pvc[Backing Image]
+See xref:advanced-resources/backing-image.adoc#_create_and_use_a_backing_image_via_storageclass_and_pvc[Backing Image]
 ____
 
 [discrete]
@@ -267,7 +267,7 @@ ____
 
 ____
 Default: `""` +
-See xref:advanced-resources/backing-image.adoc#create-and-use-a-backing-image-via-storageclass-and-pvc[Backing Image]
+See xref:advanced-resources/backing-image.adoc#_create_and_use_a_backing_image_via_storageclass_and_pvc[Backing Image]
 ____
 
 [discrete]
@@ -281,7 +281,7 @@ ____
 * Other values are "enabled" and "disabled".
 
 ____
-Global setting: xref:references/settings.adoc#remove-snapshots-during-filesystem-trim[Remove Snapshots During Filesystem Trim]. +
+Global setting: xref:references/settings.adoc#_remove_snapshots_during_filesystem_trim[Remove Snapshots During Filesystem Trim]. +
 More details in xref:volumes-and-nodes/trim-filesystem.adoc[Trim Filesystem].
 ____
 
@@ -293,7 +293,7 @@ Default: `false`
 ____
 
 ____
-Global setting: xref:references/settings.adoc#disable-revision-counter[Disable Revision Counter]. +
+Global setting: xref:references/settings.adoc#_disable_revision_counter[Disable Revision Counter]. +
 More details in xref:advanced-resources/deploy/revision_counter.adoc[Revision Counter].
 ____
 
@@ -308,8 +308,8 @@ ____
 * Other values are "enabled" and "disabled".
 
 ____
-Global setting: xref:references/settings.adoc#replica-node-level-soft-anti-affinity[Replica Node Level Soft Anti-Affinity]. +
-More details in xref:volumes-and-nodes/scheduling.adoc[Scheduling] and xref:best-practices.adoc#replica-node-level-soft-anti-affinity[Best Practices].
+Global setting: xref:references/settings.adoc#_replica_node_level_soft_anti_affinity[Replica Node Level Soft Anti-Affinity]. +
+More details in xref:volumes-and-nodes/scheduling.adoc[Scheduling] and xref:best-practices.adoc#_replica_node_level_soft_anti_affinity[Best Practices].
 ____
 
 [discrete]
@@ -323,7 +323,7 @@ ____
 * Other values are "enabled" and "disabled".
 
 ____
-Global setting: xref:references/settings.adoc#replica-zone-level-soft-anti-affinity[Replica Zone Level Soft Anti-Affinity]. +
+Global setting: xref:references/settings.adoc#_replica_zone_level_soft_anti_affinity[Replica Zone Level Soft Anti-Affinity]. +
 More details in xref:volumes-and-nodes/scheduling.adoc[Scheduling].
 ____
 
@@ -339,7 +339,7 @@ ____
 * NOTE:  Built-in options vary by release.  Check your release details before setting this.
 
 ____
-More details in xref:advanced-resources/rwx-workloads.adoc#configuring-volume-mount-options[RWX Workloads]
+More details in xref:advanced-resources/rwx-workloads.adoc#_configuring_volume_mount_options[RWX Workloads]
 ____
 
 [discrete]
@@ -352,8 +352,8 @@ ____
 * Use "v2" to run the v2 SPDK-based engine (experimental in 1.5.)  If empty, "v1" is assumed.
 
 ____
-Global setting: xref:references/settings.adoc#v2-data-engine[V2 Data Engine]. +
-More details in xref:v2-data-engine/quick-start.adoc#create-a-storageclass[V2 Data Engine Quick Start].
+Global setting: xref:references/settings.adoc#_v2_data_engine[V2 Data Engine]. +
+More details in xref:v2-data-engine/quick-start.adoc#_create_a_storageclass[V2 Data Engine Quick Start].
 ____
 
 == Helm Installs

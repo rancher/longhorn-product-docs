@@ -2,7 +2,7 @@
 :weight: 1
 :current-version: {page-origin-branch}
 
-A xref:concepts.adoc#24-snapshots[snapshot] is the state of a Kubernetes Volume at any given point in time.
+A xref:concepts.adoc#_2_4_snapshots[snapshot] is the state of a Kubernetes Volume at any given point in time.
 
 To create a snapshot of an existing cluster,
 
