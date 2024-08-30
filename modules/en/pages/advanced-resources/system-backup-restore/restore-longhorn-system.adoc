@@ -19,7 +19,7 @@
 
 == Longhorn System Restore Rollouts
 
-* Longhorn restores the resource from the xref:advanced-resources/system-backup-restore/backup-longhorn-system.adoc#longhorn-system-backup-bundle[Longhorn System Backup Bundle].
+* Longhorn restores the resource from the xref:advanced-resources/system-backup-restore/backup-longhorn-system.adoc#_longhorn_system_backup_bundle[Longhorn System Backup Bundle].
 * Longhorn does not restore existing `Volumes` and their associated `PersistentVolume` and `PersistentVolumeClaim`.
 * Longhorn automatically restores a `Volume` from its latest backup.
 * To prevent overwriting eligible settings, Longhorn does not restore the `ConfigMap/longhorn-default-setting`.
@@ -41,7 +41,7 @@ You can restore the Longhorn system using Longhorn UI. Or with the `kubectl` com
 * Set up the `Nodes` and disk tags for `StorageClass`.
 * Have a Longhorn system backup.
 +
-See xref:advanced-resources/system-backup-restore/backup-longhorn-system.adoc#create-longhorn-system-backup[Backup Longhorn System - Create Longhorn System Backup] for instructions.
+See xref:advanced-resources/system-backup-restore/backup-longhorn-system.adoc#_create_longhorn_system_backup[Backup Longhorn System - Create Longhorn System Backup] for instructions.
 
 * Have volume `BackingImages` available in the cluster.
 +
@@ -123,10 +123,10 @@ systemrestore.longhorn.io "restore-demo" deleted
 
 Some settings are excluded as configurable before the Longhorn system restore.
 
-* xref:references/settings.adoc#concurrent-volume-backup-restore-per-node-limit[Concurrent volume backup restore per node limit]
-* xref:references/settings.adoc#concurrent-replica-rebuild-per-node-limit[Concurrent replica rebuild per node limit]
-* xref:references/settings.adoc#backup-target[Backup Target]
-* xref:references/settings.adoc#backup-target-credential-secret[Backup Target Credential Secret]
+* xref:references/settings.adoc#_concurrent_volume_backup_restore_per_node_limit[Concurrent volume backup restore per node limit]
+* xref:references/settings.adoc#_concurrent_replica_rebuild_per_node_limit[Concurrent replica rebuild per node limit]
+* xref:references/settings.adoc#_backup_target[Backup Target]
+* xref:references/settings.adoc#_backup_target_credential_secret[Backup Target Credential Secret]
 
 == Troubleshoot
 

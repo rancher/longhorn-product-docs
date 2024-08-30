@@ -17,7 +17,7 @@ It is necessary to meet the following requirements in order to use RWX volumes.
 
 . Each NFS client node needs to have a NFSv4 client installed.
 +
-Please refer to xref:deploy/install/index.adoc#installing-nfsv4-client[Installing NFSv4 client] for more installation details.
+Please refer to xref:deploy/install/index.adoc#_installing_nfsv4_client[Installing NFSv4 client] for more installation details.
 +
 ____
 *Troubleshooting:* If the NFSv4 client is not available on the node, when trying to mount the volume the below message will be part of the error:

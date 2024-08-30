@@ -35,7 +35,7 @@ Please ensure your Kubernetes cluster is at least v1.21 before upgrading to Long
 Longhorn v1.6.0 introduces a new mechanism to prevent xref:/home/jhk/projects/suse/longhorn-product-docs/modules/ROOT/kb/troubleshooting-unexpected-expansion-leads-to-degradation-or-attach-failure.adoc[unexpected replica
 expansion]. This
 mechanism is entirely transparent. However, a volume is only protected if it is running a new version of longhorn-engine
-inside a new version of longhorn-instance-manager and managed by a new version of longhorn-manager. The xref:deploy/deploy/upgrade/upgrade-engine.adoc#live-upgrade[live upgrade
+inside a new version of longhorn-instance-manager and managed by a new version of longhorn-manager. The xref:deploy/deploy/upgrade/upgrade-engine.adoc#_live_upgrade[live upgrade
 process] results in a volume running a new version of longhorn-engine
 in an old version of longhorn-instance-manager until it is detached (by scaling its consuming workload down) and
 reattached (by scaling its consuming workload up). Consider scaling workloads down and back up again as soon as possible
@@ -60,11 +60,11 @@ You can change these behaviors by customizing the following before starting the 
 
 === New Node Drain Policies Added
 
-There are two new options for the xref:deploy/references/settings.adoc#node-drain-policy[Node Drain Policy] setting. Both `Block
+There are two new options for the xref:deploy/references/settings.adoc#_node_drain_policy[Node Drain Policy] setting. Both `Block
 For Eviction` and `Block for Eviction If Contains Last Replica` automatically evict replicas from draining nodes in
 addition to preventing drain completion until volume data is sufficiently protected. `Block for Eviction` maintains
 maximum data redundancy during maintenance operations, and both new options enable automated cluster upgrades when some
-volumes have only one replica. See the new xref:deploy/maintenance/maintenance.adoc#node-drain-policy-recommendations[Node Drain Policy
+volumes have only one replica. See the new xref:deploy/maintenance/maintenance.adoc#_node_drain_policy_recommendations[Node Drain Policy
 Recommendations] section for help deciding which
 policy to use.
 
@@ -117,7 +117,7 @@ When upgrading through Helm, a component compatibility check is automatically pe
 
 If you installed Longhorn using the manifests, engine upgrades are enforced by the Longhorn Manager. Attempts to upgrade Longhorn Manager may cause unsuccessful pod launches and generate corresponding error logs, although it poses no harm. If you encounter such errors, you must revert to the previous Longhorn version and then upgrade the engines that are using the incompatible engine images before the next upgrade.
 
-WARNING: Whenever engine upgrade enforcement causes upgrade failure, Longhorn allows you to revert to the previous version because Longhorn Manager will block the entire upgrade. However, Longhorn prohibits downgrading when an upgrade is successful. For more information, see xref:deploy/deploy/upgrade.adoc#upgrade-path-enforcement-and-downgrade-prevention[Upgrade Path Enforcement].
+WARNING: Whenever engine upgrade enforcement causes upgrade failure, Longhorn allows you to revert to the previous version because Longhorn Manager will block the entire upgrade. However, Longhorn prohibits downgrading when an upgrade is successful. For more information, see xref:deploy/deploy/upgrade.adoc#_upgrade_path_enforcement_and_downgrade_prevention[Upgrade Path Enforcement].
 
 You can determine the versions of engine images that are currently in use with the following script:
 
@@ -150,35 +150,35 @@ Settings are synchronized hourly. When all volumes are detached, the settings in
 |===
 | Setting | Additional Information | Affected Components
 
-| xref:deploy/references/settings.adoc#kubernetes-taint-toleration[Kubernetes Taint Toleration]
+| xref:deploy/references/settings.adoc#_kubernetes_taint_toleration[Kubernetes Taint Toleration]
 | xref:deploy/advanced-resources/deploy/taint-toleration.adoc[Taints and Tolerations]
 | System-managed components
 
-| xref:deploy/references/settings.adoc#priority-class[Priority Class]
+| xref:deploy/references/settings.adoc#_priority_class[Priority Class]
 | xref:deploy/advanced-resources/deploy/priority-class.adoc[Priority Class]
 | System-managed components
 
-| xref:deploy/references/settings.adoc#system-managed-components-node-selector[System Managed Components Node Selector]
+| xref:deploy/references/settings.adoc#_system_managed_components_node_selector[System Managed Components Node Selector]
 | xref:deploy/advanced-resources/deploy/node-selector.adoc[Node Selector]
 | System-managed components
 
-| xref:deploy/references/settings.adoc#storage-network[Storage Network]
+| xref:deploy/references/settings.adoc#_storage_network[Storage Network]
 | xref:deploy/advanced-resources/deploy/storage-network.adoc[Storage Network]
 | Instance Manager and Backing Image components
 
-| xref:deploy/references/settings.adoc#v1-data-engine[V1 Data Engine]
+| xref:deploy/references/settings.adoc#_v1_data_engine[V1 Data Engine]
 |
 | Instance Manager component
 
-| xref:deploy/references/settings.adoc#v2-data-engine[V2 Data Engine]
+| xref:deploy/references/settings.adoc#_v2_data_engine[V2 Data Engine]
 | xref:deploy/v2-data-engine.adoc[V2 Data Engine (Preview Feature)]
 | Instance Manager component
 
-| xref:deploy/references/settings.adoc#guaranteed-instance-manager-cpu[Guaranteed Instance Manager CPU]
+| xref:deploy/references/settings.adoc#_guaranteed_instance_manager_cpu[Guaranteed Instance Manager CPU]
 |
 | Instance Manager component
 
-| xref:deploy/references/settings.adoc#guaranteed-instance-manager-cpu-for-v2-data-engine[Guaranteed Instance Manager CPU for V2 Data Engine]
+| xref:deploy/references/settings.adoc#_guaranteed_instance_manager_cpu_for_v2_data_engine[Guaranteed Instance Manager CPU for V2 Data Engine]
 |
 | Instance Manager component
 |===
