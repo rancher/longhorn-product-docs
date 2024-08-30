@@ -102,7 +102,7 @@ After a PVC is created, it remains in the `Pending` state until the associated s
 
 = Filesystem Expansion
 
-Longhorn supports xref:nodes-and-volumes/volumes/expansion.adoc#encrypted-volume[offline expansion] for encrypted volumes.
+Longhorn supports xref:nodes-and-volumes/volumes/expansion.adoc#_encrypted_volume[offline expansion] for encrypted volumes.
 
 = History
 
