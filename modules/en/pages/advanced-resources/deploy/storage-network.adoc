@@ -42,7 +42,7 @@ If this is the case, provide a valid `NetworkAttachmentDefinition` and re-run Lo
 
 === Setting Storage Network After Longhorn Installation
 
-Set the setting xref:references/settings.adoc#storage-network[Storage Network].
+Set the setting xref:references/settings.adoc#_storage_network[Storage Network].
 
 [WARNING]
 ====

@@ -103,7 +103,7 @@ WARNING: Can result in slow drains and extra data movement associated with repli
 healthy counterpart and block the drain until eviction is complete. +
 WARNING: Can result in slow drains and extra data movement associated with replica rebuilding.
 
-Each option has benefits and drawbacks. See xref:volumes-and-nodes/maintenance.adoc#node-drain-policy-recommendations[Node Drain Policy
+Each option has benefits and drawbacks. See xref:volumes-and-nodes/maintenance.adoc#_node_drain_policy_recommendations[Node Drain Policy
 Recommendations] for help deciding which is most
 appropriate in your environment.
 
@@ -602,7 +602,7 @@ ____
 
 The interval in seconds to poll the backup store for updating volumes' *Last Backup* field. Set to 0 to disable the polling. See xref:snapshots-and-backups/setup-disaster-recovery-volumes.adoc[Setting up Disaster Recovery Volumes] for details.
 
-For more information on how the backupstore poll interval affects the recovery time objective and recovery point objective, refer to the xref:concepts.adoc#34-backupstore-update-intervals-rto-and-rpo[concepts section.]
+For more information on how the backupstore poll interval affects the recovery time objective and recovery point objective, refer to the xref:concepts.adoc#_3_4_backupstore_update_intervals_rto_and_rpo[concepts section.]
 
 ==== Failed Backup Time To Live
 
@@ -767,7 +767,7 @@ ____
 
 With the default setting of 25, the Longhorn Manager will allow scheduling new replicas only after the amount of disk space has been subtracted from the available disk space (*Storage Available*) and the available disk space is still over 25% of actual disk capacity (*Storage Maximum*). Otherwise the disk becomes unschedulable until more space is freed up.
 
-See xref:volumes-and-nodes/multidisk.adoc#configuration[Multiple Disks Support] for details.
+See xref:volumes-and-nodes/multidisk.adoc#_configuration[Multiple Disks Support] for details.
 
 ==== Storage Over Provisioning Percentage
 
