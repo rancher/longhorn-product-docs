@@ -6,7 +6,7 @@
 
 * Your workstation: Install the https://argo-cd.readthedocs.io/en/stable/cli_installation/[Argo CD CLI].
 * Kubernetes cluster:
- ** Ensure that each node fulfills the xref:#installation-requirements[installation requirements].
+ ** Ensure that each node fulfills the xref:#_installation_requirements[installation requirements].
  ** Install https://argo-cd.readthedocs.io/en/stable/[Argo CD].
 +
 [subs="+attributes",bash]

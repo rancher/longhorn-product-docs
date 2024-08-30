@@ -6,7 +6,7 @@
 
 * Your workstation: Install https://helm.sh/docs/[Helm] v3.0 or later.
 * Kubernetes cluster:
- ** Ensure that each node fulfills the xref:#installation-requirements[installation requirements].
+ ** Ensure that each node fulfills the xref:#_installation_requirements[installation requirements].
  ** https://fluxcd.io/flux/installation/#install-the-flux-cli[Install the Flux CLI].
  ** https://fluxcd.io/flux/installation/bootstrap/github/[Bootstrap Flux with GitHub] using the Flux CLI.
 Run the following commands to export your GitHub personal access token (PAT) as an environment variable, deploy the Flux controllers on your cluster, and configure the controllers to sync the cluster state from the specified GitHub repository.
