@@ -1,6 +1,6 @@
 = Longhorn System Backup And Restore
 :weight: 10
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 ____
 Before v1.4.0, you can restore Longhorn with third-party tools.

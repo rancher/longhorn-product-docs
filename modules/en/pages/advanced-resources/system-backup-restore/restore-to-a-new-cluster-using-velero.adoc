@@ -1,6 +1,6 @@
 = Restore to a new cluster using Velero
 :weight: 4
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 This doc instructs how users can restore workloads with Longhorn system to a new cluster via Velero.
 

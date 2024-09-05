@@ -1,6 +1,6 @@
 = Longhorn CSI on GKE
 :weight: 3
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 To operate Longhorn on a cluster provisioned with Google Kubernetes Engine, some additional configuration is required.
 
