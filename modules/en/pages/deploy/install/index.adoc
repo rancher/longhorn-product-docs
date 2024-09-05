@@ -2,7 +2,7 @@
 :description: Install Longhorn on Kubernetes
 :doctype: book
 :weight: 1
-:current-version: {page-component-version}
+:current-version: version{page-component-version}
 
 NOTE: This quick installation guide uses some configurations which are not for production usage.
 Please see xref:deploy/best-practices.adoc[Best Practices] for how to configure Longhorn for production usage.
