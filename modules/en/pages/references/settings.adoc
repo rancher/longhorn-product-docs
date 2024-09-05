@@ -1,6 +1,6 @@
 = Settings Reference
 :weight: 1
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 * <<customizing-default-settings,Customizing Default Settings>>
 * <<general,General>>

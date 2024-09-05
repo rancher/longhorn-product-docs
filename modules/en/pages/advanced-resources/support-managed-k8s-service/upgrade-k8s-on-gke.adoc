@@ -1,6 +1,6 @@
 = Upgrade Kubernetes on GCP GKE
 :weight: 6
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 In Longhorn, set `replica-replenishment-wait-interval` to `0`.
 
