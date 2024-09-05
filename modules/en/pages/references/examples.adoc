@@ -1,6 +1,6 @@
 = Examples
 :weight: 4
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 For reference, this page provides examples of Kubernetes resources that use Longhorn storage.
 

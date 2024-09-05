@@ -1,6 +1,6 @@
 = Exporting a Volume from a Single Replica
 :weight: 2
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 Each replica of a Longhorn volume contains the full data for the volume.
 

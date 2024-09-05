@@ -1,6 +1,6 @@
 = Use Longhorn Volume as an iSCSI Target
 :weight: 4
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 Longhorn supports iSCSI target frontend mode. You can connect to it
 through any iSCSI client, including `open-iscsi`, and virtual machine

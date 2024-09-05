@@ -1,6 +1,6 @@
 = Create an Ingress with Basic Authentication (nginx)
 :weight: 1
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 If you install Longhorn on a Kubernetes cluster with kubectl or Helm, you will need to create an Ingress to allow external traffic to reach the Longhorn UI.
 
