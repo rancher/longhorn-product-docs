@@ -1,7 +1,7 @@
 = Prerequisites
 :aliases: ["/spdk/prerequisites.md"]
 :weight: 1
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 == Prerequisites
 

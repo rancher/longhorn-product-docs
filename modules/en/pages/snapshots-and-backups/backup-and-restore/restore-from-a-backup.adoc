@@ -1,6 +1,6 @@
 = Restore from a Backup
 :weight: 3
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 Longhorn can easily restore backups to a volume.
 

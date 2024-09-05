@@ -2,7 +2,7 @@
 :aliases: ["/spdk/performance.md"]
 :doctype: book
 :weight: 3
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 == Performance Measurement Tools
 
