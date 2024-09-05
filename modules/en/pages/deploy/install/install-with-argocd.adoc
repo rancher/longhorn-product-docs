@@ -1,6 +1,6 @@
 = Install with ArgoCD
 :weight: 12
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 == Prerequisites
 
