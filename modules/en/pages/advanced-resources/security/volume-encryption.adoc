@@ -1,7 +1,7 @@
 = Volume Encryption
 :doctype: book
 :weight: 2
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 Longhorn supports encrypted volumes by utilizing the linux kernel module `dm_crypt` via `cryptsetup` for the encryption.
 Further we use the Kubernetes secret mechanism for key storage, which can be further encrypted and guarded via appropriate permissions.

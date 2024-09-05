@@ -1,6 +1,6 @@
 = Troubleshooting
 :weight: 6
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 * <<installation,Installation>>
  ** <<package-linux-modules-extra-xxx-x-generic-has-no-installation-candidate-error-during-installation-on-debian-machines,"Package 'linux-modules-extra-x.x.x-x-generic' Has No Installation Candidate" Error During Installation on Debian Machines>>

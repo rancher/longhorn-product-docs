@@ -1,7 +1,7 @@
 = Customizing Default Settings
 :experimental:
 :weight: 1
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 You may customize Longhorn's default settings while installing or upgrading. You may specify, for example, `Create Default Disk With Node Labeled` and `Default Data Path` before starting Longhorn.
 

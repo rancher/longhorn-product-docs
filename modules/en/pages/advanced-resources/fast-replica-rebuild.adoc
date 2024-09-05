@@ -1,6 +1,6 @@
 = Fast Replica Rebuild
 :weight: 4
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 Longhorn supports fast replica rebuilding based on the checksums of snapshot disk files.
 

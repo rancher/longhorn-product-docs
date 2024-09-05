@@ -1,6 +1,6 @@
 = Snapshot Data Integrity Check
 :weight: 4
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 Longhorn is capable of hashing snapshot disk files and periodically checking their integrity.
 

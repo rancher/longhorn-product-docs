@@ -1,6 +1,6 @@
 = Volume Expansion
 :weight: 4
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 Volumes are expanded in two stages. First, Longhorn resizes the block device, then it expands the filesystem.
 

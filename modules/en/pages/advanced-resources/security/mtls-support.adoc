@@ -1,7 +1,7 @@
 = MTLS Support
 :doctype: book
 :weight: 6
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 Longhorn supports MTLS to secure and encrypt the grpc communication between the control plane (longhorn-manager) and the data plane (instance-managers).
 For Certificate setup we use the Kubernetes secret mechanism in combination with an optional secret mount for the longhorn-manager/instance-manager.

@@ -2,7 +2,7 @@
 :doctype: book
 :experimental:
 :weight: 3
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 If users want to create nodes with large storage spaces and/or CPU resources for Longhorn only (to store replica data) and reject other general workloads, they can taint those nodes and add tolerations for Longhorn components. Then Longhorn can be deployed on those nodes.
 
