@@ -1,6 +1,6 @@
 = Best Practices
 :weight: 5
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 We recommend the following setup for deploying Longhorn in production.
 

@@ -1,6 +1,6 @@
 = Volume Recovery
 :weight: 1
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 Longhorn provides two mechanisms for maintaining volume functionality in a variety of situations.
 

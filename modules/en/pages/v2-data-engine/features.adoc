@@ -1,6 +1,6 @@
 = Features
 :weight: 1
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 * Volume lifecycle (creation, attachment, detachment and deletion)
 * Degraded volume

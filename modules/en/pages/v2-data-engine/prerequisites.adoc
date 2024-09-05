@@ -1,6 +1,6 @@
 = Prerequisites
 :weight: 2
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 == Prerequisites
 
