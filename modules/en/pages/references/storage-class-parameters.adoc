@@ -1,6 +1,6 @@
 = Storage Class Parameters
 :weight: 1
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 == Overview
 

@@ -1,6 +1,6 @@
 = Backup and Restore
 :weight: 2
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 ____
 Before v1.2.0, Longhorn used a "blocking way" for communication with the remote backup target. Consequently, there are some involuntary factors impacting the functions relying on remote backup target. For example, network latency, listing backups, or causing further cascading problems after the backup target operation.
