@@ -1,6 +1,6 @@
 = Automatically Upgrading Longhorn Engine
 :weight: 3
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 Since Longhorn v1.1.1, we provide an option to help you automatically upgrade Longhorn volumes to the new default engine version after upgrading Longhorn manager.
 This feature reduces the amount of manual work you have to do when upgrading Longhorn.

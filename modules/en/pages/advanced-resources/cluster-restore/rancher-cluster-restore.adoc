@@ -1,6 +1,6 @@
 = Restore cluster with a Rancher snapshot
 :weight: 4
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 This doc describes what users need to do after restoring the cluster with a Rancher snapshot.
 
