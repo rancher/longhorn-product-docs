@@ -1,6 +1,6 @@
 = Install with Fleet
 :weight: 10
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 == Prerequisites
 

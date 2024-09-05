@@ -1,6 +1,6 @@
 = What is Longhorn?
 :weight: 1
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 Longhorn is a lightweight, reliable and easy-to-use distributed block storage system for Kubernetes.
 

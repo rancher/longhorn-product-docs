@@ -1,6 +1,6 @@
 = Trim Filesystem
 :weight: 7
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 Since v1.4.0, Longhorn supports trimming filesystem inside Longhorn volumes. Trimming will reclaim space wasted by the removed files of the filesystem.
 
