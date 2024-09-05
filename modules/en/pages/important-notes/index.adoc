@@ -1,6 +1,6 @@
 = Important Notes
 :weight: 1
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 This page lists important notes for Longhorn v{current-version}.
 Please see https://github.com/longhorn/longhorn/releases/tag/v{current-version}[here] for the full release note.

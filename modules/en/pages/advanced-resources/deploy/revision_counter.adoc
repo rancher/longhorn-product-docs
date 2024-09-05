@@ -2,7 +2,7 @@
 :doctype: book
 :experimental:
 :weight: 7
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 The revision counter is a mechanism that Longhorn uses to track each replica's updates.
 

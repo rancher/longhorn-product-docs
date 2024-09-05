@@ -2,7 +2,7 @@
 :doctype: book
 :experimental:
 :weight: 4
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 If you want to restrict Longhorn components to only run on a particular set of nodes, you can set node selector for all Longhorn components.
 For example, you want to install Longhorn in a cluster that has both Linux nodes and Windows nodes but Longhorn cannot run on Windows nodes.

@@ -1,6 +1,6 @@
 = Restore Longhorn System
 :weight: 2
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 * <<longhorn-system-restore-rollouts,What does the Longhorn system restore rollout to the cluster>>
 * <<limitations,What are the limitations>>

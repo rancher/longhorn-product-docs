@@ -1,6 +1,6 @@
 = Backup Longhorn System
 :weight: 1
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 * <<longhorn-system-backup-bundle,What is in the Longhorn system backup bundle>>
 * <<create-longhorn-system-backup,How to create a Longhorn system backup>>

@@ -1,7 +1,7 @@
 = Node Disk Support
 :aliases: ["/spdk/features/node-disk-support.md"]
 :weight: 20
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 Longhorn now supports the addition and management of various disk types (AIO, NVMe, and VirtIO) on nodes, enhancing filesystem operations, storage performance, and compatibility.
 
