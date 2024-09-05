@@ -1,6 +1,6 @@
 = Node Failure Handling with Longhorn
 :weight: 2
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 == What to expect when a Kubernetes Node fails
 

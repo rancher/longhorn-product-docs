@@ -1,6 +1,6 @@
 = Rancher Windows Cluster
 :weight: 5
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 Rancher can provision a Windows cluster with combination of Linux worker nodes and Windows worker nodes.
 For more information on the Rancher Windows cluster, see the official https://rancher.com/docs/rancher/v2.x/en/cluster-provisioning/rke-clusters/windows-clusters/[Rancher documentation].

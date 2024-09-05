@@ -1,7 +1,7 @@
 = Storage Network
 :doctype: book
 :weight: 8
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 By Default, Longhorn uses the default Kubernetes cluster CNI network that is limited to a single interface and shared with other workloads cluster-wide. In case you have a situation where network segregation is needed, Longhorn supports isolating Longhorn in-cluster data traffic with the Storage Network setting.
 

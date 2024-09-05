@@ -1,6 +1,6 @@
 = Scheduling
 :weight: 5
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 In this section, you'll learn how Longhorn schedules replicas based on multiple factors.
 

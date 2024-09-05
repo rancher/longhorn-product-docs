@@ -1,6 +1,6 @@
 = Identifying and Recovering from Data Errors
 :weight: 1
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 If you've encountered an error message like the following:
 

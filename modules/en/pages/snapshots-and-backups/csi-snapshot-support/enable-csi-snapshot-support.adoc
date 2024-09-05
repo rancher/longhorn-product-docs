@@ -1,7 +1,7 @@
 = Enable CSI Snapshot Support on a Cluster
 :description: Enable CSI Snapshot Support for Programmatic Creation of Longhorn Snapshots/Backups
 :weight: 1
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 ____
 *Prerequisite*

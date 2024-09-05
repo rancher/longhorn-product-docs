@@ -1,6 +1,6 @@
 = Upgrade Kubernetes on AWS EKS
 :weight: 4
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 In Longhorn, set `replica-replenishment-wait-interval` to `0`.
 
