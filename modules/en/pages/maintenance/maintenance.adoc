@@ -1,6 +1,6 @@
 = Node Maintenance and Kubernetes Upgrade Guide
 :weight: 3
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 This section describes how to handle planned node maintenance or upgrading Kubernetes version for the cluster.
 

@@ -1,6 +1,6 @@
 = Manage Node-Group on Azure AKS
 :weight: 2
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 See https://docs.microsoft.com/en-us/azure/aks/use-multiple-node-pools[Create and manage multiple node pools for a cluster in Azure Kubernetes Service (AKS)] for more information.
 

@@ -1,6 +1,6 @@
 = Install with Helm
 :weight: 9
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 In this section, you will learn how to install Longhorn with Helm.
 
