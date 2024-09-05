@@ -1,6 +1,6 @@
 = Troubleshooting Problems
 :weight: 1
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 * <<common-issues,Common issues>>
  ** <<volume-can-be-attacheddetached-from-ui-but-kubernetes-podstatefulset-etc-cannot-use-it,Volume can be attached/detached from UI, but Kubernetes Pod/StatefulSet etc cannot use it>>

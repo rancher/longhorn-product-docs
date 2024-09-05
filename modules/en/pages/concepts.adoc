@@ -1,7 +1,7 @@
 = Architecture and Concepts
 :doctype: book
 :weight: 3
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 Longhorn creates a dedicated storage controller for each volume and synchronously replicates the volume across multiple replicas stored on multiple nodes.
 

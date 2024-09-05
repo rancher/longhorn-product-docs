@@ -1,6 +1,6 @@
 = Create a Backup
 :weight: 2
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 Backups in Longhorn are objects in an off-cluster backupstore. A backup of a snapshot is copied to the backupstore, and the endpoint to access the backupstore is the backup target. For more information, see xref:concepts.adoc#_3_1_how_backups_work[this section.]
 

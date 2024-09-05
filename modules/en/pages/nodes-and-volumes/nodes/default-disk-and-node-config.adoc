@@ -1,6 +1,6 @@
 = Configuring Defaults for Nodes and Disks
 :weight: 6
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 _Available as of v0.8.1_
 

@@ -1,7 +1,7 @@
 = ReadWriteMany (RWX) Volume
 :doctype: book
 :weight: 4
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 Longhorn supports ReadWriteMany (RWX) volumes by exposing regular Longhorn volumes via NFSv4 servers that reside in share-manager pods.
 
