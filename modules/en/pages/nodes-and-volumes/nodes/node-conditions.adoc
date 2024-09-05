@@ -1,6 +1,6 @@
 = Node Conditions
 :weight: 7
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 Node conditions describe the status of all worker nodes and are used to check the environment settings of worker nodes to identify potential issues before any system impact.
 

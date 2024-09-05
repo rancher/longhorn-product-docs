@@ -1,6 +1,6 @@
 = Helm Values
 :weight: 5
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 == Values
 

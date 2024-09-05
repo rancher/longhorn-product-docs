@@ -1,6 +1,6 @@
 = Upgrading Longhorn Manager
 :weight: 1
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 === Upgrading from v1.7.x
 

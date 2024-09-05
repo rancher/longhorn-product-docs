@@ -1,6 +1,6 @@
 = Backing Image Encryption
 :weight: 2
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 Starting with v1.7.0, Longhorn allows you to encrypt and decrypt a backing image by cloning it. The backing image encryption mechanism utilizes the Linux kernel module `dm_crypt` and the command-line utility `cryptsetup`.
 

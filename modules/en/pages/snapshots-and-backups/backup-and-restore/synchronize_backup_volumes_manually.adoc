@@ -1,6 +1,6 @@
 = Synchronize Backup Volumes Manually
 :weight: 6
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 After creating a backup, Longhorn creates a backup volume that corresponds to the original volume (on which the backup is based). A backup volume is an object in the backupstore that contains multiple backups of the same volume.
 
