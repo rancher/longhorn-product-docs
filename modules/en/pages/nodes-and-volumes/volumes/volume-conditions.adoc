@@ -1,6 +1,6 @@
 = Volume Conditions
 :weight: 7
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 == Volume Conditions
 
