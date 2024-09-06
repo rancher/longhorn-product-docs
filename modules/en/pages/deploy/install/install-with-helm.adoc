@@ -9,6 +9,7 @@ In this section, you will learn how to install Longhorn with Helm.
 * Kubernetes cluster: Ensure that each node fulfills the xref:#_installation_requirements[installation requirements].
 * Your workstation: Install https://helm.sh/docs/[Helm] v3.0 or later.
 
+[subs="+attributes", console]
 ____
 https://github.com/longhorn/longhorn/blob/v{current-version}/scripts/environment_check.sh[This script] can be used to check the Longhorn environment for potential issues.
 ____
