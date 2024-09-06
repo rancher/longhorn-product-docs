@@ -45,6 +45,7 @@ kubectl delete GitRepo longhorn -n fleet-local
 
 After the `longhorn-uninstall` job is completed, run the following command:
 
+[subs="+attributes", console]
 ----
 kubectl delete -f https://raw.githubusercontent.com/longhorn/longhorn/v{current-version}/deploy/longhorn.yaml
 ----
@@ -65,6 +66,7 @@ Argo CD currently does not support the PreDelete resource hook. Instead of runni
 
 . Create the uninstallation job to clean up CRDs from the system and wait for success:
 +
+[subs="+attributes", console]
 ----
  kubectl create -f https://raw.githubusercontent.com/longhorn/longhorn/v{current-version}/uninstall/uninstall.yaml
  kubectl get job/longhorn-uninstall -n longhorn-system -w
@@ -72,6 +74,7 @@ Argo CD currently does not support the PreDelete resource hook. Instead of runni
 +
 Example output:
 +
+[subs="+attributes", console]
 ----
  $ kubectl create -f https://raw.githubusercontent.com/longhorn/longhorn/v{current-version}/uninstall/uninstall.yaml
  serviceaccount/longhorn-uninstall-service-account created
@@ -87,6 +90,7 @@ Example output:
 
 . Remove remaining components:
 +
+[subs="+attributes", console]
 ----
  kubectl delete -f https://raw.githubusercontent.com/longhorn/longhorn/v{current-version}/deploy/longhorn.yaml
  kubectl delete -f https://raw.githubusercontent.com/longhorn/longhorn/v{current-version}/uninstall/uninstall.yaml
