@@ -32,10 +32,41 @@ Run this command:
 helm uninstall longhorn -n longhorn-system
 ----
 
+<<<<<<< HEAD
+=======
+=== Uninstalling Longhorn Using Fleet
+
+Run the following command:
+
+----
+kubectl delete GitRepo longhorn -n fleet-local
+----
+
+After the `longhorn-uninstall` job is completed, run the following command:
+
+[subs="+attributes", console]
+----
+kubectl delete -f https://raw.githubusercontent.com/longhorn/longhorn/v{current-version}/deploy/longhorn.yaml
+----
+
+=== Uninstalling Longhorn Using Flux
+
+Run the following command:
+
+----
+flux delete helmrelease longhorn-release -n longhorn-system
+----
+
+=== Uninstalling Longhorn Using Argo CD
+
+Argo CD currently does not support the PreDelete resource hook. Instead of running `argocd app delete longhorn` directly, you must <<uninstalling-longhorn-using-kubectl,uninstall Longhorn using kubectl>> to prevent dangling resources from remaining in the `longhorn-system` namespace.
+
+>>>>>>> 48a517f (Fix some code block lacking subs=+attributes so {current-version} was not expanded.)
 === Uninstalling Longhorn using kubectl
 
 . Create the uninstallation job to clean up CRDs from the system and wait for success:
 +
+[subs="+attributes", console]
 ----
  kubectl create -f https://raw.githubusercontent.com/longhorn/longhorn/v{current-version}/uninstall/uninstall.yaml
  kubectl get job/longhorn-uninstall -n longhorn-system -w
@@ -43,6 +74,7 @@ helm uninstall longhorn -n longhorn-system
 +
 Example output:
 +
+[subs="+attributes", console]
 ----
  $ kubectl create -f https://raw.githubusercontent.com/longhorn/longhorn/v{current-version}/uninstall/uninstall.yaml
  serviceaccount/longhorn-uninstall-service-account created
@@ -58,6 +90,7 @@ Example output:
 
 . Remove remaining components:
 +
+[subs="+attributes", console]
 ----
  kubectl delete -f https://raw.githubusercontent.com/longhorn/longhorn/v{current-version}/deploy/longhorn.yaml
  kubectl delete -f https://raw.githubusercontent.com/longhorn/longhorn/v{current-version}/uninstall/uninstall.yaml
