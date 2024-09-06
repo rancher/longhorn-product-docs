@@ -51,6 +51,7 @@ On Kubernetes clusters managed by Rancher 2.1 or newer, the steps to upgrade the
 
 To upgrade with kubectl, run this command:
 
+[subs="+attributes", console]
 ----
 kubectl apply -f https://raw.githubusercontent.com/longhorn/longhorn/v{current-version}/deploy/longhorn.yaml
 ----
@@ -59,6 +60,7 @@ kubectl apply -f https://raw.githubusercontent.com/longhorn/longhorn/v{current-v
 
 To upgrade with Helm, run this command:
 
+[subs="+attributes", console]
 ----
 helm upgrade longhorn longhorn/longhorn --namespace longhorn-system --version {current-version}
 ----
@@ -67,6 +69,7 @@ helm upgrade longhorn longhorn/longhorn --namespace longhorn-system --version {c
 
 Update the value of `helm.version` in the `fleet` YAML file of your GitOps repository.
 
+[subs="+attributes", console]
 ----
 helm:
   repo: https://charts.longhorn.io
@@ -79,6 +82,7 @@ helm:
 
 Update the value of `spec.chart.spec.version` in the `HelmRelease` YAML file of your GitOps repository.
 
+[subs="+attributes", console]
 ----
 spec:
   chart:
@@ -95,6 +99,7 @@ spec:
 
 Update the value of `targetRevision` in the `Application` YAML file of your GitOps repository.
 
+[subs="+attributes", console]
 ----
 spec:
   project: default
@@ -185,6 +190,7 @@ To recover, you need to upgrade to the previously installed revision at `Rancher
 
 * To clean up the deprecated StorageClass, run this command:
 +
+[subs="+attributes", console]
 ----
   kubectl delete -f https://raw.githubusercontent.com/longhorn/longhorn/v{current-version}/examples/storageclass.yaml
 ----
