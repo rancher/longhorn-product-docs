@@ -182,6 +182,7 @@ IMPORTANT: On SUSE and openSUSE, the `iscsi_tcp` module is included only in the 
 
 We also provide an `iscsi` installer to make it easier for users to install `open-iscsi` automatically:
 
+[subs="+attributes",shell]
 ----
 kubectl apply -f https://raw.githubusercontent.com/longhorn/longhorn/v{current-version}/deploy/prerequisite/longhorn-iscsi-installation.yaml
 ----
@@ -255,12 +256,14 @@ zypper install nfs-client
 
 We also provide an `nfs` installer to make it easier for users to install `nfs-client` automatically:
 
+[subs="+attributes", console]
 ----
 kubectl apply -f https://raw.githubusercontent.com/longhorn/longhorn/v{current-version}/deploy/prerequisite/longhorn-nfs-installation.yaml
 ----
 
 After the deployment, run the following command to check pods' status of the installer:
 
+[subs="+attributes", console]
 ----
 kubectl get pod | grep longhorn-nfs-installation
 NAME                                  READY   STATUS    RESTARTS   AGE
