@@ -18,6 +18,7 @@ When the Pod is deployed, the Kubernetes master will check the PersistentVolumeC
 
 . Use following command to create a StorageClass called `longhorn`:
 +
+[subs="+attributes", console]
 ----
  kubectl create -f https://raw.githubusercontent.com/longhorn/longhorn/v{current-version}/examples/storageclass.yaml
 ----
@@ -55,6 +56,7 @@ In particular, starting with v1.4.0, the parameter `mkfsParams` can be used to s
 
 . Create a Pod that uses Longhorn volumes by running this command:
 +
+[subs="+attributes", console]
 ----
  kubectl create -f https://raw.githubusercontent.com/longhorn/longhorn/v{current-version}/examples/pod_with_pvc.yaml
 ----
