@@ -242,6 +242,7 @@ Longhorn provides sample backupstore server setups for testing purposes.  You ca
 
 . Set up a MinIO S3 server for the backupstore in the `longhorn-system` namespace.
 +
+[subs="+attributes", console]
 ----
  kubectl create -f https://raw.githubusercontent.com/longhorn/longhorn/v{current-version}/deploy/backupstores/minio-backupstore.yaml
 ----
