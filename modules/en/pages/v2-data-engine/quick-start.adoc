@@ -50,6 +50,7 @@ apt install -y linux-modules-extra-`uname -r`
 
 We provide a manifest that helps you configure the kernel modules and huge pages automatically, making it easier to set up.
 
+[subs="+attributes", console]
 ----
 kubectl apply -f https://raw.githubusercontent.com/longhorn/longhorn/v{current-version}/deploy/prerequisite/longhorn-spdk-setup.yaml
 ----
@@ -90,6 +91,7 @@ To make the change permanent, add the following line to the file /etc/sysctl.con
 
 We provide a manifest that helps you finish the deployment on each Longhorn node.
 
+[subs="+attributes", console]
 ----
 kubectl apply -f https://raw.githubusercontent.com/longhorn/longhorn/v{current-version}/deploy/prerequisite/longhorn-nvme-cli-installation.yaml
 ----
@@ -118,6 +120,7 @@ After finishing the above steps, restart kubelet on each node.
 
 Make sure everything is correctly configured and installed by
 
+[subs="+attributes", console]
 ----
 bash -c "$(curl -sfL https://raw.githubusercontent.com/longhorn/longhorn/v{current-version}/scripts/environment_check.sh)" -s -s
 ----
@@ -238,6 +241,7 @@ After the installation and configuration, we can dynamically provision a Persist
 
 Run the following command to create a StorageClass named `longhorn-spdk`. Set `parameters.dataEngine` to `v2` to enable the V2 Data Engine.
 
+[subs="+attributes", console]
 ----
 kubectl apply -f https://raw.githubusercontent.com/longhorn/longhorn/v{current-version}/examples/v2/storageclass.yaml
 ----
@@ -246,6 +250,7 @@ kubectl apply -f https://raw.githubusercontent.com/longhorn/longhorn/v{current-v
 
 Create a Pod that uses Longhorn volumes using V2 Data Engine by running this command:
 
+[subs="+attributes", console]
 ----
 kubectl apply -f https://raw.githubusercontent.com/longhorn/longhorn/v{current-version}/examples/v2/pod_with_pvc.yaml
 ----
