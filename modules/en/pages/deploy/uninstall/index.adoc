@@ -39,6 +39,7 @@ helm uninstall longhorn -n longhorn-system
 
 . Create the uninstallation job to clean up CRDs from the system and wait for success:
 +
+[subs="+attributes", console]
 ----
  kubectl create -f https://raw.githubusercontent.com/longhorn/longhorn/v{current-version}/uninstall/uninstall.yaml
  kubectl get job/longhorn-uninstall -n longhorn-system -w
@@ -46,6 +47,7 @@ helm uninstall longhorn -n longhorn-system
 +
 Example output:
 +
+[subs="+attributes", console]
 ----
  $ kubectl create -f https://raw.githubusercontent.com/longhorn/longhorn/v{current-version}/uninstall/uninstall.yaml
  serviceaccount/longhorn-uninstall-service-account created
@@ -61,6 +63,7 @@ Example output:
 
 . Remove remaining components:
 +
+[subs="+attributes", console]
 ----
  kubectl delete -f https://raw.githubusercontent.com/longhorn/longhorn/v{current-version}/deploy/longhorn.yaml
  kubectl delete -f https://raw.githubusercontent.com/longhorn/longhorn/v{current-version}/uninstall/uninstall.yaml
