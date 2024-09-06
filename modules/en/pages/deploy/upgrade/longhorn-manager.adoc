@@ -49,6 +49,7 @@ image::screenshots/install/cluster-explorer.png[Image]
 
 To upgrade with kubectl, run this command:
 
+[subs="+attributes", console]
 ----
 kubectl apply -f https://raw.githubusercontent.com/longhorn/longhorn/v{current-version}/deploy/longhorn.yaml
 ----
@@ -57,6 +58,7 @@ kubectl apply -f https://raw.githubusercontent.com/longhorn/longhorn/v{current-v
 
 To upgrade with Helm, run this command:
 
+[subs="+attributes", console]
 ----
 helm upgrade longhorn longhorn/longhorn --namespace longhorn-system --version {current-version}
 ----
@@ -144,6 +146,7 @@ To recover, you need to upgrade to the previously installed revision at `Rancher
 
 * To clean up the deprecated StorageClass, run this command:
 +
+[subs="+attributes", console]
 ----
   kubectl delete -f https://raw.githubusercontent.com/longhorn/longhorn/v{current-version}/examples/storageclass.yaml
 ----
