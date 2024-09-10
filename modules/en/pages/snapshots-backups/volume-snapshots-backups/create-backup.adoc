@@ -1,5 +1,4 @@
 = Create a Backup
-:weight: 2
 :current-version: {page-component-version}
 
 == Incremental Backup

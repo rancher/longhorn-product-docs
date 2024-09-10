@@ -1,5 +1,4 @@
-= Restore to a cluster contains data using Rancher snapshot
-:weight: 4
+= Restore the Longhorn System to a Cluster Using a Rancher Snapshot
 :current-version: {page-component-version}
 
 This doc describes what users need to do after restoring the cluster with a Rancher snapshot.
