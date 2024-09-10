@@ -1,5 +1,4 @@
-= Backup Longhorn System
-:weight: 1
+= Create a Longhorn System Backup
 :current-version: {page-component-version}
 
 * <<longhorn-system-backup-bundle,What is in the Longhorn system backup bundle>>
@@ -43,7 +42,7 @@ NOTE: Longhorn does not backup `Nodes`. The Longhorn manager on the target clust
 NOTE: Longhorn system backup bundle only includes resources operated by Longhorn. +
 Here is an example of a cluster workload with a bare `Pod` workload. The system backup will collect the `PersistentVolumeClaim`, `PersistentVolume`, and `Volume`. The system backup will exclude the `Pod` during system backup resource collection.
 
-== Create Longhorn System Backup
+== Create a Longhorn System Backup
 
 You can create a Longhorn system backup using the Longhorn UI. Or with the `kubectl` command.
 

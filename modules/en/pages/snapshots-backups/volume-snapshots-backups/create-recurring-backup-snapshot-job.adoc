@@ -1,5 +1,4 @@
-= Recurring Snapshots and Backups
-:weight: 3
+= Create a Recurring Snapshot or Backup Job
 :current-version: {page-component-version}
 
 From the Longhorn UI, the volume can refer to recurring snapshots and backups as independent jobs or as recurring job groups.

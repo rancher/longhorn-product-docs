@@ -1,5 +1,4 @@
-= Restore to a new cluster using Velero
-:weight: 4
+= Restore the Longhorn System to a New Cluster Using Velero
 :current-version: {page-component-version}
 
 This doc instructs how users can restore workloads with Longhorn system to a new cluster via Velero.

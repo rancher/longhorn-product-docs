@@ -1,5 +1,4 @@
-= Longhorn System Backup And Restore
-:weight: 10
+= Longhorn System Backups
 :current-version: {page-component-version}
 
 ____

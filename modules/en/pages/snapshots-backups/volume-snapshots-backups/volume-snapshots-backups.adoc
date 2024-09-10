@@ -1,5 +1,4 @@
-= Backup and Restore
-:weight: 2
+= Volume Snapshots and Backups
 :current-version: {page-component-version}
 
 ____
