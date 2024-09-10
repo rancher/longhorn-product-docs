@@ -1,5 +1,4 @@
-= Node Failure Handling with Longhorn
-:weight: 2
+= Node Failure Management
 :current-version: {page-component-version}
 
 == What to expect when a Kubernetes Node fails
