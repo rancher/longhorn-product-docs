@@ -2,10 +2,7 @@ tmp/
 docs/
 node_modules/
 build/
-<<<<<<< HEAD
-=======
 package-lock.json
 .DS_Store
 .vscode
 .idea
->>>>>>> 0651121 (ignore os/dev-env files)
