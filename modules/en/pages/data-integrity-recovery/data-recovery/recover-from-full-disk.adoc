@@ -1,5 +1,4 @@
-= Recovering from a Full Disk
-:weight: 4
+= Recover from a Full Disk
 :current-version: {page-component-version}
 
 If one disk used by one of the Longhorn replicas is full, that replica will go to the error state, and Longhorn will rebuild another replica on another node/disk.
