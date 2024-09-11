@@ -1,5 +1,4 @@
-= Monitoring
-:weight: 6
+= Observability
 :current-version: {page-component-version}
 
 * Setting up Prometheus and Grafana to monitor Longhorn

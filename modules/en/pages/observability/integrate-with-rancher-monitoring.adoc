@@ -1,5 +1,4 @@
-= Integrating Longhorn metrics into the Rancher monitoring system
-:weight: 2
+= Integrate Longhorn Metrics into the Rancher Monitoring System
 :current-version: {page-component-version}
 
 == About the Rancher Monitoring System
