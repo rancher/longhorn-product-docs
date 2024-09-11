@@ -1,0 +1,2 @@
+= Data Integrity and Recovery
+:current-version: {page-component-version}

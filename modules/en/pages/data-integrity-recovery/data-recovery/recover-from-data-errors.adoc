@@ -1,5 +1,4 @@
-= Identifying and Recovering from Data Errors
-:weight: 1
+= Identify and Recover from Data Errors
 :current-version: {page-component-version}
 
 If you've encountered an error message like the following:
