@@ -1,5 +1,4 @@
 = Longhorn Alert Rule Examples
-:weight: 5
 :current-version: {page-component-version}
 
 We provide a couple of example Longhorn alert rules below for your references.

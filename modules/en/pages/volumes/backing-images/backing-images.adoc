@@ -1,6 +1,5 @@
-= Backing Image
+= Backing Images
 :experimental:
-:weight: 1
 :current-version: {page-component-version}
 
 Longhorn natively supports backing images since v1.1.1.

@@ -1,5 +1,4 @@
-= Install longhornctl
-:weight: 1
+= Install the Longhorn CLI
 :current-version: {page-component-version}
 
 == Use the Prebuilt Binary

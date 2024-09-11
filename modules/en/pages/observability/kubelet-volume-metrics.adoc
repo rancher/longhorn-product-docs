@@ -1,5 +1,4 @@
-= Kubelet Volume Metrics Support
-:weight: 4
+= Kubelet Volume Metrics
 :current-version: {page-component-version}
 
 == About Kubelet Volume Metrics
