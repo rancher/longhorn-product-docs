@@ -11,7 +11,7 @@ If you don't have access to AWS S3 or want to give the backupstore a try first, 
 
 Longhorn also supports setting up recurring snapshot/backup jobs for volumes, via Longhorn UI or Kubernetes Storage Class. See xref:snapshots-and-backups/scheduling-backups-and-snapshots.adoc[here] for details.
 
-=== Set up AWS S3 Backupstore
+== Set up AWS S3 Backupstore
 
 . Create a new bucket in https://aws.amazon.com/s3/[AWS S3.]
 . Set permissions for Longhorn. There are two options for setting up the credentials. The first is that you can set up a Kubernetes secret with the credentials of an AWS IAM user. The second is that you can use a third-party application to manage temporary AWS IAM permissions for a Pod via annotations rather than operating with AWS credentials.
@@ -166,7 +166,7 @@ Make sure `NO_PROXY` contains the network addresses, network address ranges and 
 * 10.0.0.0/8 (K8s components' IPs)
 * 192.168.0.0/16 (internal IPs in the cluster)
 
-=== Set up GCP Cloud Storage Backupstore
+== Set up GCP Cloud Storage Backupstore
 
 . Create a new bucket in https://console.cloud.google.com/storage/browser?referrer=search&project=elite-protocol-319303[Google Cloud Storage]
 . Create a GCP serviceaccount in https://console.cloud.google.com/iam-admin[IAM & Admin]
@@ -224,7 +224,7 @@ Once the secret is created and Longhorn's settings are saved, navigate to the ba
 
 If you don't get any error messages, try creating a backup and confirm the content is pushed out to your new bucket.
 
-=== Set up a Local Testing Backupstore
+== Set up a Local Testing Backupstore
 
 Longhorn provides sample backupstore server setups for testing purposes.  You can find samples for AWS S3 (MinIO), Azure, CIFS and NFS in the `longhorn/deploy/backupstores` folder.
 
@@ -272,13 +272,13 @@ NOTE: Make sure to use `echo -n` when generating the base64 encoding, otherwise 
 
 *Result:* Longhorn can store backups in S3. To create a backup, see xref:snapshots-and-backups/backup-and-restore/create-a-backup.adoc[this section.]
 
-=== Using a self-signed SSL certificate for S3 communication
+== Using a self-signed SSL certificate for S3 communication
 
 If you want to use a self-signed SSL certificate, you can specify AWS_CERT in the Kubernetes secret you provided to Longhorn. See the example in <<set-up-a-local-testing-backupstore,Set up a Local Testing Backupstore>>.
 It's important to note that the certificate needs to be in PEM format, and must be its own CA. Or one must include a certificate chain that contains the CA certificate.
 To include multiple certificates, one can just concatenate the different certificates (PEM files).
 
-=== Enable virtual-hosted-style access for S3 compatible Backupstore
+== Enable virtual-hosted-style access for S3 compatible Backupstore
 
 *You may need to enable this new addressing approach for your S3 compatible Backupstore when*
 
@@ -308,7 +308,7 @@ To include multiple certificates, one can just concatenate the different certifi
 
 . Deploy/update the secret and set it in `Settings/General/BackupTargetSecret`.
 
-=== Set up NFS Backupstore
+== Set up NFS Backupstore
 
 Ensure that the NFS server supports NFSv4 and that the target URL points to the service.
 
@@ -332,11 +332,11 @@ You can find an example NFS backupstore for testing purpose https://github.com/l
 
 *Result:* Longhorn can store backups in NFS. To create a backup, see xref:snapshots-and-backups/backup-and-restore/create-a-backup.adoc[this section.]
 
-=== Set up SMB/CIFS Backupstore
+== Set up SMB/CIFS Backupstore
 
 Before configuring a SMB/CIFS backupstore, a credential secret for the backupstore can be created and deployed by
 
-[subs="+attributes",shell]
+[,shell]
 ----
   #!/bin/bash
 
@@ -391,7 +391,7 @@ You can find an example CIFS backupstore for testing purpose https://github.com/
 
 *Result:* Longhorn can store backups in CIFS. To create a backup, see xref:snapshots-and-backups/backup-and-restore/create-a-backup.adoc[this section.]
 
-=== Set up Azure Blob Storage Backupstore
+== Set up Azure Blob Storage Backupstore
 
 . Create a new container in https://portal.azure.com/[Azure Blob Storage Service]
 . Before configuring an Azure Blob Storage backup store, create a Kubernetes secret with a name such as `azblob-secret` in the namespace where Longhorn is installed (`longhorn-system`). The secret must be created in the same namespace for Longhorn to access it.
@@ -401,7 +401,7 @@ You can find an example CIFS backupstore for testing purpose https://github.com/
 * The Storage URI will be the `AZBLOB_ENDPOINT` field in the secret.
 * By a manifest:
 +
-[subs="+attributes",shell]
+[,bash]
 ----
 #!/bin/bash
 
@@ -436,7 +436,7 @@ kubectl apply -f azblob_secret.yml
 
 * CLI command:
 +
-[subs="+attributes",shell]
+[,shell]
 ----
 kubectl create secret generic <azblob-secret> \
   --from-literal=AZBLOB_ACCOUNT_NAME=<your-azure-storage-account-name> \

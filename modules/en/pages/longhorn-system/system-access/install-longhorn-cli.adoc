@@ -5,7 +5,7 @@
 
 . Download the binary:
 +
-[subs="+attributes",bash]
+[,bash]
 ----
 # Choose your architecture (amd64 or arm64).
 ARCH="amd64"
@@ -27,7 +27,7 @@ echo "$(cat longhornctl-linux-${ARCH}.sha256 | awk '{print $1}') longhornctl-lin
 
 . Install the binary:
 +
-[subs="+attributes",bash]
+[,bash]
 ----
 sudo install longhornctl-linux-${ARCH} /usr/local/bin/longhornctl
 ----

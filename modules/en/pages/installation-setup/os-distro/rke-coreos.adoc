@@ -22,7 +22,7 @@ Therefore, in this case, Kubernetes cannot connect to Longhorn using the CSI dri
 * Kubernetes v1.11 or higher.
 * Longhorn v0.4.1 or higher.
 
-=== 1. Add extra binds for the kubelet
+== 1. Add extra binds for the kubelet
 
 ____
 This step is only required for For CoreOS + and Kubernetes v1.11. It is not needed for Kubernetes v1.12+.
@@ -40,7 +40,7 @@ services:
 
 This makes sure the kubelet plugins directory is exposed for CSI driver installation.
 
-=== 2. Start the iSCSI Daemon
+== 2. Start the iSCSI Daemon
 
 If you want to enable iSCSI daemon automatically at boot, you need to enable the systemd service:
 

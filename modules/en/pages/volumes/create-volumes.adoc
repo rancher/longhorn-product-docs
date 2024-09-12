@@ -7,7 +7,7 @@ ____
 This section assumes that you understand how Kubernetes persistent storage works. For more information, see the https://kubernetes.io/docs/concepts/storage/persistent-volumes/[Kubernetes documentation.]
 ____
 
-=== Creating Longhorn Volumes with kubectl
+== Creating Longhorn Volumes with kubectl
 
 First, you will create a Longhorn StorageClass. The Longhorn StorageClass contains the parameters to provision PVs.
 
@@ -102,7 +102,7 @@ The persistentVolumeClaim is mounted in the Pod as a volume:
 +
 More examples are available xref:references/examples.adoc[here.]
 
-=== Binding Workloads to PVs without a Kubernetes StorageClass
+== Binding Workloads to PVs without a Kubernetes StorageClass
 
 It is possible to use a Longhorn StorageClass to bind a workload to a PV without creating a StorageClass object in Kubernetes.
 
@@ -115,7 +115,7 @@ If the PVC names a StorageClass, Kubernetes will:
 . Look for an existing PV that has the label matching the StorageClass
 . Look for an existing StorageClass Kubernetes resource. If the StorageClass exists, it will be used to create a PV.
 
-=== Creating Longhorn Volumes with the Longhorn UI
+== Creating Longhorn Volumes with the Longhorn UI
 
 Since the Longhorn volume already exists while creating PV/PVC, a StorageClass is not needed for dynamically provisioning Longhorn volume. However, the field `storageClassName` should be set in PVC/PV, to be used for PVC bounding purpose. And it's unnecessary for users to create the related StorageClass object.
 
@@ -123,12 +123,12 @@ By default the StorageClass for Longhorn created PV/PVC is `longhorn-static`. Us
 
 Users need to manually delete PVC and PV created by Longhorn.
 
-=== PV/PVC Creation for Existing Longhorn Volume
+== PV/PVC Creation for Existing Longhorn Volume
 
 Now users can create PV/PVC via our Longhorn UI for the existing Longhorn volumes.
 Only detached volume can be used by a newly created pod.
 
-=== The Failure of the Longhorn Volume Creation
+== The Failure of the Longhorn Volume Creation
 
 Creating a Longhorn volume will fail if there are no available nodes, disks, or insufficient storage. The failures are categorized into:
 
