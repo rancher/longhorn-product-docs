@@ -13,9 +13,9 @@ The following is an example to replace cluster nodes with new storage size.
 . Go to the launch template of the EKS cluster node-group. You can find in the EKS cluster tab `Configuration/Compute/<node-group-name>` and click the launch template.
 . Click `Modify template (Create new version)` in the `Actions` drop-down menu.
 . Choose the `Source template version` in the `Launch template name and version description`.
-. Follow steps to <<expand-volume,Expand volume>>, or <<create-additional-volume,Create additional volume>>.
+. Follow steps to <<_expand_volume,Expand volume>>, or <<create_additional_volume,Create additional volume>>.
 +
-NOTE: If you choose to expand by <<create-additional-volume,create additional volume>>, the disks need to be manually added to the disk list of the nodes after the EKS cluster upgrade.
+NOTE: If you choose to expand by <<_create_additional_volume,create additional volume>>, the disks need to be manually added to the disk list of the nodes after the EKS cluster upgrade.
 
 === Expand volume
 

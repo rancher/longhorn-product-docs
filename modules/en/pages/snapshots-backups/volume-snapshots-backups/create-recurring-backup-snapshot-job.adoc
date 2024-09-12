@@ -14,7 +14,7 @@ You can configure,
 * The number of jobs to run concurrently
 * Any labels that should be applied to the backup or snapshot
 * Parameters that should be applied to the backup
- ** `full-backup-interval`: Number of incremental backups that must be completed before Longhorn performs a full backup. This integer parameter is applied only to the backup. Notice that if the value is 0, Longhorn performs a incremental backup every time. For more information, see <<periodic-full-backup,Periodic Full Backup>> and xref:snapshots-and-backups/backup-and-restore/create-a-backup.adoc[Create a Backup].
+ ** `full-backup-interval`: Number of incremental backups that must be completed before Longhorn performs a full backup. This integer parameter is applied only to the backup. Notice that if the value is 0, Longhorn performs a incremental backup every time. For more information, see <<_periodic_full_backup,Periodic Full Backup>> and xref:snapshots-and-backups/backup-and-restore/create-a-backup.adoc[Create a Backup].
 
 Recurring jobs can be set up using the Longhorn UI, `kubectl`, or by using a Longhorn `RecurringJob`.
 
@@ -25,7 +25,7 @@ To add a recurring job to a volume, you will go to the volume detail view in Lon
 * Select from existing recurring job groups
 
 Then Longhorn will automatically create snapshots or backups for the volume at the recurring job scheduled time, as long as the volume is attached to a node.
-If you want to set up recurring snapshots and backups even when the volumes are detached, see the section <<allow-recurring-job-while-volume-is-detached,Allow Recurring Job While Volume Is Detached>>
+If you want to set up recurring snapshots and backups even when the volumes are detached, see the section <<_allow_recurring_job_while_volume_is_detached,Allow Recurring Job While Volume Is Detached>>
 
 You can set recurring jobs on a Longhorn Volume, Kubernetes Persistent Volume Claim (PVC), or Kubernetes StorageClass.
 

@@ -4,24 +4,24 @@
 
 *Table of Contents*
 
-* <<prerequisites,Prerequisites>>
- ** <<configure-kernel-modules-and-huge-pages,Configure Kernel Modules and Huge Pages>>
- ** <<load-nvme-tcp-kernel-module,Load `nvme-tcp` Kernel Module>>
- ** <<load-kernel-modules-automatically-on-boot,Load Kernel Modules Automatically on Boot>>
- ** <<restart-kubelet,Restart `kubelet`>>
- ** <<check-environment,Check Environment>>
-  *** <<using-the-longhorn-command-line-tool,Using the Longhorn Command Line Tool>>
-  *** <<using-the-script,Using the Script>>
-* <<installation,Installation>>
- ** <<install-longhorn-system,Install Longhorn System>>
- ** <<enable-v2-data-engine,Enable V2 Data Engine>>
- ** <<cpu-and-memory-usage,CPU and Memory Usage>>
- ** <<add-block-type-disks-in-longhorn-nodes,Add `block-type` Disks in Longhorn Nodes>>
-  *** <<prepare-disks,Prepare disks>>
-  *** <<add-disks-to-nodelonghornio,Add disks to `node.longhorn.io`>>
-* <<application-deployment,Application Deployment>>
- ** <<create-a-storageclass,Create a StorageClass>>
- ** <<create-longhorn-volumes,Create Longhorn Volumes>>
+* <<_prerequisites,Prerequisites>>
+ ** <<_configure_kernel_modules_and_huge_pages,Configure Kernel Modules and Huge Pages>>
+ ** <<_load_nvme_tcp_kernel_module,Load `nvme-tcp` Kernel Module>>
+ ** <<_load_kernel_modules_automatically_on_boot,Load Kernel Modules Automatically on Boot>>
+ ** <<_restart_kubelet,Restart `kubelet`>>
+ ** <<_check_environment,Check Environment>>
+  *** <<_using_the_longhorn_command_line_tool,Using the Longhorn Command Line Tool>>
+  *** <<_using_the_script,Using the Script>>
+* <<_installation,Installation>>
+ ** <<_install_longhorn_system,Install Longhorn System>>
+ ** <<_enable_v2_data_engine,Enable V2 Data Engine>>
+ ** <<_cpu_and_memory_usage,CPU and Memory Usage>>
+ ** <<_add_block_type_disks_in_longhorn_nodes,Add `block-type` Disks in Longhorn Nodes>>
+  *** <<_prepare_disks,Prepare disks>>
+  *** <<_add_disks_to_nodelonghornio,Add disks to `node.longhorn.io`>>
+* <<_application_deployment,Application Deployment>>
+ ** <<_create_a_storageclass,Create a StorageClass>>
+ ** <<_create_longhorn_volumes,Create Longhorn Volumes>>
 
 '''
 
