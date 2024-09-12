@@ -12,7 +12,7 @@ In this section, you'll learn how to uninstall Longhorn.
  ** <<i-deleted-the-longhorn-app-from-rancher-ui-instead-of-following-the-uninstallation-procedure,I deleted the Longhorn App from Rancher UI instead of following the uninstallation procedure>>
  ** <<problems-with-crds,Problems with CRDs>>
 
-=== Prerequisite
+== Prerequisite
 
 To prevent Longhorn from being accidentally uninstalled (which leads to data lost),
 we introduce a new setting, xref:deploy/references/settings.adoc#_deleting_confirmation_flag[deleting-confirmation-flag].
@@ -22,11 +22,11 @@ You can set this flag using setting page in Longhorn UI or `kubectl -n longhorn-
 
 To prevent damage to the Kubernetes cluster, we recommend deleting all Kubernetes workloads using Longhorn volumes (PersistentVolume, PersistentVolumeClaim, StorageClass, Deployment, StatefulSet, DaemonSet, etc).
 
-=== Uninstalling Longhorn from the Rancher UI
+== Uninstalling Longhorn from the Rancher UI
 
 From Rancher UI, navigate to `Catalog Apps` tab and delete Longhorn app.
 
-=== Uninstalling Longhorn using Helm
+== Uninstalling Longhorn using Helm
 
 Run this command:
 
@@ -34,7 +34,7 @@ Run this command:
 helm uninstall longhorn -n longhorn-system
 ----
 
-=== Uninstalling Longhorn Using Fleet
+== Uninstalling Longhorn Using Fleet
 
 Run the following command:
 
@@ -48,7 +48,7 @@ After the `longhorn-uninstall` job is completed, run the following command:
 kubectl delete -f https://raw.githubusercontent.com/longhorn/longhorn/v{current-version}/deploy/longhorn.yaml
 ----
 
-=== Uninstalling Longhorn Using Flux
+== Uninstalling Longhorn Using Flux
 
 Run the following command:
 
@@ -56,11 +56,11 @@ Run the following command:
 flux delete helmrelease longhorn-release -n longhorn-system
 ----
 
-=== Uninstalling Longhorn Using Argo CD
+== Uninstalling Longhorn Using Argo CD
 
 Argo CD currently does not support the PreDelete resource hook. Instead of running `argocd app delete longhorn` directly, you must <<uninstalling-longhorn-using-kubectl,uninstall Longhorn using kubectl>> to prevent dangling resources from remaining in the `longhorn-system` namespace.
 
-=== Uninstalling Longhorn using kubectl
+== Uninstalling Longhorn using kubectl
 
 . Create the uninstallation job to clean up CRDs from the system and wait for success:
 +
@@ -94,9 +94,9 @@ Example output:
 TIP: If you try `+kubectl delete -f https://raw.githubusercontent.com/longhorn/longhorn/v{current-version}/deploy/longhorn.yaml+` first and get stuck there,
 pressing `Ctrl C` then running `+kubectl create -f https://raw.githubusercontent.com/longhorn/longhorn/v{current-version}/uninstall/uninstall.yaml+` can also help you remove Longhorn. Finally, don't forget to cleanup remaining components.
 
-=== Troubleshooting
+== Troubleshooting
 
-==== Uninstalling using Rancher UI or Helm failed, I am not sure why
+=== Uninstalling using Rancher UI or Helm failed, I am not sure why
 
 You might want to check the logs of the `longhorn-uninstall-xxx` pod inside `longhorn-system` namespace to see why it failed.
 One reason can be that xref:deploy/references/settings.adoc#_deleting_confirmation_flag[deleting-confirmation-flag] is `false`.
@@ -146,15 +146,15 @@ longhorn        longhorn-system 1               2022-10-14 13:45:25.341292504 -0
 Rollback was a success! Happy Helming!
 ----
 
-==== I deleted the Longhorn App from Rancher UI instead of following the uninstallation procedure
+=== I deleted the Longhorn App from Rancher UI instead of following the uninstallation procedure
 
 Redeploy the (same version) Longhorn App. Follow the uninstallation procedure above.
 
-==== Problems with CRDs
+=== Problems with CRDs
 
 If your CRD instances or the CRDs themselves can't be deleted for whatever reason, run the commands below to clean up. Caution: this will wipe all Longhorn state!
 
-[subs="+attributes",shell]
+[,shell]
 ----
 # Delete CRD finalizers, instances and definitions
 for crd in $(kubectl get crd -o jsonpath={.items[*].metadata.name} | tr ' ' '\n' | grep longhorn.io); do

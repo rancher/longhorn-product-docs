@@ -25,7 +25,7 @@ kubectl -n longhorn-system delete lease pvc-2ce4e82e-7ccc-46c0-90a8-a141501fbf93
 See, for example, https://github.com/longhorn/longhorn/issues/9093.
 ====
 
-=== Resource Consumption and System Performance Impact
+== Resource Consumption and System Performance Impact
 
 The Longhorn team has investigated the impact of RWX volumes on resource consumption and system performance. The benchmarking studies, which were completed using 60 RWX volumes, show that enabling the _RWX Volume Fast Failover_ feature results in the following:
 
@@ -33,12 +33,12 @@ The Longhorn team has investigated the impact of RWX volumes on resource consump
 * More remote procedure calls (RPCs) sent from kube-apiserver to etcd
 * Slight increase in CPU and memory usage
 
-==== *Environment:*
+=== *Environment:*
 
 * *Setup:* 1 Control Node + 3 Worker Nodes (v1.27.15+rke2r1)
 * *Workload:* 60 Deployments with 60 RWX volumes with `soft` mount
 
-==== *Test Results:*
+=== *Test Results:*
 
 |===
 | *Metric* | *Fast Failover Disabled* | *Fast Failover Enabled* | *Difference*

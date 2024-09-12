@@ -2,7 +2,7 @@
 :weight: 3
 :current-version: {page-component-version}
 
-=== Overview
+== Overview
 
 This page documents the networking communication between components in the Longhorn system. Using this information, users can write Kubernetes NetworkPolicy
 to control the inbound/outbound traffic to/from Longhorn components. This helps to reduce the damage when a malicious pod breaks into the in-cluster network.
@@ -15,9 +15,9 @@ See the https://kubernetes.io/docs/concepts/services-networking/network-policies
 NOTE: If you are writing network policies, please revisit this page before upgrading Longhorn to make the necessary adjustments to your network policies.
 Note: Depending on your CNI for cluster network, there might be some delay when Kubernetes applying netowk policies to the pod. This delay may fail Longhorn recurring job for taking Snapshot or Backup of the Volume since it cannot access longhorn-manager in the beginning. This is a known issue found in K3s with Traefik and is beyond Longhorn control.
 
-=== Longhorn Manager
+== Longhorn Manager
 
-==== Ingress:
+=== Ingress:
 
 From | Port | Protocol
 -- | -- | --
@@ -30,7 +30,7 @@ From | Port | Protocol
 `Admission Webhook Server` | 9502 | TCP
 `Recovery Backend Server` | 9503 | TCP
 
-==== Egress:
+=== Egress:
 
 To | Port | Protocol
 -- | -- | --
@@ -41,21 +41,21 @@ To | Port | Protocol
 `External Backupstore` | User defined | TCP
 `Kubernetes API server` | `Kubernetes API server port` | TCP
 
-=== UI
+== UI
 
-==== ingress:
+=== ingress:
 
 Users defined
 
-==== egress:
+=== egress:
 
 To | Port | Protocol
 -- | -- | --
 `Longhorn Manager` | 9500 | TCP
 
-=== Instance Manager
+== Instance Manager
 
-==== ingress
+=== ingress
 
 From | Port | Protocol
 -- | -- | --
@@ -64,7 +64,7 @@ From | Port | Protocol
 `Node in the Cluster` | 3260 | TCP
 `Backing Image Data Source` | 10000-30000 | TCP
 
-==== egress:
+=== egress:
 
 To | Port | Protocol
 -- | -- | --
@@ -72,71 +72,71 @@ To | Port | Protocol
 `Backing Image Data Source` |  8002 | TCP
 `External Backupstore` | User defined | TCP
 
-=== Longhorn CSI plugin
+== Longhorn CSI plugin
 
-==== ingress
+=== ingress
 
 None
 
-==== egress:
+=== egress:
 
 To | Port | Protocol
 -- | -- | --
 `Longhorn Manager` | 9500 | TCP
 
-==== Additional Info
+=== Additional Info
 
 `Longhorn CSI plugin` pods communitate with `CSI sidecar` pods over the Unix Domain Socket at `<Kuberlet-Directory>/plugins/driver.longhorn.io/csi.sock`
 
-=== CSI sidecar (csi-attacher, csi-provisioner, csi-resizer, csi-snapshotter)
+== CSI sidecar (csi-attacher, csi-provisioner, csi-resizer, csi-snapshotter)
 
-==== ingress:
+=== ingress:
 
 None
 
-==== egress:
+=== egress:
 
 To | Port | Protocol
 -- | -- | --
 `Kubernetes API server` | `Kubernetes API server port` | TCP
 
-==== Additional Info
+=== Additional Info
 
 `CSI sidecar` pods communitate with `Longhorn CSI plugin` pods over the Unix Domain Socket at `<Kuberlet-Directory>/plugins/driver.longhorn.io/csi.sock`
 
-=== Driver deployer
+== Driver deployer
 
-==== ingress:
+=== ingress:
 
 None
 
-==== egress:
+=== egress:
 
 To | Port | Protocol
 -- | -- | --
 `Longhorn Manager` | 9500 | TCP
 `Kubernetes API server` | `Kubernetes API server port` | TCP
 
-=== Engine Image
+== Engine Image
 
-==== ingress:
-
-None
-
-==== egress:
+=== ingress:
 
 None
 
-=== Backing Image Manager
+=== egress:
 
-==== ingress:
+None
+
+== Backing Image Manager
+
+=== ingress:
 
 From | Port | Protocol
 -- | -- | --
 `Longhorn Manager` | 8000 | TCP
 `Other Backing Image Manager` | 30001-31000 | TCP
 
-==== egress:
+=== egress:
 
 To | Port | Protocol
 -- | -- | --
@@ -144,9 +144,9 @@ To | Port | Protocol
 `Other Backing Image Manager` | 30001-31000 | TCP
 `Backing Image Data Source` | 8000 | TCP
 
-=== Backing Image Data Source
+== Backing Image Data Source
 
-==== ingress:
+=== ingress:
 
 From | Port | Protocol
 -- | -- | --
@@ -154,56 +154,56 @@ From | Port | Protocol
 `Instance Manager` | 8002 | TCP
 `Backing Image Manager` | 8000 | TCP
 
-==== egress:
+=== egress:
 
 To | Port | Protocol
 -- | -- | --
 `Instance Manager` | 10000-30000 | TCP
 `User provided server IP to download the images from` | user defined | TCP
 
-=== Share Manager
+== Share Manager
 
-==== ingress
+=== ingress
 
 From | Port | Protocol
 -- | -- | --
 `Node in the cluster` | 2049  | TCP
 
-==== egress:
+=== egress:
 
 None
 
-=== Backup/Snapshot Recurring Job Pod
+== Backup/Snapshot Recurring Job Pod
 
-==== ingress:
+=== ingress:
 
 None
 
-==== egress:
+=== egress:
 
 To | Port | Protocol
 -- | -- | --
 `Longhorn Manager` | 9500  | TCP
 
-=== Uninstaller
+== Uninstaller
 
-==== ingress:
+=== ingress:
 
 None
 
-==== egress:
+=== egress:
 
 To | Port | Protocol
 -- | -- | --
 `Kubernetes API server` | `Kubernetes API server port` | TCP
 
-=== Discover Proc Kubelet Cmdline
+== Discover Proc Kubelet Cmdline
 
-==== ingress:
+=== ingress:
 
 None
 
-==== egress:
+=== egress:
 
 None
 

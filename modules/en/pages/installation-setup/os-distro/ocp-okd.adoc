@@ -5,17 +5,6 @@ To deploy Longhorn on a cluster provisioned with OpenShift 4.x, some additional 
 
 NOTE: OKD currently does not support the ARM platform. For more information, see the https://www.okd.io/crc/?h=arm[OKD website] and https://github.com/okd-project/okd/issues/1165[GitHub issue #1165] (_OKD in ARM platform_).
 
-* <<install-longhorn,Install Longhorn>>
- ** <<install-with-helm,Install With Helm>>
- ** <<install-with-oc-command,Install With `oc` Command>>
-* <<prepare-a-customized-default-longhorn-disk-optional,Prepare A Customized Default Longhorn Disk (Optional)>>
- ** <<add-an-extra-disk-to-longhorn-storage,Add An Extra Disk to Longhorn Storage>>
-  *** <<create-filesystem-for-the-device,Create Filesystem For The Device>>
-  *** <<mounting-the-device-on-boot-with-machineconfig-crd,Mounting The Device On Boot with MachineConfig CRD>>
-  *** <<label-and-annotate-the-node,Label and Annotate The Node>>
-* <<reference,Reference>>
-* <<main-contributor,Main Contributor>>
-
 == Install Longhorn
 
 === Install With Helm
@@ -68,7 +57,7 @@ And then add another device formatted to Longhorn storage
 
 Create the filesystem on the device with the label `longhorn` on the storage node. Get into the node by oc command:
 
-[subs="+attributes",bash]
+[,bash]
 ----
 oc get nodes --no-headers | awk '{print $1}'
 oc debug node/${NODE_NAME} -t -- chroot /host bash
@@ -76,7 +65,7 @@ oc debug node/${NODE_NAME} -t -- chroot /host bash
 
 Check if the device is present and format it with Longhorn label:
 
-[subs="+attributes",bash]
+[,bash]
 ----
 lsblk
 sudo mkfs.ext4 -L longhorn /dev/${DEVICE_NAME}
@@ -122,7 +111,7 @@ oc apply -f auto-mount-machineconfig.yaml
 
 Please refer to the section xref:nodes-and-volumes/nodes/default-disk-and-node-config.adoc#_customizing_default_disks_for_new_nodes[Customizing Default Disks for New Nodes] to label and annotate storage node on where your device is by oc commands:
 
-[subs="+attributes",bash]
+[,bash]
 ----
 oc get nodes --no-headers | awk '{print $1}'
 

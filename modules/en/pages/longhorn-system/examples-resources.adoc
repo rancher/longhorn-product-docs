@@ -14,7 +14,7 @@ For reference, this page provides examples of Kubernetes resources that use Long
 * <<statefulset,StatefulSet>>
 * <<storageclass,StorageClass>>
 
-=== Block Volume
+== Block Volume
 
  apiVersion: v1
  kind: PersistentVolumeClaim
@@ -49,7 +49,7 @@ For reference, this page provides examples of Kubernetes resources that use Long
        persistentVolumeClaim:
          claimName: longhorn-block-vol
 
-=== CSI Persistent Volume
+== CSI Persistent Volume
 
  apiVersion: v1
  kind: PersistentVolume
@@ -112,7 +112,7 @@ For reference, this page provides examples of Kubernetes resources that use Long
      persistentVolumeClaim:
        claimName: longhorn-vol-pvc
 
-=== Deployment
+== Deployment
 
  apiVersion: v1
  kind: Service
@@ -181,7 +181,7 @@ For reference, this page provides examples of Kubernetes resources that use Long
          persistentVolumeClaim:
            claimName: mysql-pvc
 
-=== Pod with PersistentVolumeClaim
+== Pod with PersistentVolumeClaim
 
  apiVersion: v1
  kind: PersistentVolumeClaim
@@ -223,7 +223,7 @@ For reference, this page provides examples of Kubernetes resources that use Long
      persistentVolumeClaim:
        claimName: longhorn-volv-pvc
 
-=== Pod with Generic Ephemeral Volume
+== Pod with Generic Ephemeral Volume
 
 For more information about generic ephemeral volumes, refer to the
 https://kubernetes.io/docs/concepts/storage/ephemeral-volumes/#generic-ephemeral-volumes[Kubernetes documentation].
@@ -263,7 +263,7 @@ apiVersion: v1
               requests:
                 storage: 2Gi
 
-=== Restore to File
+== Restore to File
 
 For more information about restoring to file, refer to xref:advanced-resources/data-recovery/recover-without-system.adoc[this section.]
 
@@ -316,7 +316,7 @@ For more information about restoring to file, refer to xref:advanced-resources/d
          path: /tmp/restore
    restartPolicy: Never
 
-=== Simple Pod
+== Simple Pod
 
  apiVersion: v1
  kind: Pod
@@ -346,7 +346,7 @@ For more information about restoring to file, refer to xref:advanced-resources/d
        persistentVolumeClaim:
          claimName: longhorn-simple-pvc
 
-=== Simple PersistentVolumeClaim
+== Simple PersistentVolumeClaim
 
  apiVersion: v1
  kind: PersistentVolumeClaim
@@ -360,7 +360,7 @@ For more information about restoring to file, refer to xref:advanced-resources/d
      requests:
        storage: 1Gi
 
-=== StatefulSet
+== StatefulSet
 
  apiVersion: v1
  kind: Service
@@ -419,7 +419,7 @@ For more information about restoring to file, refer to xref:advanced-resources/d
          requests:
            storage: 1Gi
 
-=== StorageClass
+== StorageClass
 
  kind: StorageClass
  apiVersion: storage.k8s.io/v1

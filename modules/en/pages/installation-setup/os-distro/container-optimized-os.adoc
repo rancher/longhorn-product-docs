@@ -25,14 +25,15 @@ You can use a comma-separated list when specifying values for the `node-agent` c
 
 Example:
 
-```yaml
+[,yaml]
+----
  containers:
 
 * name: node-agent
 env:
  ** name: LONGHORN_DATA_PATHS
 value: /var/lib/longhorn1,/var/lib/longhorn2
-====
+----
 
 . Install the Longhorn GKE COS node agent.
 +
