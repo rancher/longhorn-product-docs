@@ -347,7 +347,7 @@ You can find an example NFS backupstore for testing purpose https://github.com/l
 
 Before configuring a SMB/CIFS backupstore, a credential secret for the backupstore can be created and deployed by
 
-[subs="+attributes",shell]
+[,shell]
 ----
   #!/bin/bash
 

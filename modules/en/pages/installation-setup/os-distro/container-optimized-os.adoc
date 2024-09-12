@@ -34,6 +34,7 @@ env:
  ** name: LONGHORN_DATA_PATHS
 value: /var/lib/longhorn1,/var/lib/longhorn2
 ----
+====
 
 . Install the Longhorn GKE COS node agent.
 +

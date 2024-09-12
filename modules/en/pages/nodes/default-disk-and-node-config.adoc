@@ -9,7 +9,7 @@ Customizing the default configurations for disks and nodes is useful for scaling
 
 Longhorn will not keep the node labels or annotations in sync with the current Longhorn node disks or tags. Nor will Longhorn keep the node disks or tags in sync with the nodes, labels or annotations after the default disks or tags have been created.
 
-=== Adding Node Tags to New Nodes
+== Adding Node Tags to New Nodes
 
 When a node does not have a tag, you can use a node annotation to set the node tags, as an alternative to using the Longhorn UI or API.
 
@@ -31,7 +31,7 @@ For example:
 ____
 *Result:* If the node tag list was originally empty, Longhorn updates the node with the tag list, and you will see the tags for that node updated according to the annotation. If the node already had tags, you will see no change to the tag list.
 
-=== Customizing Default Disks for New Nodes
+== Customizing Default Disks for New Nodes
 ____
 
 Longhorn uses the *Create Default Disk on Labeled Nodes* setting to enable default disk customization.
@@ -98,7 +98,7 @@ ____
 *Result:* The disks will be updated according to the annotation.
 ____
 
-=== Launch Longhorn with multiple disks
+== Launch Longhorn with multiple disks
 
 . Add the label to all nodes before launching Longhorn.
 +
