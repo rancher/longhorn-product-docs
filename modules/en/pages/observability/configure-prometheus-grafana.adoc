@@ -447,4 +447,4 @@ Once inside Grafana, import the prebuilt https://grafana.com/grafana/dashboards/
 See https://grafana.com/docs/grafana/latest/reference/export_import/[Grafana Lab - Export and import] for instructions on how to import a Grafana dashboard.
 +
 You should see the following dashboard at successful setup:
- image:/img/screenshots/monitoring/longhorn-example-grafana-dashboard.png[images]
+ image:screenshots/monitoring/longhorn-example-grafana-dashboard.png[images]
