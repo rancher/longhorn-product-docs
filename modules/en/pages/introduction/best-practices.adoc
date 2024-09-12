@@ -68,9 +68,9 @@ in particular, benefit from usage of specific kernel versions.
 
 * Optimizing or improving the filesystem: Use a kernel with version `v5.8` or later. See https://github.com/longhorn/longhorn/issues/2507#issuecomment-857195496[Issue
 #2507] for details.
-* Enabling the xref:references/settings.adoc#_freeze_filesystem_for_snapshot[Freeze Filesystem for Snapshot] setting: Use a
+* Enabling the xref:longhorn-system/settings.adoc#_freeze_filesystem_for_snapshot[Freeze Filesystem for Snapshot] setting: Use a
 kernel with version `5.17` or later to ensure that a volume crash during a filesystem freeze cannot lock up a node.
-* Enabling the xref:v2-data-engine/prerequisites.adoc[V2 Data Engine]: Use a kernel with version `5.19` or later to ensure
+* Enabling the xref:longhorn-system/v2-data-engine/prerequisites.adoc[V2 Data Engine]: Use a kernel with version `5.19` or later to ensure
 
 The list below contains known broken kernel versions that users should avoid using:
 
@@ -166,7 +166,7 @@ The following sections outline other recommendations for production environments
 
 * *Storage network*: Use a xref:advanced-resources/deploy/storage-network.adoc#_setting_storage_network[dedicated storage network] to improve IO performance and stability.
 * *Longhorn disk*: Use a xref:nodes-and-volumes/nodes/multidisk.adoc#_add_a_disk[dedicated disk] for Longhorn storage instead of using the root disk.
-* *Replica count*: Set the xref:references/settings.adoc#_default_replica_count[default replica count] to "2" to achieve data availability with better disk space usage or less impact to system performance. This practice is especially beneficial to data-intensive applications.
+* *Replica count*: Set the xref:longhorn-system/settings.adoc#_default_replica_count[default replica count] to "2" to achieve data availability with better disk space usage or less impact to system performance. This practice is especially beneficial to data-intensive applications.
 * *Storage tag*: Use xref:nodes-and-volumes/nodes/storage-tags.adoc[storage tags] to define storage tiering for data-intensive applications. For example, only high-performance disks can be used for storing performance-sensitive data.
 * *Data locality*: Use `best-effort` as the default xref:high-availability/data-locality.adoc[data locality] of Longhorn StorageClasses.
 +
@@ -212,7 +212,7 @@ You can also set a specific milli CPU value for instance manager pods on a parti
 
 NOTE: This field will overwrite the above setting for the specified node.
 
-Refer to xref:references/settings.adoc#_guaranteed_instance_manager_cpu[Guaranteed Instance Manager CPU] for more details.
+Refer to xref:longhorn-system/settings.adoc#_guaranteed_instance_manager_cpu[Guaranteed Instance Manager CPU] for more details.
 
 === V2 Data Engine
 
