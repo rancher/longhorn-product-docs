@@ -1,2 +1,2 @@
 = Troubleshooting and Maintenance
-
+:current-version: {page-component-version}

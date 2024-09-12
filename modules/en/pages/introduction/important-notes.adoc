@@ -4,37 +4,6 @@
 This page lists important notes for Longhorn v{current-version}.
 Please see https://github.com/longhorn/longhorn/releases/tag/v{current-version}[here] for the full release note.
 
-* <<warning,Warning>>
- ** <<unable-to-attach-volumes-created-before-v152-and-v144,Unable to Attach Volumes Created Before v1.5.2 and v1.4.4>>
-* <<deprecation,Deprecation>>
- ** <<environment-check-script,Environment Check Script>>
-* <<general,General>>
- ** <<supported-kubernetes-versions,Supported Kubernetes Versions>>
- ** <<pod-security-policies-disabled--pod-security-admission-introduction,Pod Security Policies Disabled \& Pod Security Admission Introduction>>
- ** <<command-line-tool,Command Line Tool>>
- ** <<minimum-xfs-filesystem-size,Minimum XFS Filesystem Size>>
- ** <<longhorn-pvc-with-block-volume-mode,Longhorn PVC with Block Volume Mode>>
- ** <<container-optimized-os-support,Container-Optimized OS Support>>
-* <<resilience,Resilience>>
- ** <<rwx-volumes-fast-failover,RWX Volumes Fast Failover>>
- ** <<timeout-configuration-for-replica-rebuilding-and-snapshot-cloning,Timeout Configuration for Replica Rebuilding and Snapshot Cloning>>
-* <<data-integrity-and-reliability,Data Integrity and Reliability>>
- ** <<support-periodic-and-on-demand-full-backups-to-enhance-backup-reliability,Support Periodic and On-Demand Full Backups to Enhance Backup Reliability>>
- ** <<high-availability-of-backing-images,High Availability of Backing Images>>
-* <<scheduling,Scheduling>>
- ** <<auto-balance-pressured-disks,Auto-Balance Pressured Disks>>
-* <<networking,Networking>>
- ** <<storage-network-support-for-read-write-many-rwx-volumes,Storage Network Support for Read-Write-Many (RWX) Volumes>>
-* <<v2-data-engine,V2 Data Engine>>
- ** <<longhorn-system-upgrade,Longhorn System Upgrade>>
- ** <<enable-both-vfio_pci-and-uio_pci_generic-kernel-modules,Enable Both `vfio_pci` and `uio_pci_generic` Kernel Modules>>
- ** <<online-replica-rebuilding,Online Replica Rebuilding>>
- ** <<block-type-disk-supports-spdk-aio-nvme-and-virtio-bdev-drivers,Block-type Disk Supports SPDK AIO, NVMe and VirtIO Bdev Drivers>>
- ** <<filesystem-trim,Filesystem Trim>>
- ** <<linux-kernel-on-longhorn-nodes,Linux Kernel on Longhorn Nodes>>
- ** <<snapshot-creation-time-as-shown-in-the-ui-occasionally-changes,Snapshot Creation Time As Shown in the UI Occasionally Changes>>
- ** <<unable-to-revert-a-volume-to-a-snapshot-created-before-longhorn-v170,Unable To Revert a Volume to a Snapshot Created Before Longhorn v1.7.0>>
-
 == Warning
 
 === Unable to Attach Volumes Created Before v1.5.2 and v1.4.4

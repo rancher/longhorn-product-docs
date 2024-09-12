@@ -1,5 +1,4 @@
-= Settings Reference
-:weight: 1
+= Settings
 :current-version: {page-component-version}
 
 == Customizing Default Settings

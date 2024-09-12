@@ -3,21 +3,6 @@
 
 This section describes how to handle planned node maintenance or upgrading Kubernetes version for the cluster.
 
-* <<updating-the-node-os-or-container-runtime,Updating the Node OS or Container Runtime>>
-* <<removing-a-disk,Removing a Disk>>
- ** <<reusing-the-node-name,Reusing the Node Name>>
-* <<removing-a-node,Removing a Node>>
-* <<upgrading-kubernetes,Upgrading Kubernetes>>
- ** <<in-place-upgrade,In-place Upgrade>>
- ** <<managed-kubernetes,Managed Kubernetes>>
-* <<node-drain-policy-recommendations,Node Drain Policy Recommendations>>
- ** <<important-notes,Important Notes>>
- ** <<block-if-contains-last-replica,Block If Contains Last Replica>>
- ** <<allow-if-last-replica-is-stopped,Allow If Last Replica Is Stopped>>
- ** <<always-allow,Always Allow>>
- ** <<block-for-eviction,Block For Eviction>>
- ** <<block-for-eviction-if-contains-last-replica,Block For Eviction If Contains Last Replica>>
-
 == Updating the Node OS or Container Runtime
 
 . Cordon the node. Longhorn will automatically disable the node scheduling when a Kubernetes node is cordoned.

@@ -5,7 +5,7 @@
 Longhorn supports MTLS to secure and encrypt the grpc communication between the control plane (longhorn-manager) and the data plane (instance-managers).
 For Certificate setup we use the Kubernetes secret mechanism in combination with an optional secret mount for the longhorn-manager/instance-manager.
 
-= Requirements
+== Requirements
 
 In a default installation mtls is disabled to enable mtls support one needs to create a `longhorn-grpc-tls` secret in the `longhorn-system` namespace before deployment.
 The secret is specified as an optional secret mount for the longhorn-manager/instance-managers so if it does not exist when these
@@ -13,7 +13,7 @@ components are started, mtls will not be used and a restart of the components wi
 
 The longhorn-manager has a non tls client fallback for mixed mode setups where there are old instance-managers that were started without tls support.
 
-= Self Signed Certificate Setup
+== Self Signed Certificate Setup
 
 You should create a `ca.crt` with the CA flag set which is then used to sign the `tls.crt` this will allow you to rotate the `tls.crt` in the future without service interruptions.
 You can use https://mariadb.com/docs/security/data-in-transit-encryption/create-self-signed-certificates-keys-openssl/[openssl]
@@ -57,6 +57,6 @@ NOTE: Make sure to use `echo -n` when generating the base64 encoding,
 otherwise a new line will be added at the end of the string
 which will cause an error during loading of the certificates.
 
-= History
+== History
 
 Available since v1.3.0 https://github.com/longhorn/longhorn/issues/3839[#3839]

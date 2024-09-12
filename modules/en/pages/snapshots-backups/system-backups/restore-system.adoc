@@ -1,21 +1,6 @@
 = Restore the Longhorn System
 :current-version: {page-component-version}
 
-* <<longhorn-system-restore-rollouts,What does the Longhorn system restore rollout to the cluster>>
-* <<limitations,What are the limitations>>
- ** <<restore-path,Restore Path>>
-* <<create-longhorn-system-restore,How to restore from Longhorn system backup>>
- ** <<prerequisite,Prerequisite>>
- ** <<using-longhorn-ui,Using Longhorn UI>>
- ** <<using-kubectl-command,Using kubectl command>>
-* <<delete-longhorn-system-restore,How to delete Longhorn system restore>>
- ** <<using-longhorn-ui-1,Using Longhorn UI>>
- ** <<using-kubectl-command-1,Using kubectl command>>
-* <<restart-longhorn-system-restore,How to restart Longhorn System Restore>>
-* <<configurable-settings,What settings are configurable>>
-* <<troubleshoot,How to troubleshoot>>
-* <<history,History>>
-
 == Longhorn System Restore Rollouts
 
 * Longhorn restores the resource from the xref:advanced-resources/system-backup-restore/backup-longhorn-system.adoc#_longhorn_system_backup_bundle[Longhorn System Backup Bundle].

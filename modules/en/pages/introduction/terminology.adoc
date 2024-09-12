@@ -1,43 +1,5 @@
 = Terminology
-:weight: 4
 :current-version: {page-origin-branch}
-
-* <<attachreattach,Attach/Reattach>>
-* <<backup,Backup>>
-* <<backupstore,Backupstore>>
-* <<backup-target,Backup target>>
-* <<backup-volume,Backup volume>>
-* <<block-storage,Block storage>>
-* <<crd,CRD>>
-* <<csi-driver,CSI Driver>>
-* <<disaster-recovery-volumes-dr-volume,Disaster Recovery Volumes (DR volume)>>
-* <<ext4,ext4>>
-* <<frontend-expansion,Frontend expansion>>
-* <<instance-manager,Instance Manager>>
-* <<longhorn-volume,Longhorn volume>>
-* <<mount,Mount>>
-* <<nfs,NFS>>
-* <<object-storage,Object storage>>
-* <<offline-expansion,Offline expansion>>
-* <<overprovisioning,Overprovisioning>>
-* <<persistentvolume,PersistentVolume>>
-* <<persistentvolumeclaim,PersistentVolumeClaim>>
-* <<primary-backups,Primary backups>>
-* <<remount,Remount>>
-* <<replica,Replica>>
-* <<s3,S3>>
-* <<salvage-a-volume,Salvage a volume>>
-* <<secondary-backups,Secondary backups>>
-* <<snapshot,Snapshot>>
-* <<stable-identity,Stable identity>>
-* <<statefulset,StatefulSet>>
-* <<storageclass,StorageClass>>
-* <<system-backup,System Backup>>
-* <<thin-provisioning,Thin provisioning>>
-* <<umount,Umount>>
-* <<volume-kubernetes-concept,Volume (Kubernetes concept)>>
-* <<xfs,XFS>>
-* <<smbcifs,SMB/CIFS>>
 
 == Attach/Reattach
 

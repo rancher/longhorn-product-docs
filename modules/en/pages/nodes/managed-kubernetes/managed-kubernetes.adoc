@@ -1,1 +1,2 @@
 = Managed Kubernetes
+:current-version: {page-component-version}

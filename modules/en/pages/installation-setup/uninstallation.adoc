@@ -3,15 +3,6 @@
 
 In this section, you'll learn how to uninstall Longhorn.
 
-* <<prerequisite,Prerequisite>>
-* <<uninstalling-longhorn-from-the-rancher-ui,Uninstalling Longhorn from the Rancher UI>>
-* <<uninstalling-longhorn-using-helm,Uninstalling Longhorn using Helm>>
-* <<uninstalling-longhorn-using-kubectl,Uninstalling Longhorn using kubectl>>
-* <<troubleshooting,Troubleshooting>>
- ** <<uninstalling-using-rancher-ui-or-helm-failed-i-am-not-sure-why,Uninstalling using Rancher UI or Helm failed, I am not sure why>>
- ** <<i-deleted-the-longhorn-app-from-rancher-ui-instead-of-following-the-uninstallation-procedure,I deleted the Longhorn App from Rancher UI instead of following the uninstallation procedure>>
- ** <<problems-with-crds,Problems with CRDs>>
-
 == Prerequisite
 
 To prevent Longhorn from being accidentally uninstalled (which leads to data lost),

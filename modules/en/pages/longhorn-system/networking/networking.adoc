@@ -1,5 +1,4 @@
 = Longhorn Networking
-:weight: 3
 :current-version: {page-component-version}
 
 == Overview

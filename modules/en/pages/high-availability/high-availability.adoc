@@ -1,2 +1,2 @@
 = High Availability
-
+:current-version: {page-component-version}

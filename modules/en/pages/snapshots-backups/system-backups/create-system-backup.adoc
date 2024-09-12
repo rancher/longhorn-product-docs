@@ -1,17 +1,6 @@
 = Create a Longhorn System Backup
 :current-version: {page-component-version}
 
-* <<longhorn-system-backup-bundle,What is in the Longhorn system backup bundle>>
-* <<create-longhorn-system-backup,How to create a Longhorn system backup>>
- ** <<prerequisite,Prerequisite>>
- ** <<configuration,Configuration>>
- ** <<using-longhorn-ui,Using Longhorn UI>>
- ** <<using-kubectl-command,Using kubectl command>>
-* <<delete-longhorn-system-backup,How to delete Longhorn system backup>>
- ** <<using-longhorn-ui-1,Using Longhorn UI>>
- ** <<using-kubectl-command-1,Using kubectl command>>
-* <<history,History>>
-
 == Longhorn System Backup Bundle
 
 Longhorn system backup creates a resource bundle and uploads it to the remote backup target.

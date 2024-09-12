@@ -1,28 +1,6 @@
 = Troubleshooting Problems
 :current-version: {page-component-version}
 
-* <<common-issues,Common issues>>
- ** <<volume-can-be-attacheddetached-from-ui-but-kubernetes-podstatefulset-etc-cannot-use-it,Volume can be attached/detached from UI, but Kubernetes Pod/StatefulSet etc cannot use it>>
-  *** <<using-with-flexvolume-plugin,Using with Flexvolume Plugin>>
-* <<troubleshooting-guide,Troubleshooting Guide>>
- ** <<ui,UI>>
- ** <<manager-and-engines,Manager and Engines>>
- ** <<csi-driver,CSI driver>>
- ** <<flexvolume-driver,Flexvolume Driver>>
-
-'''
-
-* <<common-issues,Common issues>>
- ** <<volume-can-be-attacheddetached-from-ui-but-kubernetes-podstatefulset-etc-cannot-use-it,Volume can be attached/detached from UI, but Kubernetes Pod/StatefulSet etc cannot use it>>
-  *** <<using-with-flexvolume-plugin,Using with Flexvolume Plugin>>
-* <<troubleshooting-guide,Troubleshooting Guide>>
- ** <<ui,UI>>
- ** <<manager-and-engines,Manager and Engines>>
- ** <<csi-driver,CSI driver>>
- ** <<flexvolume-driver,Flexvolume Driver>>
-
-'''
-
 ____
 You can generate a support bundle file for offline troubleshooting. See xref:troubleshoot/support-bundle.adoc[Support Bundle] for detail.
 ____

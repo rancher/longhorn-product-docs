@@ -1,5 +1,4 @@
 = Backing Image Backup
-:weight: 2
 :current-version: {page-component-version}
 
 As of v1.6.0, Longhorn supports backing up of backing images.

@@ -1,5 +1,4 @@
 = Storage Tags
-:weight: 2
 :current-version: {page-component-version}
 
 == Overview

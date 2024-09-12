@@ -1,13 +1,10 @@
-= Volume Clone Support
+= Clone Volumes
 :description: Creating a new volume as a duplicate of an existing volume
-:weight: 3
 :current-version: {page-component-version}
 
 Longhorn supports https://kubernetes.io/docs/concepts/storage/volume-pvc-datasource/[CSI volume cloning].
 
-== Volume Cloning
-
-=== Clone a Volume Using YAML
+== Clone a Volume Using YAML
 
 Suppose that you have the following `source-pvc`:
 
@@ -52,16 +49,16 @@ In addition to the requirements listed at https://kubernetes.io/docs/concepts/st
 the `cloned-pvc` must have the same `resources.requests.storage` as the `source-pvc`.
 ____
 
-=== Clone Volume Using the Longhorn UI
+== Clone Volume Using the Longhorn UI
 
-==== Clone a volume
+=== Clone a volume
 
 . Go to the *Volume* page.
 . Select a volume, and then click *Clone Volume* in the *Operation* menu.
 . (Optional) Configure the settings of the new volume.
 . Click *OK*.
 
-==== Clone a Volume Using a Snapshot
+=== Clone a Volume Using a Snapshot
 
 . Go to the *Volume* page.
 . Click the name of the volume that you want to clone.
@@ -71,7 +68,7 @@ ____
 
 image::screenshots/snapshots-and-backups/clone-volume-modal.png[Image]
 
-==== Clone Multiple Volumes (Bulk Cloning)
+=== Clone Multiple Volumes (Bulk Cloning)
 
 . Go to the *Volume* page.
 . Select the volume you want to clone.
