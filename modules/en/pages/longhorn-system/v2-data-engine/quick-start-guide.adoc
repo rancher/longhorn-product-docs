@@ -2,29 +2,6 @@
 :aliases: ["/spdk/quick-start.md"]
 :current-version: {page-component-version}
 
-*Table of Contents*
-
-* <<_prerequisites,Prerequisites>>
- ** <<_configure_kernel_modules_and_huge_pages,Configure Kernel Modules and Huge Pages>>
- ** <<_load_nvme_tcp_kernel_module,Load `nvme-tcp` Kernel Module>>
- ** <<_load_kernel_modules_automatically_on_boot,Load Kernel Modules Automatically on Boot>>
- ** <<_restart_kubelet,Restart `kubelet`>>
- ** <<_check_environment,Check Environment>>
-  *** <<_using_the_longhorn_command_line_tool,Using the Longhorn Command Line Tool>>
-  *** <<_using_the_script,Using the Script>>
-* <<_installation,Installation>>
- ** <<_install_longhorn_system,Install Longhorn System>>
- ** <<_enable_v2_data_engine,Enable V2 Data Engine>>
- ** <<_cpu_and_memory_usage,CPU and Memory Usage>>
- ** <<_add_block_type_disks_in_longhorn_nodes,Add `block-type` Disks in Longhorn Nodes>>
-  *** <<_prepare_disks,Prepare disks>>
-  *** <<_add_disks_to_nodelonghornio,Add disks to `node.longhorn.io`>>
-* <<_application_deployment,Application Deployment>>
- ** <<_create_a_storageclass,Create a StorageClass>>
- ** <<_create_longhorn_volumes,Create Longhorn Volumes>>
-
-'''
-
 Longhorn's V2 Data Engine harnesses the power of the Storage Performance Development Kit (SPDK) to elevate its overall performance. The integration significantly reduces I/O latency while simultaneously boosting IOPS and throughput. The enhancement provides a high-performance storage solution capable of meeting diverse workload demands.
 
 *V2 Data Engine is currently a PREVIEW feature and should NOT be utilized in a production environment.* At present, a volume with V2 Data Engine only supports
