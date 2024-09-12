@@ -5,7 +5,7 @@ Longhorn provides two mechanisms for maintaining volume functionality in a varie
 
 == Automatic Workload Pod Deletion
 
-This recovery mechanism is enabled by the setting xref:references/settings.adoc#_automatically_delete_workload_pod_when_the_volume_is_detached_unexpectedly[_Automatically Delete Workload Pod when The Volume Is Detached Unexpectedly_].
+This recovery mechanism is enabled by the setting xref:longhorn-system/settings.adoc#_automatically_delete_workload_pod_when_the_volume_is_detached_unexpectedly[_Automatically Delete Workload Pod when The Volume Is Detached Unexpectedly_].
 
 When one of the following situations occurs, Longhorn automatically attempts to delete workload pods that are managed by a controller (for example, Deployment, StatefulSet, or DaemonSet). After deletion, the controller restarts the workload pod and Kubernetes handles volume reattachment and remounting.
 
@@ -13,7 +13,7 @@ When one of the following situations occurs, Longhorn automatically attempts to 
 . A volume was automatically salvaged after all replicas became faulty, possibly because of a network connectivity issue. Longhorn attempts to identify the usable replicas and uses them for the volume.
 . An error occurred on a Share Manager pod that uses an RWX volume.
 
-If you want to prevent Longhorn from automatically deleting workload pods, disable the setting xref:references/settings.adoc#_automatically_delete_workload_pod_when_the_volume_is_detached_unexpectedly[_Automatically Delete Workload Pod when The Volume Is Detached Unexpectedly_] on the Longhorn UI.
+If you want to prevent Longhorn from automatically deleting workload pods, disable the setting xref:longhorn-system/settings.adoc#_automatically_delete_workload_pod_when_the_volume_is_detached_unexpectedly[_Automatically Delete Workload Pod when The Volume Is Detached Unexpectedly_] on the Longhorn UI.
 
 Longhorn does not delete pods without a controller because such pods cannot be restarted after deletion. To recover volumes that are unexpectedly detached, you must manually delete and restart the pods without a controller.
 
@@ -32,6 +32,6 @@ NOTE: This mechanism might not work in some situations. For example, when the vo
 
 == Summary
 
-<<_automatic_workload_pod_deletion,Automatic Workload Pod Deletion>> is triggered when unexpected failures happen. The controller deletes and then restarts the workload pod, and Kubernetes handles volume reattachment and remounting. The process may cause interruptions to the workload. If you want to prevent Longhorn from automatically deleting workload pods, disable the setting xref:references/settings.adoc#_automatically_delete_workload_pod_when_the_volume_is_detached_unexpectedly[_Automatically Delete Workload Pod when The Volume Is Detached Unexpectedly_] on the Longhorn UI.
+<<_automatic_workload_pod_deletion,Automatic Workload Pod Deletion>> is triggered when unexpected failures happen. The controller deletes and then restarts the workload pod, and Kubernetes handles volume reattachment and remounting. The process may cause interruptions to the workload. If you want to prevent Longhorn from automatically deleting workload pods, disable the setting xref:longhorn-system/settings.adoc#_automatically_delete_workload_pod_when_the_volume_is_detached_unexpectedly[_Automatically Delete Workload Pod when The Volume Is Detached Unexpectedly_] on the Longhorn UI.
 
 <<_automatic_volume_remounting,Automatic Volume Remounting>> is triggered when the volume's filesystem changes to read-only. Longhorn remounts the global mount point on the host to change the state back to read-write.
