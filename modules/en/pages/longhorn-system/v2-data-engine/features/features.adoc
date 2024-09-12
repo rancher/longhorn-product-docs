@@ -10,6 +10,6 @@
 * Snapshot creation, deletion and reversion
 * Volume backup and restoration
 * link:./selective-v2-data-engine-activation[Selective V2 Data Engine activation]
-* xref:v2-data-engine/nodes-and-volumes/volumes/trim-filesystem.adoc[Filesystem Trim]
+* xref:volumes/trim-filesystem.adoc[Filesystem Trim]
 
 In addition to the features mentioned above, additional functionalities such as replica number adjustment, online replica rebuilding and so on will be introduced in future versions.

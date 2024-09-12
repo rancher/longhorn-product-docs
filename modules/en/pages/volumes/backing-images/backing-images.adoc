@@ -186,7 +186,7 @@ Since v1.3.0, users can download existing backing image files to the local via U
 [discrete]
 ==== Clean up backing images in disks
 
-* Longhorn automatically cleans up the unused backing image files in the disks based on xref:references/settings.adoc#_backing_image_cleanup_wait_interval[the setting `Backing Image Cleanup Wait Interval`]. But Longhorn will retain at least one file in a disk for each backing image anyway.
+* Longhorn automatically cleans up the unused backing image files in the disks based on xref:longhorn-system/settings.adoc#_backing_image_cleanup_wait_interval[the setting `Backing Image Cleanup Wait Interval`]. But Longhorn will retain at least one file in a disk for each backing image anyway.
 * You can manually remove backing images from disks using the Longhorn UI. Go to *Setting* > *Backing Image*, and then click the name of a specific backing image. In the window that opens, select one or more disks and then click *Clean Up*.
 * Once there is one replica in a disk using a backing image, no matter what the replica's current state is, the backing image file in this disk cannot be cleaned up.
 
