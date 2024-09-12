@@ -1,6 +1,5 @@
 = Troubleshooting
 :aliases: ["/spdk/troubleshooting.md"]
-:weight: 4
 :current-version: {page-component-version}
 
 * <<installation,Installation>>

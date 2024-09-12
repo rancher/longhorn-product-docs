@@ -1,5 +1,4 @@
 = Support Bundle
-:weight: 2
 :current-version: {page-component-version}
 
 Since v1.4.0, Longhorn replaced the in-house support bundle generation with a general-purpose https://github.com/rancher/support-bundle-kit[support bundle kit].

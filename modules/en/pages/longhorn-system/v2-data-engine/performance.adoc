@@ -1,7 +1,6 @@
 = Performance
 :aliases: ["/spdk/performance.md"]
 :doctype: book
-:weight: 3
 :current-version: {page-component-version}
 
 == Performance Measurement Tools
@@ -26,7 +25,7 @@ image::diagrams/v2-data-engine/equinix-bw.svg[Image]
 
 image::diagrams/v2-data-engine/equinix-latency.svg[Image]
 
-= AWS EC2 (c5d.xlarge)
+== AWS EC2 (c5d.xlarge)
 
 * Machine: Tokyo/c5d.xlarge
 * CPU: Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz

@@ -1,6 +1,5 @@
 = Storage Network
 :doctype: book
-:weight: 8
 :current-version: {page-component-version}
 
 By Default, Longhorn uses the default Kubernetes cluster CNI network that is limited to a single interface and shared with other workloads cluster-wide. In case you have a situation where network segregation is needed, Longhorn supports isolating Longhorn in-cluster data traffic with the Storage Network setting.
@@ -20,9 +19,9 @@ When all volumes are detached, Longhorn attempts to restart all Instance Manager
 When one or more Longhorn volumes are still attached, the customized setting is applied to the Instance Manager only when no engines and replica instances are running. You are required to reconfigure the setting after detaching the remaining volumes. Alternatively, you can wait for the next setting synchronization, which will occur in an hour.
 ====
 
-= Setting Storage Network
+== Setting Storage Network
 
-== Prerequisite
+=== Prerequisite
 
 The Multus NetworkAttachmentDefinition network for the storage network setting must be reachable in pods across different cluster nodes.
 
@@ -62,7 +61,7 @@ When an RWX volume is created with the storage network, the NFS mount point conn
 
 For more information, see xref:important-notes/index.adoc#_storage_network_support_for_read_write_many_rwx_volumes[Storage Network Support for Read-Write-Many (RWX) Volume] in Important Notes.
 
-= History
+== History
 
 * https://github.com/longhorn/longhorn/issues/2285[Original Feature Request (since v1.3.0)]
 * https://github.com/longhorn/longhorn/issues/8184[[FEATURE\] Support storage network for RWX volumes (since v1.7.0)]
