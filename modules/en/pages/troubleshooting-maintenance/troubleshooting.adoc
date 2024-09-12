@@ -1,5 +1,4 @@
 = Troubleshooting Problems
-:weight: 1
 :current-version: {page-component-version}
 
 * <<common-issues,Common issues>>

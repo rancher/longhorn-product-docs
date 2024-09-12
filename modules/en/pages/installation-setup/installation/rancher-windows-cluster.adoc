@@ -1,5 +1,4 @@
 = Rancher Windows Cluster
-:weight: 5
 :current-version: {page-component-version}
 
 Rancher can provision a Windows cluster with combination of Linux worker nodes and Windows worker nodes.
