@@ -5,9 +5,9 @@ Each node in the Kubernetes cluster where Longhorn is installed must fulfill the
 
 * A container runtime compatible with Kubernetes (Docker v1.13+, containerd v1.3.7+, etc.)
 * Kubernetes ≥ v1.21
-* `open-iscsi` is installed, and the `iscsid` daemon is running on all the nodes. This is necessary, since Longhorn relies on `iscsiadm` on the host to provide persistent volumes to Kubernetes. For help installing `open-iscsi`, refer to <<installing-open-iscsi,this section.>>
+* `open-iscsi` is installed, and the `iscsid` daemon is running on all the nodes. This is necessary, since Longhorn relies on `iscsiadm` on the host to provide persistent volumes to Kubernetes. For help installing `open-iscsi`, refer to <<_installing_open_iscsi,this section.>>
 * RWX support requires that each node has a NFSv4 client installed.
- ** For installing a NFSv4 client, refer to <<installing-nfsv4-client,this section.>>
+ ** For installing a NFSv4 client, refer to <<_installing_nfsv4_client,this section.>>
 * The host filesystem supports the `file extents` feature to store the data. Currently we support:
  ** ext4
  ** XFS
@@ -16,7 +16,7 @@ Each node in the Kubernetes cluster where Longhorn is installed must fulfill the
 
 The Longhorn workloads must be able to run as root in order for Longhorn to be deployed and operated properly.
 
-<<using-the-environment-check-script,This script>> can be used to check the Longhorn environment for potential issues.
+<<_using_the_environment_check_script,This script>> can be used to check the Longhorn environment for potential issues.
 
 For the minimum recommended hardware, refer to the xref:deploy/best-practices.adoc#_minimum_recommended_hardware[best practices guide.]
 

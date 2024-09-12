@@ -832,10 +832,10 @@ To disable this setting, set the value to *0*.
 
 This setting takes effect only when the following conditions are met:
 
-* <<replica-auto-balance,Replica Auto Balance>> is set to *best-effort*. To disable this setting (disk pressure threshold) when replica auto-balance is set to best-effort, set the value of this setting to *0*.
+* <<_replica_auto_balance,Replica Auto Balance>> is set to *best-effort*. To disable this setting (disk pressure threshold) when replica auto-balance is set to best-effort, set the value of this setting to *0*.
 * At least one other disk on the node has sufficient available space.
 
-This setting is not affected by <<replica-node-level-soft-anti-affinity,Replica Node Level Soft Anti-Affinity>>, which can prevent Longhorn from rebuilding a replica on the same node. Regardless of that setting's value, this setting still allows Longhorn to attempt replica rebuilding on a different disk on the same node for migration purposes.
+This setting is not affected by <<_replica_node_level_soft_anti_affinity,Replica Node Level Soft Anti_Affinity>>, which can prevent Longhorn from rebuilding a replica on the same node. Regardless of that setting's value, this setting still allows Longhorn to attempt replica rebuilding on a different disk on the same node for migration purposes.
 
 === Storage Minimal Available Percentage
 
@@ -906,35 +906,35 @@ If you do not detach all volumes before the settings are synchronized, the setti
 |===
 | Setting | Additional Information | Affected Components
 
-| <<kubernetes-taint-toleration,Kubernetes Taint Toleration>>
+| <<_kubernetes_taint_toleration,Kubernetes Taint Toleration>>
 | xref:advanced-resources/deploy/taint-toleration.adoc[Taints and Tolerations]
 | System-managed components
 
-| <<priority-class,Priority Class>>
+| <<_priority_class,Priority Class>>
 | xref:advanced-resources/deploy/priority-class.adoc[Priority Class]
 | System-managed components
 
-| <<system-managed-components-node-selector,System Managed Components Node Selector>>
+| <<_system_managed_components_node_selector,System Managed Components Node Selector>>
 | xref:advanced-resources/deploy/node-selector.adoc[Node Selector]
 | System-managed components
 
-| <<storage-network,Storage Network>>
+| <<_storage_network,Storage Network>>
 | xref:advanced-resources/deploy/storage-network.adoc[Storage Network]
 | Instance Manager and Backing Image components
 
-| <<v1-data-engine,V1 Data Engine>>
+| <<_v1_data_engine,V1 Data Engine>>
 |
 | Instance Manager component
 
-| <<v2-data-engine,V2 Data Engine>>
+| <<_v2_data_engine,V2 Data Engine>>
 | xref:v2-data-engine/index.adoc[V2 Data Engine (Preview Feature)]
 | Instance Manager component
 
-| <<guaranteed-instance-manager-cpu,Guaranteed Instance Manager CPU>>
+| <<_guaranteed_instance_manager_cpu,Guaranteed Instance Manager CPU>>
 |
 | Instance Manager component
 
-| <<guaranteed-instance-manager-cpu-for-v2-data-engine,Guaranteed Instance Manager CPU for V2 Data Engine>>
+| <<_guaranteed_instance_manager_cpu_for_v2_data_engine,Guaranteed Instance Manager CPU for V2 Data Engine>>
 |
 | Instance Manager component
 |===
@@ -1045,7 +1045,7 @@ ____
 
 The storage network uses Multus NetworkAttachmentDefinition to segregate the in-cluster data traffic from the default Kubernetes cluster network.
 
-By default, the this setting applies only to RWO (Read-Write-Once) volumes. For RWX (Read-Write-Many) volumes, see <<storage-network-for-rwx-volume-enabled,Storage Network for RWX Volume Enabled>> setting.
+By default, the this setting applies only to RWO (Read-Write-Once) volumes. For RWX (Read-Write-Many) volumes, see <<_storage_network_for_rwx_volume_enabled,Storage Network for RWX Volume Enabled>> setting.
 
 WARNING: This setting should change after all Longhorn volumes are detached because some pods that run Longhorn system components are recreated to apply the setting. When all volumes are detached, Longhorn attempts to restart all Instance Manager and Backing Image Manager pods immediately. When volumes are in use, Longhorn components are not restarted, and you need to reconfigure the settings after detaching the remaining volumes; otherwise, you can wait for the setting change to be reconciled in an hour.
 
@@ -1063,7 +1063,7 @@ This setting allows Longhorn to use the storage network for RWX volumes.
 ====
 This setting should change after all Longhorn RWX volumes are detached because some pods that run Longhorn components are recreated to apply the setting. When all RWX volumes are detached, Longhorn attempts to restart all CSI plugin pods immediately. When volumes are in use, pods that run Longhorn components are not restarted, so the settings must be reconfigured after the remaining volumes are detached. If you are unable to manually reconfigure the settings, you can opt to wait because settings are synchronized hourly.
 
-The RWX volumes are mounted with the storage network within the CSI plugin pod container network namespace. As a result, restarting the CSI plugin pod may lead to unresponsive RWX volume mounts. When this occurs, you must restart the workload pod to re-establish the mount connection. Alternatively, you can enable the <<automatically-delete-workload-pod-when-the-volume-is-detached-unexpectedly,Automatically Delete Workload Pod when The Volume Is Detached Unexpectedly>> setting.
+The RWX volumes are mounted with the storage network within the CSI plugin pod container network namespace. As a result, restarting the CSI plugin pod may lead to unresponsive RWX volume mounts. When this occurs, you must restart the workload pod to re-establish the mount connection. Alternatively, you can enable the <<_automatically_delete_workload_pod_when_the_volume_is_detached_unexpectedly,Automatically Delete Workload Pod when The Volume Is Detached Unexpectedly>> setting.
 ====
 
 For more information, see xref:advanced-resources/deploy/storage-network.adoc[Storage Network].

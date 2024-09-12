@@ -7,7 +7,7 @@
 * Longhorn does not restore existing `Volumes` and their associated `PersistentVolume` and `PersistentVolumeClaim`.
 * Longhorn automatically restores a `Volume` from its latest backup.
 * To prevent overwriting eligible settings, Longhorn does not restore the `ConfigMap/longhorn-default-setting`.
-* Longhorn does not restore <<configurable-settings,configurable settings>>.
+* Longhorn does not restore <<_configurable_settings,configurable settings>>.
 
 == Limitations
 
@@ -72,7 +72,7 @@ restore-demo   Completed   59s
 
 == Delete Longhorn System Restore
 
-WARNING: Deleting the SystemRestore also deletes the associated job and will abort the remaining resource rollouts. You can <<restart-longhorn-system-restore,Restart the Longhorn System Restore>> to roll out the remaining resources.
+WARNING: Deleting the SystemRestore also deletes the associated job and will abort the remaining resource rollouts. You can <<_restart_longhorn_system_restore,Restart the Longhorn System Restore>> to roll out the remaining resources.
 
 You can abort or remove a completed Longhorn system restore using Longhorn UI. Or with the `kubectl` command.
 
@@ -96,8 +96,8 @@ systemrestore.longhorn.io "restore-demo" deleted
 
 == Restart Longhorn System Restore
 
-. <<delete-longhorn-system-restore,Delete Longhorn System Restore>> that is in progress.
-. <<create-longhorn-system-restore,Create Longhorn System Restore>>.
+. <<_delete_longhorn_system_restore,Delete Longhorn System Restore>> that is in progress.
+. <<_create_longhorn_system_restore,Create Longhorn System Restore>>.
 
 == Configurable Settings
 
@@ -119,7 +119,7 @@ Some settings are excluded as configurable before the Longhorn system restore.
 ----
 
 . Resolve if the issue is identifiable, ex: remove the problematic restoring resource.
-. <<restart-longhorn-system-restore,Restart the Longhorn system restore>>.
+. <<_restart_longhorn_system_restore,Restart the Longhorn system restore>>.
 
 == History
 

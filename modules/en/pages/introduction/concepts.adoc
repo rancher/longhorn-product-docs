@@ -11,7 +11,7 @@ For an overview of Longhorn features, refer to xref:what-is-longhorn.adoc[this s
 For the installation requirements, go to xref:deploy/install/index.adoc#_installation_requirements[this section.]
 
 ____
-This section assumes familiarity with Kubernetes persistent storage concepts. For more information on these concepts, refer to the <<appendix-how-persistent-storage-works-in-kubernetes,appendix.>> For help with the terminology used in this page, refer to xref:terminology.adoc[this section.]
+This section assumes familiarity with Kubernetes persistent storage concepts. For more information on these concepts, refer to the <<_appendix_how_persistent_storage_works_in_kubernetes,appendix.>> For help with the terminology used in this page, refer to xref:terminology.adoc[this section.]
 ____
 
 == 1. Design
@@ -213,7 +213,7 @@ The snapshot feature is also a part of Longhorn's rebuilding process. Every time
 
 ==== 2.4.1. How Snapshots Work
 
-A snapshot is like a layer of an image, with the oldest snapshot used as the base layer, and newer snapshots on top. Data is only included in a new snapshot if it overwrites data in an older snapshot. Together, a chain of snapshots shows the current state of the data. For a more detailed breakdown of how data is read from a replica, refer to the section on <<231-how-read-and-write-operations-work-for-replicas,read and write operations for replicas.>>
+A snapshot is like a layer of an image, with the oldest snapshot used as the base layer, and newer snapshots on top. Data is only included in a new snapshot if it overwrites data in an older snapshot. Together, a chain of snapshots shows the current state of the data. For a more detailed breakdown of how data is read from a replica, refer to the section on <<_2_3_1_how_read_and_write_operations_work_for_replicas,read and write operations for replicas.>>
 
 Snapshots cannot change after they are created, unless a snapshot is deleted, in which case its changes are conflated with the next most recent snapshot. New data is always written to the live version. New snapshots are always created from live data.
 
