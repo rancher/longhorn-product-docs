@@ -10,7 +10,7 @@ It is the responsibility of the Kubernetes distribution to deploy the snapshot c
 For more information, see https://kubernetes.io/docs/concepts/storage/volume-snapshots/[CSI Volume Snapshots].
 ____
 
-==== If your Kubernetes Distribution Does Not Bundle the Snapshot Controller
+== If your Kubernetes Distribution Does Not Bundle the Snapshot Controller
 
 You may manually install these components by executing the following steps.
 
@@ -46,7 +46,7 @@ Therefore, we suggest deleting the previous snapshot controller in the `default`
 See the https://github.com/kubernetes-csi/external-snapshotter#usage[Usage] section from the kubernetes
 external-snapshotter git repo for additional information.
 
-==== Add a Default `VolumeSnapshotClass`
+== Add a Default `VolumeSnapshotClass`
 
 Ensure the availability of the Snapshot CRDs. Afterwards create a default `VolumeSnapshotClass`.
 

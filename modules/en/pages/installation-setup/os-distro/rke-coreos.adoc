@@ -3,7 +3,7 @@
 
 For minimalist Linux Operating systems, you'll need a little extra configuration to use Longhorn with RKE (Rancher Kubernetes Engine).  This document outlines the requirements for using RKE and CoreOS.
 
-=== Background
+== Background
 
 CSI doesn't work with CoreOS + RKE before Longhorn v0.4.1. The reason is that in the case of CoreOS, RKE sets the argument `root-dir=/opt/rke/var/lib/kubelet` for the kubelet , which is different from the default value `/var/lib/kubelet`.
 
@@ -17,12 +17,12 @@ Furthermore, the kubelet will instruct the CSI plugin to mount the Longhorn volu
 
 Therefore, in this case, Kubernetes cannot connect to Longhorn using the CSI driver without additional configuration.
 
-=== Requirements
+== Requirements
 
 * Kubernetes v1.11 or higher.
 * Longhorn v0.4.1 or higher.
 
-=== 1. Add extra binds for the kubelet
+== 1. Add extra binds for the kubelet
 
 ____
 This step is only required for For CoreOS + and Kubernetes v1.11. It is not needed for Kubernetes v1.12+.
@@ -40,7 +40,7 @@ services:
 
 This makes sure the kubelet plugins directory is exposed for CSI driver installation.
 
-=== 2. Start the iSCSI Daemon
+== 2. Start the iSCSI Daemon
 
 If you want to enable iSCSI daemon automatically at boot, you need to enable the systemd service:
 
@@ -57,15 +57,15 @@ sudo su
 systemctl start iscsid
 ----
 
-=== Troubleshooting
+== Troubleshooting
 
-==== Failed to get arg root-dir: Cannot get kubelet root dir, no related proc for root-dir detection ...
+=== Failed to get arg root-dir: Cannot get kubelet root dir, no related proc for root-dir detection ...
 
 This error happens because Longhorn cannot detect the root dir setup for the kubelet, so the CSI plugin installation failed.
 
 You can override the root-dir detection by setting environment variable `KUBELET_ROOT_DIR` in https://github.com/longhorn/longhorn/blob/v{current-version}/deploy/longhorn.yaml.
 
-==== How to find `root-dir`?
+=== How to find `root-dir`?
 
 Run `ps aux | grep kubelet` and get the argument `--root-dir` on host node.
 
@@ -81,7 +81,7 @@ You will find `root-dir` in the cmdline of proc `kubelet`. If it's not set, the 
 
 If the kubelet is using a configuration file, you need to check the configuration file to locate the `root-dir` parameter.
 
-=== References
+== References
 
 https://github.com/kubernetes-csi/driver-registrar
 
