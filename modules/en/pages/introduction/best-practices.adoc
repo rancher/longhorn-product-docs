@@ -1,32 +1,7 @@
 = Best Practices
-:weight: 5
 :current-version: {page-origin-branch}
 
 We recommend the following setup for deploying Longhorn in production.
-
-* <<minimum-recommended-hardware,Minimum Recommended Hardware>>
-* <<architecture,Architecture>>
-* <<operating-system,Operating System>>
-* <<kubernetes-version,Kubernetes Version>>
-* <<node-and-disk-setup,Node and Disk Setup>>
- ** <<use-a-dedicated-disk,Use a Dedicated Disk>>
- ** <<minimal-available-storage-and-over-provisioning,Minimal Available Storage and Over-provisioning>>
- ** <<disk-space-management,Disk Space Management>>
- ** <<setting-up-extra-disks,Setting up Extra Disks>>
-* <<configuring-default-disks-before-and-after-installation,Configuring Default Disks Before and After Installation>>
-* <<volume-performance-optimization,Volume Performance Optimization>>
- ** <<io-performance,IO Performance>>
- ** <<space-efficiency,Space Efficiency>>
- ** <<disaster-recovery,Disaster Recovery>>
-* <<deploying-workloads,Deploying Workloads>>
-* <<volume-maintenance,Volume Maintenance>>
-* <<guaranteed-instance-manager-cpu,Guaranteed Instance Manager CPU>>
- ** <<v1-data-engine,V1 Data Engine>>
- ** <<v2-data-engine,V2 Data Engine>>
-* <<storageclass,StorageClass>>
-* <<scheduling-settings,Scheduling Settings>>
- ** <<replica-node-level-soft-anti-affinity,Replica Node Level Soft Anti-Affinity>>
- ** <<allow-volume-creation-with-degraded-availability,Allow Volume Creation with Degraded Availability>>
 
 == Minimum Recommended Hardware
 
@@ -171,7 +146,7 @@ Any extra disks must be written in the `/etc/fstab` file to allow automatic moun
 
 Don't use a symbolic link for the extra disks. Use `mount --bind` instead of `ln -s` and make sure it's in the `fstab` file. For details, see xref:nodes-and-volumes/nodes/multidisk.adoc#_use_an_alternative_path_for_a_disk_on_the_node[the section about multiple disk support.]
 
-== Configuring Default Disks Before and After Installation
+=== Configuring Default Disks Before and After Installation
 
 To use a directory other than the default `/var/lib/longhorn` for storage, the `Default Data Path` setting can be changed before installing the system. For details on changing pre-installation settings, refer to xref:advanced-resources/deploy/customizing-default-settings.adoc[this section.]
 
@@ -225,7 +200,7 @@ For each volume, schedule at least one recurring backup. If you must run Longhor
 
 Longhorn system will create snapshots automatically when rebuilding a replica. Recurring snapshots or backups can also automatically clean up the system-generated snapshot.
 
-== Guaranteed Instance Manager CPU
+=== Guaranteed Instance Manager CPU
 
 We recommend setting the CPU request for Longhorn instance manager pods.
 

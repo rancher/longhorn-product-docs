@@ -2,13 +2,6 @@
 :aliases: ["/spdk/troubleshooting.md"]
 :current-version: {page-component-version}
 
-* <<installation,Installation>>
- ** <<package-linux-modules-extra-xxx-x-generic-has-no-installation-candidate-error-during-installation-on-debian-machines,"Package 'linux-modules-extra-x.x.x-x-generic' Has No Installation Candidate" Error During Installation on Debian Machines>>
-* <<disk,Disk>>
- ** <<invalid-argument-error-in-disk-status-after-adding-a-block-type-disk,"Invalid argument" Error in Disk Status After Adding a Block-Type Disk>>
-
-'''
-
 == Installation
 
 === "Package 'linux-modules-extra-x.x.x-x-generic' Has No Installation Candidate" Error During Installation on Debian Machines

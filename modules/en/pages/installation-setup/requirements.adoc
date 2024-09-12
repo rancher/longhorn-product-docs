@@ -1,4 +1,5 @@
 = Requirements
+:current-version: {page-component-version}
 
 Each node in the Kubernetes cluster where Longhorn is installed must fulfill the following requirements:
 

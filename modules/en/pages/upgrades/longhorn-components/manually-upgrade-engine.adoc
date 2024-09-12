@@ -3,13 +3,13 @@
 
 In this section, you'll learn how to manually upgrade the Longhorn Engine from the Longhorn UI.
 
-=== Prerequisites
+== Prerequisites
 
 Always make backups before upgrading the Longhorn engine images.
 
 Upgrade the Longhorn manager before upgrading the Longhorn engine.
 
-=== Offline Upgrade
+== Offline Upgrade
 
 Follow these steps if the live upgrade is not available, or if the volume is stuck in degraded state:
 
@@ -17,7 +17,7 @@ Follow these steps if the live upgrade is not available, or if the volume is stu
 . Select all the volumes using batch selection. Click the batch operation button *Upgrade Engine*, and choose the engine image available in the list. It's the default engine shipped with the manager for this release.
 . Resume all workloads. Any volume not part of a Kubernetes workload must be attached from the Longhorn UI.
 
-=== Live upgrade
+== Live upgrade
 
 Live upgrade is supported for upgrading from v1.6.x to v{current-version}.
 
@@ -35,6 +35,6 @@ During the live upgrade, the user will see double number of the replicas tempora
 
 Notice after the live upgrade, Rancher or Kubernetes would still show the old version of image for the engine, and new version for the replicas. It's expected. The upgrade is success if you see the new version of image listed as the volume image in the Volume Detail page.
 
-=== Clean up the old image
+== Clean up the old image
 
 After you've done upgrade for all the images, select `Settings/Engine Image` from Longhorn UI. Now you should able to remove the non-default image.

@@ -3,7 +3,7 @@
 
 In this section, you'll have a better understanding of the space usage info presented by the Longhorn UI.
 
-=== Whole Cluster Space Usage
+== Whole Cluster Space Usage
 
 In `Dashboard` page, Longhorn will show you the cluster space usage info:
 
@@ -17,7 +17,7 @@ image::screenshots/volumes-and-nodes/space-usage-info-dashboard-page.png[Image]
 
 `Disabled`: The total space of the disks/nodes on which Longhorn volumes are not allowed for scheduling.
 
-=== Space Usage of Each Node
+== Space Usage of Each Node
 
 In `Node` page, Longhorn will show the space allocation, schedule, and usage info for each node:
 

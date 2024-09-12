@@ -1,2 +1,2 @@
 = Operating System and Distribution Configuration
-
+:current-version: {page-component-version}

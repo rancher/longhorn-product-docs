@@ -1,103 +1,13 @@
-= Settings Reference
-:weight: 1
+= Settings
 :current-version: {page-component-version}
 
-* <<customizing-default-settings,Customizing Default Settings>>
-* <<general,General>>
- ** <<node-drain-policy,Node Drain Policy>>
- ** <<detach-manually-attached-volumes-when-cordoned,Detach Manually Attached Volumes When Cordoned>>
- ** <<automatically-clean-up-system-generated-snapshot,Automatically Clean up System Generated Snapshot>>
- ** <<automatically-clean-up-outdated-snapshots-of-recurring-backup-jobs,Automatically Clean up Outdated Snapshots of Recurring Backup Jobs>>
- ** <<automatically-delete-workload-pod-when-the-volume-is-detached-unexpectedly,Automatically Delete Workload Pod when The Volume Is Detached Unexpectedly>>
- ** <<automatic-salvage,Automatic Salvage>>
- ** <<concurrent-automatic-engine-upgrade-per-node-limit,Concurrent Automatic Engine Upgrade Per Node Limit>>
- ** <<concurrent-volume-backup-restore-per-node-limit,Concurrent Volume Backup Restore Per Node Limit>>
- ** <<create-default-disk-on-labeled-nodes,Create Default Disk on Labeled Nodes>>
- ** <<custom-resource-api-version,Custom Resource API Version>>
- ** <<default-data-locality,Default Data Locality>>
- ** <<default-data-path,Default Data Path>>
- ** <<default-engine-image,Default Engine Image>>
- ** <<default-longhorn-static-storageclass-name,Default Longhorn Static StorageClass Name>>
- ** <<default-replica-count,Default Replica Count>>
- ** <<deleting-confirmation-flag,Deleting Confirmation Flag>>
- ** <<disable-revision-counter,Disable Revision Counter>>
- ** <<enable-upgrade-checker,Enable Upgrade Checker>>
- ** <<latest-longhorn-version,Latest Longhorn Version>>
- ** <<allow-collecting-longhorn-usage-metrics,Allow Collecting Longhorn Usage Metrics>>
- ** <<pod-deletion-policy-when-node-is-down,Pod Deletion Policy When Node is Down>>
- ** <<registry-secret,Registry Secret>>
- ** <<replica-replenishment-wait-interval,Replica Replenishment Wait Interval>>
- ** <<system-managed-pod-image-pull-policy,System Managed Pod Image Pull Policy>>
- ** <<backing-image-cleanup-wait-interval,Backing Image Cleanup Wait Interval>>
- ** <<backing-image-recovery-wait-interval,Backing Image Recovery Wait Interval>>
- ** <<default-min-number-of-backing-image-copies,Default Min Number Of Backing Image Copies>>
- ** <<engine-to-replica-timeout,Engine to Replica Timeout>>
- ** <<support-bundle-manager-image,Support Bundle Manager Image>>
- ** <<support-bundle-failed-history-limit,Support Bundle Failed History Limit>>
- ** <<support-bundle-node-collection-timeout,Support Bundle Node Collection Timeout>>
- ** <<fast-replica-rebuild-enabled,Fast Replica Rebuild Enabled>>
- ** <<timeout-of-http-client-to-replica-file-sync-server,Timeout of HTTP Client to Replica File Sync Server>>
- ** <<long-grpc-timeout,Long gRPC Timeout>>
- ** <<v1-data-engine,V1 Data Engine>>
- ** <<rwx-volume-fast-failover-experimental,RWX Volume Fast Failover (Experimental)>>
-* <<v2-data-engine-preview-feature,V2 Data Engine (Preview Feature)>>
- ** <<v2-data-engine,V2 Data Engine>>
- ** <<v2-data-engine-hugepage-limit,V2 Data Engine Hugepage Limit>>
- ** <<guaranteed-instance-manager-cpu-for-v2-data-engine,Guaranteed Instance Manager CPU for V2 Data Engine>>
-* <<snapshot,Snapshot>>
- ** <<snapshot-data-integrity,Snapshot Data Integrity>>
- ** <<immediate-snapshot-data-integrity-check-after-creating-a-snapshot,Immediate Snapshot Data Integrity Check After Creating a Snapshot>>
- ** <<snapshot-data-integrity-check-cronjob,Snapshot Data Integrity Check CronJob>>
- ** <<snapshot-maximum-count,Snapshot Maximum Count>>
- ** <<freeze-filesystem-for-snapshot,Freeze Filesystem For Snapshot>>
-* <<orphan,Orphan>>
- ** <<orphaned-data-automatic-deletion,Orphaned Data Automatic Deletion>>
-* <<backups,Backups>>
- ** <<allow-recurring-job-while-volume-is-detached,Allow Recurring Job While Volume Is Detached>>
- ** <<backup-target,Backup Target>>
- ** <<backup-target-credential-secret,Backup Target Credential Secret>>
- ** <<backupstore-poll-interval,Backupstore Poll Interval>>
- ** <<failed-backup-time-to-live,Failed Backup Time To Live>>
- ** <<cronjob-failed-jobs-history-limit,Cronjob Failed Jobs History Limit>>
- ** <<cronjob-successful-jobs-history-limit,Cronjob Successful Jobs History Limit>>
- ** <<restore-volume-recurring-jobs,Restore Volume Recurring Jobs>>
- ** <<backup-compression-method,Backup Compression Method>>
- ** <<backup-concurrent-limit-per-backup,Backup Concurrent Limit Per Backup>>
- ** <<restore-concurrent-limit-per-backup,Restore Concurrent Limit Per Backup>>
-* <<scheduling,Scheduling>>
- ** <<allow-volume-creation-with-degraded-availability,Allow Volume Creation with Degraded Availability>>
- ** <<disable-scheduling-on-cordoned-node,Disable Scheduling On Cordoned Node>>
- ** <<replica-node-level-soft-anti-affinity,Replica Node Level Soft Anti-Affinity>>
- ** <<replica-zone-level-soft-anti-affinity,Replica Zone Level Soft Anti-Affinity>>
- ** <<replica-disk-level-soft-anti-affinity,Replica Disk Level Soft Anti-Affinity>>
- ** <<replica-auto-balance,Replica Auto Balance>>
- ** <<replica-auto-balance-disk-pressure-threshold-,Replica Auto Balance Disk Pressure Threshold (%)>>
- ** <<storage-minimal-available-percentage,Storage Minimal Available Percentage>>
- ** <<storage-over-provisioning-percentage,Storage Over Provisioning Percentage>>
- ** <<storage-reserved-percentage-for-default-disk,Storage Reserved Percentage For Default Disk>>
- ** <<allow-empty-node-selector-volume,Allow Empty Node Selector Volume>>
- ** <<allow-empty-disk-selector-volume,Allow Empty Disk Selector Volume>>
-* <<danger-zone,Danger Zone>>
- ** <<concurrent-replica-rebuild-per-node-limit,Concurrent Replica Rebuild Per Node Limit>>
- ** <<concurrent-backing-image-replenish-per-node-limit,Concurrent Backing Image Replenish Per Node Limit>>
- ** <<kubernetes-taint-toleration,Kubernetes Taint Toleration>>
- ** <<priority-class,Priority Class>>
- ** <<system-managed-components-node-selector,System Managed Components Node Selector>>
- ** <<kubernetes-cluster-autoscaler-enabled-experimental,Kubernetes Cluster Autoscaler Enabled (Experimental)>>
- ** <<storage-network,Storage Network>>
- ** <<storage-network-for-rwx-volume-enabled,Storage Network For RWX Volume Enabled>>
- ** <<remove-snapshots-during-filesystem-trim,Remove Snapshots During Filesystem Trim>>
- ** <<guaranteed-instance-manager-cpu,Guaranteed Instance Manager CPU>>
- ** <<disable-snapshot-purge,Disable Snapshot Purge>>
- ** <<auto-cleanup-snapshot-when-delete-backup,Auto Cleanup Snapshot When Delete Backup>>
-
-=== Customizing Default Settings
+== Customizing Default Settings
 
 To configure Longhorn before installing it, see xref:advanced-resources/deploy/customizing-default-settings.adoc[this section] for details.
 
-=== General
+== General
 
-==== Node Drain Policy
+=== Node Drain Policy
 
 ____
 Default: `block-if-contains-last-replica`
@@ -123,7 +33,7 @@ Each option has benefits and drawbacks. See xref:maintenance/maintenance.adoc#_n
 Recommendations] for help deciding which is most
 appropriate in your environment.
 
-==== Detach Manually Attached Volumes When Cordoned
+=== Detach Manually Attached Volumes When Cordoned
 
 ____
 Default: `false`
@@ -132,7 +42,7 @@ ____
 Longhorn will automatically detach volumes that are manually attached to the nodes which are cordoned.
 This prevent the draining process stuck by the PDB of instance-manager which still has running engine on the node.
 
-==== Automatically Clean up System Generated Snapshot
+=== Automatically Clean up System Generated Snapshot
 
 ____
 Default: `true`
@@ -140,7 +50,7 @@ ____
 
 Longhorn will generate system snapshot during replica rebuild, and if a user doesn't setup a recurring snapshot schedule, all the system generated snapshots would be left in the replica, and user has to delete them manually, this setting allow Longhorn to automatically cleanup system generated snapshot before and after replica rebuild.
 
-==== Automatically Clean up Outdated Snapshots of Recurring Backup Jobs
+=== Automatically Clean up Outdated Snapshots of Recurring Backup Jobs
 
 ____
 Default: `true`
@@ -150,7 +60,7 @@ If enabled, when running a recurring backup job, Longhorn takes a new snapshot b
 
 If disabled, this setting ensures that the retained snapshots directly correspond to the backups on the remote backup target.
 
-==== Automatically Delete Workload Pod when The Volume Is Detached Unexpectedly
+=== Automatically Delete Workload Pod when The Volume Is Detached Unexpectedly
 
 ____
 Default: `true`
@@ -169,7 +79,7 @@ This setting doesn't apply to below cases.
 * Workload pods with _cluster network_ RWX volumes. The setting does not apply to such pods because the Longhorn Share Manager, which provides the RWX NFS service, has its own resilience mechanism. This mechanism ensures availability until the volume is reattached without relying on the pod lifecycle to trigger volume reattachment. The setting does apply, however, to workload pods with _storage network_ RWX volumes. For more information, see xref:nodes-and-volumes/volumes/rwx-volumes.adoc[ReadWriteMany (RWX) Volume] and xref:advanced-resources/deploy/storage-network.adoc#_limitation[Storage Network].
 ====
 
-==== Automatic Salvage
+=== Automatic Salvage
 
 ____
 Default: `true`
@@ -177,7 +87,7 @@ ____
 
 If enabled, volumes will be automatically salvaged when all the replicas become faulty e.g. due to network disconnection. Longhorn will try to figure out which replica(s) are usable, then use them for the volume.
 
-==== Concurrent Automatic Engine Upgrade Per Node Limit
+=== Concurrent Automatic Engine Upgrade Per Node Limit
 
 ____
 Default: `0`
@@ -187,7 +97,7 @@ This setting controls how Longhorn automatically upgrades volumes' engines to th
 The value of this setting specifies the maximum number of engines per node that are allowed to upgrade to the default engine image at the same time.
 If the value is 0, Longhorn will not automatically upgrade volumes' engines to default version.
 
-==== Concurrent Volume Backup Restore Per Node Limit
+=== Concurrent Volume Backup Restore Per Node Limit
 
 ____
 Default: `5`
@@ -199,7 +109,7 @@ Longhorn blocks the backup restore once the restoring volume count exceeds the l
 
 Set the value to *0* to disable backup restore.
 
-==== Create Default Disk on Labeled Nodes
+=== Create Default Disk on Labeled Nodes
 
 ____
 Default: `false`
@@ -211,7 +121,7 @@ If disabled, the default disk will be created on all new nodes when the node is 
 
 This option is useful if you want to scale the cluster but don't want to use storage on the new nodes, or if you want to xref:nodes-and-volumes/nodes/default-disk-and-node-config.adoc[customize disks for Longhorn nodes].
 
-==== Custom Resource API Version
+=== Custom Resource API Version
 
 ____
 Default: `longhorn.io/v1beta2`
@@ -219,7 +129,7 @@ ____
 
 The current customer resource's API version, e.g. longhorn.io/v1beta2. Set by manager automatically.
 
-==== Default Data Locality
+=== Default Data Locality
 
 ____
 Default: `disabled`
@@ -236,7 +146,7 @@ There may or may not be a replica on the same node as the attached volume (workl
 Longhorn will not stop the volume, even if it cannot keep a replica local to the attached volume (workload) due to environment limitation, e.g. not enough disk space, incompatible disk tags, etc.
 * `strict-local`: This option enforces Longhorn keep the *only one replica* on the same node as the attached volume, and therefore, it offers higher IOPS and lower latency performance.
 
-==== Default Data Path
+=== Default Data Path
 
 ____
 Default: `/var/lib/longhorn/`
@@ -246,13 +156,13 @@ Default path to use for storing data on a host.
 
 Can be used with `Create Default Disk on Labeled Nodes` option, to make Longhorn only use the nodes with specific storage mounted at, for example, `/opt/longhorn` when scaling the cluster.
 
-==== Default Engine Image
+=== Default Engine Image
 
 The default engine image used by the manager. Can be changed on the manager starting command line only.
 
 Every Longhorn release will ship with a new Longhorn engine image. If the current Longhorn volumes are not using the default engine, a green arrow will show up, indicate this volume needs to be upgraded to use the default engine.
 
-==== Default Longhorn Static StorageClass Name
+=== Default Longhorn Static StorageClass Name
 
 ____
 Default: `longhorn-static`
@@ -260,7 +170,7 @@ ____
 
 The `storageClassName` is for persistent volumes (PVs) and persistent volume claims (PVCs) when creating PV/PVC for an existing Longhorn volume. Notice that it's unnecessary for users to create the related StorageClass object in Kubernetes since the StorageClass would only be used as matching labels for PVC bounding purpose. By default 'longhorn-static'.
 
-==== Default Replica Count
+=== Default Replica Count
 
 ____
 Default: `3`
@@ -270,7 +180,7 @@ The default number of replicas when creating the volume from Longhorn UI. For Ku
 
 The recommended way of choosing the default replica count is: if you have three or more nodes for storage, use 3; otherwise use 2. Using a single replica on a single node cluster is also OK, but the high availability functionality wouldn't be available. You can still take snapshots/backups of the volume.
 
-==== Deleting Confirmation Flag
+=== Deleting Confirmation Flag
 
 This flag protects Longhorn from unexpected uninstallation which leads to data loss.
 Set this flag to *true* to allow Longhorn uninstallation.
@@ -280,7 +190,7 @@ ____
 Default: `false`
 ____
 
-==== Disable Revision Counter
+=== Disable Revision Counter
 
 ____
 Default: `true`
@@ -288,7 +198,7 @@ ____
 
 Allows engine controller and engine replica to disable revision counter file update for every data write. This improves the data path performance. See xref:advanced-resources/deploy/revision_counter.adoc[Revision Counter] for details.
 
-==== Enable Upgrade Checker
+=== Enable Upgrade Checker
 
 ____
 Default: `true`
@@ -296,7 +206,7 @@ ____
 
 Upgrade Checker will check for a new Longhorn version periodically. When there is a new version available, it will notify the user in the Longhorn UI.
 
-==== Latest Longhorn Version
+=== Latest Longhorn Version
 
 The latest version of Longhorn available. Automatically updated by the Upgrade Checker.
 
@@ -304,7 +214,7 @@ ____
 Only available if `Upgrade Checker` is enabled.
 ____
 
-==== Allow Collecting Longhorn Usage Metrics
+=== Allow Collecting Longhorn Usage Metrics
 
 ____
 Default: `true`
@@ -405,7 +315,7 @@ ____
 The `Upgrade Checker` needs to be enabled to periodically send the collected data.
 ____
 
-==== Pod Deletion Policy When Node is Down
+=== Pod Deletion Policy When Node is Down
 
 ____
 Default: `do-nothing`
@@ -418,11 +328,11 @@ Defines the Longhorn action when a Volume is stuck with a StatefulSet/Deployment
 * `delete-deployment-pod` Longhorn will force delete Deployment terminating pods on nodes that are down to release Longhorn volumes so that Kubernetes can spin up replacement pods.
 * `delete-both-statefulset-and-deployment-pod` Longhorn will force delete StatefulSet/Deployment terminating pods on nodes that are down to release Longhorn volumes so that Kubernetes can spin up replacement pods.
 
-==== Registry Secret
+=== Registry Secret
 
 The Kubernetes Secret name.
 
-==== Replica Replenishment Wait Interval
+=== Replica Replenishment Wait Interval
 
 ____
 Default: `600`
@@ -432,7 +342,7 @@ When there is at least one failed replica volume in a degraded volume, this inte
 
 WARNING: This wait interval works only when there is at least one failed replica in the volume. And this option may block the rebuilding for a while.
 
-==== System Managed Pod Image Pull Policy
+=== System Managed Pod Image Pull Policy
 
 ____
 Default: `if-not-present`
@@ -448,7 +358,7 @@ This setting definition is exactly the same as that of in Kubernetes. Here are t
 * `if-not-present`. The image is pulled only if it is not already present locally.
 * `never`. The image is assumed to exist locally. No attempt is made to pull the image.
 
-==== Backing Image Cleanup Wait Interval
+=== Backing Image Cleanup Wait Interval
 
 ____
 Default: `60`
@@ -456,7 +366,7 @@ ____
 
 This interval in minutes determines how long Longhorn will wait before cleaning up the backing image file when there is no replica in the disk using it.
 
-==== Backing Image Recovery Wait Interval
+=== Backing Image Recovery Wait Interval
 
 ____
 Default: `300`
@@ -472,7 +382,7 @@ The interval in seconds determines how long Longhorn will wait before re-downloa
 * File state `unknown` means the related manager pods on the pod is not running or the node itself is down/disconnected.
 ====
 
-==== Default Min Number Of Backing Image Copies
+=== Default Min Number Of Backing Image Copies
 
 ____
 Default: `1`
@@ -480,7 +390,7 @@ ____
 
 The default minimum number of backing image copies Longhorn maintains.
 
-==== Engine to Replica Timeout
+=== Engine to Replica Timeout
 
 ____
 Default: `8`
@@ -488,7 +398,7 @@ ____
 
 The value in seconds specifies the timeout of the engine to the replica(s), and the value should be between 8 to 30 seconds.
 
-==== Support Bundle Manager Image
+=== Support Bundle Manager Image
 
 Longhorn uses the support bundle manager image to generate the support bundles.
 
@@ -500,7 +410,7 @@ ____
 Default: `longhornio/support-bundle-kit:v0.0.14`
 ____
 
-==== Support Bundle Failed History Limit
+=== Support Bundle Failed History Limit
 
 ____
 Default: `1`
@@ -512,7 +422,7 @@ The retained failed support bundle is for analysis purposes and needs to clean u
 
 Longhorn blocks support bundle creation when reaching the upper bound of the limitation. You can set this value to *0* to have Longhorn automatically purge all failed support bundles.
 
-==== Support Bundle Node Collection Timeout
+=== Support Bundle Node Collection Timeout
 
 ____
 Default: `30`
@@ -522,7 +432,7 @@ Number of minutes Longhorn allows for collection of node information and node lo
 
 If the collection process is not completed within the allotted time, Longhorn continues generating the support bundle without the uncollected node data.
 
-==== Fast Replica Rebuild Enabled
+=== Fast Replica Rebuild Enabled
 
 ____
 Default: `false`
@@ -530,7 +440,7 @@ ____
 
 The setting enables fast replica rebuilding feature. It relies on the checksums of snapshot disk files, so setting the snapshot-data-integrity to *enable* or *fast-check* is a prerequisite.
 
-==== Timeout of HTTP Client to Replica File Sync Server
+=== Timeout of HTTP Client to Replica File Sync Server
 
 ____
 Default: `30`
@@ -538,7 +448,7 @@ ____
 
 The value in seconds specifies the timeout of the HTTP client to the replica's file sync server used for replica rebuilding, volume cloning, snapshot cloning, etc.
 
-==== Long gRPC Timeout
+=== Long gRPC Timeout
 
 ____
 Default: `86400`
@@ -546,7 +456,7 @@ ____
 
 Number of seconds that Longhorn allows for the completion of replica rebuilding and snapshot cloning operations.
 
-==== V1 Data Engine
+=== V1 Data Engine
 
 ____
 Default: `true`
@@ -554,7 +464,7 @@ ____
 
 Setting that allows you to enable the V1 Data Engine.
 
-==== RWX Volume Fast Failover (Experimental)
+=== RWX Volume Fast Failover (Experimental)
 
 ____
 Default: `false`
@@ -562,9 +472,9 @@ ____
 
 Enable improved ReadWriteMany volume HA by shortening the time it takes to recover from a node failure.
 
-=== V2 Data Engine (Preview Feature)
+== V2 Data Engine (Preview Feature)
 
-==== V2 Data Engine
+=== V2 Data Engine
 
 ____
 Default: `false`
@@ -579,7 +489,7 @@ ____
 * When the V2 Data Engine is enabled, each instance-manager pod utilizes 1 CPU core. This high CPU usage is attributed to the spdk_tgt process running within each instance-manager pod. The spdk_tgt process is responsible for handling input/output (IO) operations and requires intensive polling. As a result, it consumes 100% of a dedicated CPU core to efficiently manage and process the IO requests, ensuring optimal performance and responsiveness for storage operations.
 ____
 
-==== V2 Data Engine Hugepage Limit
+=== V2 Data Engine Hugepage Limit
 
 ____
 Default: `2048`
@@ -587,7 +497,7 @@ ____
 
 Maximum huge page size (in MiB) for the V2 Data Engine.
 
-==== Guaranteed Instance Manager CPU for V2 Data Engine
+=== Guaranteed Instance Manager CPU for V2 Data Engine
 
 ____
 Default: `1250`
@@ -603,9 +513,9 @@ Number of millicpus on each node to be reserved for each instance manager pod wh
 * This is a global setting. Modifying the value triggers an automatic restart of the Instance Manager pods. However, V2 Instance Manager pods that use this setting are restarted only when no instances are running.
 ====
 
-=== Snapshot
+== Snapshot
 
-==== Snapshot Data Integrity
+=== Snapshot Data Integrity
 
 ____
 Default: `fast-check`
@@ -617,7 +527,7 @@ This setting allows users to enable or disable snapshot hashing and data integri
 * *enabled*: Enables periodic snapshot disk file hashing and data integrity checking. To detect the filesystem-unaware corruption caused by bit rot or other issues in snapshot disk files, Longhorn system periodically hashes files and finds corrupted ones. Hence, the system performance will be impacted during the periodical checking.
 * *fast-check*: Enable snapshot disk file hashing and fast data integrity checking. Longhorn system only hashes snapshot disk files if their are not hashed or the modification time are changed. In this mode, filesystem-unaware corruption cannot be detected, but the impact on system performance can be minimized.
 
-==== Immediate Snapshot Data Integrity Check After Creating a Snapshot
+=== Immediate Snapshot Data Integrity Check After Creating a Snapshot
 
 ____
 Default: `false`
@@ -625,7 +535,7 @@ ____
 
 Hashing snapshot disk files impacts the performance of the system. The immediate snapshot hashing and checking can be disabled to minimize the impact after creating a snapshot.
 
-==== Snapshot Data Integrity Check CronJob
+=== Snapshot Data Integrity Check CronJob
 
 ____
 Default: `0 0 */7 * *`
@@ -635,7 +545,7 @@ Unix-cron string format. The setting specifies when Longhorn checks the data int
 
 WARNING: Hashing snapshot disk files impacts the performance of the system. It is recommended to run data integrity checks during off-peak times and to reduce the frequency of checks.
 
-==== Snapshot Maximum Count
+=== Snapshot Maximum Count
 
 ____
 Default: `250`
@@ -643,7 +553,7 @@ ____
 
 Maximum snapshot count for a volume. The value should be between 2 to 250.
 
-==== Freeze Filesystem For Snapshot
+=== Freeze Filesystem For Snapshot
 
 ____
 Default: `false`
@@ -677,9 +587,9 @@ ____
 * `enabled`: Enables freezing before snapshots, regardless of the global setting.
 * `disabled`: Disables freezing before snapshots, regardless of the global setting.
 
-=== Orphan
+== Orphan
 
-==== Orphaned Data Automatic Deletion
+=== Orphaned Data Automatic Deletion
 
 ____
 Default: `false`
@@ -687,9 +597,9 @@ ____
 
 This setting allows Longhorn to automatically delete the `orphan` resource and its orphaned data like volume replica.
 
-=== Backups
+== Backups
 
-==== Allow Recurring Job While Volume Is Detached
+=== Allow Recurring Job While Volume Is Detached
 
 ____
 Default: `false`
@@ -699,7 +609,7 @@ If this setting is enabled, Longhorn automatically attaches the volume and takes
 
 NOTE: During the time the volume was attached automatically, the volume is not ready for the workload. The workload will have to wait until the recurring job finishes.
 
-==== Backup Target
+=== Backup Target
 
 ____
 Examples:
@@ -710,7 +620,7 @@ ____
 
 Endpoint used to access a backupstore.   Longhorn supports AWS S3, Azure, GCP, CIFS and NFS.  See xref:snapshots-and-backups/backup-and-restore/set-backup-target.adoc[Setting a Backup Target] for details.
 
-==== Backup Target Credential Secret
+=== Backup Target Credential Secret
 
 ____
 Example: `s3-secret`
@@ -718,7 +628,7 @@ ____
 
 The Kubernetes secret associated with the backup target. See xref:snapshots-and-backups/backup-and-restore/set-backup-target.adoc[Setting a Backup Target] for details.
 
-==== Backupstore Poll Interval
+=== Backupstore Poll Interval
 
 ____
 Default: `300`
@@ -728,7 +638,7 @@ The interval in seconds to poll the backup store for updating volumes' *Last Bac
 
 For more information on how the backupstore poll interval affects the recovery time objective and recovery point objective, refer to the xref:concepts.adoc#_3_4_backupstore_update_intervals_rto_and_rpo[concepts section.]
 
-==== Failed Backup Time To Live
+=== Failed Backup Time To Live
 
 ____
 Default: `1440`
@@ -738,7 +648,7 @@ The interval in minutes to keep the backup resource that was failed. Set to 0 to
 
 Failed backups will be checked and cleaned up during backupstore polling which is controlled by *Backupstore Poll Interval* setting. Hence this value determines the minimal wait interval of the cleanup. And the actual cleanup interval is multiple of *Backupstore Poll Interval*. Disabling *Backupstore Poll Interval* also means to disable failed backup auto-deletion.
 
-==== Cronjob Failed Jobs History Limit
+=== Cronjob Failed Jobs History Limit
 
 ____
 Default: `1`
@@ -748,7 +658,7 @@ This setting specifies how many failed backup or snapshot job histories should b
 
 History will not be retained if the value is 0.
 
-==== Cronjob Successful Jobs History Limit
+=== Cronjob Successful Jobs History Limit
 
 ____
 Default: `1`
@@ -758,7 +668,7 @@ This setting specifies how many successful backup or snapshot job histories shou
 
 History will not be retained if the value is 0.
 
-==== Restore Volume Recurring Jobs
+=== Restore Volume Recurring Jobs
 
 ____
 Default: `false`
@@ -775,7 +685,7 @@ ____
 * `enabled`: This option instructs Longhorn to restore volume recurring jobs/groups from the backup target forcibly.
 * `disabled`: This option instructs Longhorn no restoring volume recurring jobs/groups should be done.
 
-==== Backup Compression Method
+=== Backup Compression Method
 
 ____
 Default: `lz4`
@@ -787,7 +697,7 @@ This setting allows users to specify backup compression method.
 * `lz4`: Fast compression method. Suitable for flat files.
 * `gzip`: A bit of higher compression ratio but relatively slow.
 
-==== Backup Concurrent Limit Per Backup
+=== Backup Concurrent Limit Per Backup
 
 ____
 Default: `2`
@@ -795,7 +705,7 @@ ____
 
 This setting controls how many worker threads per backup concurrently.
 
-==== Restore Concurrent Limit Per Backup
+=== Restore Concurrent Limit Per Backup
 
 ____
 Default: `2`
@@ -803,9 +713,9 @@ ____
 
 This setting controls how many worker threads per restore concurrently.
 
-=== Scheduling
+== Scheduling
 
-==== Allow Volume Creation with Degraded Availability
+=== Allow Volume Creation with Degraded Availability
 
 ____
 Default: `true`
@@ -815,7 +725,7 @@ This setting allows user to create and attach a volume that doesn't have all the
 
 NOTE: It's recommended to disable this setting when using Longhorn in the production environment. See xref:best-practices.adoc[Best Practices] for details.
 
-==== Disable Scheduling On Cordoned Node
+=== Disable Scheduling On Cordoned Node
 
 ____
 Default: `true`
@@ -825,7 +735,7 @@ When this setting is checked, the Longhorn Manager will not schedule replicas on
 
 When this setting is un-checked, the Longhorn Manager will schedule replicas on Kubernetes cordoned nodes.
 
-==== Replica Node Level Soft Anti-Affinity
+=== Replica Node Level Soft Anti-Affinity
 
 ____
 Default: `false`
@@ -842,7 +752,7 @@ When this setting is un-checked, Longhorn Manager will forbid scheduling on node
 * This setting is superseded if replicas are forbidden to share a zone by the Replica Zone Level Anti-Affinity setting.
 ====
 
-==== Replica Zone Level Soft Anti-Affinity
+=== Replica Zone Level Soft Anti-Affinity
 
 ____
 Default: `true`
@@ -860,7 +770,7 @@ When this setting is un-checked, Longhorn Manager will forbid scheduling new rep
 * Longhorn relies on label `topology.kubernetes.io/zone=<Zone name of the node>` in the Kubernetes node object to identify the zone.
 ====
 
-==== Replica Disk Level Soft Anti-Affinity
+=== Replica Disk Level Soft Anti-Affinity
 
 ____
 Default: `true`
@@ -878,7 +788,7 @@ When this setting is un-checked, Longhorn Manager will forbid scheduling new rep
 * This setting is superseded if replicas are forbidden to share a zone or a node by either of the other Soft Anti-Affinity settings.
 ====
 
-==== Replica Auto Balance
+=== Replica Auto Balance
 
 ____
 Default: `disabled`
@@ -908,7 +818,7 @@ ____
 Longhorn does not forcefully re-schedule the replicas to a zone that does not have enough nodes
 to support even balance. Instead, Longhorn will re-schedule to balance at the node level.
 
-==== Replica Auto Balance Disk Pressure Threshold (%)
+=== Replica Auto Balance Disk Pressure Threshold (%)
 
 ____
 Default: `90`
@@ -927,7 +837,7 @@ This setting takes effect only when the following conditions are met:
 
 This setting is not affected by <<replica-node-level-soft-anti-affinity,Replica Node Level Soft Anti-Affinity>>, which can prevent Longhorn from rebuilding a replica on the same node. Regardless of that setting's value, this setting still allows Longhorn to attempt replica rebuilding on a different disk on the same node for migration purposes.
 
-==== Storage Minimal Available Percentage
+=== Storage Minimal Available Percentage
 
 ____
 Default: `25`
@@ -937,7 +847,7 @@ With the default setting of 25, the Longhorn Manager will allow scheduling new r
 
 See xref:nodes-and-volumes/nodes/multidisk.adoc#_configuration[Multiple Disks Support] for details.
 
-==== Storage Over Provisioning Percentage
+=== Storage Over Provisioning Percentage
 
 ____
 Default: `100`
@@ -949,7 +859,7 @@ By increase this setting, the Longhorn Manager will allow scheduling new replica
 
 It's worth noting that a volume replica may require more storage space than the volume's actual size, as the snapshots also require storage. You can regain space by deleting unnecessary snapshots.
 
-==== Storage Reserved Percentage For Default Disk
+=== Storage Reserved Percentage For Default Disk
 
 ____
 Default: `30`
@@ -959,7 +869,7 @@ The reserved percentage specifies the percentage of disk space that will not be 
 
 This setting only affects the default disk of a new adding node or nodes when installing Longhorn.
 
-==== Allow Empty Node Selector Volume
+=== Allow Empty Node Selector Volume
 
 ____
 Default: `true`
@@ -967,7 +877,7 @@ ____
 
 This setting allows replica of the volume without node selector to be scheduled on node with tags.
 
-==== Allow Empty Disk Selector Volume
+=== Allow Empty Disk Selector Volume
 
 ____
 Default: `true`
@@ -975,7 +885,7 @@ ____
 
 This setting allows replica of the volume without disk selector to be scheduled on disk with tags.
 
-=== Danger Zone
+== Danger Zone
 
 Starting with Longhorn v1.6.0, Longhorn allows you to modify the https://longhorn.io/docs/1.6.0/references/settings/#danger-zone[Danger Zone settings] without the need to wait for all volumes to become detached. Your preferred settings are immediately applied in the following scenarios:
 
@@ -1031,7 +941,7 @@ If you do not detach all volumes before the settings are synchronized, the setti
 
 For V1 and V2 Data Engine settings, you can disable the Data Engines only when all associated volumes are detached. For example, you can disable the V2 Data Engine only when all V2 volumes are detached (even when V1 volumes are still attached).
 
-==== Concurrent Replica Rebuild Per Node Limit
+=== Concurrent Replica Rebuild Per Node Limit
 
 ____
 Default: `5`
@@ -1049,7 +959,7 @@ ____
 * When the value is 0, the eviction and data locality feature won't work. But this shouldn't have any impact to any current replica rebuild and backup restore.
 ____
 
-==== Concurrent Backing Image Replenish Per Node Limit
+=== Concurrent Backing Image Replenish Per Node Limit
 
 ____
 Default: `5`
@@ -1059,7 +969,7 @@ This setting controls how many backing image copies on a node can be replenished
 
 Typically, Longhorn can block the backing image copy starting once the current replenishing count on a node exceeds the limit. But when the value is 0, it means disabling the backing image replenish.
 
-==== Kubernetes Taint Toleration
+=== Kubernetes Taint Toleration
 
 ____
 Example: `nodetype=storage:NoSchedule`
@@ -1081,7 +991,7 @@ Multiple tolerations can be set here, and these tolerations are separated by sem
 * `key1=value1:`  this toleration has empty effect. It matches all effects with key `key1`
 See xref:advanced-resources/deploy/taint-toleration.adoc[Taint Toleration] for details.
 
-==== Priority Class
+=== Priority Class
 
 ____
 Default: `longhorn-critical`
@@ -1100,7 +1010,7 @@ WARNING: This setting should only be changed after detaching all Longhorn volume
 
 See xref:advanced-resources/deploy/priority-class.adoc[Priority Class] for details.
 
-==== System Managed Components Node Selector
+=== System Managed Components Node Selector
 
 ____
 Example: `label-key1:label-value1;label-key2:label-value2`
@@ -1115,7 +1025,7 @@ WARNING: Since all Longhorn components will be restarted, the Longhorn system is
 To apply a setting immediately, ensure that all Longhorn volumes are detached. When volumes are in use, Longhorn components are not restarted, and you need to reconfigure the settings after detaching the remaining volumes; otherwise, you can wait for the setting change to be reconciled in an hour.
 Don't operate the Longhorn system while node selector settings are updated and Longhorn components are being restarted.
 
-==== Kubernetes Cluster Autoscaler Enabled (Experimental)
+=== Kubernetes Cluster Autoscaler Enabled (Experimental)
 
 ____
 Default: `false`
@@ -1127,7 +1037,7 @@ See xref:high-availability/k8s-cluster-autoscaler.adoc[Kubernetes Cluster Autosc
 
 WARNING: Replica rebuilding could be expensive because nodes with reusable replicas could get removed by the Kubernetes Cluster Autoscaler.
 
-==== Storage Network
+=== Storage Network
 
 ____
 Example: `kube-system/demo-192-168-0-0`
@@ -1141,7 +1051,7 @@ WARNING: This setting should change after all Longhorn volumes are detached beca
 
 See xref:advanced-resources/deploy/storage-network.adoc[Storage Network] for details.
 
-==== Storage Network For RWX Volume Enabled
+=== Storage Network For RWX Volume Enabled
 
 ____
 Default: `false`
@@ -1158,7 +1068,7 @@ The RWX volumes are mounted with the storage network within the CSI plugin pod c
 
 For more information, see xref:advanced-resources/deploy/storage-network.adoc[Storage Network].
 
-==== Remove Snapshots During Filesystem Trim
+=== Remove Snapshots During Filesystem Trim
 
 ____
 Example: `false`
@@ -1172,7 +1082,7 @@ Notice that trying to trim a removed files from a valid snapshot will do nothing
 
 See xref:nodes-and-volumes/volumes/trim-filesystem.adoc[Trim Filesystem] for details.
 
-==== Guaranteed Instance Manager CPU
+=== Guaranteed Instance Manager CPU
 
 ____
 Default: `12`
@@ -1199,7 +1109,7 @@ If it's hard to estimate the usage now, you can leave it with the default value,
 * After the setting is changed, the V1 Instance Manager pods that use this setting are automatically restarted when no instances are running.
 ====
 
-==== Disable Snapshot Purge
+=== Disable Snapshot Purge
 
 ____
 Default: `false`
@@ -1214,7 +1124,7 @@ Allowing snapshot purging during normal operations is ideal, but this process te
 space. If insufficient disk space prevents the process from continuing, consider temporarily disabling purging while
 data is moved to other disks.
 
-==== Auto Cleanup Snapshot When Delete Backup
+=== Auto Cleanup Snapshot When Delete Backup
 
 ____
 Default: `false`

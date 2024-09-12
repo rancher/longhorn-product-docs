@@ -1,2 +1,2 @@
-= Installation and Setup
+= Longhorn System
 :current-version: {page-component-version}

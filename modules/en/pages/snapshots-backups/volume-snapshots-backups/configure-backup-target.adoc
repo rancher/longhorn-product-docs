@@ -11,17 +11,6 @@ If you don't have access to AWS S3 or want to give the backupstore a try first, 
 
 Longhorn also supports setting up recurring snapshot/backup jobs for volumes, via Longhorn UI or Kubernetes Storage Class. See xref:snapshots-and-backups/scheduling-backups-and-snapshots.adoc[here] for details.
 
-This page covers the following topics:
-
-* <<set-up-aws-s3-backupstore,Set up AWS S3 Backupstore>>
-* <<set-up-gcp-cloud-storage-backupstore,Set up GCP Cloud Storage Backupstore>>
-* <<set-up-a-local-testing-backupstore,Set up a Local Testing Backupstore>>
-* <<using-a-self-signed-ssl-certificate-for-s3-communication,Using a self-signed SSL certificate for S3 communication>>
-* <<enable-virtual-hosted-style-access-for-s3-compatible-backupstore,Enable virtual-hosted-style access for S3 compatible Backupstore>>
-* <<set-up-nfs-backupstore,Set up NFS Backupstore>>
-* <<set-up-smbcifs-backupstore,Set up SMB/CIFS Backupstore>>
-* <<set-up-azure-blob-storage-backupstore,Set up Azure Blob Storage Backupstore>>
-
 === Set up AWS S3 Backupstore
 
 . Create a new bucket in https://aws.amazon.com/s3/[AWS S3.]
