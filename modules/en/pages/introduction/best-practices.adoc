@@ -164,7 +164,7 @@ The following sections outline other recommendations for production environments
 
 === IO Performance
 
-* *Storage network*: Use a xref:advanced-resources/deploy/storage-network.adoc#_setting_storage_network[dedicated storage network] to improve IO performance and stability.
+* *Storage network*: Use a xref:longhorn-system/networking/storage-network.adoc#_setting_storage_network[dedicated storage network] to improve IO performance and stability.
 * *Longhorn disk*: Use a xref:nodes-and-volumes/nodes/multidisk.adoc#_add_a_disk[dedicated disk] for Longhorn storage instead of using the root disk.
 * *Replica count*: Set the xref:longhorn-system/settings.adoc#_default_replica_count[default replica count] to "2" to achieve data availability with better disk space usage or less impact to system performance. This practice is especially beneficial to data-intensive applications.
 * *Storage tag*: Use xref:nodes-and-volumes/nodes/storage-tags.adoc[storage tags] to define storage tiering for data-intensive applications. For example, only high-performance disks can be used for storing performance-sensitive data.
@@ -178,7 +178,7 @@ For data-intensive applications, you can use pod scheduling functions such as no
 
 * *Recurring snapshots*: Periodically clean up system-generated snapshots and retain only the number of snapshots that makes sense for your implementation.
 +
-For applications with replication capability, periodically xref:concepts.adoc#_2_4_3_deleting_snapshots[delete all types of snapshots].
+For applications with replication capability, periodically xref:introduction/concepts.adoc#_2_4_3_deleting_snapshots[delete all types of snapshots].
 
 * *Recurring filesystem trim*: Periodically xref:nodes-and-volumes/volumes/trim-filesystem.adoc[trim the filesystem] inside volumes to reclaim disk space.
 * *Snapshot space management*: xref:snapshots-and-backups/snapshot-space-management.adoc[Configure global and volume-specific settings] to prevent unexpected disk space exhaustion.

@@ -168,7 +168,7 @@ The replica auto-balancing feature was enhanced in Longhorn v1.7.0 to address di
 
 === Storage Network Support for Read-Write-Many (RWX) Volumes
 
-Starting with Longhorn v1.7.0, the xref:important-notes/advanced-resources/deploy/storage-network.adoc[storage network] supports RWX volumes. However, the network's reliance on Multus results in a significant restriction.
+Starting with Longhorn v1.7.0, the xref:longhorn-system/networking/storage-network.adoc[storage network] supports RWX volumes. However, the network's reliance on Multus results in a significant restriction.
 
 Multus networks operate within the Kubernetes network namespace, so Longhorn can mount NFS endpoints only within the CSI plugin pod container network namespace. Consequently, NFS mount connections to the Share Manager pod become unresponsive when the CSI plugin pod restarts. This occurs because the namespace in which the connection was established is no longer available.
 

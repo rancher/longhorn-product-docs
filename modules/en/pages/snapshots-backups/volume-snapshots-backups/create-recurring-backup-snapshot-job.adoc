@@ -31,7 +31,7 @@ You can set recurring jobs on a Longhorn Volume, Kubernetes Persistent Volume Cl
 
 NOTE: When the PVC has recurring job labels, they will override all recurring job labels of the associated Volume.
 
-For more information on how snapshots and backups work, refer to the xref:concepts.adoc[concepts] section.
+For more information on how snapshots and backups work, refer to the xref:introduction/concepts.adoc[concepts] section.
 
 [NOTE]
 ====

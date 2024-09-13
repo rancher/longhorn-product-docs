@@ -1,7 +1,7 @@
 = Create a Snapshot
 :current-version: {page-component-version}
 
-A xref:concepts.adoc#_2_4_snapshots[snapshot] is the state of a Kubernetes Volume at any given point in time.
+A xref:introduction/concepts.adoc#_2_4_snapshots[snapshot] is the state of a Kubernetes Volume at any given point in time.
 
 To create a snapshot of an existing cluster,
 

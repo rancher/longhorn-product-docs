@@ -160,7 +160,7 @@ Allows for a Longhorn volume to be live migrated from one node to another.  Usef
 
 ____
 Default: `false`
-More details in xref:advanced-resources/security/volume-encryption.adoc[Encrypted Volumes]
+More details in xref:volumes/volume-encryption.adoc[Encrypted Volumes]
 ____
 
 [discrete]
@@ -296,7 +296,7 @@ ____
 
 ____
 Global setting: xref:references/settings.adoc#_disable_revision_counter[Disable Revision Counter].
-More details in xref:advanced-resources/deploy/revision_counter.adoc[Revision Counter].
+More details in xref:high-availability/deploy/revision_counter.adoc[Revision Counter].
 ____
 
 [discrete]
@@ -311,7 +311,7 @@ ____
 
 ____
 Global setting: xref:references/settings.adoc#_replica_node_level_soft_anti_affinity[Replica Node Level Soft Anti-Affinity].
-More details in xref:nodes-and-volumes/nodes/scheduling.adoc[Scheduling] and xref:best-practices.adoc#_replica_node_level_soft_anti_affinity[Best Practices].
+More details in xref:nodes-and-volumes/nodes/scheduling.adoc[Scheduling] and xref:introduction/best-practices.adoc#_replica_node_level_soft_anti_affinity[Best Practices].
 ____
 
 [discrete]

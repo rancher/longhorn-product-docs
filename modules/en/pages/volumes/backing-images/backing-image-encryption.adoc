@@ -264,7 +264,7 @@ parameters:
   csi.storage.k8s.io/node-stage-secret-namespace: "longhorn-system"
 ----
 
-For more information, see xref:advanced-resources/security/volume-encryption.adoc[Volume Encryption].
+For more information, see xref:volumes/volume-encryption.adoc[Volume Encryption].
 
 == Limitations
 
