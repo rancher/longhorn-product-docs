@@ -108,7 +108,7 @@ The desired number of copies (replicas) for redundancy.
 * Replicas will be placed across the widest possible set of zones, nodes, and disks in a cluster, subject to other constraints, such as NodeSelector.
 
 ____
-Global setting: xref:references/settings.adoc#_default_replica_count[Default Replica Count].
+Global setting: xref:longhorn-system/settings.adoc#_default_replica_count[Default Replica Count].
 ____
 
 [discrete]
@@ -135,7 +135,7 @@ URL of a backup to be restored from.
 
 ____
 Default: `ext4`
-For more details, see xref:nodes-and-volumes/volumes/create-volumes.adoc#_creating_longhorn_volumes_with_kubectl[Creating Longhorn Volumes with Kubernetes]
+For more details, see xref:volumes/create-volumes.adoc#_creating_longhorn_volumes_with_kubectl[Creating Longhorn Volumes with Kubernetes]
 ____
 
 [discrete]
@@ -143,7 +143,7 @@ ____
 
 ____
 Default: `""`
-For more details, see xref:nodes-and-volumes/volumes/create-volumes.adoc#_creating_longhorn_volumes_with_kubectl[Creating Longhorn Volumes with Kubernetes]
+For more details, see xref:volumes/create-volumes.adoc#_creating_longhorn_volumes_with_kubectl[Creating Longhorn Volumes with Kubernetes]
 ____
 
 [discrete]
@@ -160,7 +160,7 @@ Allows for a Longhorn volume to be live migrated from one node to another.  Usef
 
 ____
 Default: `false`
-More details in xref:advanced-resources/security/volume-encryption.adoc[Encrypted Volumes]
+More details in xref:volumes/volume-encryption.adoc[Encrypted Volumes]
 ____
 
 [discrete]
@@ -177,7 +177,7 @@ If enabled, try to keep the data on the same node as the workload for better per
 * If "strict-local" is not possible for whatever other reason, volume creation will be failed.  A "strict-local" replica that becomes displaced from its workload will be marked as "Stopped".
 
 ____
-Global setting: xref:references/settings.adoc#_default_data_locality[Default Data Locality]
+Global setting: xref:longhorn-system/settings.adoc#_default_data_locality[Default Data Locality]
  More details in xref:high-availability/data-locality.adoc[Data Locality].
 ____
 
@@ -194,7 +194,7 @@ If enabled, move replicas to more lightly-loaded nodes.
 * Other options are "disabled", "least-effort", "best-effort".
 
 ____
-Global setting: xref:references/settings.adoc#_replica_auto_balance[Replica Auto Balance]
+Global setting: xref:longhorn-system/settings.adoc#_replica_auto_balance[Replica Auto Balance]
 More details in xref:high-availability/auto-balance-replicas.adoc[Auto Balance Replicas].
 ____
 
@@ -209,7 +209,7 @@ ____
 A list of tags to select which disks are candidates for replica placement.
 
 ____
-More details in xref:nodes-and-volumes/nodes/storage-tags.adoc[Storage Tags]
+More details in xref:nodes/storage-tags.adoc[Storage Tags]
 ____
 
 [discrete]
@@ -223,7 +223,7 @@ ____
 A list of tags to select which nodes are candidates for replica placement.
 
 ____
-More details in xref:nodes-and-volumes/nodes/storage-tags.adoc[Storage Tags]
+More details in xref:nodes/storage-tags.adoc[Storage Tags]
 ____
 
 [discrete]
@@ -283,8 +283,8 @@ ____
 * Other values are "enabled" and "disabled".
 
 ____
-Global setting: xref:references/settings.adoc#_remove_snapshots_during_filesystem_trim[Remove Snapshots During Filesystem Trim].
-More details in xref:nodes-and-volumes/volumes/trim-filesystem.adoc[Trim Filesystem].
+Global setting: xref:longhorn-system/settings.adoc#_remove_snapshots_during_filesystem_trim[Remove Snapshots During Filesystem Trim].
+More details in xref:volumes/trim-filesystem.adoc[Trim Filesystem].
 ____
 
 [discrete]
@@ -295,8 +295,8 @@ Default: `true`
 ____
 
 ____
-Global setting: xref:references/settings.adoc#_disable_revision_counter[Disable Revision Counter].
-More details in xref:advanced-resources/deploy/revision_counter.adoc[Revision Counter].
+Global setting: xref:longhorn-system/settings.adoc#_disable_revision_counter[Disable Revision Counter].
+More details in xref:high-availability/revision_counter.adoc[Revision Counter].
 ____
 
 [discrete]
@@ -310,8 +310,8 @@ ____
 * Other values are "enabled" and "disabled".
 
 ____
-Global setting: xref:references/settings.adoc#_replica_node_level_soft_anti_affinity[Replica Node Level Soft Anti-Affinity].
-More details in xref:nodes-and-volumes/nodes/scheduling.adoc[Scheduling] and xref:best-practices.adoc#_replica_node_level_soft_anti_affinity[Best Practices].
+Global setting: xref:longhorn-system/settings.adoc#_replica_node_level_soft_anti_affinity[Replica Node Level Soft Anti-Affinity].
+More details in xref:nodes/scheduling.adoc[Scheduling] and xref:introduction/best-practices.adoc#_replica_node_level_soft_anti_affinity[Best Practices].
 ____
 
 [discrete]
@@ -325,8 +325,8 @@ ____
 * Other values are "enabled" and "disabled".
 
 ____
-Global setting: xref:references/settings.adoc#_replica_zone_level_soft_anti_affinity[Replica Zone Level Soft Anti-Affinity].
-More details in xref:nodes-and-volumes/nodes/scheduling.adoc[Scheduling].
+Global setting: xref:longhorn-system/settings.adoc#_replica_zone_level_soft_anti_affinity[Replica Zone Level Soft Anti-Affinity].
+More details in xref:nodes/scheduling.adoc[Scheduling].
 ____
 
 [discrete]
@@ -340,8 +340,8 @@ ____
 * Other values are "enabled" and "disabled".
 
 ____
-Global setting: xref:references/settings.adoc#_replica_disk_level_soft_anti_affinity[Replica Disk Level Soft Anti-Affinity].
-More details in xref:nodes-and-volumes/nodes/scheduling.adoc[Scheduling].
+Global setting: xref:longhorn-system/settings.adoc#_replica_disk_level_soft_anti_affinity[Replica Disk Level Soft Anti-Affinity].
+More details in xref:nodes/scheduling.adoc[Scheduling].
 ____
 
 [discrete]
@@ -356,7 +356,7 @@ ____
 * NOTE:  Built-in options vary by release.  Check your release details before setting this.
 
 ____
-More details in xref:nodes-and-volumes/volumes/rwx-volumes.adoc#_configuring_volume_mount_options[RWX Workloads]
+More details in xref:volumes/rwx-volumes.adoc#_configuring_volume_mount_options[RWX Workloads]
 ____
 
 [discrete]
@@ -369,7 +369,7 @@ ____
 * Specify "v2" to enable the V2 Data Engine (preview feature in v1.6.0). When unspecified, Longhorn uses the default value ("v1").
 
 ____
-Global setting: xref:references/settings.adoc#_v2_data_engine[V2 Data Engine].
+Global setting: xref:longhorn-system/settings.adoc#_v2_data_engine[V2 Data Engine].
 More details in xref:v2-data-engine/quick-start.adoc#_create_a_storageclass[V2 Data Engine Quick Start].
 ____
 
@@ -384,7 +384,7 @@ ____
 * Other values are "enabled" and "disabled".
 
 ____
-Global setting: xref:references/settings.adoc#_freeze_filesystem_for_snapshot[Freeze File System For Snapshot].
+Global setting: xref:longhorn-system/settings.adoc#_freeze_filesystem_for_snapshot[Freeze File System For Snapshot].
 ____
 
 == Helm Installs

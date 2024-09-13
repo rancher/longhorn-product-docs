@@ -42,7 +42,7 @@ If this is the case, provide a valid `NetworkAttachmentDefinition` and re-run Lo
 
 === Setting Storage Network After Longhorn Installation
 
-Set the setting xref:references/settings.adoc#_storage_network[Storage Network].
+Set the setting xref:longhorn-system/settings.adoc#_storage_network[Storage Network].
 
 [WARNING]
 ====
@@ -53,11 +53,11 @@ Longhorn is not aware of the updates. Hence this will cause malfunctioning and e
 
 === Setting Storage Network For RWX Volumes
 
-Configure the setting xref:references/settings.adoc#_storage_network_for_rwx_volume_enabled[Storage Network For RWX Volume Enabled].
+Configure the setting xref:longhorn-system/settings.adoc#_storage_network_for_rwx_volume_enabled[Storage Network For RWX Volume Enabled].
 
 = Limitation
 
-When an RWX volume is created with the storage network, the NFS mount point connection must be re-established when the CSI plugin pod restarts. Longhorn provides the xref:references/settings.adoc#_automatically_delete_workload_pod_when_the_volume_is_detached_unexpectedly[Automatically Delete Workload Pod when The Volume Is Detached Unexpectedly] setting, which automatically deletes RWX volume workload pods when the CSI plugin pod restarts. However, the workload pod's NFS mount point could become unresponsive when the setting is disabled or the pod is not managed by a controller. In such cases, you must manually restart the CSI plugin pod.
+When an RWX volume is created with the storage network, the NFS mount point connection must be re-established when the CSI plugin pod restarts. Longhorn provides the xref:longhorn-system/settings.adoc#_automatically_delete_workload_pod_when_the_volume_is_detached_unexpectedly[Automatically Delete Workload Pod when The Volume Is Detached Unexpectedly] setting, which automatically deletes RWX volume workload pods when the CSI plugin pod restarts. However, the workload pod's NFS mount point could become unresponsive when the setting is disabled or the pod is not managed by a controller. In such cases, you must manually restart the CSI plugin pod.
 
 For more information, see xref:important-notes/index.adoc#_storage_network_support_for_read_write_many_rwx_volumes[Storage Network Support for Read-Write-Many (RWX) Volume] in Important Notes.
 

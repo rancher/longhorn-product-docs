@@ -29,7 +29,7 @@ Backups can be created from snapshots. They contain the state of the volume at t
 
 Backups are made of 2 MB blocks in an object store.
 
-For a longer explanation of how snapshots and backups work, refer to the xref:concepts.adoc#_2_4_1_how_snapshots_work[conceptual documentation.]
+For a longer explanation of how snapshots and backups work, refer to the xref:introduction/concepts.adoc#_2_4_1_how_snapshots_work[conceptual documentation.]
 
 == Block storage
 
@@ -90,7 +90,7 @@ In an offline volume expansion, the volume is detached.
 
 == Overprovisioning
 
-Overprovisioning allows a server to view more storage capacity than has been physically reserved. That means we can schedule a total of 750 GiB Longhorn volumes on a 200 GiB disk with 50G reserved for the root file system. The *Storage Over Provisioning Percentage* can be configured in the Longhorn xref:references/settings.adoc[settings.]
+Overprovisioning allows a server to view more storage capacity than has been physically reserved. That means we can schedule a total of 750 GiB Longhorn volumes on a 200 GiB disk with 50G reserved for the root file system. The *Storage Over Provisioning Percentage* can be configured in the Longhorn xref:longhorn-system/settings.adoc[settings.]
 
 == PersistentVolume
 
@@ -130,7 +130,7 @@ Backups external to the Kubernetes cluster, on S3 or NFS.
 
 == Snapshot
 
-A snapshot in Longhorn captures the state of a volume at the time the snapshot is created. Each snapshot only captures changes that overwrite data from earlier snapshots, so a sequence of snapshots is needed to fully represent the full state of the volume. Volumes can be restored from a snapshot. For a longer explanation of snapshots, refer to the xref:concepts.adoc[conceptual documentation.]
+A snapshot in Longhorn captures the state of a volume at the time the snapshot is created. Each snapshot only captures changes that overwrite data from earlier snapshots, so a sequence of snapshots is needed to fully represent the full state of the volume. Volumes can be restored from a snapshot. For a longer explanation of snapshots, refer to the xref:introduction/concepts.adoc[conceptual documentation.]
 
 == Stable identity
 

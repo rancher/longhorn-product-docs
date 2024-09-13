@@ -150,7 +150,7 @@ Don't use a symbolic link for the extra disks. Use `mount --bind` instead of `ln
 
 To use a directory other than the default `/var/lib/longhorn` for storage, the `Default Data Path` setting can be changed before installing the system. For details on changing pre-installation settings, refer to xref:advanced-resources/deploy/customizing-default-settings.adoc[this section.]
 
-The xref:nodes-and-volumes/nodes/default-disk-and-node-config.adoc[Default node/disk configuration] feature can be used to customize the default disk after installation. Customizing the default configurations for disks and nodes is useful for scaling the cluster because it eliminates the need to configure Longhorn manually for each new node if the node contains more than one disk, or if the disk configuration is different for new nodes. Remember to enable `Create default disk only on labeled node` if applicable.
+The xref:nodes/default-disk-and-node-config.adoc[Default node/disk configuration] feature can be used to customize the default disk after installation. Customizing the default configurations for disks and nodes is useful for scaling the cluster because it eliminates the need to configure Longhorn manually for each new node if the node contains more than one disk, or if the disk configuration is different for new nodes. Remember to enable `Create default disk only on labeled node` if applicable.
 
 == Volume Performance Optimization
 
@@ -164,10 +164,10 @@ The following sections outline other recommendations for production environments
 
 === IO Performance
 
-* *Storage network*: Use a xref:advanced-resources/deploy/storage-network.adoc#_setting_storage_network[dedicated storage network] to improve IO performance and stability.
+* *Storage network*: Use a xref:longhorn-system/networking/storage-network.adoc#_setting_storage_network[dedicated storage network] to improve IO performance and stability.
 * *Longhorn disk*: Use a xref:nodes-and-volumes/nodes/multidisk.adoc#_add_a_disk[dedicated disk] for Longhorn storage instead of using the root disk.
 * *Replica count*: Set the xref:longhorn-system/settings.adoc#_default_replica_count[default replica count] to "2" to achieve data availability with better disk space usage or less impact to system performance. This practice is especially beneficial to data-intensive applications.
-* *Storage tag*: Use xref:nodes-and-volumes/nodes/storage-tags.adoc[storage tags] to define storage tiering for data-intensive applications. For example, only high-performance disks can be used for storing performance-sensitive data.
+* *Storage tag*: Use xref:nodes/storage-tags.adoc[storage tags] to define storage tiering for data-intensive applications. For example, only high-performance disks can be used for storing performance-sensitive data.
 * *Data locality*: Use `best-effort` as the default xref:high-availability/data-locality.adoc[data locality] of Longhorn StorageClasses.
 +
 For applications that support data replication (for example, a distributed database), you can use the `strict-local` option to ensure that only one replica is created for each volume. This practice prevents the extra disk space usage and IO performance overhead associated with volume replication.
@@ -178,10 +178,10 @@ For data-intensive applications, you can use pod scheduling functions such as no
 
 * *Recurring snapshots*: Periodically clean up system-generated snapshots and retain only the number of snapshots that makes sense for your implementation.
 +
-For applications with replication capability, periodically xref:concepts.adoc#_2_4_3_deleting_snapshots[delete all types of snapshots].
+For applications with replication capability, periodically xref:introduction/concepts.adoc#_2_4_3_deleting_snapshots[delete all types of snapshots].
 
-* *Recurring filesystem trim*: Periodically xref:nodes-and-volumes/volumes/trim-filesystem.adoc[trim the filesystem] inside volumes to reclaim disk space.
-* *Snapshot space management*: xref:snapshots-and-backups/snapshot-space-management.adoc[Configure global and volume-specific settings] to prevent unexpected disk space exhaustion.
+* *Recurring filesystem trim*: Periodically xref:volumes/trim-filesystem.adoc[trim the filesystem] inside volumes to reclaim disk space.
+* *Snapshot space management*: xref:snapshots-backups/volume-snapshots-backups/snapshot-space-management.adoc[Configure global and volume-specific settings] to prevent unexpected disk space exhaustion.
 
 === Disaster Recovery
 

@@ -254,7 +254,7 @@ apiVersion: v1
 
 == Restore to File
 
-For more information about restoring to file, refer to xref:advanced-resources/data-recovery/recover-without-system.adoc[this section.]
+For more information about restoring to file, refer to xref:data-integrity-recovery/data-recovery/recover-without-system.adoc[this section.]
 
  apiVersion: v1
  kind: Pod

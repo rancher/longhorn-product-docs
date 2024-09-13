@@ -11,7 +11,7 @@ For an overview of Longhorn features, refer to xref:what-is-longhorn.adoc[this s
 For the installation requirements, go to xref:deploy/install/index.adoc#_installation_requirements[this section.]
 
 ____
-This section assumes familiarity with Kubernetes persistent storage concepts. For more information on these concepts, refer to the <<_appendix_how_persistent_storage_works_in_kubernetes,appendix.>> For help with the terminology used in this page, refer to xref:terminology.adoc[this section.]
+This section assumes familiarity with Kubernetes persistent storage concepts. For more information on these concepts, refer to the <<_appendix_how_persistent_storage_works_in_kubernetes,appendix.>> For help with the terminology used in this page, refer to xref:introduction/terminology.adoc[this section.]
 ____
 
 == 1. Design
@@ -75,7 +75,7 @@ Longhorn does leverage iSCSI, so extra configuration of the node may be required
 
 The Longhorn UI interacts with the Longhorn Manager through the Longhorn API, and acts as a complement of Kubernetes. Through the Longhorn UI, you can manage snapshots, backups, nodes and disks.
 
-Besides, the space usage of the cluster worker nodes is collected and illustrated by the Longhorn UI. See xref:nodes-and-volumes/nodes/node-space-usage.adoc[here] for details.
+Besides, the space usage of the cluster worker nodes is collected and illustrated by the Longhorn UI. See xref:nodes/node-space-usage.adoc[here] for details.
 
 == 2. Longhorn Volumes and Primary Storage
 
@@ -92,7 +92,7 @@ Longhorn is a thin-provisioned storage system. That means a Longhorn volume will
 
 A Longhorn volume itself cannot shrink in size if you've removed content from your volume. For example, if you create a volume of 20 GB, used 10 GB, then removed the content of 9 GB, the actual size on the disk would still be 10 GB instead of 1 GB. This happens because Longhorn operates on the block level, not the filesystem level, so Longhorn doesn't know if the content has been removed by a user or not. That information is mostly kept at the filesystem level.
 
-For more introductions about the volume-size related concepts, see this xref:nodes-and-volumes/volumes/volume-size.adoc[doc] for more details.
+For more introductions about the volume-size related concepts, see this xref:volumes/volume-size.adoc[doc] for more details.
 
 [discrete]
 === 2.2. Reverting Volumes in Maintenance Mode
@@ -111,7 +111,7 @@ Each replica contains a chain of snapshots of a Longhorn volume. A snapshot is l
 
 For each Longhorn volume, multiple replicas of the volume should run in the Kubernetes cluster, each on a separate node. All replicas are treated the same, and the Longhorn Engine always runs on the same node as the pod, which is also the consumer of the volume. In that way, we make sure that even if the Pod is down, the Engine can be moved to another Pod and your service will continue undisrupted.
 
-The default replica count can be changed in the xref:references/settings.adoc#_default_replica_count[settings.] When a volume is attached, the replica count for the volume can be changed in the UI.
+The default replica count can be changed in the xref:longhorn-system/settings.adoc#_default_replica_count[settings.] When a volume is attached, the replica count for the volume can be changed in the UI.
 
 If the current healthy replica count is less than specified replica count, Longhorn will start rebuilding new replicas.
 

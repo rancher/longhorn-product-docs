@@ -40,7 +40,7 @@ For more information, see xref:deploy/install/install-with-kubectl.adoc[Install 
 
 == Prepare A Customized Default Longhorn Disk (Optional)
 
-To understand more about configuring the disks for Longhorn, please refer to the section xref:nodes-and-volumes/nodes/default-disk-and-node-config.adoc#_launch_longhorn_with_multiple_disks[Configuring Defaults for Nodes and Disks]
+To understand more about configuring the disks for Longhorn, please refer to the section xref:nodes/default-disk-and-node-config.adoc#_launch_longhorn_with_multiple_disks[Configuring Defaults for Nodes and Disks]
 
 Longhorn will use the directory `/var/lib/longhorn` as default storage mount point and that means Longhorn use the root device as the default storage. If you don't want to use the root device as the Longhorn storage, set *_defaultSettings.createDefaultDiskLabeledNodes_* true when installing Longhorn by helm:
 
@@ -109,7 +109,7 @@ oc apply -f auto-mount-machineconfig.yaml
 
 ==== Label and Annotate The Node
 
-Please refer to the section xref:nodes-and-volumes/nodes/default-disk-and-node-config.adoc#_customizing_default_disks_for_new_nodes[Customizing Default Disks for New Nodes] to label and annotate storage node on where your device is by oc commands:
+Please refer to the section xref:nodes/default-disk-and-node-config.adoc#_customizing_default_disks_for_new_nodes[Customizing Default Disks for New Nodes] to label and annotate storage node on where your device is by oc commands:
 
 [,bash]
 ----
