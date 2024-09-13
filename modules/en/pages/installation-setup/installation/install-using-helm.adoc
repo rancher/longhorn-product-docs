@@ -5,7 +5,7 @@ In this section, you will learn how to install Longhorn with Helm.
 
 == Prerequisites
 
-* Kubernetes cluster: Ensure that each node fulfills the xref:installation-setup/requirements.adoc[installation requirements].
+* Kubernetes cluster: Ensure that each node fulfills the xref:../../installation-setup/requirements.adoc[installation requirements].
 * Your workstation: Install https://helm.sh/docs/[Helm] v3.0 or later.
 
 ____
@@ -17,7 +17,7 @@ ____
 ____
 *Note*:
 
-* The initial settings for Longhorn can be found in xref:advanced-resources/deploy/customizing-default-settings.adoc#_using_helm[customized using Helm options or by editing the deployment configuration file.]
+* The initial settings for Longhorn can be found in xref:../../longhorn-system/customize-default-settings.adoc#_using_helm[customized using Helm options or by editing the deployment configuration file.]
 * For Kubernetes < v1.25, if your cluster still enables Pod Security Policy admission controller, set the helm value `enablePSP` to `true` to install `longhorn-psp` PodSecurityPolicy resource which allows privileged Longhorn pods to start.
 ____
 
@@ -74,5 +74,5 @@ The result should look like the following:
  engine-image-ei-df38d2e5-cv6nc                      1/1     Running   0          114s
 ----
 
-. To enable access to the Longhorn UI, you will need to set up an Ingress controller. Authentication to the Longhorn UI is not enabled by default. For information on creating an NGINX Ingress controller with basic authentication, refer to xref:deploy/accessing-the-ui/longhorn-ingress.adoc[this section.]
-. Access the Longhorn UI using xref:deploy/accessing-the-ui/index.adoc[these steps.]
+. To enable access to the Longhorn UI, you will need to set up an Ingress controller. Authentication to the Longhorn UI is not enabled by default. For information on creating an NGINX Ingress controller with basic authentication, refer to xref:../../longhorn-system/system-access/create-ingress.adoc[this section.]
+. Access the Longhorn UI using xref:../../longhorn-system/system-access/system-access.adoc[these steps.]

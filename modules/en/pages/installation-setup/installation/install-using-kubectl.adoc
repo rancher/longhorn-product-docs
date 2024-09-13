@@ -4,11 +4,11 @@
 
 == Prerequisites
 
-Each node in the Kubernetes cluster where Longhorn will be installed must fulfill xref:installation-setup/requirements.adoc[these requirements.]
+Each node in the Kubernetes cluster where Longhorn will be installed must fulfill xref:../../installation-setup/requirements.adoc[these requirements.]
 
 https://github.com/longhorn/longhorn/blob/v{current-version}/scripts/environment_check.sh[This script] can be used to check the Longhorn environment for potential issues.
 
-The initial settings for Longhorn can be customized by xref:advanced-resources/deploy/customizing-default-settings.adoc#_using_the_longhorn_deployment_yaml_file[editing the deployment configuration file.]
+The initial settings for Longhorn can be customized by xref:../../longhorn-system/customize-default-settings.adoc#_using_the_longhorn_deployment_yaml_file[editing the deployment configuration file.]
 
 == Installing Longhorn
 
@@ -54,8 +54,8 @@ One way to monitor the progress of the installation is to watch pods being creat
  engine-image-ei-df38d2e5-cv6nc                      1/1     Running   0          114s
 ----
 
-. To enable access to the Longhorn UI, you will need to set up an Ingress controller. Authentication to the Longhorn UI is not enabled by default. For information on creating an NGINX Ingress controller with basic authentication, refer to xref:deploy/accessing-the-ui/longhorn-ingress.adoc[this section.]
-. Access the Longhorn UI using xref:deploy/accessing-the-ui/index.adoc[these steps.]
+. To enable access to the Longhorn UI, you will need to set up an Ingress controller. Authentication to the Longhorn UI is not enabled by default. For information on creating an NGINX Ingress controller with basic authentication, refer to xref:../../longhorn-system/system-access/create-ingress.adoc[this section.]
+. Access the Longhorn UI using xref:../../longhorn-system/system-access/system-access.adoc[these steps.]
 
 ____
 *Note*:
