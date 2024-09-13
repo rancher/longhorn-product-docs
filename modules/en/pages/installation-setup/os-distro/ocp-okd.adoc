@@ -9,7 +9,7 @@ NOTE: OKD currently does not support the ARM platform. For more information, see
 
 === Install With Helm
 
-Please refer to this section xref:deploy/install/install-with-helm.adoc[Install with Helm] first.
+Please refer to this section xref:installation-setup/installation/install-using-helm.adoc[Install with Helm] first.
 
 And then install Longhorn with setting *_openshift.enabled_* true:
 
@@ -36,7 +36,7 @@ One way to monitor the progress of the installation is to watch pods being creat
     --watch
 ----
 
-For more information, see xref:deploy/install/install-with-kubectl.adoc[Install with Kubectl].
+For more information, see xref:installation-setup/installation/install-using-kubectl.adoc[Install with Kubectl].
 
 == Prepare A Customized Default Longhorn Disk (Optional)
 

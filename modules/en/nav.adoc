@@ -15,7 +15,7 @@
 *** xref:installation-setup/installation/helm-values.adoc[]
 *** xref:installation-setup/installation/install-using-kubectl.adoc[]
 *** xref:installation-setup/installation/install-using-rancher.adoc[]
-*** xref:installation-setup/installation/rancher_windows_cluster.adoc[]
+*** xref:installation-setup/installation/rancher-windows-cluster.adoc[]
 *** xref:installation-setup/installation/airgapped-environment.adoc[]
 ** Operating System and Distribution Configuration
 *** xref:installation-setup/os-distro/container-optimized-os.adoc[]
