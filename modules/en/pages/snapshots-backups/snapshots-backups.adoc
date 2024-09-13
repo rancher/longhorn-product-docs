@@ -1,2 +1,0 @@
-= Snapshots and Backups
-:description: Backup and Restore Volume Snapshots in Longhorn
