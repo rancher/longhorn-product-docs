@@ -10,7 +10,7 @@ image::screenshots/volumes-and-nodes/volume-size-nominal-size.png[Image]
 * It is what you set during the volume creation, and we will call it nominal size in this doc to avoid ambiguity.
 * Since the volume itself is just a CRD object in Kubernetes and the data is stored in each replica, this is actually the nominal size of each replica.
 * The reason we call this field as "nominal size" is that Longhorn replicas are using https://wiki.archlinux.org/index.php/Sparse_file[sparse files] to store data and this value is the apparent size of the sparse files (the maximum size to which they may expand). The actual size used by each replica is not equal to this nominal size.
-* Based on this nominal size, the replicas will be scheduled to those nodes that have enough allocatable space during the volume creation. (See xref:nodes-and-volumes/nodes/node-space-usage.adoc[this doc] for more info about node allocation size.)
+* Based on this nominal size, the replicas will be scheduled to those nodes that have enough allocatable space during the volume creation. (See xref:nodes/node-space-usage.adoc[this doc] for more info about node allocation size.)
 * The value of nominal size determines the max available space when the volume is in use. In other words, the current active data size hold by a volume cannot be greater than its nominal size.
 * The maximum volume size is based on the disk's file system (for example, 16383 GiB for `ext4`).
 
@@ -45,7 +45,7 @@ image::screenshots/volumes-and-nodes/volume-size-illustration-fig2.png[Image]
 . Delete the 4 Gi data. Then, `df` command shows that the used space of the filesystem is nearly 0, but the `actual size` is unchanged.
 +
 ____
-Users can see by default the volume `actual size` is not shrunk after deleting the 4 Gi data. Longhorn is a block-level storage system. Therefore, the deletion in the filesystem only marks the blocks that belong to the deleted file as unused. Currently, Longhorn will not apply TRIM/UNMAP operations automatically/periodically. if you want to do filesystem trim, please check xref:nodes-and-volumes/volumes/trim-filesystem.adoc[this doc] for details.
+Users can see by default the volume `actual size` is not shrunk after deleting the 4 Gi data. Longhorn is a block-level storage system. Therefore, the deletion in the filesystem only marks the blocks that belong to the deleted file as unused. Currently, Longhorn will not apply TRIM/UNMAP operations automatically/periodically. if you want to do filesystem trim, please check xref:volumes/trim-filesystem.adoc[this doc] for details.
 ____
 
 image::screenshots/volumes-and-nodes/volume-size-illustration-fig2.png[Image]
@@ -106,7 +106,7 @@ Here we summarize the important things related to disk space usage we have in th
 
 * Unused blocks are not released
 +
-Longhorn will not issue TRIM/UNMAP operations automatically. Hence deleting files from filesystems will not lead to volume actual size decreasing/shrinking. You may need to check xref:nodes-and-volumes/volumes/trim-filesystem.adoc[the doc] and handle it by yourself if needed.
+Longhorn will not issue TRIM/UNMAP operations automatically. Hence deleting files from filesystems will not lead to volume actual size decreasing/shrinking. You may need to check xref:volumes/trim-filesystem.adoc[the doc] and handle it by yourself if needed.
 
 * Allocated blocks but unused are not reused
 +
