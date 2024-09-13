@@ -1,2 +1,0 @@
-= Observability
-:current-version: {page-component-version}

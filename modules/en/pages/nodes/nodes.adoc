@@ -1,3 +1,0 @@
-= Nodes
-:current-version: {page-component-version}
-

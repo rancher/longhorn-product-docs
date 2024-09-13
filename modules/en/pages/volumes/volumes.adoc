@@ -1,3 +1,0 @@
-= Volumes
-:current-version: {page-component-version}
-
