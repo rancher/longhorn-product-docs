@@ -29,7 +29,7 @@ WARNING: Can result in slow drains and extra data movement associated with repli
 healthy counterpart and block the drain until eviction is complete.
 WARNING: Can result in slow drains and extra data movement associated with replica rebuilding.
 
-Each option has benefits and drawbacks. See xref:maintenance/maintenance.adoc#_node_drain_policy_recommendations[Node Drain Policy
+Each option has benefits and drawbacks. See xref:troubleshooting-maintenance/maintenance.adoc#_node_drain_policy_recommendations[Node Drain Policy
 Recommendations] for help deciding which is most
 appropriate in your environment.
 
@@ -119,7 +119,7 @@ If no other disks exist, create the default disk automatically, only on nodes wi
 
 If disabled, the default disk will be created on all new nodes when the node is detected for the first time.
 
-This option is useful if you want to scale the cluster but don't want to use storage on the new nodes, or if you want to xref:nodes-and-volumes/nodes/default-disk-and-node-config.adoc[customize disks for Longhorn nodes].
+This option is useful if you want to scale the cluster but don't want to use storage on the new nodes, or if you want to xref:nodes/default-disk-and-node-config.adoc[customize disks for Longhorn nodes].
 
 === Custom Resource API Version
 

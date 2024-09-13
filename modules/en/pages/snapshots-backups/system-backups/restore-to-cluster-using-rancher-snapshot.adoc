@@ -7,7 +7,7 @@ This doc describes what users need to do after restoring the cluster with a Ranc
 
 * *Most of the data and the underlying disks still exist* in the cluster before the restore and can be directly reused then.
 * There is a backupstore holding all volume data.
-* The setting xref:references/settings.adoc#_disable_revision_counter[`Disable Revision Counter`] is false. (It's false by default.) Otherwise, users need to manually check if the data among volume replicas are consistent, or directly restore volumes from backup.
+* The setting xref:longhorn-system/settings.adoc#_disable_revision_counter[`Disable Revision Counter`] is false. (It's false by default.) Otherwise, users need to manually check if the data among volume replicas are consistent, or directly restore volumes from backup.
 
 == Expectation:
 

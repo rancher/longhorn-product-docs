@@ -6,7 +6,7 @@
 Volume conditions describe the current status of a volume and potential issues that may occur.
 
 * `Scheduled`: All replicas were scheduled successfully.
-  If Longhorn was unable to schedule any of the replicas, the condition is set to `false` and error messages are displayed. The condition is set to `true` when the setting xref:references/settings.adoc#_allow_volume_creation_with_degraded_availability[Allow Volume Creation With Degraded Availability] is enabled and at least one replica is scheduled.
+  If Longhorn was unable to schedule any of the replicas, the condition is set to `false` and error messages are displayed. The condition is set to `true` when the setting xref:longhorn-system/settings.adoc#_allow_volume_creation_with_degraded_availability[Allow Volume Creation With Degraded Availability] is enabled and at least one replica is scheduled.
 * `TooManySnapshots`: This specific volume has more than 100 snapshots.
   Longhorn allows you to create a maximum of 250 snapshots for each volume. For more information about configuring the maximum snapshot count, see xref:snapshots-and-backups/snapshot-space-management.adoc[Snapshot Space Management].
 * `Restore`: Longhorn is restoring the volume from a backup.

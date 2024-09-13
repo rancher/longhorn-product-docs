@@ -103,10 +103,10 @@ systemrestore.longhorn.io "restore-demo" deleted
 
 Some settings are excluded as configurable before the Longhorn system restore.
 
-* xref:references/settings.adoc#_concurrent_volume_backup_restore_per_node_limit[Concurrent volume backup restore per node limit]
-* xref:references/settings.adoc#_concurrent_replica_rebuild_per_node_limit[Concurrent replica rebuild per node limit]
-* xref:references/settings.adoc#_backup_target[Backup Target]
-* xref:references/settings.adoc#_backup_target_credential_secret[Backup Target Credential Secret]
+* xref:longhorn-system/settings.adoc#_concurrent_volume_backup_restore_per_node_limit[Concurrent volume backup restore per node limit]
+* xref:longhorn-system/settings.adoc#_concurrent_replica_rebuild_per_node_limit[Concurrent replica rebuild per node limit]
+* xref:longhorn-system/settings.adoc#_backup_target[Backup Target]
+* xref:longhorn-system/settings.adoc#_backup_target_credential_secret[Backup Target Credential Secret]
 
 == Troubleshoot
 
