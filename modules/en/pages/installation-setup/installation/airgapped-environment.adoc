@@ -9,7 +9,6 @@ Longhorn can be installed in an air gapped environment by using a manifest file,
 * Deploy Longhorn Components images to your own registry.
 * Deploy Kubernetes CSI driver components images to your own registry.
 
-[discrete]
 ==== Note:
 
 * A full list of all needed images is in https://raw.githubusercontent.com/longhorn/longhorn/v{current-version}/deploy/longhorn-images.txt[longhorn-images.txt]. First, download the images list by running:
@@ -292,7 +291,7 @@ NOTE: Do not include the private registry prefix, it will be added automatically
 [discrete]
 === Use default image name
 
-If you keep the images' names as recommended link:./#recommendation[here], you only need to do the following steps:
+If you keep the images' names as recommended <<Recommendation, here>>, you only need to do the following steps:
 
 * In the `Private Registry Settings` section specify:
  ** Private registry URL
@@ -355,7 +354,7 @@ image::screenshots/airgap-deploy/app-custom-images-reg.png[images]
 +
 `helm install longhorn ./chart --namespace longhorn-system`
 
-== Recommendation:
+== Recommendation
 
 It's highly recommended not to manipulate image tags, especially instance manager image tags such as v1_20200301, because we intentionally use the date to avoid associating it with a Longhorn version.
 
