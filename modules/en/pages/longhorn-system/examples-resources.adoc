@@ -442,4 +442,4 @@ For more information about restoring to file, refer to xref:data-integrity-recov
    #  ]'
 
 Note that Longhorn supports automatic remount only for the workload pod that is managed by a controller (e.g. deployment, statefulset, daemonset, etc...).
-See xref:high-availability/recover-volume.adoc[here] for details.
+See xref:high-availability/volume-recovery.adoc[here] for details.

@@ -634,7 +634,7 @@ ____
 Default: `300`
 ____
 
-The interval in seconds to poll the backup store for updating volumes' *Last Backup* field. Set to 0 to disable the polling. See xref:modules/en/pages/data-integrity-recovery/disaster-recovery-volumes.adoc[Setting up Disaster Recovery Volumes] for details.
+The interval in seconds to poll the backup store for updating volumes' *Last Backup* field. Set to 0 to disable the polling. See xref:data-integrity-recovery/disaster-recovery-volumes.adoc[Setting up Disaster Recovery Volumes] for details.
 
 For more information on how the backupstore poll interval affects the recovery time objective and recovery point objective, refer to the xref:introduction/concepts.adoc#_3_4_backupstore_update_intervals_rto_and_rpo[concepts section.]
 
