@@ -65,7 +65,7 @@ For example, adding the following labels to the namespace that is running Longho
 
 === Command Line Tool
 
-The Longhorn CLI (binary name: `longhornctl`), which is the official Longhorn command line tool, was introduced in v1.7.0. This tool interacts with Longhorn by creating Kubernetes custom resources (CRs) and executing commands inside a dedicated pod for in-cluster and host operations. Usage scenarios include installation, operations such as exporting replicas, and troubleshooting. For more information, see xref:important-notes/advanced-resources/longhornctl.adoc[Command Line Tool (longhornctl)].
+The Longhorn CLI (binary name: `longhornctl`), which is the official Longhorn command line tool, was introduced in v1.7.0. This tool interacts with Longhorn by creating Kubernetes custom resources (CRs) and executing commands inside a dedicated pod for in-cluster and host operations. Usage scenarios include installation, operations such as exporting replicas, and troubleshooting. For more information, see xref:longhorn-system/system-access/longhorn-cli.adoc[Command Line Tool (longhornctl)].
 
 === Minimum XFS Filesystem Size
 

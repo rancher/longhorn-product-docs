@@ -144,11 +144,11 @@ Since Longhorn doesn't currently support sharding between the different disks, w
 
 Any extra disks must be written in the `/etc/fstab` file to allow automatic mounting after the machine reboots.
 
-Don't use a symbolic link for the extra disks. Use `mount --bind` instead of `ln -s` and make sure it's in the `fstab` file. For details, see xref:nodes-and-volumes/nodes/multidisk.adoc#_use_an_alternative_path_for_a_disk_on_the_node[the section about multiple disk support.]
+Don't use a symbolic link for the extra disks. Use `mount --bind` instead of `ln -s` and make sure it's in the `fstab` file. For details, see xref:nodes/multiple-disks.adoc#_use_an_alternative_path_for_a_disk_on_the_node[the section about multiple disk support.]
 
 === Configuring Default Disks Before and After Installation
 
-To use a directory other than the default `/var/lib/longhorn` for storage, the `Default Data Path` setting can be changed before installing the system. For details on changing pre-installation settings, refer to xref:advanced-resources/deploy/customizing-default-settings.adoc[this section.]
+To use a directory other than the default `/var/lib/longhorn` for storage, the `Default Data Path` setting can be changed before installing the system. For details on changing pre-installation settings, refer to xref:longhorn-system/customize-default-settings.adoc[this section.]
 
 The xref:nodes/default-disk-and-node-config.adoc[Default node/disk configuration] feature can be used to customize the default disk after installation. Customizing the default configurations for disks and nodes is useful for scaling the cluster because it eliminates the need to configure Longhorn manually for each new node if the node contains more than one disk, or if the disk configuration is different for new nodes. Remember to enable `Create default disk only on labeled node` if applicable.
 
@@ -165,7 +165,7 @@ The following sections outline other recommendations for production environments
 === IO Performance
 
 * *Storage network*: Use a xref:longhorn-system/networking/storage-network.adoc#_setting_storage_network[dedicated storage network] to improve IO performance and stability.
-* *Longhorn disk*: Use a xref:nodes-and-volumes/nodes/multidisk.adoc#_add_a_disk[dedicated disk] for Longhorn storage instead of using the root disk.
+* *Longhorn disk*: Use a xref:nodes/multiple-disks.adoc#_add_a_disk[dedicated disk] for Longhorn storage instead of using the root disk.
 * *Replica count*: Set the xref:longhorn-system/settings.adoc#_default_replica_count[default replica count] to "2" to achieve data availability with better disk space usage or less impact to system performance. This practice is especially beneficial to data-intensive applications.
 * *Storage tag*: Use xref:nodes/storage-tags.adoc[storage tags] to define storage tiering for data-intensive applications. For example, only high-performance disks can be used for storing performance-sensitive data.
 * *Data locality*: Use `best-effort` as the default xref:high-availability/data-locality.adoc[data locality] of Longhorn StorageClasses.
@@ -185,12 +185,12 @@ For applications with replication capability, periodically xref:introduction/con
 
 === Disaster Recovery
 
-* *Recurring backups*: Create xref:snapshots-and-backups/scheduling-backups-and-snapshots.adoc[recurring backup jobs] for mission-critical application volumes.
+* *Recurring backups*: Create xref:snapshots-backups/volume-snapshots-backups/create-recurring-backup-snapshot-job.adoc[recurring backup jobs] for mission-critical application volumes.
 * *System backup*: Create periodic xref:advanced-resources/system-backup-restore/backup-longhorn-system.adoc#_create_longhorn_system_backup[system backups].
 
 == Deploying Workloads
 
-If you're using `ext4` as the filesystem of the volume, we recommend adding a liveness check to workloads to help automatically recover from a network-caused interruption, a node reboot, or a Docker restart. See xref:high-availability/recover-volume.adoc[this section] for details.
+If you're using `ext4` as the filesystem of the volume, we recommend adding a liveness check to workloads to help automatically recover from a network-caused interruption, a node reboot, or a Docker restart. See xref:high-availability/volume-recovery.adoc[this section] for details.
 
 == Volume Maintenance
 
@@ -220,7 +220,7 @@ The `Guaranteed Instance Manager CPU for V2 Data Engine` setting allows you to r
 
 == StorageClass
 
-We don't recommend modifying the default StorageClass named `longhorn`, since the change of parameters might cause issues during an upgrade later. If you want to change the parameters set in the StorageClass, you can create a new StorageClass by referring to the xref:references/examples.adoc#_storageclass[StorageClass examples].
+We don't recommend modifying the default StorageClass named `longhorn`, since the change of parameters might cause issues during an upgrade later. If you want to change the parameters set in the StorageClass, you can create a new StorageClass by referring to the xref:longhorn-system/examples-resources.adoc#_storageclass[StorageClass examples].
 
 == Scheduling Settings
 
