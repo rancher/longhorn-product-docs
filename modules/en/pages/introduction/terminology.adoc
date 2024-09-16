@@ -148,7 +148,7 @@ A Kubernetes resource that can be used to automatically provision a PersistentVo
 
 Longhorn uploads the system backup to the backupstore. Each system backup contains the system backup resource bundle of the Longhorn system.
 
-See xref:advanced-resources/system-backup-restore/backup-longhorn-system.adoc#_longhorn_system_backup_bundle[Longhorn System Backup Bundle] for details.
+See xref:snapshots-backups/system-backups/create-system-backup.adoc#_longhorn_system_backup_bundle[Longhorn System Backup Bundle] for details.
 
 == Thin provisioning
 

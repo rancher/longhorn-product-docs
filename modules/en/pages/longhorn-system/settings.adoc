@@ -3,7 +3,7 @@
 
 == Customizing Default Settings
 
-To configure Longhorn before installing it, see xref:advanced-resources/deploy/customizing-default-settings.adoc[this section] for details.
+To configure Longhorn before installing it, see xref:longhorn-system/customize-default-settings.adoc[this section] for details.
 
 == General
 
@@ -480,7 +480,7 @@ ____
 Default: `false`
 ____
 
-Setting that allows you to enable the V2 Data Engine, which is based on the Storage Performance Development Kit (SPDK). The V2 Data Engine is a preview feature and should not be used in production environments. For more information, see xref:v2-data-engine/index.adoc[V2 Data Engine (Preview Feature)].
+Setting that allows you to enable the V2 Data Engine, which is based on the Storage Performance Development Kit (SPDK). The V2 Data Engine is a preview feature and should not be used in production environments. For more information, see xref:longhorn-system/v2-data-engine/quick-start-guide.adoc[V2 Data Engine (Preview Feature)].
 
 ____
 *Warning*
@@ -618,7 +618,7 @@ Examples:
 `nfs://longhorn-test-nfs-svc.default:/opt/backupstore?nfsOptions=soft,timeo=330,retrans=3`
 ____
 
-Endpoint used to access a backupstore.   Longhorn supports AWS S3, Azure, GCP, CIFS and NFS.  See xref:snapshots-and-backups/backup-and-restore/set-backup-target.adoc[Setting a Backup Target] for details.
+Endpoint used to access a backupstore.   Longhorn supports AWS S3, Azure, GCP, CIFS and NFS.  See xref:snapshots-backups/volume-snapshots-backups/configure-backup-target.adoc[Setting a Backup Target] for details.
 
 === Backup Target Credential Secret
 
@@ -626,7 +626,7 @@ ____
 Example: `s3-secret`
 ____
 
-The Kubernetes secret associated with the backup target. See xref:snapshots-and-backups/backup-and-restore/set-backup-target.adoc[Setting a Backup Target] for details.
+The Kubernetes secret associated with the backup target. See xref:snapshots-backups/volume-snapshots-backups/configure-backup-target.adoc[Setting a Backup Target] for details.
 
 === Backupstore Poll Interval
 
@@ -634,7 +634,7 @@ ____
 Default: `300`
 ____
 
-The interval in seconds to poll the backup store for updating volumes' *Last Backup* field. Set to 0 to disable the polling. See xref:snapshots-and-backups/setup-disaster-recovery-volumes.adoc[Setting up Disaster Recovery Volumes] for details.
+The interval in seconds to poll the backup store for updating volumes' *Last Backup* field. Set to 0 to disable the polling. See xref:data-integrity-recovery/disaster-recovery-volumes.adoc[Setting up Disaster Recovery Volumes] for details.
 
 For more information on how the backupstore poll interval affects the recovery time objective and recovery point objective, refer to the xref:introduction/concepts.adoc#_3_4_backupstore_update_intervals_rto_and_rpo[concepts section.]
 
@@ -845,7 +845,7 @@ ____
 
 With the default setting of 25, the Longhorn Manager will allow scheduling new replicas only after the amount of disk space has been subtracted from the available disk space (*Storage Available*) and the available disk space is still over 25% of actual disk capacity (*Storage Maximum*). Otherwise the disk becomes unschedulable until more space is freed up.
 
-See xref:nodes-and-volumes/nodes/multidisk.adoc#_configuration[Multiple Disks Support] for details.
+See xref:nodes/multiple-disks#_configuration[Multiple Disks Support] for details.
 
 === Storage Over Provisioning Percentage
 
@@ -907,7 +907,7 @@ If you do not detach all volumes before the settings are synchronized, the setti
 | Setting | Additional Information | Affected Components
 
 | <<_kubernetes_taint_toleration,Kubernetes Taint Toleration>>
-| xref:advanced-resources/deploy/taint-toleration.adoc[Taints and Tolerations]
+| xref:nodes/taints-tolerations.adoc[Taints and Tolerations]
 | System-managed components
 
 | <<_priority_class,Priority Class>>
@@ -927,7 +927,7 @@ If you do not detach all volumes before the settings are synchronized, the setti
 | Instance Manager component
 
 | <<_v2_data_engine,V2 Data Engine>>
-| xref:v2-data-engine/index.adoc[V2 Data Engine (Preview Feature)]
+| xref:longhorn-system/v2-data-engine/quick-start-guide.adoc[V2 Data Engine (Preview Feature)]
 | Instance Manager component
 
 | <<_guaranteed_instance_manager_cpu,Guaranteed Instance Manager CPU>>
@@ -989,7 +989,7 @@ Multiple tolerations can be set here, and these tolerations are separated by sem
 * `key1=value1:NoSchedule; key2:NoExecute`
 * `:` this toleration tolerates everything because an empty key with operator `Exists` matches all keys, values and effects
 * `key1=value1:`  this toleration has empty effect. It matches all effects with key `key1`
-See xref:advanced-resources/deploy/taint-toleration.adoc[Taint Toleration] for details.
+See xref:nodes/taints-tolerations.adoc[Taint Toleration] for details.
 
 === Priority Class
 
@@ -1033,7 +1033,7 @@ ____
 
 Setting the Kubernetes Cluster Autoscaler Enabled to `true` allows Longhorn to unblock the Kubernetes Cluster Autoscaler scaling.
 
-See xref:high-availability/k8s-cluster-autoscaler.adoc[Kubernetes Cluster Autoscaler Support] for details.
+See xref:high-availability/kubernetes-cluster-autoscaler.adoc[Kubernetes Cluster Autoscaler Support] for details.
 
 WARNING: Replica rebuilding could be expensive because nodes with reusable replicas could get removed by the Kubernetes Cluster Autoscaler.
 
