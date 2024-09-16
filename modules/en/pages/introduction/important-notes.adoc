@@ -134,7 +134,7 @@ From this version, you need to add group id 6 to the security context or run con
 
 === Container-Optimized OS Support
 
-Starting with Longhorn v1.7.0, Longhorn supports Container-Optimized OS (COS), providing robust and efficient persistent storage solutions for Kubernetes clusters running on COS. For more information, see xref:important-notes/advanced-resources/os-distro-specific/container-optimized-os-support.adoc[Container-Optimized OS (COS) Support].
+Starting with Longhorn v1.7.0, Longhorn supports Container-Optimized OS (COS), providing robust and efficient persistent storage solutions for Kubernetes clusters running on COS. For more information, see xref:installation-setup/os-distro/container-optimized-os.adoc[Container-Optimized OS (COS) Support].
 
 == Resilience
 
@@ -152,11 +152,11 @@ Starting with v1.7.0, Longhorn supports configuration of timeouts for replica re
 
 === Support Periodic and On-Demand Full Backups to Enhance Backup Reliability
 
-Since Longhorn v1.7.0, periodic and on-demand full backups have been supported to enhance backup reliability. Prior to v1.7.0, the initial backup was a full backup, with subsequent backups being incremental. If any block became corrupted, all backup revisions relying on that block would also be corrupted. To address this issue, Longhorn now supports performing a full backup after every N incremental backups, as well as on-demand full backups. This approach decreases the likelihood of backup corruption and enhances the overall reliability of the backup process. For more information, see xref:important-notes/snapshots-and-backups/scheduling-backups-and-snapshots.adoc[Recurring Snapshots and Backups] and xref:important-notes/snapshots-and-backups/backup-and-restore/create-a-backup.adoc[Create a Backup].
+Since Longhorn v1.7.0, periodic and on-demand full backups have been supported to enhance backup reliability. Prior to v1.7.0, the initial backup was a full backup, with subsequent backups being incremental. If any block became corrupted, all backup revisions relying on that block would also be corrupted. To address this issue, Longhorn now supports performing a full backup after every N incremental backups, as well as on-demand full backups. This approach decreases the likelihood of backup corruption and enhances the overall reliability of the backup process. For more information, see xref:snapshots-backups/volume-snapshots-backups/create-recurring-backup-snapshot-job.adoc[Recurring Snapshots and Backups] and xref:snapshots-backups/volume-snapshots-backups/create-backup.adoc[Create a Backup].
 
 === High Availability of Backing Images
 
-To address the single point of failure (SPOF) issue with backing images, high availability for backing images was introduced in Longhorn v1.7.0. For more information, please see xref:important-notes/advanced-resources/backing-image/backing-image.adoc#_number_of_copies[Backing Image].
+To address the single point of failure (SPOF) issue with backing images, high availability for backing images was introduced in Longhorn v1.7.0. For more information, please see xref:volumes/backing-images/backing-images.adoc#_number_of_copies[Backing Image].
 
 == Scheduling
 

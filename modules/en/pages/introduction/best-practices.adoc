@@ -186,7 +186,7 @@ For applications with replication capability, periodically xref:introduction/con
 === Disaster Recovery
 
 * *Recurring backups*: Create xref:snapshots-backups/volume-snapshots-backups/create-recurring-backup-snapshot-job.adoc[recurring backup jobs] for mission-critical application volumes.
-* *System backup*: Create periodic xref:advanced-resources/system-backup-restore/backup-longhorn-system.adoc#_create_longhorn_system_backup[system backups].
+* *System backup*: Create periodic xref:snapshots-backups/system-backups/create-system-backup.adoc#_create_a_longhorn_system_backup[system backups].
 
 == Deploying Workloads
 
