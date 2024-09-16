@@ -1,5 +1,5 @@
 = Red Hat OpenShift Container Platform and OKD
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 To deploy Longhorn on a cluster provisioned with OpenShift 4.x, some additional configurations are required.
 

@@ -1,5 +1,5 @@
 = RKE and CoreOS
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 For minimalist Linux Operating systems, you'll need a little extra configuration to use Longhorn with RKE (Rancher Kubernetes Engine).  This document outlines the requirements for using RKE and CoreOS.
 

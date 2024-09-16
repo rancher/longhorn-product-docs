@@ -1,5 +1,5 @@
 = Container-Optimized OS (COS)
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 == Requirements
 

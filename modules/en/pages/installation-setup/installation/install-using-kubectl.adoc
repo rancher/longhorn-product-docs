@@ -1,6 +1,6 @@
 = Install Longhorn Using Kubectl
 :description: Install Longhorn with the kubectl client.
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 == Prerequisites
 

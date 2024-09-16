@@ -1,7 +1,7 @@
 = Installation
 :description: Install Longhorn on Kubernetes
 :doctype: book
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 NOTE: This quick installation guide uses some configurations which are not for production usage.
 Please see xref:introduction/best-practices.adoc[] for how to configure Longhorn for production usage.
