@@ -1,5 +1,5 @@
 = Talos Linux
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 == Requirements
 

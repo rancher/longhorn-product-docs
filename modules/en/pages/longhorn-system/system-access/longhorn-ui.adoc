@@ -1,5 +1,5 @@
 = Access the Longhorn UI
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 Once Longhorn has been installed in your Kubernetes cluster, you can access the UI dashboard.
 

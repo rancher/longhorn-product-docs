@@ -1,6 +1,6 @@
 = Upgrades
 :doctype: book
-:current-version: {page-origin-branch}
+:current-version: {page-component-version}
 
 Here we cover how to upgrade to the latest Longhorn from all previous releases.
 
