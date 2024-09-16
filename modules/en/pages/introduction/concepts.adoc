@@ -6,9 +6,9 @@ Longhorn creates a dedicated storage controller for each volume and synchronousl
 
 The storage controller and replicas are themselves orchestrated using Kubernetes.
 
-For an overview of Longhorn features, refer to xref:what-is-longhorn.adoc[this section.]
+For an overview of Longhorn features, refer to xref:introduction/introduction.adoc[this section.]
 
-For the installation requirements, go to xref:deploy/install/index.adoc#_installation_requirements[this section.]
+For the installation requirements, go to xref:installation-setup/requirements.adoc[this section.]
 
 ____
 This section assumes familiarity with Kubernetes persistent storage concepts. For more information on these concepts, refer to the <<_appendix_how_persistent_storage_works_in_kubernetes,appendix.>> For help with the terminology used in this page, refer to xref:introduction/terminology.adoc[this section.]
@@ -59,7 +59,7 @@ Longhorn can create a long-running job to orchestrate the upgrade of all live vo
 The Longhorn CSI driver takes the block device, formats it, and mounts it on the node. Then the https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/[kubelet] bind-mounts the device inside a Kubernetes Pod. This allows the Pod to access the Longhorn volume.
 
 The required Kubernetes CSI Driver images will be deployed automatically by the longhorn driver deployer.
-To install Longhorn in an air gapped environment, refer to xref:deploy/install/airgap.adoc[this section].
+To install Longhorn in an air gapped environment, refer to xref:installation-setup/installation/airgapped-environment.adoc[this section].
 
 === 1.4. CSI Plugin
 
