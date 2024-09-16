@@ -100,7 +100,7 @@ The persistentVolumeClaim is mounted in the Pod as a volume:
        claimName: longhorn-volv-pvc
 ----
 +
-More examples are available xref:references/examples.adoc[here.]
+More examples are available xref:longhorn-system/examples-resources.adoc[here.]
 
 == Binding Workloads to PVs without a Kubernetes StorageClass
 

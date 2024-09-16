@@ -7,7 +7,7 @@ Longhorn natively exposes metrics in https://prometheus.io/docs/instrumenting/ex
 
 You can use any collecting tools such as https://prometheus.io/[Prometheus], https://graphiteapp.org/[Graphite], https://www.influxdata.com/time-series-platform/telegraf/[Telegraf] to scrape these metrics then visualize the collected data by tools such as https://grafana.com/[Grafana].
 
-See xref:monitoring/metrics.adoc[Longhorn Metrics for Monitoring] for available metrics.
+See xref:observability/longhorn-metrics.adoc[Longhorn Metrics for Monitoring] for available metrics.
 
 == High-level Overview
 
@@ -182,7 +182,7 @@ ____
 
 === Install and configure Prometheus server
 
-. Create PrometheusRule custom resource to define alert conditions. See more examples about Longhorn alert rules at xref:monitoring/alert-rules-example.adoc[Longhorn Alert Rule Examples].
+. Create PrometheusRule custom resource to define alert conditions. See more examples about Longhorn alert rules at xref:observability/alert-rule-examples.adoc[Longhorn Alert Rule Examples].
 +
 [subs="+attributes",yaml]
 ----

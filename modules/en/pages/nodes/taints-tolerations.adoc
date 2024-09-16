@@ -59,7 +59,7 @@ You need to set tolerations for both types of components. See more details below
  ** If you install Longhorn using Helm, you can change the Helm values for `global.tolerations`, `longhornManager.tolerations`, `longhornUI.tolerations`, `longhornDriver.tolerations` in the `values.yaml` file before installing the chart.
 . Set taint tolerations for system-managed components (for example, Instance Manager, CSI Driver, and Engine images)
 +
-Follow the xref:advanced-resources/deploy/customizing-default-settings.adoc[Customize default settings] to set taint tolerations by changing the value for the `taint-toleratio` default setting
+Follow the xref:longhorn-system/customize-default-settings.adoc[Customize default settings] to set taint tolerations by changing the value for the `taint-toleratio` default setting
 +
 [NOTE]
 ====

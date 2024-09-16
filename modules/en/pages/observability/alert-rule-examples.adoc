@@ -2,7 +2,7 @@
 :current-version: {page-component-version}
 
 We provide a couple of example Longhorn alert rules below for your references.
-See xref:monitoring/metrics.adoc[here] for a list of all available Longhorn metrics and build your own alert rules.
+See xref:observability/longhorn-metrics.adoc[here] for a list of all available Longhorn metrics and build your own alert rules.
 
 [subs="+attributes",yaml]
 ----
