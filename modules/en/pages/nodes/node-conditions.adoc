@@ -12,7 +12,7 @@ Indicated that the node is not cordoned and workload can be scheduled to this no
 * `MountPropagation`: +
 Indicates that the node supports mount propagation. This is necessary for sharing of volumes mounted by a container with other containers in the same Longhorn pod, or to other Longhorn pods on the same node.
 * `Multipathd`: +
-Confirms if the `multipathd` service is not running on the node, which may affect the pod with the volume startup. See xref:/home/jhk/projects/suse/longhorn-product-docs/modules/kb/troubleshooting-volume-with-multipath.adoc[Troubleshooting: `MountVolume.SetUp failed for volume` due to multipathd on the node].
+Confirms if the `multipathd` service is not running on the node, which may affect the pod with the volume startup. See link:https://longhorn.io/kb/troubleshooting-volume-with-multipath/[Troubleshooting: `MountVolume.SetUp failed for volume` due to multipathd on the node].
 * `RequiredPackages`: +
 Checks if all required packages (xref:deploy/install/index.adoc#installing-nfsv4-client[NFS client], xref:deploy/install/index.adoc#installing-open-iscsi[iSCSI tool], xref:deploy/install/index.adoc#installing-cryptsetup-and-luks[cryptsetup], xref:deploy/install/index.adoc#_installing_device_mapper_userspace_tool[dmsetup]) exist for Longhorn
 * `NFSClientInstalled`: +

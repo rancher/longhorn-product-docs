@@ -14,7 +14,7 @@ If the icon representing the disaster volume is gray, it means the volume is res
 == Creating DR Volumes
 
 ____
-*Prerequisites:* Set up two Kubernetes clusters. These will be called cluster A and cluster B. Install Longhorn on both clusters, and set the same backup target on both clusters. For help setting the backup target, refer to xref:snapshots-and-backups/backup-and-restore/set-backup-target.adoc[this page.]
+*Prerequisites:* Set up two Kubernetes clusters. These will be called cluster A and cluster B. Install Longhorn on both clusters, and set the same backup target on both clusters. For help setting the backup target, refer to xref:snapshots-backups/volume-snapshots-backups/configure-backup-target.adoc[this page.]
 ____
 
 . In the cluster A, make sure the original volume X has a backup created or has recurring backups scheduled.
