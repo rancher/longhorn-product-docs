@@ -114,4 +114,4 @@ ____
    "tags":[ "ssd", "fast" ] }]'
 ----
 
-. Deploy Longhorn with `create-default-disk-labeled-nodes: true`, check xref:advanced-resources/deploy/customizing-default-settings.adoc[here] for customizing the default settings of Longhorn.
+. Deploy Longhorn with `create-default-disk-labeled-nodes: true`, check xref:longhorn-system//customize-default-settings.adoc[here] for customizing the default settings of Longhorn.

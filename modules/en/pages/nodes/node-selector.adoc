@@ -47,7 +47,7 @@ You need to set node selector for both types of components. See more details bel
  ** If you install Longhorn using Helm, you can change the Helm values for `global.nodeSelector`, `longhornManager.nodeSelector`, `longhornUI.nodeSelector`, `longhornDriver.nodeSelector` in the `values.yaml` file before installing the chart.
 . Set the node selector for system-managed components (for example, Instance Manager, Backing Image Manager, Share Manager, CSI Driver, and Engine Image).
 +
-Follow the xref:advanced-resources/deploy/customizing-default-settings.adoc[Customize default settings] to set node selector by changing the value for the `system-managed-components-node-selector` default setting
+Follow the xref:longhorn-system/customize-default-settings.adoc[Customize default settings] to set node selector by changing the value for the `system-managed-components-node-selector` default setting
 +
 [NOTE]
 ====

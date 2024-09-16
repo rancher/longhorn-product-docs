@@ -89,7 +89,7 @@ During the upgrade, Longhorn will automatically:
 * Create new recurring job CRs from the `recurringJobs` field in Volume Spec and convert them to the volume labels.
 * Create new recurring job CRs from the `recurringJobs` in the StorageClass and convert them to the new `recurringJobSelector` parameter.
 
-Visit xref:deploy/snapshots-and-backups/scheduling-backups-and-snapshots.adoc[Recurring Snapshots and Backups] for more information about the new `Recurring Job` feature.
+Visit xref:snapshots-backups/volume-snapshots-backups/create-recurring-backup-snapshot-job.adoc[] for more information about the new `Recurring Job` feature.
 
 == Extended Reading
 
