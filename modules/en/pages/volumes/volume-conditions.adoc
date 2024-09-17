@@ -16,7 +16,7 @@ Volume conditions describe the current status of a volume and potential issues t
 
 Engine conditions describe the current status of an engine and potential issues that may occur.
 `FilesystemReadOnly`: The state of the current volume mount point has changed to read-only.
-This change may prevent workloads from writing data to the volume. For troubleshooting information, see xref:high-availability/recover-volume.adoc[Volume Recovery].
+This change may prevent workloads from writing data to the volume. For troubleshooting information, see xref:high-availability/volume-recovery.adoc[].
 
 == Replica Conditions
 

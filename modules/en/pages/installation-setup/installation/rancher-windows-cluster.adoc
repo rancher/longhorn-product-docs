@@ -43,4 +43,4 @@ you need to set node selector `kubernetes.io/os:linux` for Longhorn to select th
 Please follow the instruction at xref:nodes/node-selector.adoc[Node Selector] to set node selector for Longhorn.
 . Since all Linux worker nodes in Rancher Windows cluster are tainted with the taint `cattle.io/os=linux:NoSchedule`,
 You need to set the toleration `cattle.io/os=linux:NoSchedule` for Longhorn to be able to run on those nodes.
-Please follow the instruction at xref:advanced-resources/deploy/taint-toleration.adoc[Taint Toleration] to set toleration for Longhorn.
+Please follow the instruction at xref:nodes/taints-tolerations.adoc[Taint Toleration] to set toleration for Longhorn.
