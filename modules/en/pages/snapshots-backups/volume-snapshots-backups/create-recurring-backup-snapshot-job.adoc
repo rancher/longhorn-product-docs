@@ -14,7 +14,7 @@ You can configure,
 * The number of jobs to run concurrently
 * Any labels that should be applied to the backup or snapshot
 * Parameters that should be applied to the backup
- ** `full-backup-interval`: Number of incremental backups that must be completed before Longhorn performs a full backup. This integer parameter is applied only to the backup. Notice that if the value is 0, Longhorn performs a incremental backup every time. For more information, see <<_periodic_full_backup,Periodic Full Backup>> and xref:snapshots-and-backups/backup-and-restore/create-a-backup.adoc[Create a Backup].
+ ** `full-backup-interval`: Number of incremental backups that must be completed before Longhorn performs a full backup. This integer parameter is applied only to the backup. Notice that if the value is 0, Longhorn performs a incremental backup every time. For more information, see <<_periodic_full_backup,Periodic Full Backup>> and xref:snapshots-backups/volume-snapshots-backups/create-backup.adoc[Create a Backup].
 
 Recurring jobs can be set up using the Longhorn UI, `kubectl`, or by using a Longhorn `RecurringJob`.
 

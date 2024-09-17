@@ -13,7 +13,7 @@ Upgrade the Longhorn manager before upgrading the Longhorn engine.
 
 Follow these steps if the live upgrade is not available, or if the volume is stuck in degraded state:
 
-. Follow xref:nodes-and-volumes/volumes/detaching-volumes.adoc[the detach procedure for relevant workloads].
+. Follow xref:data-integrity-recovery/disaster-recovery-volumes.adoc[the detach procedure for relevant workloads].
 . Select all the volumes using batch selection. Click the batch operation button *Upgrade Engine*, and choose the engine image available in the list. It's the default engine shipped with the manager for this release.
 . Resume all workloads. Any volume not part of a Kubernetes workload must be attached from the Longhorn UI.
 

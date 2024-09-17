@@ -37,7 +37,7 @@ You can create a Longhorn system backup using the Longhorn UI. Or with the `kube
 
 === Prerequisite
 
-* xref:snapshots-and-backups/backup-and-restore/set-backup-target.adoc[Set the backup target]. Longhorn saves the system backups to the remote backup store. You will see an error during creation when the backup target is unset.
+* xref:snapshots-backups/volume-snapshots-backups/configure-backup-target.adoc[]. Longhorn saves the system backups to the remote backup store. You will see an error during creation when the backup target is unset.
 +
 NOTE: Unsetting the backup target clears the existing `SystemBackup` custom resource. Longhorn syncs to the remote backup store after setting the backup target. Another cluster can also sync to the same list of system backups when the backup target is the same.
 
