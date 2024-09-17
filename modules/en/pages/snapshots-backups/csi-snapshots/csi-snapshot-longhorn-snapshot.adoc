@@ -9,7 +9,7 @@ ____
 *Prerequisite:* CSI snapshot support needs to be enabled on your cluster.
 If your kubernetes distribution does not provide the kubernetes snapshot controller
 as well as the snapshot related custom resource definitions, you need to manually deploy them.
-For more information, see xref:snapshots-and-backups/csi-snapshot-support/enable-csi-snapshot-support.adoc[Enable CSI Snapshot Support].
+For more information, see xref:snapshots-backups/csi-snapshots/enable-csi-snapshot-creation.adoc[Enable CSI Snapshot Support].
 ____
 
 == Create A CSI VolumeSnapshot Associated With Longhorn Snapshot
