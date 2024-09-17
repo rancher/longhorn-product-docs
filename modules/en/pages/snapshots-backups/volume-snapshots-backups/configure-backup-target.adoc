@@ -9,7 +9,7 @@ For more information about how the backupstore works in Longhorn, see the xref:i
 
 If you don't have access to AWS S3 or want to give the backupstore a try first, we've also provided a way to <<_set_up_a_local_testing_backupstore,setup a local S3 testing backupstore>> using https://minio.io/[MinIO].
 
-Longhorn also supports setting up recurring snapshot/backup jobs for volumes, via Longhorn UI or Kubernetes Storage Class. See xref:snapshots-and-backups/scheduling-backups-and-snapshots.adoc[here] for details.
+Longhorn also supports setting up recurring snapshot/backup jobs for volumes, via Longhorn UI or Kubernetes Storage Class. See xref:snapshots-backups/volume-snapshots-backups/create-recurring-backup-snapshot-job.adoc[here] for details.
 
 == Set up AWS S3 Backupstore
 
@@ -143,7 +143,7 @@ aws-secret
 +
 This is the secret name with AWS credentials or AWS IAM role.
 
-*Result:* Longhorn can store backups in S3. To create a backup, see xref:snapshots-and-backups/backup-and-restore/create-a-backup.adoc[this section.]
+*Result:* Longhorn can store backups in S3. To create a backup, see xref:snapshots-backups/volume-snapshots-backups/create-backup.adoc[this section.]
 
 NOTE: If you operate Longhorn behind a proxy and you want to use AWS S3 as the backupstore, you must provide Longhorn information about your proxy in the `aws-secret` as below:
 
@@ -270,7 +270,7 @@ NOTE: Make sure to use `echo -n` when generating the base64 encoding, otherwise 
 
 . Click the *Backup* tab in the UI. It should report an empty list without any errors.
 
-*Result:* Longhorn can store backups in S3. To create a backup, see xref:snapshots-and-backups/backup-and-restore/create-a-backup.adoc[this section.]
+*Result:* Longhorn can store backups in S3. To create a backup, see xref:snapshots-backups/volume-snapshots-backups/create-backup.adoc[this section.]
 
 == Using a self-signed SSL certificate for S3 communication
 
@@ -330,7 +330,7 @@ Any mount options that you specify will replace, not add to, the default options
 
 You can find an example NFS backupstore for testing purpose https://github.com/longhorn/longhorn/blob/v{current-version}/deploy/backupstores/nfs-backupstore.yaml[here].
 
-*Result:* Longhorn can store backups in NFS. To create a backup, see xref:snapshots-and-backups/backup-and-restore/create-a-backup.adoc[this section.]
+*Result:* Longhorn can store backups in NFS. To create a backup, see xref:snapshots-backups/volume-snapshots-backups/create-backup.adoc[this section.]
 
 == Set up SMB/CIFS Backupstore
 
@@ -389,7 +389,7 @@ This is the secret name with CIFS credentials.
 
 You can find an example CIFS backupstore for testing purpose https://github.com/longhorn/longhorn/blob/v{current-version}/deploy/backupstores/cifs-backupstore.yaml[here].
 
-*Result:* Longhorn can store backups in CIFS. To create a backup, see xref:snapshots-and-backups/backup-and-restore/create-a-backup.adoc[this section.]
+*Result:* Longhorn can store backups in CIFS. To create a backup, see xref:snapshots-backups/volume-snapshots-backups/create-backup.adoc[this section.]
 
 == Set up Azure Blob Storage Backupstore
 
@@ -473,4 +473,4 @@ Make sure that you have `/` at the end, otherwise you will get an error. A subdi
  azblob-secret
 ----
 
-After configuring the above settings, you can manage backups on Azure Blob storage. See xref:snapshots-and-backups/backup-and-restore/create-a-backup.adoc[how to create backup] for details.
+After configuring the above settings, you can manage backups on Azure Blob storage. See xref:snapshots-backups/volume-snapshots-backups/create-backup.adoc[how to create backup] for details.

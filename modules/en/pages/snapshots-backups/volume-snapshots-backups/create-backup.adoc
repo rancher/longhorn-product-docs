@@ -6,7 +6,7 @@
 Backups in Longhorn are objects in an off-cluster backupstore. A backup of a snapshot is copied to the backupstore, and the endpoint to access the backupstore is the backup target. For more information, see xref:introduction/concepts.adoc#_3_1_how_backups_work[this section.]
 
 ____
-*Prerequisite:* A backup target must be set up. For more information, see xref:snapshots-and-backups/backup-and-restore/set-backup-target.adoc[Set the BackupTarget]. If the BackupTarget has not been set, you'll be presented with an error.
+*Prerequisite:* A backup target must be set up. For more information, see xref:snapshots-backups/volume-snapshots-backups/configure-backup-target.adoc[Set the BackupTarget]. If the BackupTarget has not been set, you'll be presented with an error.
 ____
 
 === Create an Incremental Backup Using UI
@@ -20,7 +20,7 @@ To create a backup,
 
 *Result:* The backup is created. To see it, click *Backup* in the top navigation bar.
 
-For information about restoring a volume from a snapshot, see xref:snapshots-and-backups/backup-and-restore/restore-from-a-backup.adoc[Restore from a Backup].
+For information about restoring a volume from a snapshot, see xref:snapshots-backups/volume-snapshots-backups/restore-volume-from-backup.adoc[Restore from a Backup].
 
 === Create an Incremental Using YAML Code
 
