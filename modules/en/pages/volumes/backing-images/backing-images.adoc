@@ -17,7 +17,7 @@ You can prepare a backing image using four different kinds of data sources.
 . Download a backing image file (using a URL).
 . Upload a file from your local machine. This option is available to Longhorn UI users.
 . Export an existing in-cluster volume as a backing image.
-. Restore a backing image from the backupstore, For more information, see xref:snapshot-backups/backing-image-backups.adoc[Backing Image Backup].
+. Restore a backing image from the backupstore, For more information, see xref:snapshots-backups/backing-image-backups.adoc[Backing Image Backup].
 . Clone a backing image.
 
 ==== The checksum of a backing image
