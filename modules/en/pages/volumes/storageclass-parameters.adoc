@@ -195,7 +195,7 @@ If enabled, move replicas to more lightly-loaded nodes.
 
 ____
 Global setting: xref:longhorn-system/settings.adoc#_replica_auto_balance[Replica Auto Balance]
-More details in xref:high-availability/auto-balance-replicas.adoc[Auto Balance Replicas].
+More details in xref:high-availability/automatic-replica-balancing.adoc[Auto Balance Replicas].
 ____
 
 [discrete]
@@ -237,7 +237,7 @@ ____
 A list of recurring jobs that are to be run on a volume.
 
 ____
-More details in xref:snapshots-and-backups/scheduling-backups-and-snapshots.adoc[Recurring Snapshots and Backups]
+More details in xref:snapshots-backups/volume-snapshots-backups/create-recurring-backup-snapshot-job.adoc[]
 ____
 
 [discrete]
@@ -245,7 +245,7 @@ ____
 
 ____
 Default: `""`
-See xref:advanced-resources/backing-image/backing-image.adoc#_create_and_use_a_backing_image_via_storageclass_and_pvc[Backing Image]
+See xref:volumes/backing-images/backing-images.adoc#_create_and_use_a_backing_image_via_storageclass_and_pvc[Backing Image]
 ____
 
 [discrete]
@@ -253,7 +253,7 @@ ____
 
 ____
 Default: `""`
-See xref:advanced-resources/backing-image/backing-image.adoc#_create_and_use_a_backing_image_via_storageclass_and_pvc[Backing Image]
+See xref:volumes/backing-images/backing-images.adoc#_create_and_use_a_backing_image_via_storageclass_and_pvc[Backing Image]
 ____
 
 [discrete]
@@ -261,7 +261,7 @@ ____
 
 ____
 Default: `""`
-See xref:advanced-resources/backing-image/backing-image.adoc#_create_and_use_a_backing_image_via_storageclass_and_pvc[Backing Image]
+See xref:volumes/backing-images/backing-images.adoc#_create_and_use_a_backing_image_via_storageclass_and_pvc[Backing Image]
 ____
 
 [discrete]
@@ -269,7 +269,7 @@ ____
 
 ____
 Default: `""`
-See xref:advanced-resources/backing-image/backing-image.adoc#_create_and_use_a_backing_image_via_storageclass_and_pvc[Backing Image]
+See xref:volumes/backing-images/backing-images.adoc#_create_and_use_a_backing_image_via_storageclass_and_pvc[Backing Image]
 ____
 
 [discrete]
@@ -370,7 +370,7 @@ ____
 
 ____
 Global setting: xref:longhorn-system/settings.adoc#_v2_data_engine[V2 Data Engine].
-More details in xref:v2-data-engine/quick-start.adoc#_create_a_storageclass[V2 Data Engine Quick Start].
+More details in xref:longhorn-system/v2-data-engine/quick-start-guide.adoc#_create_a_storageclass[V2 Data Engine Quick Start].
 ____
 
 [discrete]

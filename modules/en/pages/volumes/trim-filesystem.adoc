@@ -60,7 +60,7 @@ To trim an RWX volume, perform the following steps:
 
 ==== Periodically trim the filesystem
 
-You can set up a xref:snapshots-and-backups/scheduling-backups-and-snapshots.adoc#_set_up_recurring_jobs[RecurringJob] to periodically trim the filesystem.
+You can set up a xref:snapshots-backups/volume-snapshots-backups/create-recurring-backup-snapshot-job.adoc#_set_up_recurring_jobs[RecurringJob] to periodically trim the filesystem.
 
 == Automatically Remove Snapshots During Filesystem Trim
 

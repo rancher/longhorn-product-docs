@@ -97,7 +97,7 @@ After finishing the above steps, restart kubelet on each node.
 
 ==== Using the Longhorn Command Line Tool
 
-The `longhornctl` tool is a CLI for Longhorn operations. For more information, see xref:advanced-resources/longhornctl/index.adoc[Command Line Tool (longhornctl)].
+The `longhornctl` tool is a CLI for Longhorn operations. For more information, see xref:longhorn-system/system-access/longhorn-cli.adoc[Command Line Tool (longhornctl)].
 
 To check the prerequisites and configurations, download the tool and run the `check` sub-command:
 
