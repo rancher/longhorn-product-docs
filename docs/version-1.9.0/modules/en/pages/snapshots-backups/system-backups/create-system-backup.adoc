@@ -58,9 +58,9 @@ The Longhorn system backup offers the following volume backup policy options:
 * `always`: Longhorn creates a backup for all volumes, regardless of their existing backups.
 * `disabled`: Longhorn does not create any backups for volumes.
 
-=== One-Time Backup
+=== Single Execution
 
-==== Create a System Backup Using the UI
+==== Create a System Backup Using the {longhorn-product-name} UI
 
 . Go to the `System Backup` page in the `Setting` drop-down list.
 . Click `Create` under `System Backup`.

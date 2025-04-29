@@ -75,11 +75,11 @@ CAUTION: If you do not include the `--preserve` option, Talos wipes `/var/lib/lo
 
 If you were unable to include the `--preserve` option in the upgrade command, perform the following steps:
 
-. On the {longhorn-product-name} UI, go to the *Node* screen.
+. On the {longhorn-product-name} UI, go to the *Node* page.
 . Select the upgraded node, and then select *Edit node and disks* in the *Operation* menu.
-. On the *Edit Node and Disks* screen, set *Scheduling* to *Disable*, delete the disk, and then click *Save*.
+. On the *Edit Node and Disks* page, set *Scheduling* to *Disable*, delete the disk, and then click *Save*.
 . Select the upgraded node again, and then select *Edit node and disks* in the *Operation* menu.
-. On the *Edit Node and Disks* screen, add a disk and configure the following settings:
+. On the *Edit Node and Disks* page, add a disk and configure the following settings:
  ** *Path*: Specify `/var/lib/longhorn/`.
  ** *Storage Reserved*: Specify a value that matches your requirements. The default value is *30 Gi*.
  ** *Scheduling*: Select *Enable*.

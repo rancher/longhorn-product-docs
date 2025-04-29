@@ -62,7 +62,7 @@ ____
 
 . Go to the *Volume* page.
 . Click the name of the volume that you want to clone.
-. In the *Snapshot and Backups* section of the details screen, identify the snapshot that you want to use and then click *Clone Volume*.
+. In the *Snapshot and Backups* section of the details page, identify the snapshot that you want to use and then click *Clone Volume*.
 . (Optional) Configure the settings of the new volume.
 . Click *OK*.
 

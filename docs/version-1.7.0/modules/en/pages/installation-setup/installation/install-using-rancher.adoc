@@ -3,7 +3,7 @@
 
 One benefit of installing Longhorn through Rancher Apps & Marketplace is that Rancher provides authentication to the Longhorn UI.
 
-If there is a new version of Longhorn available, you will see an `Upgrade Available` sign on the `Apps & Marketplace` screen. You can click `Upgrade` button to upgrade Longhorn manager. See more about upgrade xref:../../upgrades/upgrades.adoc[here].
+If there is a new version of Longhorn available, you will see an `Upgrade Available` sign on the `Apps & Marketplace` page. You can click `Upgrade` button to upgrade Longhorn manager. See more about upgrade xref:../../upgrades/upgrades.adoc[here].
 
 == Prerequisites
 
@@ -24,7 +24,7 @@ ____
 +
 image::screenshots/install/rancher-2.6/select-project.png[Image]
 +
-. Navigate to the `Apps & Marketplace` screen.
+. Navigate to the `Apps & Marketplace` page.
 +
 image::screenshots/install/rancher-2.6/apps-launch.png[Image]
 +
