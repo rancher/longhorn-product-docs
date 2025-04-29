@@ -327,7 +327,7 @@ After a DR volume is activated, it becomes a normal {longhorn-product-name} volu
 
 === 3.4. Backupstore Update Intervals, RTO, and RPO
 
-Incremental restoration is usually triggered by the periodic backupstore update. You can set the update interval on the backup target settings screen (*Setting -> Backup Target*).
+Incremental restoration is usually triggered by the periodic backupstore update. You can set the update interval on the backup target settings page (*Setting -> Backup Target*).
 
 Notice that this interval can potentially impact Recovery Time Objective (RTO). If it is too long, there may be a large amount of data for the disaster recovery volume to restore, which will take a long time.
 

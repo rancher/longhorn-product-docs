@@ -51,7 +51,7 @@ Starting with v1.7.0, Longhorn can perform full backups that upload all data blo
 
 === Create a Full Backup Using the Longhorn UI
 
-. Go to the *Volume* screen.
+. Go to the *Volume* page.
 . Select the volume that you want to back up.
 . Click *Create Backup*.
 . Add appropriate labels.

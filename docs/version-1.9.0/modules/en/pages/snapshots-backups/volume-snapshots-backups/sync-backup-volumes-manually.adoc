@@ -15,4 +15,4 @@ IMPORTANT: You must set up a xref:snapshots-backups/volume-snapshots-backups/con
  .. Select a backup volume.
  .. Click *Sync Backup Volume*.
 
-To check if synchronization was successful, click the name of the backup volume on the *Backup* screen.
+To check if synchronization was successful, click the name of the backup volume on the *Backup* page.

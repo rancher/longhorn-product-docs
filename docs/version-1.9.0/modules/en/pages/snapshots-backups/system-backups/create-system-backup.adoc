@@ -95,7 +95,7 @@ demo   v1.4.0    Ready   2022-11-24T04:23:24Z
 
 ==== Create a Recurring Backup Job Using the UI
 
-. Go to the *Recurring Job* screen.
+. Go to the *Recurring Job* page.
 
 . Click *Create Recurring Job*.
 
