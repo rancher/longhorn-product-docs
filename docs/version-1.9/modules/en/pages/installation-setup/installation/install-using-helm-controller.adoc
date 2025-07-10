@@ -5,17 +5,22 @@ You can install {longhorn-product-name} using the Helm Controller that is built 
 
 == Prerequisites
 
-* Kubernetes cluster: Ensure that each node fulfills the xref:../requirements.adoc[installation requirements]. The cluster should be running RKE2 or K3s.
+[NOTE]
+====
+{longhorn-product-name} installation requires authenticated access to SUSE Application Collection. For more details, check https://docs.apps.rancher.io/get-started/authentication[authentication guide].
+====
+
+* Kubernetes cluster: Ensure that each node fulfills the xref:installation-setup/requirements.adoc[installation requirements]. The cluster should be running RKE2 or K3s.
 
 ____
-The xref:../../longhorn-system/system-access/longhorn-cli.adoc[Longhorn Command Line Tool] can be used to check the Longhorn environment for potential issues.
+The xref:longhorn-system/system-access/longhorn-cli.adoc[Longhorn Command Line Tool] can be used to check the {longhorn-product-name} environment for potential issues.
 ____
 
 == Installation
 
 [NOTE]
 ====
-* The initial settings can be [customized using Helm options or by editing the deployment configuration file.](../../../advanced-resources/deploy/customizing-default-settings/#using-helm)
+* The initial settings can be xref:longhorn-system/customize-default-settings.adoc#_using_helm[customized using Helm options or by editing the deployment configuration file].
 * For Kubernetes v1.25 or earlier, if your cluster still enables Pod Security Policy admission controller, set the helm value `enablePSP` to `true` to install `longhorn-psp` PodSecurityPolicy resource which allows privileged Longhorn pods to start.
 ====
 
@@ -123,6 +128,6 @@ longhorn-ui-69667f9678-2lvxn                        1/1     Running   0         
 longhorn-ui-69667f9678-2xmc9                        1/1     Running   0             30m
 ----
 +
-. xref:../../longhorn-system/system-access/create-ingress.adoc[Create an NGINX Ingress controller with basic authentication] to access the UI. Authentication to the UI is not enabled by default.
+. xref:longhorn-system/system-access/create-ingress.adoc[Create an NGINX Ingress controller with basic authentication] to access the UI. Authentication to the UI is not enabled by default.
 +
-. xref:../../longhorn-system/system-access/system-access.adoc[Access the UI].
+. xref:longhorn-system/system-access/system-access.adoc[Access the UI].
