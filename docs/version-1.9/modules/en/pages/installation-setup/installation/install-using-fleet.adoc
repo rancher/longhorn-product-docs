@@ -99,11 +99,7 @@ Example of a complete `fleet.yaml` file:
  helm:
    repo: https://charts.longhorn.io
    chart: longhorn
-<<<<<<< HEAD
-   version: v{patch-version} # Replace with the version you would like to upgrade 
-=======
    version: v{patch-version}
->>>>>>> e028cd2 (updates installation, updation, migration docs)
    releaseName: longhorn
  diff:
    comparePatches:
