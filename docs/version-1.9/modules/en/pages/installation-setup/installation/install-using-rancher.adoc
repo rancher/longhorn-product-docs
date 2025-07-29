@@ -61,7 +61,7 @@ image::screenshots/install/rancher/installing-longhorn.png[Image]
 +
 image::screenshots/install/rancher/installing-longhorn-2.png[Image]
 +
-. Click Next. In the yaml editor, add the value `application-collection` in field `global.imagePullSecrets`
+. Click Next. In the yaml editor, add the value `application-collection` in the `global.imagePullSecrets` field.
 +
 image::screenshots/install/rancher/installing-longhorn-3.png[Image]
 +
