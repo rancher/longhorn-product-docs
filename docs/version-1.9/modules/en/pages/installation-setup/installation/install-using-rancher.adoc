@@ -12,6 +12,7 @@ Each node in the Kubernetes cluster where {longhorn-product-name} is installed m
 The xref:longhorn-system/system-access/longhorn-cli.adoc[Longhorn Command Line Tool] can be used to check the {longhorn-product-name} environment for potential issues.
 
 === Authentication
+
 To create `longhorn-system` namespace, run the following command:
 
 [,shell]
