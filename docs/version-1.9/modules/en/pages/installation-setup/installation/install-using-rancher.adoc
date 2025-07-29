@@ -12,12 +12,15 @@ Each node in the Kubernetes cluster where {longhorn-product-name} is installed m
 The xref:longhorn-system/system-access/longhorn-cli.adoc[Longhorn Command Line Tool] can be used to check the {longhorn-product-name} environment for potential issues.
 
 === Authentication
-Create namespace `longhorn-system`
+To create `longhorn-system` namespace, run the following command:
+
 [,shell]
 ----
 kubectl create namespace longhorn-system
 ----
-Follow the https://docs.apps.rancher.io/get-started/authentication/#kubernetes[Kubernetes authentication documentation] to create a secret in namespace `longhorn-system`
+
+Follow the https://docs.apps.rancher.io/get-started/authentication/#kubernetes[Kubernetes authentication documentation] to create a secret in the `longhorn-system` namespace.
+
 [,shell]
 ----
 kubectl create secret docker-registry application-collection \
