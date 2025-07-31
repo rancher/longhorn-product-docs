@@ -65,6 +65,12 @@ image::screenshots/install/rancher/installing-longhorn.png[Image]
 +
 image::screenshots/install/rancher/installing-longhorn-2.png[Image]
 +
+[NOTE]
+====
+If you are using Rancher Prime, it is mandatory to enable **Container Registry for Rancher System Container Images** and set the value to `dp.apps.rancher.io` to ensure images are pulled from the correct registry.
+====
++
+image::screenshots/install/rancher/container-registry-setting.png[Image]
 . Click Next. In the yaml editor, add the value `application-collection` in the `global.imagePullSecrets` field.
 +
 image::screenshots/install/rancher/installing-longhorn-3.png[Image]
