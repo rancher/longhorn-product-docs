@@ -1,4 +1,5 @@
 = Customize Default Settings
+:description: Customize Longhorns default settings by editing the Default Settings section in Rancher or modifying the YAML file.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :experimental:

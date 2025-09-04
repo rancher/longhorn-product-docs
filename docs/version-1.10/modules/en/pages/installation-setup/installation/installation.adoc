@@ -1,7 +1,7 @@
 = Installation
 :revdate: 2025-06-27
 :page-revdate: {revdate}
-:description: Install SUSE® Storage on Kubernetes
+:description: Learn about installing and customizing using detailed guides that cover various installation methods, configuration options, and advanced deployment techniques.
 :doctype: book
 :current-version: {page-component-version}
 

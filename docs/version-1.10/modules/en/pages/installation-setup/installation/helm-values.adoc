@@ -1,4 +1,5 @@
 = Helm Values
+:description: Configure your Longhorn deployment with the values.yaml file, which contains key-value pairs for adjusting settings like default registries, tolerations,.
 :revdate: 2025-07-30
 :page-revdate: {revdate}
 :current-version: {page-component-version}

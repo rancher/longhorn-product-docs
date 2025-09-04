@@ -1,4 +1,5 @@
 = Delete Volumes
+:description: Learn how to safely delete a Longhorn volume through either Kubernetes or the Longhorn user interface.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :current-version: {page-component-version}

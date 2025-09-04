@@ -1,4 +1,5 @@
 = Restore the SUSE® Storage System
+:description: Learn how to restore a Longhorn system from a System Backup Bundle using either the Longhorn UI or the kubectl command.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :current-version: {page-component-version}

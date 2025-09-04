@@ -2,7 +2,7 @@ include::partial$longhorn-globals.adoc[]
 = {longhorn-product-name-tm} Overview
 :revdate: 2025-06-27
 :page-revdate: {revdate}
-:description: Cloud native distributed block storage for Kubernetes
+:description: Learn how to deploy a reliable and scalable distributed block storage solution for Kubernetes with Longhorns efficient containerized architecture.
 
 *{longhorn-product-name}* is a lightweight, reliable, and powerful distributed https://cloudacademy.com/blog/object-storage-block-storage/[block storage] system for Kubernetes. It is derived from the open source project https://www.cncf.io/projects/longhorn/[Longhorn].
 

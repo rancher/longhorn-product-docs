@@ -1,4 +1,5 @@
 = Scheduling
+:description: Learn how to configure Longhorns scheduling policy for efficient replica placement, considering multiple factors and settings.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :current-version: {page-component-version}

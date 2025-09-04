@@ -1,4 +1,5 @@
 = RKE and CoreOS
+:description: Configure additional bind mounts for the kubelet in an RKE clusters `cluster.yml` file to enable CSI driver installation.
 :revdate: 2025-07-12
 :page-revdate: {revdate}
 :current-version: {page-component-version}

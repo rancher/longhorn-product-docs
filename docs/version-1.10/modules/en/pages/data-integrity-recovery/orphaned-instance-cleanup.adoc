@@ -1,4 +1,5 @@
 = Orphaned Instance Cleanup
+:description: Learn how to detect and manage orphaned instances on each node with a tool that identifies these instances, creates orphan resources describing them,.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :current-version: {page-component-version}

@@ -1,4 +1,5 @@
 = Backing Images
+:description: Configure backing images for volumes and improve space efficiency by adding a nodeSelector and a diskSelector.
 :revdate: 2025-07-26
 :page-revdate: {revdate}
 :experimental:

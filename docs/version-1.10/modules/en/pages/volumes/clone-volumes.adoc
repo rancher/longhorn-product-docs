@@ -1,7 +1,7 @@
 = Clone Volumes
 :revdate: 2025-06-27
 :page-revdate: {revdate}
-:description: Creating a new volume as a duplicate of an existing volume
+:description: Learn how to clone volumes with SUSE Storage to create exact replicas of existing storage resources.
 :current-version: {page-component-version}
 
 {longhorn-product-name} supports https://kubernetes.io/docs/concepts/storage/volume-pvc-datasource/[CSI volume cloning].

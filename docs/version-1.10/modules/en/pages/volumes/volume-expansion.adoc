@@ -1,4 +1,5 @@
 = Volume Expansion
+:description: Learn how to expand Longhorn volumes using various methods, including PersistentVolumeClaims and the Longhorn UI, both online and offline.
 :revdate: 2025-07-29
 :page-revdate: {revdate}
 :current-version: {page-component-version}

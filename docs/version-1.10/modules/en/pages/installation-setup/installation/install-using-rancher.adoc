@@ -1,4 +1,5 @@
 = Install {longhorn-product-name} Using Rancher
+:description: Configure Longhorn through Rancher Apps & Marketplace, using its built-in authentication and leveraging network policies to grant access to the Longhorn.
 :revdate: 2025-07-26
 :page-revdate: {revdate}
 :current-version: {page-component-version}

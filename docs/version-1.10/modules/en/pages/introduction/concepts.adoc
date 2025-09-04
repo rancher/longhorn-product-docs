@@ -1,4 +1,5 @@
 = Architecture and Concepts
+:description: Configure a highly available distributed block storage system, Longhorn, for use in Kubernetes clusters.
 :revdate: 2025-08-22
 :page-revdate: {revdate}
 

@@ -1,4 +1,5 @@
 = Create an Ingress with Basic Authentication (nginx)
+:description: Learn how to create an Ingress with basic authentication for your Longhorn UI in a Kubernetes cluster using either kubectl or Helm.
 :revdate: 2025-07-29
 :page-revdate: {revdate}
 :current-version: {page-component-version}

@@ -1,4 +1,5 @@
 = Upgrade Longhorn Manager
+:description: Learn how to successfully upgrade your Longhorn installation by following these step-by-step instructions, adapted to your specific Rancher environment setup.
 :revdate: 2025-07-29
 :page-revdate: {revdate}
 :current-version: {page-component-version}

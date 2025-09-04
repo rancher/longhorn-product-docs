@@ -1,4 +1,5 @@
 = Node Failure Management
+:description: Learn how to configure automatic pod deletion policies for StatefulSets and Deployments when a node fails.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :current-version: {page-component-version}

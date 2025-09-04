@@ -1,4 +1,5 @@
 = Managed Node Groups on Azure Kubernetes Service (AKS)
+:description: Configure and manage your Azure Kubernetes Service (AKS) cluster by adding a new node pool, coordinating nodes within the existing pool, and deleting outdated.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :current-version: {page-component-version}

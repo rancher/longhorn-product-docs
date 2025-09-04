@@ -1,4 +1,5 @@
 = RWX Volume Fast Failover (Experimental)
+:description: Configure RWX volume fast failover in a Longhorn setup to minimize downtime during a node failure, using lease-based monitoring and quick reaction times.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :current-version: {page-component-version}

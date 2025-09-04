@@ -1,4 +1,5 @@
 = Node Space Usage
+:description: Configure your Longhorn environment to optimize storage utilization by understanding the clusters space usage information, node-level space allocation.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :current-version: {page-component-version}

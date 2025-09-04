@@ -1,4 +1,5 @@
 = Multiple Disks
+:description: Configure additional disks for Longhorn storage by adding a new disk, mounting it to a directory on the host, and then using either the UI or kubectl.
 :revdate: 2025-07-04
 :page-revdate: {revdate}
 :current-version: {page-component-version}

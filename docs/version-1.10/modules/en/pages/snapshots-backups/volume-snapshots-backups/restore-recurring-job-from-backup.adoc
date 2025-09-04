@@ -1,4 +1,5 @@
 = Restore a Recurring Job from a Backup
+:description: Configure recurring job backups and restores in Longhorn, including enabling automatic restoration for volume jobs that recur regularly.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :current-version: {page-component-version}

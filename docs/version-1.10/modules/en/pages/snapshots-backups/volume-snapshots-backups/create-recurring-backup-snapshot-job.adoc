@@ -1,4 +1,5 @@
 = Create a Recurring Snapshot or Backup Job
+:description: Configure recurring snapshots and backups for volumes through the Recurring Jobs page or by interacting with a Longhorn RecurringJob custom resource.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :current-version: {page-component-version}

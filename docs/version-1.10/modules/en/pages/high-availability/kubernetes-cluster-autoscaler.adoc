@@ -1,4 +1,5 @@
 = Kubernetes Cluster Autoscaler Support (Experimental)
+:description: Enable Kubernetes Cluster Autoscaler scaling for optimal resource utilization in your Longhorn deployment.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :current-version: {page-component-version}

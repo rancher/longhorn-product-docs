@@ -1,4 +1,5 @@
 = Introduction
+:description: Configure Longhorn to manage distributed block storage for your Kubernetes cluster with advanced features including replication, snapshotting, and disaster.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 

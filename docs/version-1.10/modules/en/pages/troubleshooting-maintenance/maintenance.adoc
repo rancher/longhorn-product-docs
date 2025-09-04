@@ -1,4 +1,5 @@
 = Node Maintenance and Kubernetes Upgrade Guide
+:description: Learn how to perform planned maintenance on a Kubernetes node with Longhorn storage, minimizing disruption to workloads.
 :revdate: 2025-07-26
 :page-revdate: {revdate}
 :current-version: {page-component-version}

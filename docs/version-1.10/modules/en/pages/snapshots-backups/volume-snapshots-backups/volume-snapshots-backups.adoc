@@ -1,4 +1,5 @@
 = Volume Snapshots and Backups
+:description: Learn how to configure asynchronous backup operations in current Longhorn versions to resolve issues related to network latency and cascading problems.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :current-version: {page-component-version}

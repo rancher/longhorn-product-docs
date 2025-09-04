@@ -1,4 +1,5 @@
 = UBLK Frontend Support
+:description: Learn how to configure V2 Data Engine volumes using the UBLK front-end with detailed instructions and examples.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :aliases: ["/spdk/ublk-frontend-support.md"]

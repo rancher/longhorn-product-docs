@@ -1,4 +1,5 @@
 = {longhorn-product-name} VolumeAttachment
+:description: Learn how to manage attachment requests using the VolumeAttachment custom resource, which integrates with Kubernetes and provides an operational flow.
 :revdate: 2025-07-16
 :page-revdate: {revdate}
 :current-version: {page-component-version}

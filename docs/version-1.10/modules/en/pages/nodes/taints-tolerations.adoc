@@ -1,4 +1,5 @@
 = Taints and Tolerations
+:description: Set taint tolerations for Longhorn components to deploy them on nodes with specific resources and reject other workloads.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :doctype: book

@@ -1,4 +1,5 @@
 = StorageClass Parameters
+:description: Configure your StorageClass using a range of parameters, such as provisioner, reclaim policy, volume binding mode.
 :revdate: 2025-08-28
 :page-revdate: {revdate}
 :current-version: {page-component-version}

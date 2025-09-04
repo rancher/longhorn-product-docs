@@ -1,4 +1,5 @@
 = Troubleshooting Problems
+:description: Troubleshoot Longhorn issues quickly by accessing detailed logs from the Kubernetes cluster, the UI dashboard, and the node environments.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :current-version: {page-component-version}

@@ -1,4 +1,5 @@
 = Configure Default Node and Disk Settings
+:description: Learn how to customize default disk and node configurations in your Kubernetes cluster using labels and annotations instead of manual configuration.
 :revdate: 2025-07-11
 :page-revdate: {revdate}
 :current-version: {page-component-version}

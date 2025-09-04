@@ -1,4 +1,5 @@
 = Orphaned Data Cleanup
+:description: Configure orphaned replica directories to be automatically deleted after a defined grace period, ensuring data consistency and reducing storage consumption.
 :revdate: 2025-07-29
 :page-revdate: {revdate}
 :current-version: {page-component-version}

@@ -1,4 +1,5 @@
 = Upgrades
+:description: Configure upgrades for Longhorn Manager and Engine from version 1.7.x to support compatibility with new features and maintain system integrity.
 :revdate: 2025-07-12
 :page-revdate: {revdate}
 :doctype: book

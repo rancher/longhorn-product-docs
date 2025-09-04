@@ -1,4 +1,5 @@
 = Replica Rebuild QoS
+:description: Configure rebuild bandwidth throttling for v2 volumes based on SPDK, and apply QoS limits, to prevent overloading node storage throughput.
 :revdate: 2025-07-04
 :page-revdate: {revdate}
 :aliases: ["/spdk/features/replica-rebuild-qos.md"]

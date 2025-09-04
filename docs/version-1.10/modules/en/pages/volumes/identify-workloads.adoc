@@ -1,4 +1,5 @@
 = Identify Workloads that Use a Volume
+:description: Learn how to identify and manage workloads associated with existing Longhorn persistent volumes, including those previously bound to Persistent Volume Claims.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :current-version: {page-component-version}

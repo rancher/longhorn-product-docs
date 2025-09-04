@@ -1,4 +1,5 @@
 = Manually Upgrade the Longhorn Engine
+:description: Follow these step-by-step instructions to manually upgrade your Longhorn Engine using the Longhorn User Interface.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :current-version: {page-component-version}

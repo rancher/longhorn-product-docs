@@ -1,4 +1,5 @@
 = Kubelet Volume Metrics
+:description: Configure your monitoring system to obtain a PVCs status and set up alerts by scraping Kubelet metric endpoints.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :current-version: {page-component-version}

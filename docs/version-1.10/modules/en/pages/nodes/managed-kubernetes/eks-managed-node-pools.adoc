@@ -1,4 +1,5 @@
 = Managed Node Pools on Amazon Elastic Kubernetes Service (Amazon EKS)
+:description: Configure the launch template for an EKS cluster to update both node configurations and recycle nodes with new settings whenever you update the template.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :current-version: {page-component-version}

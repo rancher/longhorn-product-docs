@@ -1,4 +1,5 @@
 = Replica Rebuilding
+:description: Learn how to rebuild a replica in the event of failure or deletion using full, delta, or fast rebuilding methods for optimal data integrity and performance.
 :revdate: 2025-08-19
 :page-revdate: {revdate}
 :current-version: {page-component-version}

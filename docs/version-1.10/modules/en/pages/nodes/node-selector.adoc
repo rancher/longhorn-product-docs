@@ -1,4 +1,5 @@
 = Node Selector
+:description: Learn how to restrict Longhorn components to specific nodes by setting a node selector for both user-deployed and system-managed components.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :doctype: book

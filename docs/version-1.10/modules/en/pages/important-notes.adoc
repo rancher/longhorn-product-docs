@@ -1,4 +1,5 @@
 = Important Notes
+:description: Learn how to upgrade Longhorn Manager successfully by following best practices for pre-upgrade checks, volume detachment, and backup creation.
 :revdate: 2025-08-28
 :page-revdate: {revdate}
 :current-version: {page-component-version}

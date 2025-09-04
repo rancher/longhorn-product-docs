@@ -1,4 +1,5 @@
 = Upgrade Kubernetes on Azure Kubernetes Service (AKS)
+:description: Learn how to safely upgrade AKS (Azure Kubernetes Service) clusters with az aks upgrade commands, which support both control plane and agent node upgrades.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :current-version: {page-component-version}

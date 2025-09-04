@@ -1,4 +1,5 @@
 = Talos Linux
+:description: Configure Talos Linux cluster nodes to support persistent storage for Kubernetes persistent volumes by enabling system extensions,.
 :revdate: 2025-08-22
 :page-revdate: {revdate}
 :current-version: {page-component-version}
