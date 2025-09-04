@@ -1,4 +1,5 @@
 = Restore a Volume for a Kubernetes StatefulSet
+:description: Configure and restore backups in Longhorn using step-by-step instructions to successfully recover data for a Kubernetes StatefulSet with multiple replicas.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :current-version: {page-component-version}

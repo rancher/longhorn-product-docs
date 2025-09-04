@@ -1,4 +1,5 @@
 = K3s
+:description: Learn how to configure your K3s environment for successful installation of CSI plugins and troubleshooting common root directory detection errors.
 :revdate: 2025-07-12
 :page-revdate: {revdate}
 :current-version: {page-component-version}

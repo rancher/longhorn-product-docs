@@ -1,4 +1,5 @@
 = SUSE® Storage System Backups
+:description: Learn how to manage SUSE Storage backups and restores using its built-in tools for efficient data recovery.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :current-version: {page-component-version}

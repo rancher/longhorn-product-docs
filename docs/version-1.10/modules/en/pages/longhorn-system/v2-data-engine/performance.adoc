@@ -1,4 +1,5 @@
 = Performance
+:description: Learn about two clusters that are configured with different specifications to optimize performance testing.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :aliases: ["/spdk/performance.md"]

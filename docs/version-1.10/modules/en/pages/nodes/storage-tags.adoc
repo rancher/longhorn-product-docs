@@ -1,4 +1,5 @@
 = Storage Tags
+:description: Learn how to configure Longhorn to use only high-performance disks or nodes for storing volume data by setting up tags in the Longhorn UI and specifying node.
 :revdate: 2025-07-12
 :page-revdate: {revdate}
 :current-version: {page-component-version}

@@ -1,4 +1,5 @@
 = Configure a Backup Target
+:description: Configure backup targets to access a backup store that stores Longhorn volume backups using NFS, SMB/CIFS, Azure Blob Storage, or S3-compatible servers.
 :revdate: 2025-07-14
 :page-revdate: {revdate}
 :current-version: {page-component-version}

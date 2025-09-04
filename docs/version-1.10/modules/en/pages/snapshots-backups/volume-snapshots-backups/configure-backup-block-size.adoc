@@ -1,4 +1,5 @@
 = Configure The Block Size Of Backup
+:description: Configure default and custom backup block sizes for optimal storage efficiency and transmission speed.
 :revdate: 2025-08-28
 :page-revdate: {revdate}
 :current-version: {page-component-version}

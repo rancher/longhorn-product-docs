@@ -1,4 +1,5 @@
 = Automatic Replica Balancing
+:description: Learn how to configure Replica Auto Balance settings for even redundancy in your cluster using SUSEs flexible and scalable storage solution.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :current-version: {page-component-version}

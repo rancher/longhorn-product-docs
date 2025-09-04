@@ -1,4 +1,5 @@
 = SUSE® Storage Metrics for Monitoring
+:description: You can access detailed metrics and status information for Longhorn volumes, nodes, replicas, and engines from a single central location.
 :revdate: 2025-07-15
 :page-revdate: {revdate}
 :current-version: {page-component-version}

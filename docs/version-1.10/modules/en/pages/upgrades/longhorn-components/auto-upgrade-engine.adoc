@@ -1,4 +1,5 @@
 = Automatically Upgrade the Longhorn Engine
+:description: Learn how to automatically upgrade Longhorn volumes to the new default engine version after upgrading to the latest Longhorn Manager release with minimal manual.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :current-version: {page-component-version}

@@ -1,4 +1,5 @@
 = Quick Start Guide
+:description: Configure your environment to meet the prerequisites for a high-performance storage solution with the V2 data engine.
 :revdate: 2025-08-28
 :page-revdate: {revdate}
 :aliases: ["/spdk/quick-start.md"]

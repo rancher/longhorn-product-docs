@@ -1,4 +1,5 @@
 = Identify and Recover from Data Errors
+:description: Learn how to address data corruption issues in Longhorn volumes by identifying corrupted replicas and reverting to a previous snapshot.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :current-version: {page-component-version}

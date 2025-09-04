@@ -1,4 +1,5 @@
 = Snapshot Space Management
+:description: Configure the maximum snapshot count and aggregate size for each volume in Longhorn to manage storage usage and optimize performance.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :current-version: {page-component-version}

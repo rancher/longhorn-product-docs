@@ -1,4 +1,5 @@
 = Container-Optimized OS (COS)
+:description: Configure the GKE COS node agent using a daemonset to mount data paths, load kernel modules, install the iSCSI daemon, and establish necessary dependencies.
 :revdate: 2025-07-12
 :page-revdate: {revdate}
 :current-version: {page-component-version}

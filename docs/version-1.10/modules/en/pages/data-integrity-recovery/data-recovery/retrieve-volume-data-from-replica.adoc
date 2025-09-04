@@ -1,4 +1,5 @@
 = Retrieve Volume Data from a Single Replica
+:description: To recover and export data from a Longhorn volume, identify the replica directories, check for active usage, retrieve volume metadata, and use Docker.
 :revdate: 2025-07-12
 :page-revdate: {revdate}
 :current-version: {page-component-version}

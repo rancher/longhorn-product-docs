@@ -1,4 +1,5 @@
 = Backing Image Backup
+:description: Configure backups of Longhorn backing images, including creation and restoration of backups with unique global IDs and checksum validation.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :current-version: {page-component-version}

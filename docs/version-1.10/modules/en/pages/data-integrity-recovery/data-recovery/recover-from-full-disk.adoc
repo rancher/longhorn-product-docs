@@ -1,4 +1,5 @@
 = Recover from a Full Disk
+:description: Learn how to recover from a full disk by disabling scheduling and removing replicas in an error state.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :current-version: {page-component-version}

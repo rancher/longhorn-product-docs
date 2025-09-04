@@ -1,4 +1,5 @@
 = Use a Volume as an iSCSI Target
+:description: Configure an iSCSI connection to a Longhorn system by selecting iSCSI frontend mode when creating volumes.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :current-version: {page-component-version}

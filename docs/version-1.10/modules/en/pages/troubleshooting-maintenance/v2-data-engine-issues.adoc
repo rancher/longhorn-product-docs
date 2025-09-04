@@ -1,4 +1,5 @@
 = Troubleshooting
+:description: Deploying Linux kernel extra modules on Debian machines requires identifying available versions in package collection websites for installation. On Ubuntu.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :aliases: ["/spdk/troubleshooting.md"]

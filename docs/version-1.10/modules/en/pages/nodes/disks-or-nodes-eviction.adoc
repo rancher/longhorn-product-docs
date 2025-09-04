@@ -1,4 +1,5 @@
 = Evicting Replicas on Disabled Disks or Nodes
+:description: Learn how to configure auto eviction for Longhorn replicas and maintain high availability during both disk and node evictions.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :current-version: {page-component-version}

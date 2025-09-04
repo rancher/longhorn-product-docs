@@ -1,4 +1,5 @@
 = Requirements
+:description: Learn how to configure and verify that your Kubernetes cluster meets the minimum requirements for running Longhorn.
 :revdate: 2025-08-28
 :page-revdate: {revdate}
 :current-version: {page-component-version}

@@ -1,4 +1,5 @@
 = Access the User Interface
+:description: Configure the Longhorn UI dashboard by obtaining the external service IP via kubectl commands, then navigate to the CLUSTER-IP of the longhorn-frontend service.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :current-version: {page-component-version}

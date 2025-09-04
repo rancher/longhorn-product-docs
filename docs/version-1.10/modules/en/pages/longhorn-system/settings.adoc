@@ -1,4 +1,5 @@
 = Settings
+:description: Learn about configuring data storage options in a Longhorn environment by accessing this central location for information on supported formats, data engines.
 :revdate: 2025-08-28
 :page-revdate: {revdate}
 :current-version: {page-component-version}

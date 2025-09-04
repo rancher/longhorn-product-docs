@@ -1,4 +1,5 @@
 = Rancher Windows Cluster
+:description: Configure Longhorn components to run in a Rancher Windows cluster using supported Helm charts, specifying the node selector and tolerations.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :current-version: {page-component-version}

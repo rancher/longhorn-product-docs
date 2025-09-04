@@ -1,4 +1,5 @@
 = Detach Volumes
+:description: Edit your workload using kubectl to shut down pods and detach volumes from Longhorn for upgrades or maintenance.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :current-version: {page-component-version}

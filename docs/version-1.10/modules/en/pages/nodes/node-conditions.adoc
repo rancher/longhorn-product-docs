@@ -1,4 +1,5 @@
 = Node Conditions
+:description: Learn how to check and configure your worker nodes environment settings with node conditions to identify potential issues before they cause system impact.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :current-version: {page-component-version}

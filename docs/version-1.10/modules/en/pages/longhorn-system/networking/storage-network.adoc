@@ -1,4 +1,5 @@
 = Storage Network
+:description: Learn how to configure the Storage Network setting in Longhorn to isolate in-cluster data traffic and segregate network access for your workloads.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :doctype: book

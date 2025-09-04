@@ -1,4 +1,5 @@
 = System Access
+:description: Learn how to enable authentication in your Longhorn cluster by setting up an Ingress controller and configuring its basic authentication settings.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :current-version: {page-component-version}

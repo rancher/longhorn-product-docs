@@ -1,4 +1,5 @@
 = Snapshot Data Integrity Check
+:description: Configure snapshot data integrity settings to detect corruption in snapshot disk files and minimize their performance impact.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :current-version: {page-component-version}

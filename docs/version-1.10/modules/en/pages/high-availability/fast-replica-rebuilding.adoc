@@ -1,4 +1,5 @@
 = Fast Replica Rebuilding
+:description: Enable fast replica rebuilding for improved performance by configuring snapshot-data-integrity to enabled, using fast-check, and leveraging the checksums.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :current-version: {page-component-version}

@@ -1,7 +1,7 @@
 = Enable CSI Snapshot Creation on a Cluster
 :revdate: 2025-07-12
 :page-revdate: {revdate}
-:description: Enable CSI Snapshot Support for Programmatic Creation of SUSE® Storage Snapshots/Backups
+:description: Update your Kubernetes cluster by downloading and installing the snapshot controller and its associated custom resource definitions to ensure compatibility.
 :current-version: {page-component-version}
 
 == Prerequisites

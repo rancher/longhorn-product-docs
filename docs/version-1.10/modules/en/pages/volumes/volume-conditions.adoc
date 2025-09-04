@@ -1,4 +1,5 @@
 = Volume Conditions
+:description: Learn about managing Longhorn volume conditions, such as Scheduled, TooManySnapshots, Restore, and WaitForBackingImage status.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :current-version: {page-component-version}

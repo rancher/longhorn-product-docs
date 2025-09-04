@@ -1,4 +1,5 @@
 = Upgrade Kubernetes on Amazon Elastic Kubernetes Service (Amazon EKS)
+:description: Configure your Longhorn deployment with guidance on setting the replica replenishment wait interval and managing additional disks.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :current-version: {page-component-version}

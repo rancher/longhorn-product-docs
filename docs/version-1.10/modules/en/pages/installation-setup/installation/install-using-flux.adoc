@@ -1,4 +1,5 @@
 = Install SUSE® Storage Using Flux
+:description: Deploy a Longhorn environment to your Kubernetes cluster using this step-by-step guide, which covers installation, configuration, and verification of all.
 :revdate: 2025-07-29
 :page-revdate: {revdate}
 :current-version: {page-component-version}

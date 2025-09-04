@@ -1,4 +1,5 @@
 = Create Volumes
+:description: Learn how to dynamically provision storage for workloads in your Kubernetes cluster by creating a Longhorn StorageClass, referencing it in a.
 :revdate: 2025-08-22
 :page-revdate: {revdate}
 :current-version: {page-component-version}

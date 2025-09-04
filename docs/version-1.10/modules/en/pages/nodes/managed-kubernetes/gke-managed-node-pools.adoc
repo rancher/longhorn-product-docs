@@ -1,4 +1,5 @@
 = Managed Node Pools on Google Kubernetes Engine (GKE)
+:description: Learn how to upgrade your GKE cluster by replacing nodes with new storage sizes and expanding the node pool.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :current-version: {page-component-version}

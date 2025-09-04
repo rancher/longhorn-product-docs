@@ -1,4 +1,5 @@
 = Selective V2 Data Engine Activation
+:description: Identify nodes that should not run the V2 Data Engine and manage its availability within a Longhorn cluster.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :aliases: ["/spdk/features/selective-v2-data-engine-activation.md"]

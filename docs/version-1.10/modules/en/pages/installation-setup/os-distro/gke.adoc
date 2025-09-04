@@ -1,4 +1,5 @@
 = Google Kubernetes Engine (GKE)
+:description: Learn how to configure and manage a Google Kubernetes Engine (GKE) cluster by understanding its specific requirements for Ubuntu OS, the open-iscsi dependency.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :current-version: {page-component-version}

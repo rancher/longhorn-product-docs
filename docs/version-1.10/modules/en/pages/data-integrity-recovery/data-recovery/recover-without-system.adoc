@@ -1,4 +1,5 @@
 = Recover from a SUSE® Storage Backup without the System Installed
+:description: Learn how to restore a backup as a raw or qcow2 image using this command with customizable parameters.
 :revdate: 2025-07-12
 :page-revdate: {revdate}
 :current-version: {page-component-version}

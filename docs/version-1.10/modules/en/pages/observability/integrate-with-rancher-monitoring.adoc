@@ -1,4 +1,5 @@
 = Integrate SUSE® Storage Metrics into the Rancher Monitoring System
+:description: Configure your Kubernetes cluster with Rancher by deploying a ServiceMonitor to integrate Longhorn metrics.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :current-version: {page-component-version}

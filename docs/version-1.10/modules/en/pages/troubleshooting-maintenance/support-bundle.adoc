@@ -1,4 +1,5 @@
 = Support Bundle
+:description: Learn how to generate and download a support bundle from the Longhorn UI for troubleshooting and simulation.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :current-version: {page-component-version}

@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-slate-100">
+<head>
+    <meta charset="UTF-8">
+    <title>Description Generation Report: AI Generated Meta Descriptions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="font-sans text-slate-800">
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8">
+        
+        <div class="mb-8">
+            <h1 class="text-4xl font-bold text-slate-900">Description Generation Report</h1>
+            <p class="text-xl text-slate-600 mt-1">AI Generated Meta Descriptions</p>
+            <p class="text-sm text-slate-400 mt-2">Report generated on 2025-09-04 12:14:35</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div class="bg-white p-5 rounded-xl shadow-lg flex items-center justify-between"><div class="info"><div class="text-sm font-medium text-slate-500">Files Processed</div><div class="mt-1 text-3xl font-semibold text-slate-900">138</div></div><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg></div></div>
+            <div class="bg-white p-5 rounded-xl shadow-lg flex items-center justify-between"><div class="info"><div class="text-sm font-medium text-slate-500">Files Changed</div><div class="mt-1 text-3xl font-semibold text-green-600">138</div></div><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg></div></div>
+            <div class="bg-white p-5 rounded-xl shadow-lg flex items-center justify-between"><div class="info"><div class="text-sm font-medium text-slate-500">Processing Time</div><div class="mt-1 text-3xl font-semibold text-slate-900">225.88s</div></div><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg></div></div>
+            <div class="bg-white p-5 rounded-xl shadow-lg flex items-center justify-between"><div class="info"><div class="text-sm font-medium text-slate-500">Model Used</div><div class="mt-1 text-2xl font-semibold text-slate-900 truncate">llama3.1:8b</div></div><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg></div></div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+            <div class="p-5 border-b border-slate-200 flex flex-col sm:flex-row justify-between items-center">
+                <div>
+                    <h2 class="text-xl font-semibold text-slate-900">Processing Log</h2>
+                    <p class="text-sm text-slate-500 mt-1">Detailed log of all file operations.</p>
+                </div>
+                <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Filter by path, status, or details..." class="mt-4 sm:mt-0 w-full sm:w-64 px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div class="overflow-x-auto">
+                <table class="min-w-full" id="logTable">
+                    <thead class="bg-slate-100 text-slate-600 text-sm font-semibold uppercase">
+                        <tr>
+                            <th class="py-3 px-6 text-left">Timestamp</th>
+                            <th class="py-3 px-6 text-left">Filepath</th>
+                            <th class="py-3 px-6 text-left">Type</th>
+                            <th class="py-3 px-6 text-left">Status</th>
+                            <th class="py-3 px-6 text-left">Details</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-sm"><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:10:59</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/data-integrity-recovery/data-recovery/identify-corrupted-replicas.adoc">data-recovery/identify-corrupted-replicas.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to recover a Longhorn volume with intermittent input/output errors by manually verifying the replicas using checksum checks and comparing their.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:11:00</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/data-integrity-recovery/data-recovery/recover-from-data-errors.adoc">data-recovery/recover-from-data-errors.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to address data corruption issues in Longhorn volumes by identifying corrupted replicas and reverting to a previous snapshot.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:11:01</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/data-integrity-recovery/data-recovery/recover-from-full-disk.adoc">data-recovery/recover-from-full-disk.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to recover from a full disk by disabling scheduling and removing replicas in an error state.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:11:02</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/data-integrity-recovery/data-recovery/recover-without-system.adoc">data-recovery/recover-without-system.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to restore a backup as a raw or qcow2 image using this command with customizable parameters.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:11:06</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/data-integrity-recovery/data-recovery/retrieve-volume-data-from-replica.adoc">data-recovery/retrieve-volume-data-from-replica.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">To recover and export data from a Longhorn volume, identify the replica directories, check for active usage, retrieve volume metadata, and use Docker.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:11:07</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/data-integrity-recovery/disaster-recovery-volumes.adoc">data-integrity-recovery/disaster-recovery-volumes.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">REPLACED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Configure a Longhorn Disaster Recovery (DR) volume to ensure rapid data recovery for containerized applications.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:11:10</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/data-integrity-recovery/orphaned-data-cleanup.adoc">data-integrity-recovery/orphaned-data-cleanup.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Configure orphaned replica directories to be automatically deleted after a defined grace period, ensuring data consistency and reducing storage consumption.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:11:13</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/data-integrity-recovery/orphaned-instance-cleanup.adoc">data-integrity-recovery/orphaned-instance-cleanup.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to detect and manage orphaned instances on each node with a tool that identifies these instances, creates orphan resources describing them,.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:11:14</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/data-integrity-recovery/snapshot-data-integrity-check.adoc">data-integrity-recovery/snapshot-data-integrity-check.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Configure snapshot data integrity settings to detect corruption in snapshot disk files and minimize their performance impact.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:11:16</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/high-availability/automatic-replica-balancing.adoc">high-availability/automatic-replica-balancing.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to configure Replica Auto Balance settings for even redundancy in your cluster using SUSEs flexible and scalable storage solution.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:11:17</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/high-availability/data-locality.adoc">high-availability/data-locality.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to configure and manage data locality settings for Longhorn volumes, which enables improved availability and performance.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:11:18</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/high-availability/fast-replica-rebuilding.adoc">high-availability/fast-replica-rebuilding.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Enable fast replica rebuilding for improved performance by configuring snapshot-data-integrity to enabled, using fast-check, and leveraging the checksums.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:11:19</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/high-availability/kubernetes-cluster-autoscaler.adoc">high-availability/kubernetes-cluster-autoscaler.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Enable Kubernetes Cluster Autoscaler scaling for optimal resource utilization in your Longhorn deployment.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:11:20</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/high-availability/node-failure.adoc">high-availability/node-failure.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to configure automatic pod deletion policies for StatefulSets and Deployments when a node fails.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:11:21</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/high-availability/offline-replica-rebuilding.adoc">high-availability/offline-replica-rebuilding.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Configure offline replica rebuilding for Longhorn volumes by setting either a global or per-volume configuration setting.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:11:23</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/high-availability/replica-rebuilding.adoc">high-availability/replica-rebuilding.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to rebuild a replica in the event of failure or deletion using full, delta, or fast rebuilding methods for optimal data integrity and performance.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:11:24</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/high-availability/revision_counter.adoc">high-availability/revision_counter.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Configure the revision counter in Longhorn to balance consistency with performance requirements for storage needs.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:11:25</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/high-availability/rwx-volume-fast-failover.adoc">high-availability/rwx-volume-fast-failover.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Configure RWX volume fast failover in a Longhorn setup to minimize downtime during a node failure, using lease-based monitoring and quick reaction times.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:11:27</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/high-availability/volume-recovery.adoc">high-availability/volume-recovery.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to maintain volume functionality, recover unexpectedly detached volumes, and troubleshoot common scenarios using Longhorns automatic mechanisms.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:11:28</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/important-notes.adoc">pages/important-notes.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to upgrade Longhorn Manager successfully by following best practices for pre-upgrade checks, volume detachment, and backup creation.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:11:29</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/installation-setup/best-practices.adoc">installation-setup/best-practices.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Configure your cluster according to these recommended setup guidelines to achieve optimal performance and stability in production environments.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:11:31</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/installation-setup/installation/airgapped-environment.adoc">installation/airgapped-environment.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to configure Longhorn components to use your own private registry images with step-by-step deployment instructions.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:11:32</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/installation-setup/installation/helm-values.adoc">installation/helm-values.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Configure your Longhorn deployment with the values.yaml file, which contains key-value pairs for adjusting settings like default registries, tolerations,.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:11:36</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/installation-setup/installation/install-using-argocd.adoc">installation/install-using-argocd.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Configure a fully functional Kubernetes cluster with Argo CD and Longhorn by installing and deploying the necessary components, creating a custom Longhorn.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:11:37</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/installation-setup/installation/install-using-fleet.adoc">installation/install-using-fleet.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to deploy and manage Longhorn storage within a Kubernetes cluster using step-by-step configuration instructions.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:11:39</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/installation-setup/installation/install-using-flux.adoc">installation/install-using-flux.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Deploy a Longhorn environment to your Kubernetes cluster using this step-by-step guide, which covers installation, configuration, and verification of all.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:11:42</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/installation-setup/installation/install-using-helm-controller.adoc">installation/install-using-helm-controller.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to deploy and verify a Kubernetes cluster installation of Longhorn using Helm Charts with either RKE2 or K3s, ensuring that each node meets the.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:11:45</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/installation-setup/installation/install-using-helm.adoc">installation/install-using-helm.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Configure a fully functional Longhorn environment in your Kubernetes cluster by adding the Longhorn Helm repository, installing required components,.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:11:46</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/installation-setup/installation/install-using-kubectl.adoc">installation/install-using-kubectl.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to install Longhorn on a Kubernetes cluster using the provided command and configuration file.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:11:49</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/installation-setup/installation/install-using-rancher.adoc">installation/install-using-rancher.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Configure Longhorn through Rancher Apps &amp; Marketplace, using its built-in authentication and leveraging network policies to grant access to the Longhorn.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:11:50</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/installation-setup/installation/installation.adoc">installation/installation.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">REPLACED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn about installing and customizing using detailed guides that cover various installation methods, configuration options, and advanced deployment techniques.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:11:52</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/installation-setup/installation/rancher-windows-cluster.adoc">installation/rancher-windows-cluster.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Configure Longhorn components to run in a Rancher Windows cluster using supported Helm charts, specifying the node selector and tolerations.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:11:55</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/installation-setup/os-distro/container-optimized-os.adoc">os-distro/container-optimized-os.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Configure the GKE COS node agent using a daemonset to mount data paths, load kernel modules, install the iSCSI daemon, and establish necessary dependencies.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:11:56</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/installation-setup/os-distro/gke.adoc">os-distro/gke.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to configure and manage a Google Kubernetes Engine (GKE) cluster by understanding its specific requirements for Ubuntu OS, the open-iscsi dependency.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:11:58</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/installation-setup/os-distro/k3s.adoc">os-distro/k3s.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to configure your K3s environment for successful installation of CSI plugins and troubleshooting common root directory detection errors.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:11:59</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/installation-setup/os-distro/ocp-okd.adoc">os-distro/ocp-okd.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to deploy and configure Longhorn on an OpenShift 4.x cluster with step-by-step instructions.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:12:00</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/installation-setup/os-distro/rke-coreos.adoc">os-distro/rke-coreos.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Configure additional bind mounts for the kubelet in an RKE clusters `cluster.yml` file to enable CSI driver installation.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:12:04</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/installation-setup/os-distro/talos-linux.adoc">os-distro/talos-linux.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Configure Talos Linux cluster nodes to support persistent storage for Kubernetes persistent volumes by enabling system extensions,.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:12:05</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/installation-setup/requirements.adoc">installation-setup/requirements.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to configure and verify that your Kubernetes cluster meets the minimum requirements for running Longhorn.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:12:07</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/installation-setup/setup-performance-scalability-sizing-guidelines.adoc">installation-setup/setup-performance-scalability-sizing-guidelines.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Configure your system using the YaST tools, a comprehensive suite of management utilities that streamlines tasks such as software installation.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:12:09</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/installation-setup/uninstallation.adoc">installation-setup/uninstallation.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Follow these steps to safely uninstall Longhorn components and prevent data loss first, learn about the recommended cleanup procedures.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:12:10</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/introduction/concepts.adoc">introduction/concepts.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Configure a highly available distributed block storage system, Longhorn, for use in Kubernetes clusters.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:12:11</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/introduction/document-conventions.adoc">introduction/document-conventions.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn about the current status of SUSE software releases, including their support levels, features, and limitations.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:12:12</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/introduction/introduction.adoc">introduction/introduction.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Configure Longhorn to manage distributed block storage for your Kubernetes cluster with advanced features including replication, snapshotting, and disaster.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:12:14</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/introduction/terminology.adoc">introduction/terminology.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to attach and manage block devices using Longhorn volumes for high availability on your Linux node.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:12:15</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/longhorn-documentation.adoc">pages/longhorn-documentation.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">REPLACED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to deploy a reliable and scalable distributed block storage solution for Kubernetes with Longhorns efficient containerized architecture.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:12:16</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/longhorn-system/customize-default-settings.adoc">longhorn-system/customize-default-settings.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Customize Longhorns default settings by editing the Default Settings section in Rancher or modifying the YAML file.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:12:17</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/longhorn-system/examples-resources.adoc">longhorn-system/examples-resources.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to create and manage persistent volumes using Longhorn storage within a Kubernetes cluster.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:12:18</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/longhorn-system/migrate-flexvolume.adoc">longhorn-system/migrate-flexvolume.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Migrate from the Flexvolume driver to CSI by following the recommended upgrade procedure and backing up existing volumes.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:12:20</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/longhorn-system/mtls-support.adoc">longhorn-system/mtls-support.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Configure MTLS (Mutual Transport Layer Security) for Longhorn using Kubernetes secrets and secret mounts to secure gRPC communication.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:12:21</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/longhorn-system/networking/networking.adoc">networking/networking.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Configure network policies to control both inbound and outbound traffic between Longhorn components, thereby reducing damage from malicious pods.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:12:23</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/longhorn-system/networking/storage-network.adoc">networking/storage-network.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to configure the Storage Network setting in Longhorn to isolate in-cluster data traffic and segregate network access for your workloads.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:12:24</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/longhorn-system/settings.adoc">longhorn-system/settings.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn about configuring data storage options in a Longhorn environment by accessing this central location for information on supported formats, data engines.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:12:26</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/longhorn-system/system-access/create-ingress.adoc">system-access/create-ingress.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to create an Ingress with basic authentication for your Longhorn UI in a Kubernetes cluster using either kubectl or Helm.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:12:28</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/longhorn-system/system-access/install-longhorn-cli.adoc">system-access/install-longhorn-cli.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Master how to download and validate the Longhorn release binary, verifying its integrity with SHA-256 checksums, then install it for centralized Kubernetes.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:12:29</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/longhorn-system/system-access/longhorn-cli.adoc">system-access/longhorn-cli.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">REPLACED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to manage and troubleshoot Longhorn using the longhornctl tool, a CLI interface for both in-cluster and host operations.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:12:32</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/longhorn-system/system-access/longhorn-python-client.adoc">system-access/longhorn-python-client.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Configure and interact with Longhorns API using the Python binding by following detailed steps to access endpoints via either the longhorn-frontend service.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:12:34</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/longhorn-system/system-access/longhorn-ui.adoc">system-access/longhorn-ui.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Configure the Longhorn UI dashboard by obtaining the external service IP via kubectl commands, then navigate to the CLUSTER-IP of the longhorn-frontend service.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:12:36</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/longhorn-system/system-access/system-access.adoc">system-access/system-access.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to enable authentication in your Longhorn cluster by setting up an Ingress controller and configuring its basic authentication settings.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:12:36</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/longhorn-system/v2-data-engine/features/configurable-cpu-cores.adoc">features/configurable-cpu-cores.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Configure CPU cores for the V2 Data Engine using both global and node-specific settings to optimize performance.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:12:38</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/longhorn-system/v2-data-engine/features/features.adoc">features/features.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn about SUSE Enterprise Storage management best practices for volume lifecycle, backup, and data protection on AMD64 and ARM64 platforms.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:12:39</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/longhorn-system/v2-data-engine/features/node-disk-support.adoc">features/node-disk-support.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to configure and manage NVMe, VirtIO, and AIO disks on Longhorn nodes for enhanced filesystem operations and improved performance.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:12:41</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/longhorn-system/v2-data-engine/features/replica-rebuild-qos.adoc">features/replica-rebuild-qos.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Configure rebuild bandwidth throttling for v2 volumes based on SPDK, and apply QoS limits, to prevent overloading node storage throughput.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:12:42</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/longhorn-system/v2-data-engine/features/selective-engine-activation.adoc">features/selective-engine-activation.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Identify nodes that should not run the V2 Data Engine and manage its availability within a Longhorn cluster.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:12:43</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/longhorn-system/v2-data-engine/features/ublk-frontend-support.adoc">features/ublk-frontend-support.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to configure V2 Data Engine volumes using the UBLK front-end with detailed instructions and examples.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:12:44</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/longhorn-system/v2-data-engine/performance.adoc">v2-data-engine/performance.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn about two clusters that are configured with different specifications to optimize performance testing.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:12:45</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/longhorn-system/v2-data-engine/prerequisites.adoc">v2-data-engine/prerequisites.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Configure your Longhorn nodes with the required specifications and settings for optimal performance.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:12:46</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/longhorn-system/v2-data-engine/quick-start-guide.adoc">v2-data-engine/quick-start-guide.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Configure your environment to meet the prerequisites for a high-performance storage solution with the V2 data engine.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:12:48</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/nodes/default-disk-and-node-config.adoc">nodes/default-disk-and-node-config.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to customize default disk and node configurations in your Kubernetes cluster using labels and annotations instead of manual configuration.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:12:49</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/nodes/disks-or-nodes-eviction.adoc">nodes/disks-or-nodes-eviction.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to configure auto eviction for Longhorn replicas and maintain high availability during both disk and node evictions.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:12:50</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/nodes/managed-kubernetes/aks-managed-node-groups.adoc">managed-kubernetes/aks-managed-node-groups.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Configure and manage your Azure Kubernetes Service (AKS) cluster by adding a new node pool, coordinating nodes within the existing pool, and deleting outdated.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:12:52</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/nodes/managed-kubernetes/eks-managed-node-pools.adoc">managed-kubernetes/eks-managed-node-pools.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Configure the launch template for an EKS cluster to update both node configurations and recycle nodes with new settings whenever you update the template.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:12:53</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/nodes/managed-kubernetes/gke-managed-node-pools.adoc">managed-kubernetes/gke-managed-node-pools.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to upgrade your GKE cluster by replacing nodes with new storage sizes and expanding the node pool.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:12:57</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/nodes/multiple-disks.adoc">nodes/multiple-disks.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Configure additional disks for Longhorn storage by adding a new disk, mounting it to a directory on the host, and then using either the UI or kubectl.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:12:58</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/nodes/node-conditions.adoc">nodes/node-conditions.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to check and configure your worker nodes environment settings with node conditions to identify potential issues before they cause system impact.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:13:00</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/nodes/node-selector.adoc">nodes/node-selector.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to restrict Longhorn components to specific nodes by setting a node selector for both user-deployed and system-managed components.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:13:03</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/nodes/node-space-usage.adoc">nodes/node-space-usage.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Configure your Longhorn environment to optimize storage utilization by understanding the clusters space usage information, node-level space allocation.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:13:04</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/nodes/priority-class.adoc">nodes/priority-class.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to configure and manage priority classes for optimal workload performance in a Longhorn cluster.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:13:05</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/nodes/scheduling.adoc">nodes/scheduling.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to configure Longhorns scheduling policy for efficient replica placement, considering multiple factors and settings.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:13:07</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/nodes/storage-tags.adoc">nodes/storage-tags.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to configure Longhorn to use only high-performance disks or nodes for storing volume data by setting up tags in the Longhorn UI and specifying node.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:13:09</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/nodes/taints-tolerations.adoc">nodes/taints-tolerations.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Set taint tolerations for Longhorn components to deploy them on nodes with specific resources and reject other workloads.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:13:12</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/observability/alert-rule-examples.adoc">observability/alert-rule-examples.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to build and customize alert rules for monitoring Longhorn metrics, such as volume usage, storage warnings, node status, and instance manager.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:13:13</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/observability/configure-prometheus-grafana.adoc">observability/configure-prometheus-grafana.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Configure Longhorn metrics for monitoring using Prometheus, Grafana, and Alertmanager to optimize performance and notification alerts.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:13:14</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/observability/integrate-with-rancher-monitoring.adoc">observability/integrate-with-rancher-monitoring.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Configure your Kubernetes cluster with Rancher by deploying a ServiceMonitor to integrate Longhorn metrics.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:13:15</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/observability/kubelet-volume-metrics.adoc">observability/kubelet-volume-metrics.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Configure your monitoring system to obtain a PVCs status and set up alerts by scraping Kubelet metric endpoints.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:13:17</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/observability/longhorn-metrics.adoc">observability/longhorn-metrics.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">You can access detailed metrics and status information for Longhorn volumes, nodes, replicas, and engines from a single central location.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:13:18</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/snapshots-backups/backing-image-backups.adoc">snapshots-backups/backing-image-backups.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Configure backups of Longhorn backing images, including creation and restoration of backups with unique global IDs and checksum validation.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:13:19</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/snapshots-backups/csi-snapshots/csi-snapshot-longhorn-backing-image.adoc">csi-snapshots/csi-snapshot-longhorn-backing-image.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to create and manage Longhorn BackingImages with the Kubernetes CSI VolumeSnapshot mechanism.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:13:20</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/snapshots-backups/csi-snapshots/csi-snapshot-longhorn-backup.adoc">csi-snapshots/csi-snapshot-longhorn-backup.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to programatically create and manage Longhorn backups using the Kubernetes CSI Volume Snapshot mechanism.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:13:22</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/snapshots-backups/csi-snapshots/csi-snapshot-longhorn-snapshot.adoc">csi-snapshots/csi-snapshot-longhorn-snapshot.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to programatically create and manage Longhorn snapshots using the Kubernetes CSI Volume Snapshot mechanism.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:13:24</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/snapshots-backups/csi-snapshots/csi-snapshots.adoc">csi-snapshots/csi-snapshots.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">REPLACED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to master the YaST tools and gain comprehensive knowledge of Linux system configuration and installation with this extensive resource.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:13:25</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/snapshots-backups/csi-snapshots/enable-csi-snapshot-creation.adoc">csi-snapshots/enable-csi-snapshot-creation.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">REPLACED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Update your Kubernetes cluster by downloading and installing the snapshot controller and its associated custom resource definitions to ensure compatibility.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:13:26</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/snapshots-backups/restore-cluster-rancher-snapshot.adoc">snapshots-backups/restore-cluster-rancher-snapshot.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Configure your cluster for successful restore operations by understanding how to recover volumes with valid data after a disaster, while avoiding unnecessary.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:13:27</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/snapshots-backups/system-backups/create-system-backup.adoc">system-backups/create-system-backup.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to configure and manage your Longhorn system backups using either the YaST tools or the kubectl command.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:13:29</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/snapshots-backups/system-backups/restore-system.adoc">system-backups/restore-system.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to restore a Longhorn system from a System Backup Bundle using either the Longhorn UI or the kubectl command.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:13:30</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/snapshots-backups/system-backups/restore-to-cluster-using-rancher-snapshot.adoc">system-backups/restore-to-cluster-using-rancher-snapshot.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Configure all Kubernetes components across all nodes to ensure successful cluster restore and data recovery.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:13:31</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/snapshots-backups/system-backups/restore-to-new-cluster-using-velero.adoc">system-backups/restore-to-new-cluster-using-velero.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Restore a cluster using Velero, which restores all Longhorn settings, resources, and volumes from remote backups.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:13:32</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/snapshots-backups/system-backups/system-backups.adoc">system-backups/system-backups.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to manage SUSE Storage backups and restores using its built-in tools for efficient data recovery.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:13:33</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/snapshots-backups/volume-snapshots-backups/configure-backup-block-size.adoc">volume-snapshots-backups/configure-backup-block-size.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Configure default and custom backup block sizes for optimal storage efficiency and transmission speed.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:13:35</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/snapshots-backups/volume-snapshots-backups/configure-backup-target.adoc">volume-snapshots-backups/configure-backup-target.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Configure backup targets to access a backup store that stores Longhorn volume backups using NFS, SMB/CIFS, Azure Blob Storage, or S3-compatible servers.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:13:36</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/snapshots-backups/volume-snapshots-backups/create-backup.adoc">volume-snapshots-backups/create-backup.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Configure backups for your Longhorn volumes to ensure data protection and recovery options through incremental or full backup modes.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:13:38</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/snapshots-backups/volume-snapshots-backups/create-recurring-backup-snapshot-job.adoc">volume-snapshots-backups/create-recurring-backup-snapshot-job.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Configure recurring snapshots and backups for volumes through the Recurring Jobs page or by interacting with a Longhorn RecurringJob custom resource.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:13:39</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/snapshots-backups/volume-snapshots-backups/create-snapshot.adoc">volume-snapshots-backups/create-snapshot.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Configure Longhorn Volumes using the intuitive interface for creating and managing Kubernetes Volume snapshots.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:13:40</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/snapshots-backups/volume-snapshots-backups/restore-recurring-job-from-backup.adoc">volume-snapshots-backups/restore-recurring-job-from-backup.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Configure recurring job backups and restores in Longhorn, including enabling automatic restoration for volume jobs that recur regularly.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:13:42</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/snapshots-backups/volume-snapshots-backups/restore-volume-from-backup.adoc">volume-snapshots-backups/restore-volume-from-backup.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to easily restore backups to a volume by navigating to the Backup menu, where you select and restore the desired backup, specify the target volume.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:13:45</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/snapshots-backups/volume-snapshots-backups/restore-volume-statefulset.adoc">volume-snapshots-backups/restore-volume-statefulset.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Configure and restore backups in Longhorn using step-by-step instructions to successfully recover data for a Kubernetes StatefulSet with multiple replicas.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:13:47</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/snapshots-backups/volume-snapshots-backups/snapshot-space-management.adoc">volume-snapshots-backups/snapshot-space-management.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Configure the maximum snapshot count and aggregate size for each volume in Longhorn to manage storage usage and optimize performance.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:13:48</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/snapshots-backups/volume-snapshots-backups/sync-backup-volumes-manually.adoc">volume-snapshots-backups/sync-backup-volumes-manually.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Synchronize backup volumes manually with the backup target to ensure data consistency and recoverability.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:13:49</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/snapshots-backups/volume-snapshots-backups/volume-snapshots-backups.adoc">volume-snapshots-backups/volume-snapshots-backups.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to configure asynchronous backup operations in current Longhorn versions to resolve issues related to network latency and cascading problems.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:13:51</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/troubleshooting-maintenance/maintenance.adoc">troubleshooting-maintenance/maintenance.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to perform planned maintenance on a Kubernetes node with Longhorn storage, minimizing disruption to workloads.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:13:52</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/troubleshooting-maintenance/support-bundle.adoc">troubleshooting-maintenance/support-bundle.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to generate and download a support bundle from the Longhorn UI for troubleshooting and simulation.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:13:53</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/troubleshooting-maintenance/troubleshooting.adoc">troubleshooting-maintenance/troubleshooting.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Troubleshoot Longhorn issues quickly by accessing detailed logs from the Kubernetes cluster, the UI dashboard, and the node environments.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:13:57</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/troubleshooting-maintenance/v2-data-engine-issues.adoc">troubleshooting-maintenance/v2-data-engine-issues.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Deploying Linux kernel extra modules on Debian machines requires identifying available versions in package collection websites for installation. On Ubuntu.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:13:58</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/upgrades/kubernetes/upgrade-k8s-on-aks.adoc">kubernetes/upgrade-k8s-on-aks.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to safely upgrade AKS (Azure Kubernetes Service) clusters with az aks upgrade commands, which support both control plane and agent node upgrades.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:13:59</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/upgrades/kubernetes/upgrade-k8s-on-eks.adoc">kubernetes/upgrade-k8s-on-eks.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Configure your Longhorn deployment with guidance on setting the replica replenishment wait interval and managing additional disks.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:14:01</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/upgrades/kubernetes/upgrade-k8s-on-gke.adoc">kubernetes/upgrade-k8s-on-gke.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Configure the replica-replenishment-wait-interval setting in Longhorn to zero seconds, enabling immediate replication and automatic data recovery with minimal.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:14:02</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/upgrades/longhorn-components/auto-upgrade-engine.adoc">longhorn-components/auto-upgrade-engine.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to automatically upgrade Longhorn volumes to the new default engine version after upgrading to the latest Longhorn Manager release with minimal manual.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:14:03</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/upgrades/longhorn-components/manually-upgrade-engine.adoc">longhorn-components/manually-upgrade-engine.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Follow these step-by-step instructions to manually upgrade your Longhorn Engine using the Longhorn User Interface.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:14:05</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/upgrades/longhorn-components/upgrade-longhorn-manager.adoc">longhorn-components/upgrade-longhorn-manager.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to successfully upgrade your Longhorn installation by following these step-by-step instructions, adapted to your specific Rancher environment setup.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:14:06</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/upgrades/upgrades.adoc">upgrades/upgrades.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Configure upgrades for Longhorn Manager and Engine from version 1.7.x to support compatibility with new features and maintain system integrity.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:14:09</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/volumes/backing-images/backing-image-encryption.adoc">backing-images/backing-image-encryption.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to encrypt and decrypt a Longhorn backing image by cloning it using dmcrypt and cryptsetup, which can be configured with customizable encryption.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:14:11</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/volumes/backing-images/backing-images.adoc">backing-images/backing-images.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Configure backing images for volumes and improve space efficiency by adding a nodeSelector and a diskSelector.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:14:12</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/volumes/clone-volumes.adoc">volumes/clone-volumes.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">REPLACED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to clone volumes with SUSE Storage to create exact replicas of existing storage resources.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:14:15</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/volumes/create-volumes.adoc">volumes/create-volumes.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to dynamically provision storage for workloads in your Kubernetes cluster by creating a Longhorn StorageClass, referencing it in a.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:14:16</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/volumes/delete-volumes.adoc">volumes/delete-volumes.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to safely delete a Longhorn volume through either Kubernetes or the Longhorn user interface.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:14:17</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/volumes/detach-volumes.adoc">volumes/detach-volumes.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Edit your workload using kubectl to shut down pods and detach volumes from Longhorn for upgrades or maintenance.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:14:19</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/volumes/identify-workloads.adoc">volumes/identify-workloads.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to identify and manage workloads associated with existing Longhorn persistent volumes, including those previously bound to Persistent Volume Claims.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:14:20</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/volumes/pvc-ownership-and-permission.adoc">volumes/pvc-ownership-and-permission.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">To use Kubernetes with Longhorn Persistent Volumes, you need to understand ownership and permission handling in various volume modes.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:14:22</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/volumes/rwx-volumes.adoc">volumes/rwx-volumes.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to configure Longhorn for RWX volumes and control their data locality using share manager pods, selectors, and global settings.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:14:23</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/volumes/storageclass-parameters.adoc">volumes/storageclass-parameters.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Configure your StorageClass using a range of parameters, such as provisioner, reclaim policy, volume binding mode.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:14:25</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/volumes/trim-filesystem.adoc">volumes/trim-filesystem.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to reclaim space wasted by deleted files in Longhorn volumes through filesystem trimming and manage snapshot removal settings.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:14:26</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/volumes/use-as-iscsi-target.adoc">volumes/use-as-iscsi-target.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Configure an iSCSI connection to a Longhorn system by selecting iSCSI frontend mode when creating volumes.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:14:27</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/volumes/volume-attachment.adoc">volumes/volume-attachment.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to manage attachment requests using the VolumeAttachment custom resource, which integrates with Kubernetes and provides an operational flow.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:14:28</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/volumes/volume-conditions.adoc">volumes/volume-conditions.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn about managing Longhorn volume conditions, such as Scheduled, TooManySnapshots, Restore, and WaitForBackingImage status.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:14:30</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/volumes/volume-encryption.adoc">volumes/volume-encryption.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to securely encrypt your Longhorn volumes using Kubernetes Secrets and customizable parameters for advanced key management.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:14:31</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/volumes/volume-expansion.adoc">volumes/volume-expansion.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Learn how to expand Longhorn volumes using various methods, including PersistentVolumeClaims and the Longhorn UI, both online and offline.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:14:35</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/pages/volumes/volume-size.adoc">volumes/volume-size.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Explore how the nominal and actual sizes of a Longhorn volume are calculated and updated in response to various file system operations, such as writing data.</td>
+                </tr><tr class="border-b border-slate-200 hover:bg-slate-50">
+                    <td class="py-3 px-6 whitespace-nowrap border-l-4 border-green-500">12:14:35</td>
+                    <td class="py-3 px-6 font-medium text-slate-700" title="/home/scribe/longhorn-product-docs/docs/version-1.10/modules/en/partials/longhorn-globals.adoc">partials/longhorn-globals.adoc</td>
+                    <td class="py-3 px-6 whitespace-nowrap">AsciiDoc</td>
+                    <td class="py-3 px-6"><span class="text-white text-xs font-bold mr-2 px-2.5 py-1 rounded-full bg-green-500">ADDED</span></td>
+                    <td class="py-3 px-6 font-mono text-xs text-slate-600 break-words">Configure the Longhorn storage solution to provide a highly available and scalable data infrastructure.</td>
+                </tr></tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="mt-8 text-center text-sm text-slate-500">
+            <p>Ollama: {html.escape(system_info['ollama_version'])} &bull; GPU: {html.escape(system_info['gpu_info'])} &bull; System RAM: {html.escape(system_info['ram_total'])}</p>
+            <p class="mt-1">Source Directory: {html.escape(directory)}</p>
+        </div>
+    </div>
+    <script>
+    function filterTable() {{
+        var input, filter, table, tr, i;
+        input = document.getElementById("searchInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("logTable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 1; i < tr.length; i++) {{ // Start from 1 to skip header row
+            var pathTd = tr[i].getElementsByTagName("td")[1];
+            var statusTd = tr[i].getElementsByTagName("td")[3];
+            var detailsTd = tr[i].getElementsByTagName("td")[4];
+            if (pathTd && statusTd && detailsTd) {{
+                var pathText = pathTd.textContent || pathTd.innerText;
+                var statusText = statusTd.textContent || statusTd.innerText;
+                var detailsText = detailsTd.textContent || detailsTd.innerText;
+                if (pathText.toUpperCase().indexOf(filter) > -1 || 
+                    statusText.toUpperCase().indexOf(filter) > -1 || 
+                    detailsText.toUpperCase().indexOf(filter) > -1) {{
+                    tr[i].style.display = "";
+                }} else {{
+                    tr[i].style.display = "none";
+                }}
+            }}
+        }}
+    }}
+    </script>
+</body>
+</html>

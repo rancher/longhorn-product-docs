@@ -1,4 +1,5 @@
 = Python Client
+:description: Configure and interact with Longhorns API using the Python binding by following detailed steps to access endpoints via either the longhorn-frontend service.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :current-version: {page-component-version}

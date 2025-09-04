@@ -1,4 +1,5 @@
 = Restore a Cluster Using a Rancher Snapshot
+:description: Configure your cluster for successful restore operations by understanding how to recover volumes with valid data after a disaster, while avoiding unnecessary.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :current-version: {page-component-version}

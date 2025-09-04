@@ -1,4 +1,5 @@
 = PVC Ownership and Permission
+:description: To use Kubernetes with Longhorn Persistent Volumes, you need to understand ownership and permission handling in various volume modes.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :current-version: {page-component-version}

@@ -1,4 +1,5 @@
 = Create a Backup
+:description: Configure backups for your Longhorn volumes to ensure data protection and recovery options through incremental or full backup modes.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :current-version: {page-component-version}

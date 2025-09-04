@@ -1,4 +1,5 @@
 = CSI Volume Snapshot Associated with a SUSE® Storage Backup
+:description: Learn how to programatically create and manage Longhorn backups using the Kubernetes CSI Volume Snapshot mechanism.
 :revdate: 2025-07-26
 :page-revdate: {revdate}
 :current-version: {page-component-version}

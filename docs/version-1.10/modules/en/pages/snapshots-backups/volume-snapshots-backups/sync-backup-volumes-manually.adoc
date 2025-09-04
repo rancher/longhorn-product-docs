@@ -1,4 +1,5 @@
 = Manually Synchronize Backup Volumes
+:description: Synchronize backup volumes manually with the backup target to ensure data consistency and recoverability.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :current-version: {page-component-version}

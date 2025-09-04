@@ -1,4 +1,5 @@
 = Create a Snapshot
+:description: Configure Longhorn Volumes using the intuitive interface for creating and managing Kubernetes Volume snapshots.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :current-version: {page-component-version}

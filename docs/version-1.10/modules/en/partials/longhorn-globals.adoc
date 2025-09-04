@@ -1,1 +1,2 @@
+:description: Configure the Longhorn storage solution to provide a highly available and scalable data infrastructure.
 include::latest@shared:en:partial$longhorn-globals.adoc[]

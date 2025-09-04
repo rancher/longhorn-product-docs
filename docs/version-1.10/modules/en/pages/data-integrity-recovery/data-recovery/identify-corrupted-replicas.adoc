@@ -1,4 +1,5 @@
 = Identify Corrupted Replicas
+:description: Learn how to recover a Longhorn volume with intermittent input/output errors by manually verifying the replicas using checksum checks and comparing their.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :current-version: {page-component-version}

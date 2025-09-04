@@ -1,4 +1,5 @@
 = Alert Rule Examples
+:description: Learn how to build and customize alert rules for monitoring Longhorn metrics, such as volume usage, storage warnings, node status, and instance manager.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :current-version: {page-component-version}

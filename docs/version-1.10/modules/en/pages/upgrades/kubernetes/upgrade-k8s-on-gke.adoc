@@ -1,4 +1,5 @@
 = Upgrade Kubernetes on Google Kubernetes Engine (GKE)
+:description: Configure the replica-replenishment-wait-interval setting in Longhorn to zero seconds, enabling immediate replication and automatic data recovery with minimal.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :current-version: {page-component-version}

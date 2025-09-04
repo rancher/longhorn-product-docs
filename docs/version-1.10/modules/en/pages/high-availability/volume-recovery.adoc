@@ -1,4 +1,5 @@
 = Volume Recovery
+:description: Learn how to maintain volume functionality, recover unexpectedly detached volumes, and troubleshoot common scenarios using Longhorns automatic mechanisms.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 :current-version: {page-component-version}

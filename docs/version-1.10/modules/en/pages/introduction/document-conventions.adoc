@@ -1,4 +1,5 @@
 = Document Conventions
+:description: Learn about the current status of SUSE software releases, including their support levels, features, and limitations.
 :revdate: 2025-06-27
 :page-revdate: {revdate}
 
