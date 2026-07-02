@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+<title>拓扑感知配置 | SUSE® Storage  1.12 (Dev)</title>
+    <link rel="prev" href="priority-class.html">
+    <link rel="next" href="managed-kubernetes/aks-managed-node-groups.html">
+    <meta name="generator" content="Antora 3.1.7">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+<meta http-equiv="last-modified" content="2026-03-17"/>
+<link rel="stylesheet" href="../../../../_/css/search.css">
+<link rel="icon" href="../../../../_/img/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="../../../../_/css/font-styles.css">
+<link rel="stylesheet" href="../../../../_/fonts/css/all.css">
+<link rel="stylesheet" href="../../../../_/css/site-extra.css">
+<link rel="stylesheet" href="../../../../_/css/vendor/tabs.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap&family=SUSE+Mono:ital,wght@0,100..800;1,100..800" rel="stylesheet">
+<link href="https://documentation.suse.com/docserv/res/fonts/poppins/poppins.css" rel="stylesheet">
+<link rel="stylesheet" href="../../../../_/css/vendor/light.css">
+<script src="/docserv/res/lightheaded/analytics.js" type="text/javascript"></script>
+<script type="module">
+  import { defineCustomElements, setAssetPath } from 'https://d12w0ryu9hjsx8.cloudfront.net/shared-header/1.10/shared-header.esm.js';
+  defineCustomElements();
+  setAssetPath("https://d12w0ryu9hjsx8.cloudfront.net/shared-header/1.10/assets");
+</script>
+<!-- Default English link -->
+<link href="https://documentation.suse.com/cloudnative/storage/1.12/en/nodes/topology-aware-provisioning.html" hreflang="x-default" rel="alternate"/>
+<!-- Link for the currently processed page -->
+<link href="https://documentation.suse.com/cloudnative/storage/1.12/zh/nodes/topology-aware-provisioning.html" hrefLang="zh-CN" rel="alternate" />
+<!-- Link for the English page -->
+<link href="https://documentation.suse.com/cloudnative/storage/1.12/en/nodes/topology-aware-provisioning.html" hreflang="en-US" rel="alternate" />
+<!-- Link for the Japanese page -->
+<link href="https://documentation.suse.com/cloudnative/storage/1.12/ja/nodes/topology-aware-provisioning.html" hreflang="ja-JP" rel="alternate" />
+<!-- Link for the German page -->
+<link href="https://documentation.suse.com/cloudnative/storage/1.12/de/nodes/topology-aware-provisioning.html" hreflang="de-DE" rel="alternate" />
+<!-- Link for the French page -->
+<link href="https://documentation.suse.com/cloudnative/storage/1.12/fr/nodes/topology-aware-provisioning.html" hreflang="fr-FR" rel="alternate" />
+<!-- Link for the Spanish page -->
+<link href="https://documentation.suse.com/cloudnative/storage/1.12/es/nodes/topology-aware-provisioning.html" hreflang="es-ES" rel="alternate" />
+<!-- Link for the Brazilian Portuguese page -->
+<link href="https://documentation.suse.com/cloudnative/storage/1.12/pt/nodes/topology-aware-provisioning.html" hreflang="pt-BR" rel="alternate" />
+
+<!-- JSON-LD for doc metadata -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "name": "拓扑感知配置 | SUSE Storage 1.12",
+  "headline": "拓扑感知配置",
+  "description": "拓扑感知配置",
+  "inLanguage": "zh_CN",
+  "dateModified": "2026-03-17T00:00:00Z",
+  "author": {
+    "@type": "Organization",
+    "name": "SUSE Product & Solution Documentation Team",
+    "url": "https://documentation.suse.com"
+  },
+  "mentions": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "SUSE Storage",
+      "softwareVersion": "1.12",
+      "applicationCategory": "Cloud Infrastructure",
+      "operatingSystem": "Linux"
+    }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "name": "SUSE",
+    "url": "https://documentation.suse.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.suse.com/assets/img/suse-white-logo-green.svg"
+    }
+  }
+}
+</script>
+<!-- end JSON-LD for doc metadata -->
+
+<!-- SUVA - Begin Ask Geeko-->
+<!--
+searchUnifyChatbot ("Ask Geeko") Copyright ©2024 Grazitti Interactive - All Rights Reserved. NOTICE: All information contained herein is, and remains the property of Grazitti Interactive and its suppliers, if any. The intellectual and technical concepts contained herein are proprietary to Grazitti Interactive and its suppliers and may be covered by India, U.S. and Foreign Patents, patents in process, and are protected by trade secret or copyright law. Dissemination of this information or reproduction of this material is strictly forbidden unless prior written permission is obtained from Grazitti Interactive.
+-->
+<meta content="width=device-width, initial-scale=1.0, user-scalable=yes" name="viewport"/>
+<script type="text/javascript" src="https://suse.searchunify.com/suva-resources/suva_clients_custom/c485cb3c-93d4-4942-99e8-91f3b8ca5636/Allow/an.js?c485cb3c-93d4-4942-99e8-91f3b8ca5636"></script>
+<script type="text/javascript" src="https://suse.searchunify.com/suva-resources/suva_clients_custom/c485cb3c-93d4-4942-99e8-91f3b8ca5636/js/index.js?q=gAAAAABp3JBN9VuEJTi5tFafLIMwgMkCPdJS3Qm56lSYx93ir3Twt9hgSvd3OHEt6-nYfSbY3yHq0Zv8PRPsSy4nbqZiaJ4cZvRc6ItVZdvwz9Urf35cH6OUyPOwdA0phlS-zVIznQ2rWW438p-91NlTHuxJuOFpnA=="></script>
+<link rel="stylesheet" href="https://suse.searchunify.com/suva-resources/suva_clients_custom/c485cb3c-93d4-4942-99e8-91f3b8ca5636/css/index.css">
+<div id="searchUnifyChatbot"></div>
+<!-- SUVA - End Ask Geeko-->
+<!--BEGIN QUALTRICS WEBSITE FEEDBACK SNIPPET-->
+<script type='text/javascript' src="../../../../_/js/qualtrics.js" defer></script>
+<!--END QUALTRICS WEBSITE FEEDBACK SNIPPET-->
+    <script>var uiRootPath = '../../../../_'</script>
+  </head>
+  <body class="article">
+{!-- Add header scripts here --}}<shared-header
+language="en"
+languages='{
+    "en": { "label": "English", "url": "https://documentation.suse.com/en-us/" },
+    "de": { "label": "Deutsch", "url": "https://documentation.suse.com/de-de/" },
+    "fr": { "label": "Français", "url": "https://documentation.suse.com/fr-fr/" },
+    "es": { "label": "Español", "url": "https://documentation.suse.com/es-es/" },
+    "zh_CN": { "label": "中文", "url": "https://documentation.suse.com/zh-cn/" },
+    "pt_BR": { "label": "Português Brasileiro", "url": "https://documentation.suse.com/pt-br/" }
+}'
+enable-search='false'>
+</shared-header>
+<div class="body">
+<div class="nav-container" data-component="storage" data-version="1.12">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title">SUSE® Storage</h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../longhorn-documentation.html">SUSE® Storage 概述</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle" aria-label="Toggle expand/collapse"></button>
+    <a class="nav-link" href="../introduction/introduction.html">简介</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction/concepts.html">体系结构和概念</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction/terminology.html">术语</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction/document-conventions.html">文档约定</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../important-notes.html">重要注意事项</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle" aria-label="Toggle expand/collapse"></button>
+    <span class="nav-text">安装和设置</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../installation-setup/requirements.html">要求</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../installation-setup/best-practices.html">最佳实践</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle" aria-label="Toggle expand/collapse"></button>
+    <a class="nav-link" href="../installation-setup/installation/installation.html">安装</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../installation-setup/installation/install-using-argocd.html">使用 Argo CD 安装 SUSE Storage</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../installation-setup/installation/install-using-fleet.html">使用 Fleet 安装 SUSE Storage</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../installation-setup/installation/install-using-flux.html">使用 Flux 安装 SUSE® Storage</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../installation-setup/installation/install-using-helm.html">使用 Helm 安装 SUSE Storage</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../installation-setup/installation/install-using-helm-controller.html">使用 Helm 控制器安装 SUSE Storage</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../installation-setup/installation/helm-values.html">Helm 值</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../installation-setup/installation/install-using-rancher.html">使用 Rancher 安装 SUSE Storage</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../installation-setup/installation/rancher-windows-cluster.html">Rancher Windows 集群</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../installation-setup/installation/airgapped-environment.html">在隔离的环境中安装SUSE Storage</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle" aria-label="Toggle expand/collapse"></button>
+    <span class="nav-text">操作系统和发行版配置</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../installation-setup/os-distro/gke.html">Google Kubernetes Engine (GKE)</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../installation-setup/os-distro/k3s.html">K3s</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../installation-setup/setup-performance-scalability-sizing-guidelines.html">设置、性能、可伸缩性和规模指南</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../installation-setup/uninstallation.html">卸装</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle" aria-label="Toggle expand/collapse"></button>
+    <a class="nav-link" href="../upgrades/upgrades.html">升级</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle" aria-label="Toggle expand/collapse"></button>
+    <span class="nav-text">组件升级</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../upgrades/longhorn-components/auto-upgrade-engine.html">自动升级 Longhorn Engine</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../upgrades/longhorn-components/instance-manager-pods-during-upgrade.html">升级期间的实例管理器 Pod</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../upgrades/longhorn-components/manually-upgrade-engine.html">手动升级 Longhorn Engine</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../upgrades/longhorn-components/upgrade-longhorn-manager.html">升级 Longhorn Manager</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle" aria-label="Toggle expand/collapse"></button>
+    <span class="nav-text">Kubernetes升级</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../upgrades/kubernetes/upgrade-k8s-on-aks.html">在 Azure Kubernetes 服务 (AKS) 上升级 Kubernetes</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../upgrades/kubernetes/upgrade-k8s-on-eks.html">在亚马逊弹性Kubernetes服务（Amazon EKS）上升级Kubernetes</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../upgrades/kubernetes/upgrade-k8s-on-gke.html">在 Google Kubernetes Engine (GKE) 上升级 Kubernetes</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle" aria-label="Toggle expand/collapse"></button>
+    <span class="nav-text">迁移</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../migration/migration.html">迁移到 SUSE Storage</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle" aria-label="Toggle expand/collapse"></button>
+    <span class="nav-text">SUSE® Storage 系统</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle" aria-label="Toggle expand/collapse"></button>
+    <a class="nav-link" href="../longhorn-system/system-access/system-access.html">系统访问</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../longhorn-system/system-access/longhorn-ui.html">访问用户界面</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../longhorn-system/system-access/create-ingress.html">创建带基本认证的 Ingress（nginx）</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../longhorn-system/system-access/longhorn-ingress-traefik.html">创建带基本身份验证的 Ingress（Traefik）</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../longhorn-system/system-access/longhorn-cli.html">命令行界面 (CLI)</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../longhorn-system/system-access/install-longhorn-cli.html">安装 CLI</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../longhorn-system/system-access/longhorn-httproute.html">使用 Gateway API 创建 HTTPRoute</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../longhorn-system/system-access/longhorn-python-client.html">Python客户端</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle" aria-label="Toggle expand/collapse"></button>
+    <a class="nav-link" href="../longhorn-system/networking/networking.html">网络</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../longhorn-system/networking/storage-network.html">存储网络</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../longhorn-system/components/csi-pod-antiaffinity-preset.html">CSI 组件 Pod 反亲和性</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../longhorn-system/mtls-support.html">双向 TLS（mTLS）支持</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../longhorn-system/customize-default-settings.html">自定义默认设置</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../longhorn-system/settings.html">设置</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle" aria-label="Toggle expand/collapse"></button>
+    <span class="nav-text">V2数据引擎（技术预览）</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../longhorn-system/v2-data-engine/v2-data-engine.html">V2 数据引擎（技术预览）</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle" aria-label="Toggle expand/collapse"></button>
+    <a class="nav-link" href="../longhorn-system/v2-data-engine/features/features.html">V2 数据引擎特性</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../longhorn-system/v2-data-engine/features/selective-engine-activation.html">选择性 V2 数据引擎激活</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../longhorn-system/v2-data-engine/features/ublk-frontend-support.html">UBLK 前端支持</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../longhorn-system/v2-data-engine/features/node-disk-support.html">节点磁盘支持</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../longhorn-system/v2-data-engine/features/replica-rebuild-qos.html">副本重建QoS</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../longhorn-system/v2-data-engine/features/interrupt-mode.html">中断模式</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../longhorn-system/v2-data-engine/features/volume-expansion.html">卷展开</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../longhorn-system/v2-data-engine/features/volume-clone.html">卷克隆</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../longhorn-system/v2-data-engine/prerequisites.html">先决条件</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../longhorn-system/v2-data-engine/quick-start-guide.html">快速入门指南》</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../longhorn-system/v2-data-engine/performance.html">性能</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../longhorn-system/examples-resources.html">使用SUSE® Storage的Kubernetes资源示例</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../longhorn-system/migrate-flexvolume.html">从 Flexvolume 驱动程序迁移到 CSI</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle" aria-label="Toggle expand/collapse"></button>
+    <span class="nav-text">节点</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="node-space-usage.html">节点空间使用情况</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="default-disk-and-node-config.html">配置默认节点和磁盘设置</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="storage-tags.html">存储标签</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="multiple-disks.html">多个磁盘</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="disks-or-nodes-eviction.html">在禁用的磁盘或节点上驱逐副本</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="scheduling.html">安排日程</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="node-conditions.html">节点条件</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="node-selector.html">节点选择器</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="taints-tolerations.html">污点与容忍</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="priority-class.html">优先级类</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="topology-aware-provisioning.html">拓扑感知配置</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle" aria-label="Toggle expand/collapse"></button>
+    <span class="nav-text">托管 Kubernetes</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="managed-kubernetes/aks-managed-node-groups.html">Azure Kubernetes 服务 (AKS) 的托管节点组</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="managed-kubernetes/eks-managed-node-pools.html">在亚马逊弹性 Kubernetes 服务（Amazon EKS）上托管节点池</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="managed-kubernetes/gke-managed-node-pools.html">受管节点池（Managed Node Pools）在 Google Kubernetes Engine (GKE) 上</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle" aria-label="Toggle expand/collapse"></button>
+    <span class="nav-text">卷</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../volumes/create-volumes.html">创建卷</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../volumes/pvc-ownership-and-permission.html">PVC所有权和权限</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../volumes/rwx-volumes.html">ReadWriteMany (RWX) 卷</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../volumes/clone-volumes.html">克隆卷</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../volumes/containerized-data-importer.html">SUSE Storage与CDI导入</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../volumes/detach-volumes.html">分离卷</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../volumes/delete-volumes.html">删除卷</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../volumes/use-as-iscsi-target.html">将卷用作 iSCSI 目标</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../volumes/identify-workloads.html">识别使用卷的工作负载</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../volumes/volume-size.html">卷大小</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../volumes/volume-expansion.html">卷扩展</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../volumes/volume-attachment.html">SUSE Storage 卷附加</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../volumes/trim-filesystem.html">修剪文件系统</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../volumes/volume-conditions.html">卷条件</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../volumes/volume-encryption.html">卷加密</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../volumes/storageclass-parameters.html">存储类参数</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle" aria-label="Toggle expand/collapse"></button>
+    <a class="nav-link" href="../volumes/backing-images/backing-images.html">基础镜像</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../volumes/backing-images/backing-image-encryption.html">备份镜像加密</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle" aria-label="Toggle expand/collapse"></button>
+    <span class="nav-text">高可用性</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../high-availability/automatic-replica-balancing.html">自动副本平衡</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../high-availability/replica-rebuilding.html">副本重建</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../high-availability/fast-replica-rebuilding.html">快速副本重建</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../high-availability/offline-replica-rebuilding.html">离线副本重建</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../high-availability/revision_counter.html">修订计数器</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../high-availability/data-locality.html">数据本地性</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../high-availability/kubernetes-cluster-autoscaler.html">Kubernetes 集群自动扩缩容支持（实验性）</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../high-availability/rwx-volume-fast-failover.html">RWX 卷快速故障转移（实验性）</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../high-availability/volume-recovery.html">卷恢复</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../high-availability/node-failure.html">节点故障管理</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle" aria-label="Toggle expand/collapse"></button>
+    <span class="nav-text">快照和备份</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle" aria-label="Toggle expand/collapse"></button>
+    <a class="nav-link" href="../snapshots-backups/volume-snapshots-backups/volume-snapshots-backups.html">卷快照和备份</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../snapshots-backups/volume-snapshots-backups/create-snapshot.html">创建快照</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../snapshots-backups/volume-snapshots-backups/snapshot-space-management.html">快照空间管理</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../snapshots-backups/volume-snapshots-backups/configure-backup-target.html">配置备份目标</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../snapshots-backups/volume-snapshots-backups/create-backup.html">创建备份</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../snapshots-backups/volume-snapshots-backups/sync-backup-volumes-manually.html">手动同步备份卷</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../snapshots-backups/volume-snapshots-backups/create-recurring-backup-snapshot-job.html">创建定期快照或备份任务</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../snapshots-backups/volume-snapshots-backups/restore-volume-from-backup.html">从备份恢复卷。</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../snapshots-backups/volume-snapshots-backups/restore-recurring-job-from-backup.html">从备份中恢复定期作业</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../snapshots-backups/volume-snapshots-backups/restore-volume-statefulset.html">为Kubernetes StatefulSet恢复一个卷</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle" aria-label="Toggle expand/collapse"></button>
+    <a class="nav-link" href="../snapshots-backups/csi-snapshots/csi-snapshots.html">CSI 快照</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../snapshots-backups/csi-snapshots/csi-snapshot-longhorn-backing-image.html">与 SUSE® Storage BackingImage 相关的 CSI 卷快照</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../snapshots-backups/csi-snapshots/csi-snapshot-longhorn-backup.html">与SUSE® Storage备份相关的CSI Volume Snapshot</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../snapshots-backups/csi-snapshots/csi-snapshot-longhorn-snapshot.html">与SUSE® Storage快照关联的CSI卷快照</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../snapshots-backups/csi-snapshots/enable-csi-snapshot-creation.html">在集群上启用CSI快照创建</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle" aria-label="Toggle expand/collapse"></button>
+    <a class="nav-link" href="../snapshots-backups/system-backups/system-backups.html">SUSE® 存储系统备份</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../snapshots-backups/system-backups/restore-to-cluster-using-rancher-snapshot.html">使用 Rancher 快照将 SUSE® Storage 系统恢复到集群</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../snapshots-backups/system-backups/restore-to-new-cluster-using-velero.html">使用 Velero 将 SUSE® Storage 系统恢复到新集群</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../snapshots-backups/system-backups/create-system-backup.html">创建一个 SUSE Storage 系统备份</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../snapshots-backups/system-backups/restore-system.html">恢复 SUSE® Storage 系统</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../snapshots-backups/backing-image-backups.html">备份映像的备份</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../snapshots-backups/restore-cluster-rancher-snapshot.html">使用 Rancher 快照恢复集群</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle" aria-label="Toggle expand/collapse"></button>
+    <span class="nav-text">数据完整性和恢复</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../data-integrity-recovery/snapshot-data-integrity-check.html">快照数据完整性检查</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../data-integrity-recovery/orphaned-data-cleanup.html">孤立数据清理</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../data-integrity-recovery/orphaned-instance-cleanup.html">孤立实例清理</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../data-integrity-recovery/disaster-recovery-volumes.html">灾难恢复卷</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle" aria-label="Toggle expand/collapse"></button>
+    <span class="nav-text">数据恢复</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../data-integrity-recovery/data-recovery/identify-corrupted-replicas.html">识别损坏的副本</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../data-integrity-recovery/data-recovery/retrieve-volume-data-from-replica.html">从单个副本中检索卷数据</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../data-integrity-recovery/data-recovery/recover-from-data-errors.html">识别并恢复数据错误</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../data-integrity-recovery/data-recovery/recover-from-full-disk.html">从满磁盘中恢复</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../data-integrity-recovery/data-recovery/recover-without-system.html">在未安装系统的情况下从SUSE® Storage备份中恢复</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle" aria-label="Toggle expand/collapse"></button>
+    <span class="nav-text">可观测性</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../observability/configure-prometheus-grafana.html">配置 Prometheus 和 Grafana 以监控 SUSE® Storage</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../observability/alert-rule-examples.html">警报规则示例</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../observability/longhorn-metrics.html">SUSE® Storage 监控指标</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../observability/disk-health.html">磁盘健康监控</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../observability/integrate-with-rancher-monitoring.html">将SUSE®存储指标集成到Rancher监控系统中</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../observability/kubelet-volume-metrics.html">Kubelet 卷指标</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle" aria-label="Toggle expand/collapse"></button>
+    <span class="nav-text">故障排除和维护</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../troubleshooting-maintenance/support-bundle.html">支持包</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../troubleshooting-maintenance/troubleshooting.html">故障排除问题</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../troubleshooting-maintenance/v2-data-engine-issues.html">查错</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../troubleshooting-maintenance/maintenance.html">节点维护和Kubernetes升级指南</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle" aria-label="Toggle expand/collapse"></button>
+    <span class="nav-text">词汇表</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../glossary/glossary.html">术语表/术语</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">SUSE® Storage</span>
+    <span class="version">1.12 (Dev)</span>
+  </div>
+  <ul class="components">
+        <li class="component is-current">
+          <div class="title"><a href="../../../1.11/en/longhorn-documentation.html">SUSE® Storage</a></div>
+          <ul class="versions">
+            <li class="version is-current">
+              <a href="../../en/longhorn-documentation.html">1.12 (Dev)</a>
+            </li>
+            <li class="version is-latest">
+              <a href="../../../1.11/en/longhorn-documentation.html">1.11 (Latest)</a>
+            </li>
+            <li class="version">
+              <a href="../../../1.10/en/longhorn-documentation.html">1.10</a>
+            </li>
+            <li class="version">
+              <a href="../../../1.9/en/longhorn-documentation.html">1.9</a>
+            </li>
+          </ul>
+        </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+<ul>
+    <li>
+      <a class="home-link-dsc" href="https://documentation.suse.com/" title="documentation.suse.com" aria-label="SUSE Documentation Home"></a>
+    </li>
+    <li>
+      <a href="https://documentation.suse.com/cloudnative/storage" title="SUSE Storage" aria-label="SUSE Documentation - SUSE Storage">
+        SUSE Storage
+      </a>
+    </li>
+      <li>
+          节点
+      </li>
+  </ul>
+</nav><div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">1.12 (Dev)</button>
+  <div class="version-menu">
+    <a class="version is-current" href="topology-aware-provisioning.html">1.12 (Dev)</a>
+    <a class="version" href="../../../1.11/zh/nodes/topology-aware-provisioning.html">1.11 (Latest)</a>
+    <a class="version is-missing" href="../../../1.10/en/longhorn-documentation.html">1.10</a>
+    <a class="version is-missing" href="../../../1.9/en/longhorn-documentation.html">1.9</a>
+  </div>
+</div>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <label class="visual-search-label-bc" for="search-input">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+          <input label="Search" aria-label="Search" id="search-input" type="text" placeholder="搜索文档" >
+          <label class="filter checkbox" style="display: none">
+            <input type="checkbox" data-facet-filter="component:storage" checked> Only this project
+          </label>
+        </div>
+      </div>
+</div>
+  <div class="content">
+<aside
+  class="toc sidebar"
+  data-title="在此页面上" data-levels="2">
+  <div class="toc-menu">
+    <div class="docsurvey-wrapper"><a class="survey-link" href="https://suselinux.fra1.qualtrics.com/jfe/form/SV_diCzHC9xxyJyuN0">Documentation survey</a></div>
+    <!-- start qualtrics -->
+    <div id='ZN_8qZUmklKYbBqAYe'><!--DO NOT REMOVE-CONTENTS PLACED HERE--></div>
+    <div id="qualtrics_container"></div>
+    <!-- end qualtrics -->
+  </div>
+</aside>
+
+<aside class="toc sidebar docsurvey-sidebar">
+  <div class="toc-menu">
+    <div class="docsurvey-wrapper"><a class="survey-link" href="https://suselinux.fra1.qualtrics.com/jfe/form/SV_diCzHC9xxyJyuN0">Documentation survey</a></div>
+  </div>
+</aside>
+<article class="doc">
+                            <div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="警告"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>这是尚未发布的文档。 SUSE® Storage 1.12 (Dev).</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<h1 class="page">拓扑感知配置</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>拓扑感知配置允许您控制 Kubernetes 在创建时写入 PersistentVolume (PV) 的 <code>nodeAffinity</code> 规则。当您希望将卷固定到特定可用区或区域时，这非常有用，以便 pod 及其数据始终位于同一故障域。</p>
+</div>
+<div class="paragraph">
+<p>SUSE Storage 通过两个互补的功能支持这一点：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong><code>csi-allowed-topology-keys</code> 设置</strong>：控制哪些拓扑键（例如，<code>topology.kubernetes.io/zone</code>）出现在 PV <code>nodeAffinity</code> 中。</p>
+</li>
+<li>
+<p><strong><code>strictTopology</code> StorageClass 参数</strong>：启用时，将 PV 固定到调度程序选择的确切节点的拓扑，而不是所有匹配的拓扑。</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_先决条件"><a class="anchor" href="#_先决条件"></a>先决条件</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>集群中的节点必须标记为您计划使用的拓扑键。Kubernetes 在大多数云环境中会自动应用知名标签 <code>topology.kubernetes.io/zone</code>。使用以下命令进行验证：</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">kubectl get nodes --label-columns topology.kubernetes.io/zone</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>在 SUSE Storage 中配置 <strong>CSI 允许的拓扑键</strong> 设置。将值设置为 SUSE Storage 应该直通给 Kubernetes 的以逗号分隔的拓扑键列表。</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>SUSE Storage UI</strong>：转到 <strong>设置 &gt; 常规 &gt; CSI 允许的拓扑键</strong>，并输入，例如，<code>topology.kubernetes.io/zone</code>。</p>
+</li>
+<li>
+<p><strong>Longhorn API / kubectl</strong>：</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">kubectl -n longhorn-system edit settings.longhorn.io csi-allowed-topology-keys</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>将 <code>value</code> 字段设置为 <code>topology.kubernetes.io/zone</code>。</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="注意"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>更改此设置后，您必须手动重启 <code>longhorn-csi-plugin</code> DaemonSet 以使更改生效。只有在每个节点上的 CSI 插件 pod 重新启动后，拓扑才会正确应用。</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_工作原理"><a class="anchor" href="#_工作原理"></a>工作原理</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>当 PVC 针对使用 Longhorn CSI 驱动程序的 StorageClass 创建时，多个字段相互作用以确定 <code>nodeAffinity</code> 结果 PV 接收的内容：</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">字段</th>
+<th class="tableblock halign-left valign-top">角色</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>csi-allowed-topology-keys</code>（Longhorn 设置）</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">告诉 CSI 驱动程序要宣传哪些拓扑键。如果为空（默认），则不会将拓扑信息传递给 Kubernetes，PV 不会接收基于拓扑的 <code>nodeAffinity</code>。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>allowedTopologies</code>（StorageClass字段）</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">限制哪些拓扑值是合格的。例如，您可以将配置限制在`a`、`b`和`c`中的`a`和`b`区域。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>volumeBindingMode</code>（StorageClass字段）</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>WaitForFirstConsumer</code>（WFFC）在调度一个pod之前延迟配置，给调度器一个首选节点。`Immediate`立即进行配置。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>strictTopology</code>（StorageClass参数）</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">当`"true"`与`WaitForFirstConsumer`一起使用时，PV仅固定在调度pod的节点所在的区域，而不是所有允许的区域。此设置仅在`csi-allowed-topology-keys`包含相关拓扑键时有效。</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_示例"><a class="anchor" href="#_示例"></a>示例</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>以下示例假设一个包含六个节点的集群，分布在三个区域：</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">节点</th>
+<th class="tableblock halign-left valign-top">区域</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">node2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">a</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">node3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">b</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">node4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">c</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">node5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">a</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">node6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">b</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">node7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">c</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="_基本区域级亲和性"><a class="anchor" href="#_基本区域级亲和性"></a>基本区域级亲和性</h3>
+<div class="paragraph">
+<p>将`WaitForFirstConsumer`与`allowedTopologies`和`csi-allowed-topology-keys`一起使用，以限制卷到特定区域。</p>
+</div>
+<div class="paragraph">
+<p><strong>Longhorn设置</strong>：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>csi-allowed-topology-keys = topology.kubernetes.io/zone</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>StorageClass</strong>：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: longhorn-zone-ab
+provisioner: driver.longhorn.io
+volumeBindingMode: WaitForFirstConsumer
+parameters:
+  numberOfReplicas: "3"
+allowedTopologies:
+  - matchLabelExpressions:
+      - key: topology.kubernetes.io/zone
+        values:
+          - a
+          - b</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>结果</strong>：PV <code>nodeAffinity</code> 设置为 <code>zone in [a, b]</code>。PV只能附加到`a`或`b`区域中的节点。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_严格的拓扑固定"><a class="anchor" href="#_严格的拓扑固定"></a>严格的拓扑固定</h3>
+<div class="paragraph">
+<p>添加 <code>strictTopology: "true"</code> 以将 PV 固定到调度出的节点所在的确切区域。</p>
+</div>
+<div class="paragraph">
+<p><strong>Longhorn 设置</strong>：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>csi-allowed-topology-keys = topology.kubernetes.io/zone</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>StorageClass</strong>：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: longhorn-strict-zone
+provisioner: driver.longhorn.io
+volumeBindingMode: WaitForFirstConsumer
+parameters:
+  numberOfReplicas: "3"
+  strictTopology: "true"
+allowedTopologies:
+  - matchLabelExpressions:
+      - key: topology.kubernetes.io/zone
+        values:
+          - a
+          - b
+          - c</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>结果</strong>：尽管 <code>allowedTopologies</code> 中列出了所有三个区域，但 PV <code>nodeAffinity</code> 仅被固定到被调度的 Pod 所在节点的区域（例如，如果 Pod 落在 <code>node2</code> 或 <code>node5</code>，则为 <code>zone in [a]</code>）。</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_行为参考"><a class="anchor" href="#_行为参考"></a>行为参考</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>在下表中，区域 <code>[a, b, c]</code> 代表上述示例集群中存在的所有区域。</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 10%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-right valign-top">#</th>
+<th class="tableblock halign-left valign-top"><code>volumeBindingMode</code></th>
+<th class="tableblock halign-left valign-top"><code>allowedTopologies</code></th>
+<th class="tableblock halign-left valign-top"><code>csi-allowed-topology-keys</code></th>
+<th class="tableblock halign-left valign-top"><code>strictTopology</code></th>
+<th class="tableblock halign-left valign-top">PV <code>nodeAffinity</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">立即</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">无</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>""</code>（空）</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">无</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">立即</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">无</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>zone</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">区域 [a, b, c] 中</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">立即</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">区域: [a, b]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>zone</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">区域 [a, b] 中</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WFFC</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">无</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>""</code>（空）</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">无</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WFFC</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">无</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>zone</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">区域 [a, b, c] 中</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WFFC</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">无</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>zone</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">区域 [selected] 中</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WFFC</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">区域: [a]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>zone</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">区域 [a] 中</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WFFC</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">区域: [a, b, c]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>zone</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">区域 [selected] 中</p></td>
+</tr>
+</tbody>
+</table>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>在此表中，<code>zone</code> 是 <code>topology.kubernetes.io/zone</code> 的简写，<code>[selected]</code> 表示由 Kubernetes 调度器选择的节点区域。</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p><strong>关键要点</strong>：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>没有 <code>csi-allowed-topology-keys</code>，不会传递拓扑信息，PVs 不会接收基于拓扑的 <code>nodeAffinity</code>（场景 1，4）。</p>
+</li>
+<li>
+<p><code>strictTopology</code> 仅在与 <code>WaitForFirstConsumer</code> 一起使用时将 PV 固定到调度 Pod 的拓扑。使用 <code>Immediate</code> 时，PV 在 Pod 被调度之前创建，因此其拓扑是随机选择的。</p>
+</li>
+<li>
+<p><code>allowedTopologies</code> 缩小了合格区域的集合；<code>strictTopology</code> 进一步缩小到单个选定区域。</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_说明和警告"><a class="anchor" href="#_说明和警告"></a>说明和警告</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>请 <strong>不要</strong> 将 <code>allowedTopologies</code> 与 <code>dataLocality: strict-local</code> 一起使用。PV <code>nodeAffinity</code> 一旦设置后是不可变的，并且会与 SUSE Storage 的严格本地卷固定发生冲突。有关详细信息，请参见 <a href="../high-availability/data-locality.html" class="xref page">数据本地性</a>。</p>
+</li>
+<li>
+<p>对于那些 *不*需要拓扑感知配置的用户，最常见的配置是将 <code>csi-allowed-topology-keys</code> 留空（场景 1 和 4）。此为默认设置。</p>
+</li>
+<li>
+<p>对于希望进行拓扑感知配置的用户，推荐的配置是场景 7 和 8 — 将 <code>WaitForFirstConsumer</code> 与 <code>allowedTopologies</code> 和 <code>csi-allowed-topology-keys</code> 一起使用。</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_相关文档"><a class="anchor" href="#_相关文档"></a>相关文档</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../volumes/storageclass-parameters.html" class="xref page">存储类参数</a></p>
+</li>
+<li>
+<p><a href="../longhorn-system/settings.html#_csi_allowed_topology_keys" class="xref page">CSI 允许的拓扑键设置</a></p>
+</li>
+<li>
+<p><a href="scheduling.html" class="xref page">安排日程</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="priority-class.html">优先级类</a></span>
+  <span class="next"><a href="managed-kubernetes/aks-managed-node-groups.html">Azure Kubernetes 服务 (AKS) 的托管节点组</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<script src="../../../../_/js/site.js"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+<script src="../../../../_/js/vendor/lunr.js"></script>
+<script src="../../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="100" data-stylesheet="../../../../_/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../_/js/vendor/langSelection.js"></script>
+<script async src="../../../../_/js/vendor/tabs.js"></script>
+
+
+<script src="../../../../_/js/CNLanguageSwitcher.js"></script>
+  </body>
+</html>
