@@ -1,6 +1,6 @@
 = Architecture and Concepts
 :page-languages: [en, de, es, fr, ja, pt, zh]
-:revdate: 2026-08-13
+:revdate: 2026-09-02
 :page-revdate: {revdate}
 
 {longhorn-product-name} creates a dedicated storage controller for each volume and synchronously replicates the volume across multiple replicas stored on multiple nodes.
@@ -45,7 +45,34 @@ In the figure below,
 
 image::diagrams/architecture/how-longhorn-works-with-kubernetes.svg[read/write data flow between the volume, controller instance, replica instances, and disks]
 
-=== 1.2. Advantages of a Microservices Based Design
+=== 1.2. V1 and V2 Data Engine Data Paths
+
+==== 1.2.1. V1 Data Engine
+
+For V1 volumes, I/O follows this path:
+
+. I/O flows from the application, through the filesystem and *iSCSI block device*, to the *`longhorn tgt` service*.
+. The service forwards the I/O to the *Longhorn Engine process* over a Unix domain socket using a customized protocol.
+. The Engine forwards the I/O to *Longhorn replica processes* on multiple nodes over TCP.
+. Each replica process stores the volume data in a sparse file on the filesystem.
+
+The Engine provides strong consistency for writes: it acknowledges a write to the application *only* after the write completes on all replicas, and it marks a replica as failed if its I/O times out. For reads, the Engine retrieves data from the replicas using a round-robin strategy.
+
+image::diagrams/architecture/v1-data-path.png[V1 Data Engine data path from the application to Longhorn replica processes]
+
+==== 1.2.2. V2 Data Engine
+
+For V2 volumes, I/O follows this path:
+
+. I/O flows from the application, through the filesystem and *NVMe-oF block device*, to the *SPDK target daemon* (which exposes the Longhorn Engine instance as an SPDK RAID1 block device).
+. The Engine instance forwards the I/O to the SPDK target daemons on multiple nodes over NVMe-oF using TCP.
+. Each replica instance acts as an SPDK logical volume that stores the volume data on a raw block device.
+
+As with the V1 Data Engine, writes are acknowledged to the application *only* after they complete on all replicas, a replica is marked as failed if its I/O times out, and reads are retrieved from the replicas using a round-robin strategy.
+
+image::diagrams/architecture/v2-data-path.png[V2 Data Engine data path from the application to Longhorn replica instances]
+
+=== 1.3. Advantages of a Microservices Based Design
 
 Each Engine only needs to serve one volume, simplifying the design of the storage controllers. Because the failure domain of the controller software is isolated to individual volumes, a controller crash does not impact other volumes.
 
@@ -55,14 +82,14 @@ Because each volume has its own controller, the controller and replica instances
 
 {longhorn-product-name} can create a long-running job to orchestrate the upgrade of all live volumes without disrupting the on-going operation of the system. To ensure that an upgrade does not cause unforeseen issues, {longhorn-product-name} can choose to upgrade a small subset of the volumes and roll back to the old version if something goes wrong during the upgrade.
 
-=== 1.3. CSI Driver
+=== 1.4. CSI Driver
 
 The Longhorn CSI driver takes the block device, formats it, and mounts it on the node. Then the https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/[kubelet] bind-mounts the device inside a Kubernetes Pod. This allows the Pod to access the {longhorn-product-name} volume.
 
 The required Kubernetes CSI Driver images will be deployed automatically by the longhorn driver deployer.
 To install {longhorn-product-name} in an air gapped environment, refer to xref:installation-setup/installation/airgapped-environment.adoc[this section].
 
-=== 1.4. CSI Plug-in
+=== 1.5. CSI Plug-in
 
 {longhorn-product-name} is managed in Kubernetes via a https://kubernetes-csi.github.io/docs/[CSI Plug-in]. This allows for easy installation of the plugin.
 
@@ -79,7 +106,7 @@ In contrast, v2 volumes come with different prerequisites, depending on the conf
 * Kernel modules like `vfio_pci` and `uio_pci_generic` are required.
 * For the NVMe-TCP front-end, the `nvme_tcp` module is necessary.
 
-=== 1.5. The UI
+=== 1.6. The {longhorn-product-name} UI
 
 The UI interacts with the Longhorn Manager through the Longhorn API, and acts as a complement of Kubernetes. Through the UI, you can manage snapshots, backups, nodes and disks.
 
