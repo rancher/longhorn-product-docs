@@ -1,6 +1,6 @@
 = Create an HTTPRoute with Gateway API
 :page-languages: [en, de, es, fr, ja, pt, zh]
-:revdate: 2026-05-18
+:revdate: 2026-09-02
 :page-revdate: {revdate}
 :current-version: {page-component-version}
 
@@ -32,32 +32,37 @@ The following Helm values control HTTPRoute generation:
 | `httproute.enabled`
 | bool
 | `false`
-| Enable HTTPRoute generation for the {longhorn-product-name} UI
+| Enables HTTPRoute generation for the {longhorn-product-name} UI.
 
 | `httproute.parentRefs`
 | list
 | `[]`
-| Gateway references specifying which Gateway or Gateways should handle this route
+| List of Gateway references specifying which Gateway(s) should handle this route.
 
 | `httproute.hostnames`
 | list
 | `[]`
-| List of hostnames for the HTTPRoute
+| List of hostnames bound to the HTTPRoute.
+
+| `httproute.filters`
+| list
+| `[]`
+| List of Gateway API filters to attach to the HTTPRoute rule for the {longhorn-product-name} UI.
 
 | `httproute.path`
 | string
 | `"/"`
-| Path for accessing the {longhorn-product-name} UI
+| The routing path used to access the {longhorn-product-name} UI.
 
 | `httproute.pathType`
 | string
 | `"PathPrefix"`
-| Path match type: `Exact`, `PathPrefix`, or `RegularExpression`
+| The path match type. Valid options are `"Exact"`, `"PathPrefix"`, or `"RegularExpression"`.
 
 | `httproute.annotations`
 | object
 | `{}`
-| Annotations for the HTTPRoute resource
+| Key-value annotations to apply to the HTTPRoute resource.
 |===
 
 == Basic installation
@@ -99,6 +104,52 @@ httproute:
 ----
 
 Install with the values file:
+
+[,shell]
+----
+helm install longhorn longhorn/longhorn \
+  --namespace longhorn-system \
+  --create-namespace \
+  --values values.yaml
+----
+
+=== Secure access to the {longhorn-product-name} UI with basic auth integration
+
+To enable authenticated access to the {longhorn-product-name} UI, reference an existing authentication proxy or middleware resource through the HTTPRoute `filters` field.
+
+The following example assumes a Traefik Middleware resource providing basic authentication is already configured:
+
+[,yaml]
+----
+httproute:
+  enabled: true
+  parentRefs:
+    - name: primary-gateway
+      namespace: gateway-system
+    - name: secondary-gateway
+      namespace: gateway-system
+      sectionName: https  # Target specific listener
+  hostnames:
+    - longhorn.example.com
+    - longhorn.example.org
+  filters:
+    - type: ExtensionRef
+      extensionRef:
+        group: traefik.io
+        kind: Middleware
+        name: oauth-forwardauth
+  path: /longhorn
+  pathType: PathPrefix
+  annotations:
+    custom-annotation: "value"
+----
+
+[NOTE]
+====
+`filters` is optional for a standard HTTPRoute. Any referenced resource must be configured separately and exist before the HTTPRoute is created.
+====
+
+Install {longhorn-product-name} using the same values file:
 
 [,shell]
 ----
