@@ -1,10 +1,10 @@
 = V1 and V2 Volume Behavior and Feature Parity
 :page-languages: [en, de, es, fr, ja, pt, zh]
-:revdate: 2026-08-19
+:revdate: 2026-09-02
 :page-revdate: {revdate}
 :current-version: {page-component-version}
 
-This page summarizes the expected behavior differences between V1 and V2 volumes and provides a feature support matrix for the {longhorn-product-name} v1.12.0 documentation set.
+This page summarizes the expected behavior differences between V1 and V2 volumes and provides a feature support matrix for the {longhorn-product-name} v1.13.0 documentation set.
 
 == Expected Behavioral Differences
 
