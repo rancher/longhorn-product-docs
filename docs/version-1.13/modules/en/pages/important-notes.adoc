@@ -1,6 +1,6 @@
 = Important Notes
 :page-languages: [en, de, es, fr, ja, pt, zh]
-:revdate: 2026-08-19
+:revdate: 2026-09-02
 :page-revdate: {revdate}
 :current-version: {page-component-version}
 
@@ -28,12 +28,28 @@ V2 Backing Images are removed in {longhorn-product-name} v1.12.0. Use the Contai
 
 === Migration required for existing V2 volumes with backing images
 
-If you have V2 volumes that were created from backing images, you must migrate them before upgrading to v1.12.0:
+[WARNING]
+====
+* V2 volumes with backing image dependencies cannot be upgraded in-place. Attempting to upgrade without migration may result in volume attachment failures.
+* Furthermore, a direct backup of a V2 volume does not include its V2 backing image data, meaning a restore would still require the original backing image. If the volume data is still needed, you *must* perform the migration below before upgrading. If the data is no longer needed, simply delete the V2 volume instead.
+====
 
-. *Backup and re-create* (recommended): Create a backup of the V2 volume, delete the original volume, then restore from backup. The restored volume does not have a backing image dependency.
-. *Delete the volume*: If the data is not needed, delete the V2 volume directly.
+Before upgrading to v1.13.0, flatten each required V2 volume into a temporary V1 volume and back up the V1 volume:
 
-V2 volumes with backing image dependencies cannot be upgraded in-place. Attempting to upgrade without migration may result in volume attachment failures.
+. *Stop writes to the source volume*: Detach the workload or otherwise ensure that no process can modify the V2 volume during the copy.
+. *Create a temporary V1 volume*: Do not configure a backing image, and make the volume exactly the same size as the source V2 volume.
+. *Copy every block*: Use an offline migration pod or maintenance environment that exposes both volumes as raw block devices on the same node. Copy the source device to the temporary V1 device, then verify the result.
++
+[shell]
+----
+dd if=/dev/source of=/dev/target bs=4M conv=fsync
+cmp /dev/source /dev/target
+sha256sum /dev/source /dev/target
+----
++
+. *Back up the temporary V1 volume*: Detach the migration pod and create a Longhorn backup of the temporary V1 volume in the configured backup target.
+. *Test the standalone backup*: Verify that the backup does not list a backing image, restore it to a new volume, and validate the restored data before deleting any source data.
+. *Remove the dependency*: After the test restore succeeds, delete the original V2 volume and backing image. The temporary V1 volume can also be deleted after confirming that its backup is available.
 
 For more information, see https://github.com/longhorn/longhorn/issues/13181[#13181] and xref:volumes/containerized-data-importer.adoc[{longhorn-product-name} with CDI Imports].
 
@@ -113,6 +129,18 @@ For more information, see https://github.com/longhorn/longhorn/issues/13483[#134
 {longhorn-product-name} v1.12.1 allows tuning the SPDK iobuf buffer pools used by the V2 Data Engine. The `data-engine-iobuf-large-pool-size` and `data-engine-iobuf-small-pool-size` settings configure the large and 8 KiB small buffer pools, respectively. Increasing the small pool can relieve buffer exhaustion under high-queue-depth workloads with small I/O sizes. Because iobuf pools can only be sized at SPDK target startup, changing either setting recreates V2 Instance Manager pods that have no running instances.
 
 For more information, see https://github.com/longhorn/longhorn/issues/13322[#13322] and https://github.com/longhorn/longhorn/issues/13674[#13674].
+
+=== V2 Dedicated CPU Requirements
+
+When assigning CPU cores to the V2 Data Engine, ensure that the V2 instance-manager pod has enough guaranteed CPU resources to cover the assigned cores. This provides dedicated CPU availability for SPDK reactors, prevents CPU contention, and helps maintain predictable performance and V2 Data Engine stability.
+
+You can verify that the guaranteed CPU resources match the CPU cores specified by `data-engine-cpu-mask` or `data-engine-number-of-cpu-cores`. For more details, see xref:longhorn-system/settings.adoc#_guranteed_instance_manager_cpu[Guaranteed Instance Manager CPU], xref:longhorn-system/settings.adoc#_data_engine_cpu_mask[Data Engine CPU Mask], and xref:longhorn-system/settings.adoc#_data_engine_number_of_cpu_cores[Data Engine Number of CPU Cores].
+
+=== CPU Isolation Enabled by Default
+
+{longhorn-product-name} v{patch-version} enables xref:longhorn-system/settings.adoc#_data_engine_cpu_isolation_enabled[Data Engine CPU Isolation] by default for the V2 Data Engine (`{"v2":"true"}`). This ensures that CPU cores are dedicated to the V2 Data Engine.
+
+For more information, see https://github.com/longhorn/longhorn/issues/13724[#13724] and xref:longhorn-system/settings.adoc#_data_engine_cpu_isolation_enabled[Data Engine CPU Isolation Enabled].
 
 === IPv6 Support
 

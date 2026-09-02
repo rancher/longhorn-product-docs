@@ -1,6 +1,6 @@
 = CSI Volume Snapshot Associated with a SUSE® Storage Snapshot
 :page-languages: [en, de, es, fr, ja, pt, zh]
-:revdate: 2026-08-31
+:revdate: 2026-09-02
 :page-revdate: {revdate}
 :current-version: {page-component-version}
 
@@ -20,7 +20,7 @@ ____
 To create a CSI VolumeSnapshot associated with a Longhorn snapshot, you first need to create a `VolumeSnapshotClass` object
 with the parameter `type` set to `snap` as follow:
 
-[subs="+attributes",yaml]
+[,yaml]
 ----
 kind: VolumeSnapshotClass
 apiVersion: snapshot.storage.k8s.io/v1
@@ -73,7 +73,7 @@ The csi-provisioner will pick this up and instruct the Longhorn CSI driver to pr
 
 An example `PersistentVolumeClaim` is below. The `dataSource` field needs to point to an existing `VolumeSnapshot` object.
 
-[subs="+attributes",yaml]
+[,yaml]
 ----
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -98,4 +98,5 @@ spec:
 * When restoring a volume from a `VolumeSnapshot` associated with a V2 data engine volume, you can specify the clone mode using a `StorageClass`.
 ** Set the `cloneMode` parameter to either `full-copy` or `linked-clone`.
 ** If you don not specify the `cloneMode` parameter, the default is `full-copy`.
+* For more information, see xref:volumes/clone-volumes.adoc#_v2_data_engine[V2 Volume Clone Support documentation].
 ====

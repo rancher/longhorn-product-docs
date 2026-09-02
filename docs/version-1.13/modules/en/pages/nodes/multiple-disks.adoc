@@ -1,6 +1,6 @@
 = Multiple Disks
 :page-languages: [en, de, es, fr, ja, pt, zh]
-:revdate: 2026-08-31
+:revdate: 2026-09-02
 :page-revdate: {revdate}
 :current-version: {page-component-version}
 
@@ -94,7 +94,7 @@ Block-type disks are used for V2 volumes. The V2 Data Engine requires raw block 
 
 ==== Prerequisites
 
-* The V2 Data Engine must be enabled.
+* The V2 Data Engine must be enabled. See xref:installation-setup/requirements.adoc#_v2_data_engine_requirements[V2 Data Engine Prerequisites] for more details.
 * {longhorn-product-name} prevents adding block disks that contain an existing file system or partition table. Clean the disk first:
 +
 [,shell]

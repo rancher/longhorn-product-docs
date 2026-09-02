@@ -1,6 +1,6 @@
 = Create Volumes
 :page-languages: [en, de, es, fr, ja, pt, zh]
-:revdate: 2026-08-10
+:revdate: 2026-09-02
 :page-revdate: {revdate}
 :current-version: {page-component-version}
 
@@ -134,7 +134,7 @@ apiVersion: v1
 [#_creating_v2_longhorn_volumes_with_kubectl_replication]
 === Creating V2 Longhorn Volumes with kubectl (Replication)
 
-Before creating a V2 volume, ensure that the V2 Data Engine is enabled and Longhorn has available block-type disks. V2 volumes are scheduled only to block-type disks. For more information, see xref:v1-v2-volume-behavior-and-feature-parity.adoc[V2 Data Engine Guide] and xref:nodes/multiple-disks.adoc#_add_a_block-type-disk[Add a Block-Type Disk].
+Before creating a V2 volume, ensure that the V2 Data Engine is enabled and Longhorn has available block-type disks. V2 volumes are scheduled only to block-type disks. For more information, see xref:installation-setup/requirements.adoc#_v2_data_engine_requirements[V2 Data Engine] and xref:nodes/multiple-disks.adoc#_add_a_block-type-disk[Add a Block-Type Disk].
 
 . Use the following command to create a StorageClass called `longhorn-v2-replicated`:
 +
