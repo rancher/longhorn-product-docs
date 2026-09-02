@@ -1342,7 +1342,7 @@ DO NOT CHANGE THIS SETTING WITH ATTACHED VOLUMES. {longhorn-product-name} blocks
 
 === Data Engine CPU Isolation Enabled
 
-*Default value*: `{"v2":"false"}`
+*Default value*: `{"v2":"true"}`
 
 It only applies to the *V2 Data Engine*.
 
