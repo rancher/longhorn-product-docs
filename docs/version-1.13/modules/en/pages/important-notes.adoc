@@ -114,6 +114,12 @@ For more information, see https://github.com/longhorn/longhorn/issues/13483[#134
 
 For more information, see https://github.com/longhorn/longhorn/issues/13322[#13322] and https://github.com/longhorn/longhorn/issues/13674[#13674].
 
+=== V2 Dedicated CPU Requirements
+
+When assigning CPU cores to the V2 Data Engine, ensure that the V2 instance-manager pod has enough guaranteed CPU resources to cover the assigned cores. This provides dedicated CPU availability for SPDK reactors, prevents CPU contention, and helps maintain predictable performance and V2 Data Engine stability.
+
+You can verify that the guaranteed CPU resources match the CPU cores specified by `data-engine-cpu-mask` or `data-engine-number-of-cpu-cores`. For more details, see xref:longhorn-system/settings.adoc#_guranteed_instance_manager_cpu[Guaranteed Instance Manager CPU], xref:longhorn-system/settings.adoc#_data_engine_cpu_mask[Data Engine CPU Mask], and xref:longhorn-system/settings.adoc#_data_engine_number_of_cpu_cores[Data Engine Number of CPU Cores].
+
 === IPv6 Support
 
 V2 volumes now support single-stack IPv6 Kubernetes clusters. For dual-stack cluster support and its limitations, see xref:_dualstack_cluster_support[Dual-Stack Cluster Support].
