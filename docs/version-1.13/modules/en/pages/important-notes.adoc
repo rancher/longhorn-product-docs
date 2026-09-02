@@ -120,6 +120,12 @@ When assigning CPU cores to the V2 Data Engine, ensure that the V2 instance-mana
 
 You can verify that the guaranteed CPU resources match the CPU cores specified by `data-engine-cpu-mask` or `data-engine-number-of-cpu-cores`. For more details, see xref:longhorn-system/settings.adoc#_guranteed_instance_manager_cpu[Guaranteed Instance Manager CPU], xref:longhorn-system/settings.adoc#_data_engine_cpu_mask[Data Engine CPU Mask], and xref:longhorn-system/settings.adoc#_data_engine_number_of_cpu_cores[Data Engine Number of CPU Cores].
 
+=== CPU Isolation Enabled by Default
+
+{longhorn-product-name} v{patch-version} enables xref:longhorn-system/settings.adoc#_data_engine_cpu_isolation_enabled[Data Engine CPU Isolation] by default for the V2 Data Engine (`{"v2":"true"}`). This ensures that CPU cores are dedicated to the V2 Data Engine.
+
+For more information, see https://github.com/longhorn/longhorn/issues/13724[#13724] and xref:longhorn-system/settings.adoc#_data_engine_cpu_isolation_enabled[Data Engine CPU Isolation Enabled].
+
 === IPv6 Support
 
 V2 volumes now support single-stack IPv6 Kubernetes clusters. For dual-stack cluster support and its limitations, see xref:_dualstack_cluster_support[Dual-Stack Cluster Support].
