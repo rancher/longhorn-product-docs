@@ -6,7 +6,7 @@
 
 [NOTE]
 ====
-This feature is an Experimental. The UBLK frontend works on all supported Linux kernels except kernel v6.17. This issue is being tracked in https://github.com/longhorn/longhorn/issues/11977[#11977].
+This feature is an Experimental. The UBLK frontend works on all supported Linux kernels but may cause a kernel panic with kernel v6.17. For more information, see https://github.com/longhorn/longhorn/issues/11977[#11977] and https://github.com/longhorn/longhorn/issues/13509[#13509].
 ====
 
 Starting with v1.9.0, {longhorn-product-name} supports the UBLK front-end for V2 Data Engine Volumes.
