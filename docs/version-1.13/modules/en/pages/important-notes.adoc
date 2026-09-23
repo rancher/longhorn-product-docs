@@ -81,7 +81,9 @@ For more information, see https://github.com/longhorn/longhorn/issues/11977[#119
 
 ==== {longhorn-product-name} System Upgrade
 
-V2 volumes do not support live upgrades between {longhorn-product-name} v{current-version} patch releases and must be detached before upgrading. Support is planned when upgrading from a {longhorn-product-name} v{current-version} release to a {longhorn-product-name} v1.13 release.
+Starting with {longhorn-product-name} v1.12.2, attached V2 volumes can use xref:upgrades/longhorn-components/v2-instance-upgrade.adoc[live upgrade] without detaching when the prerequisites are met and *Allow Instance Manager Automatic Upgrade* is enabled for V2. {longhorn-product-name} upgrades instance managers one node at a time by temporarily relocating engines to other nodes.
+
+During a live upgrade, do not expand or live-migrate V2 volumes. Wait until all node upgrades are completed and volumes are healthy before performing these operations.
 
 [#_fast_volume_cloning]
 === Fast Volume Cloning
@@ -214,7 +216,7 @@ Because the CSI external snapshotter is upgraded to v8.2.0, all clusters must be
 
 Automated pre-upgrade checks do not cover all scenarios. Manual checks via kubectl or the UI are recommended:
 
-* Ensure all V2 Data Engine volumes are detached and replicas are stopped. The V2 engine does not support live upgrades.
+* For V2 Data Engine volumes, check the xref:upgrades/longhorn-components/v2-instance-upgrade.adoc#_prerequisites[V2 live upgrade prerequisites]. If your deployment does not meet these prerequisites, detach all V2 volumes and ensure their replicas are stopped before upgrading.
 * Avoid upgrading when volumes are in the "Faulted" state, as unusable replicas may be deleted, causing permanent data loss if no backups exist.
 * Avoid upgrading if a failed BackingImage exists. See xref:snapshots-backups/backing-image-backups.adoc[Backing Image].
 * Creating a xref:snapshots-backups/system-backups/create-system-backup.adoc[Longhorn system backup] before upgrading is recommended to ensure recoverability.
