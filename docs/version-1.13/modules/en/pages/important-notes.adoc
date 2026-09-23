@@ -1,6 +1,6 @@
 = Important Notes
 :page-languages: [en, de, es, fr, ja, pt, zh]
-:revdate: 2026-09-16
+:revdate: 2026-09-23
 :page-revdate: {revdate}
 :current-version: {page-component-version}
 
@@ -221,37 +221,31 @@ Automated pre-upgrade checks do not cover all scenarios. Manual checks via kubec
 
 == Scheduling
 
-=== Topology-Aware PV Node Affinity Control
+=== Volume Topology Constraint
 
-{longhorn-product-name} v1.12.0 adds the `csi-allowed-topology-keys` setting and `strictTopology` StorageClass parameter for more precise control of PV `nodeAffinity`. These options allow users to limit which topology keys are propagated and, with `WaitForFirstConsumer`, pin the PV to the selected node topology when needed.
+{longhorn-product-name} v{patch-version} adds the `volumeTopology` StorageClass parameter to keep a volume's replicas in the zone or region where it was provisioned. Previously, zone labels only spread replicas apart, so a rebuild could place a replica in a different zone from the workload.
 
-For more information, see https://github.com/longhorn/longhorn/issues/12684[12684] and xref:nodes/topology-aware-provisioning.adoc[Topology-Aware Provisioning].
+* `any` (default): no constraint.
+* `zonal`: replicas stay in the zone chosen at provisioning time, including during rebuilds and replica count changes. With `WaitForFirstConsumer`, this is the zone the pod is scheduled to. With `Immediate` binding, the zone is selected from the provisioner-supplied topology at creation time, and the first consumer pod is constrained to that zone through the PV `nodeAffinity`.
+* `regional`: same as `zonal`, but for regions.
 
-== Snapshots and Backups
+If the chosen zone or region has no capacity, scheduling waits rather than falling back to another one. Clusters without topology labels are unaffected. A StorageClass with `volumeTopology: zonal` and `replicaZoneSoftAntiAffinity: disabled` is rejected at provisioning time.
 
-=== Volume Group Snapshot Support
+For more information, see https://github.com/longhorn/longhorn/issues/13493[#13493] and xref:nodes/topology-aware-provisioning.adoc[Topology-Aware Provisioning].
 
-{longhorn-product-name} v{patch-version} can snapshot a set of volumes as one group with a single request. You can create snapshot groups from the Longhorn UI, with kubectl, or by creating Kubernetes `VolumeGroupSnapshot` objects through CSI. The CSI path also supports group backups.
+=== Scheduler Extender
 
-The UI and kubectl paths work out of the box. The CSI path is disabled by default: it requires the VolumeGroupSnapshot CRDs, the `CSIVolumeGroupSnapshot` feature gate on the snapshot-controller, and a Longhorn toggle. For the setup steps, see xref:snapshots-backups/csi-snapshots/enable-csi-volume-group-snapshot-support.adoc[Enable CSI Volume Group Snapshot Support].
+{longhorn-product-name} v{patch-version} adds a scheduler extender that lets kube-scheduler check actual Longhorn disk capacity when placing pods. Without it, kube-scheduler relies on `CSIStorageCapacity` objects, which have three limitations:
 
-[IMPORTANT]
-====
-*Snapshot Consistency*: Each member volume is snapshotted independently, meaning the group is *not* captured at a single point in time. Application-level consistency across the group is future work built on top of this feature (https://github.com/longhorn/longhorn/issues/2128[#2128]).
-====
+* The reported capacity lags behind when many pods are created at once.
+* A pod with several PVCs is not checked against the combined space it needs across disks.
+* A pod whose PVCs are already bound is rescheduled without any capacity check.
 
-For more information, see:
-* https://github.com/longhorn/longhorn/issues/13349[#13349]
-* xref:xref:snapshots-backups/snapshot-groups.adoc[Create a Snapshot Group]
-* xref:xref:snapshots-backups/csi-snapshots/csi-volume-group-snapshot.adoc[CSI VolumeGroupSnapshot Associated with Longhorn Snapshot Group]
+The extender reads Longhorn node and disk state directly. It also pins a restarted pod to the node that already holds all of its replicas, which makes it most useful for volumes with `best-effort` data locality.
 
-== Stability
+The extender runs inside longhorn-manager under leader election, so there is no extra component to deploy. It requires a change to the kube-scheduler configuration, which is not possible on managed Kubernetes offerings such as GKE and EKS.
 
-=== Configurable Engine Image Pod Liveness Probe
-
-{longhorn-product-name} v1.12.0 adds settings to configure the engine-image DaemonSet liveness probe period, timeout and failure threshold. These settings help reduce unnecessary engine-image pod restarts on resource-constrained clusters, especially during upgrades or transient CPU spikes.
-
-For more information, see https://github.com/longhorn/longhorn/issues/12846[#12846] and xref:longhorn-system/settings.adoc#_engine_image_pod_liveness_probe_period[Settings].
+For more information, see https://github.com/longhorn/longhorn/issues/12591[#12591].
 
 == Resource Efficiency
 
