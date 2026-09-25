@@ -1,5 +1,5 @@
 = {longhorn-product-name} v1.12.1 Release Notes
-:revdate: 2026-08-31
+:revdate: 2026-09-23
 :page-revdate: {revdate}
 
 This release introduces several improvements and bug fixes that are intended to improve system quality, resilience, stability and security. The documentation is available at xref:introduction/introduction.adoc[{longhorn-product-name} Documentation].
@@ -247,7 +247,7 @@ You can install {longhorn-product-name} using a variety of tools, including {ran
 *Ensure that your cluster is running Kubernetes v1.25 or later before upgrading to {longhorn-product-name} v1.12.1. To upgrade from {longhorn-product-name} v1.11.x to {longhorn-product-name} v1.12.1, please refer to the Migration section*.
 ====
 
-{longhorn-product-name} only allows upgrades from supported versions. For more information about upgrade paths and procedures, see xref:upgrades/longhorn-components/upgrade-longhorn-manager.adoc[Upgrade] in the documentation.
+{longhorn-product-name} only allows upgrades from supported versions. For more information about upgrade paths and procedures, see xref:upgrades/longhorn-components/v2-instance-upgrade.adoc[Upgrade] in the documentation.
 
 == Migration
 
