@@ -1,0 +1,178 @@
+= {longhorn-product-name} v1.12.2 Release Notes
+:description: Find what's new in SUSE Storage v1.12.2 like improvements, fixes, and breaking changes.
+:page-languages: [en, de, es, fr, ja, pt, zh]
+:revdate: 2026-10-09
+:page-revdate: {revdate}
+
+This release introduces several improvements and bug fixes that are intended to improve system quality, resilience, stability and security. The documentation is available at xref:introduction/introduction.adoc[{longhorn-product-name} Documentation].
+
+[IMPORTANT]
+====
+*Live upgrade of the V2 Data Engine from v1.12.2 to v1.13.0 is not supported*
+
+During a V2 Data Engine live upgrade, replicas are rebuilt while volumes are serving I/O. Because {longhorn-product-name} v1.13.0 was released before several critical V2 rebuild and live-upgrade fixes (which are included in v1.12.2 and v1.13.1), `spdk_tgt` in the v1.13.0 instance-manager pods may crash or get stuck and prevent the upgrade from completing. These issues include Instance Manager Pod Crashes, https://github.com/longhorn/longhorn/issues/14425[#14425], and other stability issues fixed in this release (see Important Improvements and Fixes).
+
+* *Upgrading from v1.12.2 to v1.13.0*: Detach all V2 volumes before upgrading. The V2 instance-manager pods then restart with the new instance-manager image.
+* *Upgrading from v1.12.2 to v1.13.1 or later*: Live upgrade of the V2 Data Engine is supported. For instructions, see xref:upgrades/longhorn-components/v2-instance-upgrade.adoc[V2 Instance Manager Upgrade].
+
+*Periodic backups are recommended for V2 volumes*
+
+In the V2 Data Engine, if a snapshot deletion or system-snapshot purge fails or is interrupted partway through (for example, by a disk I/O error, exhausted metadata pages, an `spdk_tgt` crash, an instance-manager pod restart, or a node reboot), inconsistent blobstore metadata can cause V2 volume data corruption, `spdk_tgt` crashes, or a disk lvstore load failure (https://github.com/longhorn/longhorn/issues/14474[#14474]). To protect against potential data loss, configure periodic backups for V2 volumes and avoid restarting V2 instance-manager pods or rebooting nodes while snapshots are being deleted or purged.
+====
+
+== Breaking changes
+
+=== Deprecation of legacy V2 linked clone volumes
+
+V2 linked-clone volumes created in v1.12.0 or earlier are marked as legacy and deprecated starting in v1.12.1. The new linked-clone architecture introduced in https://github.com/longhorn/longhorn/issues/12552[#12552] is not compatible with the legacy design.
+
+After upgrading to v1.12.1 or later, *legacy linked-clone volumes cannot be operated on except for detachment and deletion*.
+
+To replace, create new linked-clone volumes from the same source volumes that back the legacy ones. If a legacy volume exists, its source volume is guaranteed to still be present, so you can create a replacement linked clone directly without copying data.
+
+For more information, see https://github.com/longhorn/longhorn/issues/12552[#12552].
+
+== Important improvements and fixes
+
+This release includes several important improvements and critical stability fixes.
+
+=== V1 Data Engine
+
+==== IPv6 and dual-stack support for backing images
+
+The backing image manager and data source now follow {longhorn-product-name}'s IP family selection logic and serve on an IPv4 or IPv6 address that matches the cluster or storage network, including IPv4-first and IPv6-first dual-stack clusters. Previously they always used IPv4.
+
+For more information, see https://github.com/longhorn/longhorn/issues/14148[#14148] and https://github.com/longhorn/longhorn/issues/13864[#13864].
+
+==== Data loss during replica rebuilds with concurrent unaligned writes
+
+Fixes a bug in which acknowledged writes could be silently lost during a replica rebuild. Concurrent writes smaller than 4 KiB to the same 4 KiB sector (for example, a database transaction log using 512-byte writes) could overwrite each other because the read-modify-write sequence was not locked. {longhorn-product-name} now serializes these writes with a range lock. Users running such workloads on V1 volumes are strongly encouraged to upgrade.
+
+For more information, see https://github.com/longhorn/longhorn/issues/14451[#14451] and https://github.com/longhorn/longhorn/issues/14447[#14447].
+
+==== Replica rebuild failure caused by a lost gRPC TCP keepalive
+
+Fixes replica rebuilds that randomly failed on busy networks because a single lost TCP keepalive terminated the idle sync-agent gRPC connection after 20 seconds. The sync-agent now uses the operating system's default keepalive parameters.
+
+For more information, see https://github.com/longhorn/longhorn/issues/13768[#13768] and https://github.com/longhorn/longhorn/issues/13703[#13703].
+
+=== V2 Data Engine
+
+==== Dedicated CPU core for the SPDK admin reactor
+
+The first core of the SPDK CPU mask now runs only the admin reactor, and the other cores run the I/O pollers (NVMe-oF target poll groups and ublk target). This keeps I/O load from starving the admin reactor. With a single-core mask, the admin reactor and the pollers share the core.
+
+[IMPORTANT]
+====
+*For stability, configure at least 2 CPU cores for the V2 Data Engine. With a multi-core mask, one core is reserved for the admin reactor, so one fewer core serves I/O.*
+====
+
+For more information, see https://github.com/longhorn/longhorn/issues/14443[#14443] and https://github.com/longhorn/longhorn/issues/14190[#14190].
+
+==== Configurable NVMe-TCP initiator I/O queue count
+
+You can now limit the number of I/O queues the kernel NVMe-TCP initiator creates for V2 volumes, instead of one per CPU core, to reduce memory use on high-core-count nodes. Set it globally with `default-nvme-tcp-nr-io-queues` (default `0`, the kernel default) or per volume with `nvmeTcpNrIoQueues`. Valid values are `0` or `1`-`128`, and changes take effect on the next attach.
+
+For more information, see https://github.com/longhorn/longhorn/issues/13725[#13725] and https://github.com/longhorn/longhorn/issues/13706[#13706].
+
+==== Instance manager pod crashes
+
+Fixes several critical issues in which `spdk_tgt` aborted and brought down the V2 instance-manager pod, taking every V2 volume on the node offline:
+
+* *Replica rebuild finishing under I/O*: If suspending the engine frontend timed out, the rebuild switched the parent of the destination replica head while it was still serving I/O, causing the `bdev_channel_destroy_resource: Assertion 'TAILQ_EMPTY(&ch->io_submitted)' failed` abort. This is more likely when many replicas are rebuilt under load, such as during a live upgrade. See https://github.com/longhorn/longhorn/issues/14495[#14495] and https://github.com/longhorn/longhorn/issues/14411[#14411].
+* *Replica rebuilds*: `spdk_tgt` could abort with `double free or corruption (fasttop)` during replica rebuilds. See https://github.com/longhorn/longhorn/issues/14484[#14484] and https://github.com/longhorn/longhorn/issues/14482[#14482].
+* *Large-block reads in interrupt mode*: Large reads (for example, 1 MiB at a high queue depth) could flood the NVMe-oF TCP target with flush retries, and a retry could run after its connection was freed, causing the `spdk_for_each_channel: Assertion 'false' failed` abort. See https://github.com/longhorn/longhorn/issues/14162[#14162] and https://github.com/longhorn/longhorn/issues/14095[#14095].
+* *Deleting a snapshot of an expanded volume*: Deleting a snapshot that is smaller than its child and not a multiple of 512 MiB could leave lvol metadata that SPDK fails to load, causing the instance-manager pod to crash-loop after the next restart or reboot. See https://github.com/longhorn/longhorn/issues/14347[#14347] and https://github.com/longhorn/longhorn/issues/14344[#14344].
+
+==== Engine fault caused by a replica rebuild destination failure
+
+Fixes a critical issue in which a failure while setting up a rebuild on the destination replica faulted the entire engine and recreated the frontend, even though healthy replicas remained. Now only the failed destination replica is marked `ERR`, and the engine, frontend, and I/O are preserved.
+
+For more information, see https://github.com/longhorn/longhorn/issues/13780[#13780] and https://github.com/longhorn/longhorn/issues/13673[#13673].
+
+=== Storage sharding (experimental)
+
+==== Erasure-coded volume write stall on arm64
+
+Fixes a lost wakeup in the SPDK erasure-coding bdev that could stall writes and leave the SPDK target unresponsive, blocking volume deletion until the instance-manager pod was restarted. The race is more likely on arm64.
+
+For more information, see https://github.com/longhorn/longhorn/issues/13895[#13895] and https://github.com/longhorn/longhorn/issues/13789[#13789].
+
+== Installation
+
+[IMPORTANT]
+====
+*Ensure that your cluster is running Kubernetes v1.25 or later before installing {longhorn-product-name} v1.12.2.*
+====
+
+You can install {longhorn-product-name} using a variety of tools, including {rancher-product-name-tm}, Kubectl, and Helm. For more information about installation methods and requirements, see xref:installation-setup/installation/installation.adoc[Quick Installation] in the documentation.
+
+== Upgrade
+
+[IMPORTANT]
+====
+*Ensure that your cluster is running Kubernetes v1.25 or later before upgrading to {longhorn-product-name} v1.12.2.*
+====
+
+{longhorn-product-name} only allows upgrades from supported versions. For more information about upgrade paths and procedures, see xref:upgrades/upgrades.adoc[Upgrade] in the documentation.
+
+== Post-release known issues
+
+For information about issues identified after this release, see https://github.com/longhorn/longhorn/wiki/Release-Known-Issues[Release-Known-Issues].
+
+== Resolved issues in this release
+
+=== Feature
+
+* https://github.com/longhorn/longhorn/issues/14148[#14148] [BACKPORT][v1.12.2][FEATURE] Backing image supports IPv6 and dual-stack IP families
+
+=== Improvement
+
+* https://github.com/longhorn/longhorn/issues/14443[#14443] [BACKPORT][v1.12.2][IMPROVEMENT] Tuning CPU usage of SPDK and nvme-tcp for V2 Engine
+* https://github.com/longhorn/longhorn/issues/14419[#14419] [BACKPORT][v1.12.2][IMPROVEMENT] Skip the file system sync when suspending the front end for replica rebuilding
+* https://github.com/longhorn/longhorn/issues/14318[#14318] [BACKPORT][v1.12.2][IMPROVEMENT] Sync v2 volume and engine image fields after upgrade
+* https://github.com/longhorn/longhorn/issues/14300[#14300] [BACKPORT][v1.12.2][IMPROVEMENT] Disk monitor repeatedly logs error when disk health collection fails
+* https://github.com/longhorn/longhorn/issues/13793[#13793] [BACKPORT][v1.12.2][IMPROVEMENT] CSI ignores EC StorageClass parameters (silent replicated fallback)
+* https://github.com/longhorn/longhorn/issues/14108[#14108] [BACKPORT][v1.12.2][IMPROVEMENT] CSI Resize may idle for a long time after volume clone or restore
+* https://github.com/longhorn/longhorn/issues/14034[#14034] [BACKPORT][v1.12.2][IMPROVEMENT] Enable CPU Isolation for V2 Data Engine
+* https://github.com/longhorn/longhorn/issues/13981[#13981] [BACKPORT][v1.12.2][IMPROVEMENT] backup target availability status metric
+* https://github.com/longhorn/longhorn/issues/13738[#13738] [BACKPORT][v1.12.2][IMPROVEMENT] (chart) Precedence of `image.*.*.registry`
+* https://github.com/longhorn/longhorn/issues/13725[#13725] [BACKPORT][v1.12.2][IMPROVEMENT] V2 volumes: allow configuring the NVMe-TCP initiator I/O queue count (nr-io-queues)
+
+=== Bug
+
+* https://github.com/longhorn/longhorn/issues/14484[#14484] [BACKPORT][v1.12.2][BUG] `spdk_tgt` crashes with "double free or corruption (fasttop)" around replica rebuilds
+* https://github.com/longhorn/longhorn/issues/14451[#14451] [BACKPORT][v1.12.2][BUG] Concurrent unaligned writes during replica rebuild lose data (unlocked read-modify-write in writeInWOMode)
+* https://github.com/longhorn/longhorn/issues/14347[#14347] [BACKPORT][v1.12.2][BUG] v2 instance-manager is crashed by disk recovery failure in SPDK
+* https://github.com/longhorn/longhorn/issues/13917[#13917] [BACKPORT][v1.12.2][BUG] a rebuilding replica sometimes disappears in the `Engine.Status.ReplicaModeMap`
+* https://github.com/longhorn/longhorn/issues/14400[#14400] [BACKPORT][v1.12.2][BUG] Concurrent volume attachments can create multiple NVMe-oF transports and crash `spdk_tgt`
+* https://github.com/longhorn/longhorn/issues/14425[#14425] [BACKPORT][v1.12.2][BUG] V2 instance manager live upgrade stuck in relocating-engines because the EngineFrontend switchover keeps retrying promoting against a recreated target engine
+* https://github.com/longhorn/longhorn/issues/14430[#14430] [BACKPORT][v1.12.2][BUG] V2 instance-manager `spdk_tgt` allocates its hugepages from another pod's `hugetlbfs` mount (via `/host`), blocking that pod's teardown
+* https://github.com/longhorn/longhorn/issues/14373[#14373] [BACKPORT][v1.12.2][BUG] A stalled NVMe device makes engine front ends of unrelated V2 volumes fail validation and be recreated
+* https://github.com/longhorn/longhorn/issues/13764[#13764] [BACKPORT][v1.12.2][BUG] nvme list zombie processes leak when NVMe admin queue returns EAGAIN (V2 Data Engine)
+* https://github.com/longhorn/longhorn/issues/14375[#14375] [BACKPORT][v1.12.2][BUG] SystemBackup stuck in `CreatingVolumeBackups` on v1.12.1: controller either silently stops reconciling after all volume backups complete, or loops forever on `snapshot not found` (auto-cleanup race)
+* https://github.com/longhorn/longhorn/issues/14370[#14370] [BACKPORT][v1.12.2][BUG] V2 `spdk_tgt` aborts with assertion in blob_insert_cluster_msg due to an extent page race
+* https://github.com/longhorn/longhorn/issues/14335[#14335] [BACKPORT][v1.12.2][BUG] Fast replica rebuild skips a snapshot file that was changed by purge/coalesce (stale `.img.checksum`), leaving the rebuilt replica missing data; snapshot-data-integrity: fast-check does not detect it
+* https://github.com/longhorn/longhorn/issues/14332[#14332] [BACKPORT][v1.12.2][BUG] Transient status RPC failure marks healthy replica failed and can fault a volume
+* https://github.com/longhorn/longhorn/issues/14311[#14311] [BACKPORT][v1.12.2][BUG] Disk health data never collected for V1 filesystem disks whose path is not itself a mount point ("mount path ... not found")
+* https://github.com/longhorn/longhorn/issues/14296[#14296] [BACKPORT][v1.12.2][BUG] Test case `Test Encrypted RWO Block Volume Online Expansion` fails
+* https://github.com/longhorn/longhorn/issues/14218[#14218] [BACKPORT][v1.12.2][BUG] Force-deleted pod VolumeAttachment cleanup ignores "Waiting for detach" events (Kubernetes v1.35.9+, v1.36.4+, v1.37)
+* https://github.com/longhorn/longhorn/issues/14249[#14249] [BUG] csi-resizer fails to start with "unrecognized feature gate: RecoverVolumeExpansionFailure" in v1.12.x-head with `csi-resizer:v2.3.0`
+* https://github.com/longhorn/longhorn/issues/14220[#14220] [BACKPORT][v1.12.2][BUG] V2 DR volume restore does not retry when backupstore lock is held
+* https://github.com/longhorn/longhorn/issues/13927[#13927] [BACKPORT][v1.12.2][BUG] All v1 volume I/O stalls silently with longhorn-engine v1.7.1 through v1.9.2 on Rocky Linux 9.7 / RKE2 (iSCSI login timeout, attach/detach loop); engine v1.7.0 and v1.6.4 work on every platform version
+* https://github.com/longhorn/longhorn/issues/13895[#13895] [BACKPORT][v1.12.2][BUG] Sharded/EC volume: writes stall to ~0 and wedge the SPDK target on arm64/AIO, blocking volume deletion; plus CSI drops EC StorageClass params
+* https://github.com/longhorn/longhorn/issues/13824[#13824] [BACKPORT][v1.12.2][BUG] Volume expansion snapshot CR name expand-<size> collides across volumes
+* https://github.com/longhorn/longhorn/issues/14162[#14162] [BACKPORT][v1.12.2][BUG] Longhorn V2 engine crashes on large-block reads in interrupt mode - spdk_for_each_channel "Assertion 'false' failed"
+* https://github.com/longhorn/longhorn/issues/13955[#13955] [BACKPORT][v1.12.2][BUG] V2 volume gets stuck in `Attaching` in an IPv6 storage network environment
+* https://github.com/longhorn/longhorn/issues/14192[#14192] [BACKPORT][v1.12.2][BUG] v1.11.3 regenerates the webhook CA on upgrade from an ECDSA (dynamiclistener) CA, deadlocking every longhorn-manager
+* https://github.com/longhorn/longhorn/issues/14140[#14140] [BACKPORT][v1.12.2][BUG] SystemBackup fails when a snapshot has an empty status.creationTime
+* https://github.com/longhorn/longhorn/issues/14066[#14066] [BACKPORT][v1.12.2][BUG] Longhorn may not reject expansion requests when the volume clone is in-progress
+* https://github.com/longhorn/longhorn/issues/13925[#13925] [BACKPORT][v1.12.2][BUG] invalid block disks should not block Longhorn system uninstallation
+* https://github.com/longhorn/longhorn/issues/14029[#14029] [BACKPORT][v1.12.2][BUG] deleting nodes.longhorn.io failed due to KubernetesNodeGone
+* https://github.com/longhorn/longhorn/issues/13741[#13741] [BACKPORT][v1.12.2][BUG] v1.12.1 chart: new default-on `networkPolicies.restrictInternalTraffic` silently breaks Prometheus scraping of longhorn-manager (metrics/alerting blackout on patch upgrade)
+* https://github.com/longhorn/longhorn/issues/13780[#13780] [BACKPORT][v1.12.2][BUG] V2 replica rebuild destination failure faults the entire engine
+* https://github.com/longhorn/longhorn/issues/14060[#14060] [BACKPORT][v1.12.2][BUG] NodeStageVolume can trigger destructive mkfs on existing volume during temporary I/O errors, risking data loss
+* https://github.com/longhorn/longhorn/issues/13987[#13987] [BACKPORT][v1.12.2][BUG] Test case `Test V2 Volume Engine Live Switchover` may fail on v1.13.x-head
+* https://github.com/longhorn/longhorn/issues/14115[#14115] [BACKPORT][v1.12.2][BUG] instance-manager crashes with "concurrent map iteration and map write" in ProcessList (`Process.Conditions` shared with the response)
+* https://github.com/longhorn/longhorn/issues/13969[#13969] [BACKPORT][v1.12.2][BUG] SystemRestore job ignores the registry-secret setting
+* https://github.com/longhorn/longhorn/issues/14057[#14057] [BACKPORT][v1.12.2][BUG] DR replicas break

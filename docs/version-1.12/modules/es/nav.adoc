@@ -1,6 +1,7 @@
 * xref:longhorn-documentation.adoc[]
 * Release Notes
 ** xref:release-notes/v1.12.1.adoc[]
+** xref:release-notes/v1.12.2.adoc[]
 * xref:introduction/introduction.adoc[]
 ** xref:introduction/concepts.adoc[]
 ** xref:introduction/terminology.adoc[]
