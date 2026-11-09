@@ -1,7 +1,7 @@
 = Migrating to {longhorn-product-name}
 :description: Migrate Longhorn from Helm or Rancher Apps Marketplace to SUSE Storage by following upgrade steps and using the SUSE Storage chart
 :page-languages: [en, de, es, fr, ja, pt, zh]
-:revdate: 2026-08-13
+:revdate: 2026-11-09
 :page-revdate: {revdate}
 	
 [WARNING]
@@ -13,7 +13,7 @@ It is recommended to create a xref:snapshots-backups/system-backups/create-syste
 
 === Tools
 
-* https://helm.sh/docs/[Helm] v3.0 or later is required.
+* https://helm.sh/docs/[Helm] v3.13.0 or later is required.
 * The xref:longhorn-system/system-access/longhorn-cli.adoc[Longhorn Command Line Tool] can be used to check the {longhorn-product-name} environment for potential issues.
 
 === Authentication
@@ -44,7 +44,7 @@ Optionally, if you have a `values.yaml` file with customized settings, include i
 helm upgrade longhorn oci://dp.apps.rancher.io/charts/suse-storage \
 	--namespace longhorn-system \
 	--version <version> \ # Replace with the version you would like to upgrade to
-	--set global.imagePullSecrets=<PULL_IMAGE_SECRET> \
+	--set global.imagePullSecrets=<PULL_IMAGE_SECRET>
 	-f values.yaml
 ----
 	
@@ -161,14 +161,22 @@ After ensuring the `longhorn-crd` Helm release is uninstalled but the CRDs are k
 
 === Upgrade to {longhorn-product-name}
 
-After the CRDs have been prepared, you can proceed with upgrading your Longhorn installation to {longhorn-product-name}:
+After the CRDs have been prepared, you can proceed with upgrading your Longhorn installation to {longhorn-product-name}.
+
+Set the `catalog.cattle.io/cluster-repo-name` label to the name of the ClusterRepo that holds the {longhorn-product-name} chart, for example the SUSE Application Collection repository that you added in {rancher-product-name}. The Helm release keeps the label of the Rancher chart repository from the original installation. Without this change, {rancher-product-name} continues to show the chart as available for installation instead of installed, and you cannot upgrade it from the {rancher-product-name} UI.
+
+[NOTE]
+====
+The value is the `metadata.name` of the ClusterRepo that provides the {longhorn-product-name} chart, which is the repository you added for `oci://dp.apps.rancher.io/charts`. On the cluster where {longhorn-product-name} is installed, run `kubectl get clusterrepos.catalog.cattle.io` and use the name of that repository. This requires cluster-level read access.
+====
 
 [,shell]
 ----
 helm upgrade longhorn oci://dp.apps.rancher.io/charts/suse-storage \
 	--namespace longhorn-system \
 	--version <version> \ # Replace with the version you would like to upgrade to
-	--set global.imagePullSecrets=<PULL_IMAGE_SECRET>
+	--set global.imagePullSecrets=<PULL_IMAGE_SECRET> \
+	--labels catalog.cattle.io/cluster-repo-name=<CLUSTER_REPO_NAME>
 ----
 
 Optionally, if you have a `values.yaml` file with customized settings, include it with the `-f` flag:
@@ -179,8 +187,11 @@ helm upgrade longhorn oci://dp.apps.rancher.io/charts/suse-storage \
 	--namespace longhorn-system \
 	--version <version> \ # Replace with the version you would like to upgrade to
 	--set global.imagePullSecrets=<PULL_IMAGE_SECRET> \
+	--labels catalog.cattle.io/cluster-repo-name=<CLUSTER_REPO_NAME> \
 	-f values.yaml
 ----
+
+After the upgrade, the app is shown as installed in *Apps > Charts*. You can then upgrade it from the {rancher-product-name} UI by selecting a newer version in *Chart Versions* and clicking *Upgrade to this version*. The Helm upgrade does not set the chart annotations `catalog.cattle.io/ui-source-repo` and `catalog.cattle.io/ui-source-repo-type`, which record the source repository of the app. The {rancher-product-name} dashboard updates them correctly when you upgrade the app from the UI.
 
 == Migrating Volumes Between Data Engines (V1 to V2)
 
