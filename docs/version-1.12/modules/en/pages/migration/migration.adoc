@@ -1,7 +1,7 @@
 = Migrating to {longhorn-product-name}
 :description: Migrate Longhorn from Helm or Rancher Apps Marketplace to SUSE Storage by following upgrade steps and using the SUSE Storage chart
 :page-languages: [en, de, es, fr, ja, pt, zh]
-:revdate: 2026-11-09
+:revdate: 2026-11-11
 :page-revdate: {revdate}
 	
 [WARNING]
@@ -163,7 +163,7 @@ After ensuring the `longhorn-crd` Helm release is uninstalled but the CRDs are k
 
 After the CRDs have been prepared, you can proceed with upgrading your Longhorn installation to {longhorn-product-name}.
 
-Set the `catalog.cattle.io/cluster-repo-name` label to the name of the ClusterRepo that holds the {longhorn-product-name} chart, for example the SUSE Application Collection repository that you added in {rancher-product-name}. The Helm release keeps the label of the Rancher chart repository from the original installation. Without this change, {rancher-product-name} continues to show the chart as available for installation instead of installed, and you cannot upgrade it from the {rancher-product-name} UI.
+Set the `catalog.cattle.io/cluster-repo-name` label to the name of the ClusterRepo that holds the {longhorn-product-name} chart, for example, the SUSE Application Collection repository that you added in {rancher-product-name}. The Helm release keeps the label of the Rancher chart repository from the original installation. Without this change, {rancher-product-name} continues to show the chart as available for installation instead of installed, and you cannot upgrade it from the {rancher-product-name} UI.
 
 [NOTE]
 ====
