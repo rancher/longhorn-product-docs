@@ -1,7 +1,7 @@
 = Important Notes
 :description: Read the important notes to learn about changes, limitations, and migration steps for SUSE Storage v1.13.0
 :page-languages: [en, de, es, fr, ja, pt, zh]
-:revdate: 2026-10-06
+:revdate: 2026-11-06
 :page-revdate: {revdate}
 :current-version: {page-component-version}
 
@@ -70,9 +70,7 @@ For more information, see https://github.com/longhorn/longhorn/issues/13509[#135
 
 ==== {longhorn-product-name} System Upgrade
 
-For upgrades to {longhorn-product-name} v1.13.0, xref:upgrades/longhorn-components/v2-instance-upgrade.adoc[V2 Data Engine live upgrade] is supported only from Longhorn v1.12.2. Upgrades from earlier versions, such as {longhorn-product-name} v1.12.0 and v1.12.1, do not support V2 Data Engine live upgrade.
-
-For more information, see xref:upgrades/longhorn-components/v2-instance-upgrade.adoc[V2 Data Engine live upgrade].
+V2 live upgrade to v1.13.0 is *not supported*. During a live upgrade, replicas are rebuilt while volumes are serving I/O, and several V2 replica rebuild and live-upgrade issues discovered after v1.13.0 (https://github.com/longhorn/longhorn/issues/14411[#14411], https://github.com/longhorn/longhorn/issues/14482[#14482], https://github.com/longhorn/longhorn/issues/14424[#14424], and https://github.com/longhorn/longhorn/issues/14353[#14353]) can cause `spdk_tgt` in the instance-manager pods to crash or the upgrade to get stuck. Detach all V2 volumes and ensure their replicas are stopped before upgrading to v1.13.0.
 
 === Full Interrupt Mode
 
@@ -157,7 +155,7 @@ Because the CSI external provisioner is upgraded to v6.3.0, all clusters must be
 
 Automated pre-upgrade checks do not cover all scenarios. Manual checks via kubectl or the UI are recommended:
 
-* Ensure all V2 Data Engine volumes are detached and replicas are stopped. The V2 engine does not support live upgrades.
+* Detach all V2 Data Engine volumes and ensure their replicas are stopped before upgrading to v1.13.0.
 * Avoid upgrading when volumes are in the "Faulted" state, as unusable replicas may be deleted, causing permanent data loss if no backups exist.
 * Avoid upgrading if a failed BackingImage exists. See xref:snapshots-backups/backing-image-backups.adoc[Backing Image] for details.
 * Creating a xref:snapshots-backups/system-backups/create-system-backup.adoc[Longhorn system backup] before upgrading is recommended to ensure recoverability.

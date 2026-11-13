@@ -1,20 +1,20 @@
 = Automatically Upgrade the Longhorn Engine
 :description: Upgrade Longhorn volumes automatically to the new default engine version after upgrading Longhorn Manager
 :page-languages: [en, de, es, fr, ja, pt, zh]
-:revdate: 2026-09-23
+:revdate: 2026-11-06
 :page-revdate: {revdate}
 :current-version: {page-component-version}
 
 [NOTE]
 ====
-This engine upgrade procedure applies only to V1 Data Engine volumes. For V2 Data Engine, see xref:upgrades/longhorn-components/v2-instance-upgrade.adoc[V2 Data Engine Instance Manager Upgrade Page].
+This engine upgrade procedure applies only to V1 Data Engine volumes. In {longhorn-product-name} v1.13.0, V2 Data Engine volumes do not support live upgrades and all V2 volumes must be detached before upgrading {longhorn-product-name}.
 ====
 
 {longhorn-product-name} allows you to automatically upgrade Longhorn volumes to the new default engine version after upgrading Longhorn Manager. This feature reduces the amount of manual work you have to do when upgrading {longhorn-product-name}. There are a few concepts related to this feature as listed below:
 
 == 1. Concurrent Automatic Engine Upgrade Per Node Limit Setting
 
-This is a setting that controls how {longhorn-product-name} automatically upgrades volumes' engines to the new default engine image after upgrading Longhorn manager. The value of this setting specifies the maximum number of engines per node that are allowed to upgrade to the default engine image at the same time.
+This is a setting that controls how {longhorn-product-name} automatically upgrades volumes' engines to the new default engine image after upgrading Longhorn Manager. The value of this setting specifies the maximum number of engines per node that are allowed to upgrade to the default engine image at the same time.
 
 If the value is 0, {longhorn-product-name} does not automatically upgrade volumes' engines to the default version. The bigger this value is, the faster the engine upgrade process finishes.
 
