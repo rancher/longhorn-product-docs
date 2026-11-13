@@ -37,29 +37,46 @@ ____
 
 == Installation
 
-. Create a HelmRepository custom resource (CR) that points to the {longhorn-product-name} Helm chart URL.
+. Create the `longhorn-system` namespace and, following the https://docs.apps.rancher.io/get-started/authentication/#kubernetes[Kubernetes authentication documentation], a secret that allows Flux and Kubernetes to pull the chart and images from SUSE Application Collection.
 +
 [,bash]
 ----
  kubectl create ns longhorn-system
+ kubectl create secret docker-registry application-collection \
+   --docker-server=dp.apps.rancher.io \
+   --namespace=longhorn-system \
+   --docker-username=<your-username-or-service-account-username> \
+   --docker-password=<access-token-or-service-account-secret>
+----
+
+. Create a HelmRepository custom resource (CR) that points to the SUSE Application Collection OCI chart repository.
++
+[,bash]
+----
  flux create source helm longhorn-repo \
-   --url=https://charts.longhorn.io \
+   --url=oci://dp.apps.rancher.io/charts \
+   --secret-ref=application-collection \
    --namespace=longhorn-system \
    --export > helmrepo.yaml
  kubectl apply -f helmrepo.yaml
 ----
 
-. Create a HelmRelease CR that references the HelmRepository and specifies the version of the Helm chart to be installed.
+. Create a HelmRelease CR that references the HelmRepository, specifies the version of the Helm chart to be installed, and sets the image pull secret.
 +
 [subs="+attributes",bash]
 ----
- flux create helmrelease longhorn-release \
-   --chart=longhorn \
-   --source=HelmRepository/longhorn-repo \
-   --chart-version=v{patch-version} \
-   --namespace=longhorn-system \
-   --export > helmrelease.yaml
- kubectl apply -f helmrelease.yaml
+cat > values.yaml <<EOF
+global:
+  imagePullSecrets: [application-collection]
+EOF
+flux create helmrelease longhorn-release \
+  --chart=suse-storage \
+  --source=HelmRepository/longhorn-repo \
+  --chart-version={patch-version} \
+  --values=values.yaml \
+  --namespace=longhorn-system \
+  --export > helmrelease.yaml
+kubectl apply -f helmrelease.yaml
 ----
 
 . Verify that the HelmRelease CR was created and synced successfully.

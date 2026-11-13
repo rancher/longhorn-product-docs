@@ -15,6 +15,19 @@ You can install {longhorn-product-name} using the Helm Controller that is built 
 ====
 
 * Kubernetes cluster: Ensure that each node fulfills the xref:installation-setup/requirements.adoc[installation requirements]. The cluster should be running RKE2 or K3s.
+* Authentication: Following the https://docs.apps.rancher.io/get-started/authentication/#kubernetes[Kubernetes authentication documentation], create a secret named `application-collection` in the namespace of the HelmChart CR (`default` in the following example) and in the `longhorn-system` namespace. The Helm Controller uses the first secret to pull the chart, and Kubernetes uses the second one to pull the {longhorn-product-name} images.
++
+[,shell]
+----
+kubectl create namespace longhorn-system
+for ns in default longhorn-system; do
+  kubectl create secret docker-registry application-collection \
+    --docker-server=dp.apps.rancher.io \
+    --namespace=$ns \
+    --docker-username=<your-username-or-service-account-username> \
+    --docker-password=<access-token-or-service-account-secret>
+done
+----
 
 ____
 The xref:longhorn-system/system-access/longhorn-cli.adoc[Longhorn Command Line Tool] can be used to check the {longhorn-product-name} environment for potential issues.
@@ -33,22 +46,26 @@ ____
 [subs="+attributes",yaml]
 ----
 apiVersion: helm.cattle.io/v1
-  kind: HelmChart
-  metadata:
-    annotations:
-      helmcharts.cattle.io/managed-by: helm-controller
-    finalizers:
-    - wrangler.cattle.io/on-helm-chart-remove
-    generation: 1
-    name: longhorn-install
-    namespace: default
-  spec:
-    version: v{patch-version}
-    chart: longhorn
-    repo: https://charts.longhorn.io
-    failurePolicy: abort
-    targetNamespace: longhorn-system
-    createNamespace: true
+kind: HelmChart
+metadata:
+  annotations:
+    helmcharts.cattle.io/managed-by: helm-controller
+  finalizers:
+  - wrangler.cattle.io/on-helm-chart-remove
+  generation: 1
+  name: longhorn-install
+  namespace: default
+spec:
+  version: {patch-version}
+  chart: oci://dp.apps.rancher.io/charts/suse-storage
+  dockerRegistrySecret:
+    name: application-collection
+  failurePolicy: abort
+  targetNamespace: longhorn-system
+  createNamespace: true
+  valuesContent: |-
+    global:
+      imagePullSecrets: [application-collection]
 ----
 +
 [IMPORTANT]
@@ -89,8 +106,8 @@ $ kubectl get pods
 NAME                                  READY   STATUS      RESTARTS   AGE
 helm-install-longhorn-install-lngm8   0/1     Completed   0          25s
 $ kubectl get helmcharts
-NAME               JOB                     CHART      TARGETNAMESPACE   VERSION   REPO                         HELMVERSION   BOOTSTRAP
-longhorn-install   helm-install-longhorn   longhorn   longhorn-system   v{patch-version}    https://charts.longhorn.io
+NAME               REPO   CHART                                          VERSION   TARGETNAMESPACE   BOOTSTRAP   FAILED
+longhorn-install          oci://dp.apps.rancher.io/charts/suse-storage   {patch-version}    longhorn-system               False
 ----
 +
 . Verify that the deployment succeeded.
