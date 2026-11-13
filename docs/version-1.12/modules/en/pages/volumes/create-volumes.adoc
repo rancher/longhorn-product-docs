@@ -39,42 +39,44 @@ Next, a PersistentVolumeClaim is created that references the StorageClass. Final
 
 When the Pod is deployed, the Kubernetes master checks the PersistentVolumeClaim to make sure the resource request can be fulfilled. If storage is available, the Kubernetes master creates the Longhorn volume and bind it to the Pod.
 
-. Use following command to create a StorageClass called `longhorn`:
+. Create a StorageClass called `longhorn-test`.
 +
-[subs="+attributes", console]
-----
-kubectl create -f https://raw.githubusercontent.com/longhorn/longhorn/v{patch-version}/examples/storageclass.yaml
-----
+Save the following manifest as `storageclass.yaml`:
 +
-The following example StorageClass is created:
-+
-[subs="+attributes", yaml]
+[,yaml]
 ----
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
 metadata:
-  name: longhorn
+  name: longhorn-test
 provisioner: driver.longhorn.io
 allowVolumeExpansion: true
+reclaimPolicy: Delete
+volumeBindingMode: Immediate
 parameters:
   numberOfReplicas: "3"
-  staleReplicaTimeout: "2880" # 48 hours in minutes
+  staleReplicaTimeout: "2880"
   fromBackup: ""
   fsType: "ext4"
 #  backupTargetName: "default"
 #  mkfsParams: "-I 256 -b 4096 -O ^metadata_csum,^64bit"
+#  backingImage: "bi-test"
+#  backingImageDataSourceType: "download"
+#  backingImageDataSourceParameters: '{"url": "https://backing-image-example.s3-region.amazonaws.com/test-backing-image"}'
+#  backingImageChecksum: "SHA512 checksum of the backing image"
+#  unmapMarkSnapChainRemoved: "ignored"
 #  diskSelector: "ssd,fast"
 #  nodeSelector: "storage,fast"
-#  recurringJobSelector: '[
-#   {
-#     "name":"snap",
-#     "isGroup":true,
-#   },
-#   {
-#     "name":"backup",
-#     "isGroup":false,
-#   }
-#  ]'
+#  recurringJobSelector: '[{"name":"snap-group", "isGroup":true},
+#                          {"name":"backup", "isGroup":false}]'
+#  nfsOptions: "soft,timeo=150,retrans=3"
+----
++
+Then run this command:
++
+[,shell]
+----
+kubectl create -f storageclass.yaml
 ----
 +
 The parameter `mkfsParams` can be used to specify file system format options for each StorageClass.
@@ -83,21 +85,17 @@ The parameter `backupTargetName` can be used to specify the backup target. The n
 +
 Parameters may be omitted from the StorageClass specification. When the StorageClass is used to create a PV and a volume, parameters that are not specified are generally set using a default value taken from the global settings. For the full list of global settings, see xref:volumes/storageclass-parameters.adoc[StorageClass Parameters] and xref:longhorn-system/settings.adoc[Settings].
 
-. Create a Pod that uses Longhorn volumes by running this command:
+. Create a Pod that uses Longhorn volumes.
 +
-[subs="+attributes", console]
-----
-kubectl create -f https://raw.githubusercontent.com/longhorn/longhorn/v{patch-version}/examples/pod_with_pvc.yaml
-----
+Save the following manifest as `pod_with_pvc.yaml`:
 +
-A Pod named `volume-test` is launched, along with a PersistentVolumeClaim named `longhorn-volv-pvc`. The PersistentVolumeClaim references the Longhorn StorageClass:
-+
-[subs="+attributes", yaml]
+[,yaml]
 ----
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: longhorn-volv-pvc
+  namespace: default
 spec:
   accessModes:
     - ReadWriteOnce
@@ -105,46 +103,53 @@ spec:
   resources:
     requests:
       storage: 2Gi
-----
-+
-The PersistentVolumeClaim is mounted in the Pod as a volume:
-+
-[subs="+attributes", yaml]
-----
+---
 apiVersion: v1
-  kind: Pod
-  metadata:
-    name: volume-test
-    namespace: default
-  spec:
-    containers:
-    - name: volume-test
-      image: nginx:stable-alpine
-      imagePullPolicy: IfNotPresent
-      volumeMounts:
-      - name: volv
-        mountPath: /data
-      ports:
-      - containerPort: 80
-    volumes:
+kind: Pod
+metadata:
+  name: volume-test
+  namespace: default
+spec:
+  restartPolicy: Always
+  containers:
+  - name: volume-test
+    image: nginx:stable-alpine
+    imagePullPolicy: IfNotPresent
+    livenessProbe:
+      exec:
+        command:
+          - ls
+          - /data/lost+found
+      initialDelaySeconds: 5
+      periodSeconds: 5
+    volumeMounts:
     - name: volv
-      persistentVolumeClaim:
-        claimName: longhorn-volv-pvc
+      mountPath: /data
+    ports:
+    - containerPort: 80
+  volumes:
+  - name: volv
+    persistentVolumeClaim:
+      claimName: longhorn-volv-pvc
 ----
++
+Then run this command:
++
+[,shell]
+----
+kubectl create -f pod_with_pvc.yaml
+----
++
+A Pod named `volume-test` is launched, along with a PersistentVolumeClaim named `longhorn-volv-pvc`. The PersistentVolumeClaim uses the default `longhorn` StorageClass, which {longhorn-product-name} creates during installation.
 
 [#_creating_v2_longhorn_volumes_with_kubectl_replication]
 === Creating V2 Longhorn Volumes with kubectl (Replication)
 
 Before creating a V2 volume, ensure that the V2 Data Engine is enabled and Longhorn has available block-type disks. V2 volumes are scheduled only to block-type disks. For more information, see xref:installation-setup/requirements.adoc#_v2_data_engine_requirements[V2 Data Engine] and xref:nodes/multiple-disks.adoc#_add_a_block-type-disk[Add a Block-Type Disk].
 
-. Use the following command to create a StorageClass called `longhorn-v2-replicated`:
+. Create a StorageClass called `longhorn-v2-replicated`.
 +
-[,shell]
-----
-kubectl create -f https://raw.githubusercontent.com/longhorn/longhorn/v{patch-version}/examples/v2/replication/storageclass.yaml
-----
-+
-The following example StorageClass is created:
+Save the following manifest as `storageclass.yaml`:
 +
 [,yaml]
 ----
@@ -158,25 +163,38 @@ reclaimPolicy: Delete
 volumeBindingMode: Immediate
 parameters:
   dataEngine: "v2"
-  # dataLayout is optional for replicated volumes; RAID1 is the default.
+  # dataLayout is optional for replicated volumes - RAID1 is the default.
   dataLayout.type: "replicated"
   dataLayout.mode: "raid1"
-  numberOfReplicas: "3"
+  numberOfReplicas: "3"             # 3-way mirror; tolerates 2 replica failures
   staleReplicaTimeout: "2880"
   fsType: "ext4"
-  dataEngine: "v2"
+#  mkfsParams: "-I 256 -b 4096 -O ^metadata_csum,^64bit"
+#  nodeSelector: "storage,fast"
+#  recurringJobSelector: '[{"name":"snap-group", "isGroup":true},
+#                          {"name":"backup", "isGroup":false}]'
+#  fromBackup: ""
+#  backingImage: "bi-test"
+#  backingImageDataSourceType: "download"
+#  backingImageDataSourceParameters: '{"url": "https://backing-image-example.s3-region.amazonaws.com/test-backing-image"}'
+#  backingImageChecksum: "SHA512 checksum of the backing image"
+#  unmapMarkSnapChainRemoved: "ignored"
+#  diskSelector: "ssd,fast"
+#  nfsOptions: "soft,timeo=150,retrans=3"
+----
++
+Then run this command:
++
+[,shell]
+----
+kubectl create -f storageclass.yaml
 ----
 +
 The `dataEngine` parameter must be set to `v2` so Longhorn provisions a V2 volume. See xref:volumes/storageclass-parameters.adoc[Storage Class Parameters] for the list of supported parameters.
 
-. Create a Pod that uses a V2 Longhorn volume by running this command:
+. Create a Pod that uses a V2 Longhorn volume.
 +
-[,shell]
-----
-kubectl create -f https://raw.githubusercontent.com/longhorn/longhorn/v{patch-version}/examples/v2/replication/pod_with_pvc.yaml
-----
-+
-A Pod named `longhorn-v2-replicated-test` is launched, along with a PersistentVolumeClaim named `longhorn-v2-replicated-pvc`. The PersistentVolumeClaim references the V2 StorageClass:
+Save the following manifest as `pod_with_pvc.yaml`:
 +
 [,yaml]
 ----
@@ -192,12 +210,7 @@ spec:
   resources:
     requests:
       storage: 2Gi
-----
-+
-The PersistentVolumeClaim is mounted in the Pod as a volume:
-+
-[,yaml]
-----
+---
 apiVersion: v1
 kind: Pod
 metadata:
@@ -206,7 +219,7 @@ metadata:
 spec:
   restartPolicy: Always
   containers:
-  - name: longhorn-v2-replicated-test
+  - name: volume-test
     image: nginx:stable-alpine
     imagePullPolicy: IfNotPresent
     livenessProbe:
@@ -219,10 +232,23 @@ spec:
     volumeMounts:
     - name: volv
       mountPath: /data
+    ports:
+    - containerPort: 80
+  volumes:
+  - name: volv
     persistentVolumeClaim:
       claimName: longhorn-v2-replicated-pvc
 ----
-
++
+Then run this command:
++
+[,shell]
+----
+kubectl create -f pod_with_pvc.yaml
+----
++
+A Pod named `longhorn-v2-replicated-test` is launched, along with a PersistentVolumeClaim named `longhorn-v2-replicated-pvc`. The PersistentVolumeClaim references the V2 StorageClass.
++
 More examples are available xref:longhorn-system/examples-resources.adoc[examples section].
 
 [#_creating_v2_longhorn_volumes_with_kubectl_sharding]
@@ -235,16 +261,11 @@ Sharding is an Experimental feature. It is intended for evaluation and testing, 
 
 Sharding distributes a volume's data across multiple nodes using erasure coding, allowing a volume to exceed the capacity of a single disk or node. It is an alternative to the default replicated layout and is only available with the V2 Data Engine. As with any V2 volume, ensure that the V2 Data Engine is enabled and Longhorn has available block-type disks. Besides that, each chunk is placed on a distinct node, so the cluster must have at least `dataChunks + parityChunks` schedulable nodes. For more information, see xref:nodes/multiple-disks.adoc#_add_a_block_type_disk[Add a Block-Type Disk].
 
-. Use the following command to create a StorageClass called `longhorn-v2-sharded`:
+. Create a StorageClass called `longhorn-v2-sharded`.
 +
-[source,shell]
-----
-kubectl create -f https://raw.githubusercontent.com/longhorn/longhorn/v{patch-version}/examples/v2/sharding/storageclass.yaml
-----
+Save the following manifest as `storageclass.yaml`:
 +
-The following example StorageClass is created. It defines a `4 + 2` erasure-coded array (four data chunks and two parity chunks) that tolerates two simultaneous failures and requires at least six nodes:
-+
-[source,yaml]
+[,yaml]
 ----
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
@@ -256,28 +277,36 @@ reclaimPolicy: Delete
 volumeBindingMode: Immediate
 parameters:
   dataEngine: "v2"
+  # Erasure coding: data is split into k data + m parity chunks and spread
+  # across k+m nodes. This 4+2 array tolerates 2 failures at 1.5x overhead.
   dataLayout.type: "sharded"
   dataLayout.mode: "erasureCoding"
   dataLayout.dataChunks: "4"        # k: data chunks
   dataLayout.parityChunks: "2"      # m: parity chunks = failures tolerated
   dataLayout.stripSizeKB: "64"      # strip size in KiB; power of two 4-1024, fixed at creation
-  numberOfReplicas: "1"             # must be 1; parity provides fault tolerance
-  dataLocality: "disabled"          # must be disabled; chunks span k+m nodes
+  # Required for EC; the webhook rejects the volume otherwise:
+  numberOfReplicas: "1"             # must be 1 - parity provides fault tolerance, not replicas
+  dataLocality: "disabled"          # must be disabled - chunks span k+m nodes
   fsType: "ext4"
+# Needs at least k+m nodes (6 for 4+2) - one shard per node (hard anti-affinity).
 ----
++
+Then run this command:
++
+[,shell]
+----
+kubectl create -f storageclass.yaml
+----
++
+This StorageClass defines a `4 + 2` erasure-coded array (four data chunks and two parity chunks) that tolerates two simultaneous failures and requires at least six nodes.
 +
 The `dataLayout.*` parameters define the erasure-coded layout. See xref:volumes/storageclass-parameters.adoc[Storage Class Parameters] for the full list.
 
-. Create a Pod that uses the sharded volume by running this command:
+. Create a Pod that uses the sharded volume.
 +
-[source,shell]
-----
-kubectl create -f https://raw.githubusercontent.com/longhorn/longhorn/v{patch-version}/examples/v2/sharding/pod_with_pvc.yaml
-----
+Save the following manifest as `pod_with_pvc.yaml`:
 +
-A Pod named `longhorn-v2-sharded-test` is launched, along with a PersistentVolumeClaim named `longhorn-v2-sharded-pvc`. The PersistentVolumeClaim references the `longhorn-v2-sharded` StorageClass:
-+
-[source,yaml]
+[,yaml]
 ----
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -291,10 +320,47 @@ spec:
   resources:
     requests:
       storage: 2Gi
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: longhorn-v2-sharded-test
+  namespace: default
+spec:
+  restartPolicy: Always
+  containers:
+  - name: volume-test
+    image: nginx:stable-alpine
+    imagePullPolicy: IfNotPresent
+    livenessProbe:
+      exec:
+        command:
+          - ls
+          - /data/lost+found
+      initialDelaySeconds: 5
+      periodSeconds: 5
+    volumeMounts:
+    - name: volv
+      mountPath: /data
+    ports:
+    - containerPort: 80
+  volumes:
+  - name: volv
+    persistentVolumeClaim:
+      claimName: longhorn-v2-sharded-pvc
 ----
 +
+Then run this command:
++
+[,shell]
+----
+kubectl create -f pod_with_pvc.yaml
+----
++
+A Pod named `longhorn-v2-sharded-test` is launched, along with a PersistentVolumeClaim named `longhorn-v2-sharded-pvc`. The PersistentVolumeClaim references the `longhorn-v2-sharded` StorageClass.
++
 The Pod mounts the volume at `/data`, the same as the replicated example above.
-
++
 For information about data layout parameters, supported and unsupported features, and how sharding compares to replication, see xref:v2-data-engine/sharding.adoc[Sharding Storage].
 
 == Binding Workloads to PVs without a Kubernetes StorageClass

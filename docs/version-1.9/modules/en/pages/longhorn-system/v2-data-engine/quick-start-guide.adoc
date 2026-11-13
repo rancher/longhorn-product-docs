@@ -313,20 +313,97 @@ After the installation and configuration, we can dynamically provision a Persist
 
 === Create a StorageClass
 
-Run the following command to create a StorageClass named `longhorn-spdk`. Set `parameters.dataEngine` to `v2` to enable the V2 Data Engine.
+To create a StorageClass named `longhorn-v2-data-engine`, save the following manifest as `storageclass.yaml`. The `parameters.dataEngine` parameter is set to `v2` to enable the V2 Data Engine.
 
-[subs="+attributes", console]
+[,yaml]
 ----
-kubectl apply -f https://raw.githubusercontent.com/longhorn/longhorn/v{patch-version}/examples/v2/storageclass.yaml
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: longhorn-v2-data-engine
+provisioner: driver.longhorn.io
+allowVolumeExpansion: true
+reclaimPolicy: Delete
+volumeBindingMode: Immediate
+parameters:
+  numberOfReplicas: "3"
+  staleReplicaTimeout: "2880"
+  fsType: "ext4"
+  dataEngine: "v2"
+#  mkfsParams: "-I 256 -b 4096 -O ^metadata_csum,^64bit"
+#  nodeSelector: "storage,fast"
+#  recurringJobSelector: '[{"name":"snap-group", "isGroup":true},
+#                          {"name":"backup", "isGroup":false}]'
+#  fromBackup: ""
+#  backingImage: "bi-test"
+#  backingImageDataSourceType: "download"
+#  backingImageDataSourceParameters: '{"url": "https://backing-image-example.s3-region.amazonaws.com/test-backing-image"}'
+#  backingImageChecksum: "SHA512 checksum of the backing image"
+#  unmapMarkSnapChainRemoved: "ignored"
+#  diskSelector: "ssd,fast"
+#  nfsOptions: "soft,timeo=150,retrans=3"
+----
+
+Then run this command:
+
+[,shell]
+----
+kubectl apply -f storageclass.yaml
 ----
 
 === Create Longhorn Volumes
 
-Create a Pod that uses Longhorn volumes using V2 Data Engine by running this command:
+To create a Pod that uses Longhorn volumes using V2 Data Engine, save the following manifest as `pod_with_pvc.yaml`:
 
-[subs="+attributes", console]
+[,yaml]
 ----
-kubectl apply -f https://raw.githubusercontent.com/longhorn/longhorn/v{patch-version}/examples/v2/pod_with_pvc.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: longhorn-volv-pvc
+  namespace: default
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: longhorn-v2-data-engine
+  resources:
+    requests:
+      storage: 2Gi
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: volume-test
+  namespace: default
+spec:
+  restartPolicy: Always
+  containers:
+  - name: volume-test
+    image: nginx:stable-alpine
+    imagePullPolicy: IfNotPresent
+    livenessProbe:
+      exec:
+        command:
+          - ls
+          - /data/lost+found
+      initialDelaySeconds: 5
+      periodSeconds: 5
+    volumeMounts:
+    - name: volv
+      mountPath: /data
+    ports:
+    - containerPort: 80
+  volumes:
+  - name: volv
+    persistentVolumeClaim:
+      claimName: longhorn-volv-pvc
+----
+
+Then run this command:
+
+[,shell]
+----
+kubectl apply -f pod_with_pvc.yaml
 ----
 
 Or, if you are creating a volume on Longhorn UI, please specify the `Data Engine` as `v2`.
