@@ -9,7 +9,7 @@
 
 You can use the following information to write Kubernetes NetworkPolicy to control the inbound or outbound traffic between {longhorn-product-name} components. This helps to reduce the damage when a malicious pod breaks into the in-cluster network.
 
-The helm chart installs two categories of NetworkPolicy objects, each controlled by a separate value in the https://github.com/longhorn/longhorn/blob/v{patch-version}/chart/values.yaml[values.yaml] file:
+The helm chart installs two categories of NetworkPolicy objects, each controlled by a separate value in the xref:installation-setup/installation/helm-values.adoc[values.yaml] file:
 
 * `networkPolicies.restrictInternalTraffic` (default: `true`): It restricts inbound traffic to internal {longhorn-product-name} components (manager, instance manager, backing image manager, backing image data source, webhook, and recovery back-end) so that only authorized {longhorn-product-name} pods may communicate with each other.
 * `networkPolicies.enabled` (default: `false`): It controls policies that allow external ingress access to the {longhorn-product-name} UI, using a distribution-specific ingress controller selector.

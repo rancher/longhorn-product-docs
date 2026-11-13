@@ -98,19 +98,21 @@ Use the Helm command with the `--set` flag to modify the default settings. For e
 
 [subs="+attributes",shell]
 ----
-helm install longhorn longhorn/longhorn \
+helm install longhorn oci://dp.apps.rancher.io/charts/suse-storage \
   --namespace longhorn-system \
   --create-namespace \
+  --version {patch-version} \
+  --set global.imagePullSecrets=<PULL_IMAGE_SECRET> \
   --set defaultSettings.taintToleration="key1=value1:NoSchedule; key2:NoExecute"
 ----
 
 You can also provide a copy of the `values.yaml` file with the default settings modified to the `--values` flag when running the Helm command:
 
-. Obtain a copy of the `values.yaml` file from GitHub:
+. Obtain a copy of the `values.yaml` file from the {longhorn-product-name} chart in SUSE Application Collection:
 +
 [subs="+attributes",shell]
 ----
-curl -Lo values.yaml https://raw.githubusercontent.com/longhorn/charts/master/charts/longhorn/values.yaml
+helm show values oci://dp.apps.rancher.io/charts/suse-storage --version {patch-version} > values.yaml
 ----
 
 . Modify the default settings in the YAML file. The following is an example snippet of `values.yaml`:
@@ -150,9 +152,11 @@ defaultSettings:
 +
 [subs="+attributes",shell]
 ----
-helm install longhorn longhorn/longhorn \
+helm install longhorn oci://dp.apps.rancher.io/charts/suse-storage \
   --namespace longhorn-system \
   --create-namespace \
+  --version {patch-version} \
+  --set global.imagePullSecrets=<PULL_IMAGE_SECRET> \
   --values values.yaml
 ----
 
@@ -213,7 +217,7 @@ kubectl edit settings.longhorn.io <SETTING-NAME> -n longhorn-system
 Modify the default settings in the YAML file as described in xref:_using_helm[Fresh Installation > Using Helm] and then update the settings using
 
 ----
-helm upgrade longhorn longhorn/longhorn --namespace longhorn-system --values ./values.yaml --version `helm list -n longhorn-system -o json | jq -r .'[0].app_version'`
+helm upgrade longhorn oci://dp.apps.rancher.io/charts/suse-storage --namespace longhorn-system --values ./values.yaml --set global.imagePullSecrets=<PULL_IMAGE_SECRET> --version `helm list -n longhorn-system -o json | jq -r .'[0].app_version'`
 ----
 
 == Upgrade

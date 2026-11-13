@@ -69,7 +69,7 @@ Create a ServiceMonitor for Longhorn Manager.
 
 ==== Install Longhorn ServiceMonitor with Helm
 
-. Modify the YAML file `longhorn/chart/values.yaml`.
+. Modify the `values.yaml` file.
 +
 [subs="+attributes",yaml]
 ----
@@ -83,7 +83,11 @@ Create a ServiceMonitor for Longhorn Manager.
 +
 [subs="+attributes",bash]
 ----
-helm upgrade longhorn longhorn/longhorn --namespace longhorn-system -f values.yaml
+helm upgrade longhorn oci://dp.apps.rancher.io/charts/suse-storage \
+  --namespace longhorn-system \
+  --version {patch-version} \
+  --set global.imagePullSecrets=<PULL_IMAGE_SECRET> \
+  -f values.yaml
 ----
 
 Longhorn ServiceMonitor is a https://prometheus-operator.dev/[Prometheus Operator] custom resource. This setup allows the Prometheus server to discover all Longhorn Manager pods and their respective endpoints.

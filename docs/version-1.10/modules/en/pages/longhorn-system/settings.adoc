@@ -54,7 +54,7 @@ A default image is provided during installation and upgrade, and you can also ch
 
 An example of the support bundle manager image:
 
-*Default value*: `longhornio/support-bundle-kit:v0.0.14`
+*Default value*: `dp.apps.rancher.io/containers/rancher-support-bundle-kit:0.0.87`
 
 === Current {longhorn-product-name} Version
 

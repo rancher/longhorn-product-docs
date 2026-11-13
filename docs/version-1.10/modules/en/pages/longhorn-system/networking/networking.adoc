@@ -8,7 +8,7 @@
 
 You can use the following information to write Kubernetes NetworkPolicy to control the inbound/outbound traffic between Longhorn components. This helps to reduce the damage when a malicious pod breaks into the in-cluster network.
 
-The helm chart install NetworkPolicy objects when the https://github.com/longhorn/longhorn/blob/v{patch-version}/chart/values.yaml[networkPolicies.enabled value] is set to `true`.
+The helm chart install NetworkPolicy objects when the xref:installation-setup/installation/helm-values.adoc[networkPolicies.enabled value] is set to `true`.
 The manifests of these objects can be viewed in the https://github.com/longhorn/longhorn/tree/v{patch-version}/chart/templates/network-policies[git repository].
 
 [IMPORTANT]
