@@ -470,12 +470,12 @@ Download the `longhornctl` binary for your platform:
 
 The `longhornctl` tool is a CLI for Longhorn operations. For more information, see xref:longhorn-system/system-access/install-longhorn-cli.adoc[Command Line Tool (longhornctl)].
 
-[,shell]
+[subs="+attributes",shell]
 ----
 # For AMD64 platform
-curl -sSfL -o longhornctl https://github.com/longhorn/cli/releases/download/v{{< current-version >}}/longhornctl-linux-amd64
+curl -sSfL -o longhornctl https://github.com/longhorn/cli/releases/download/v{patch-version}/longhornctl-linux-amd64
 # For ARM platform
-curl -sSfL -o longhornctl https://github.com/longhorn/cli/releases/download/v{{< current-version >}}/longhornctl-linux-arm64
+curl -sSfL -o longhornctl https://github.com/longhorn/cli/releases/download/v{patch-version}/longhornctl-linux-arm64
 
 chmod +x longhornctl
 ----
@@ -540,9 +540,9 @@ Use the base install command for the default V1 installation path. If you plan t
 
 For V1 Data Engine:
 
-[,shell]
+[subs="+attributes",shell]
 ----
-longhornctl --kubeconfig ~/.kube/config --image longhornio/longhorn-cli:v{{< current-version >}} install preflight
+longhornctl --kubeconfig ~/.kube/config --image longhornio/longhorn-cli:v{patch-version} install preflight
 ----
 
 Example of result:
@@ -567,9 +567,9 @@ The documentation of the Linux distribution you are using should outline such re
 
 For V2 Data Engine:
 
-[,shell]
+[subs="+attributes",shell]
 ----
-longhornctl --kubeconfig ~/.kube/config --image longhornio/longhorn-cli:v{{< current-version >}} install preflight --enable-spdk
+longhornctl --kubeconfig ~/.kube/config --image longhornio/longhorn-cli:v{patch-version} install preflight --enable-spdk
 ----
 
 After installation, run the check command again to verify that all V2-related prerequisites are correctly configured.
