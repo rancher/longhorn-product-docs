@@ -4,6 +4,7 @@
 // Release Notes Section:
 * Release Notes
 ** xref:release-notes/v1.12.1.adoc[]
+** xref:release-notes/v1.12.2.adoc[]
 
 // Introduction Section:
 * xref:introduction/introduction.adoc[]

@@ -26,5 +26,5 @@ asciidoc:
     rke2-product-name: "SUSE® Rancher Prime: RKE2"
     fleet-product-name: "SUSE® Rancher Prime: Continuous Delivery"
     turtles-product-name: "SUSE® Rancher Prime: Cluster API"
-    patch-version: 1.12.1
+    patch-version: 1.12.2
     previous-version: 1.11
