@@ -59,11 +59,13 @@ Run the following command:
 kubectl delete GitRepo longhorn -n fleet-local
 ----
 
-After the `longhorn-uninstall` job is completed, run the following command:
+After the `longhorn-uninstall` job is completed, run the following command to remove the remaining {longhorn-product-name} resources. Helm must be authenticated with SUSE Application Collection. For more details, check the https://docs.apps.rancher.io/get-started/authentication/#helm[Helm authentication documentation].
 
 [subs="+attributes",shell]
 ----
-kubectl delete -f https://raw.githubusercontent.com/longhorn/longhorn/v{patch-version}/deploy/longhorn.yaml
+helm template longhorn oci://dp.apps.rancher.io/charts/suse-storage \
+  --version {patch-version} \
+  --namespace longhorn-system | kubectl delete -f -
 ----
 
 == Uninstalling {longhorn-product-name} Using Flux
@@ -77,4 +79,32 @@ flux delete helmrelease longhorn-release -n longhorn-system
 
 == Uninstalling {longhorn-product-name} Using Argo CD
 
-Argo CD currently does not support the PreDelete resource hook. Instead of running `argocd app delete longhorn` directly, you must uninstall {longhorn-product-name} using `kubectl` to prevent dangling resources from remaining in the `longhorn-system` namespace.
+Argo CD currently does not support the PreDelete resource hook. Instead of running `argocd app delete longhorn` directly, run the uninstallation job first to prevent dangling resources from remaining in the `longhorn-system` namespace:
+
+. Run the uninstallation job of the {longhorn-product-name} chart and wait until it completes. Helm must be authenticated with SUSE Application Collection. For more details, check the https://docs.apps.rancher.io/get-started/authentication/#helm[Helm authentication documentation].
++
+[subs="+attributes",shell]
+----
+helm template longhorn oci://dp.apps.rancher.io/charts/suse-storage \
+  --version {patch-version} \
+  --namespace longhorn-system \
+  --set global.imagePullSecrets=<PULL_IMAGE_SECRET> \
+  --show-only templates/uninstall-job.yaml | kubectl create -f -
+kubectl -n longhorn-system wait --for=condition=complete job/longhorn-uninstall --timeout=10m
+----
+
+. Delete the Argo CD application.
++
+[,shell]
+----
+argocd app delete longhorn
+----
+
+. Remove the remaining {longhorn-product-name} resources.
++
+[subs="+attributes",shell]
+----
+helm template longhorn oci://dp.apps.rancher.io/charts/suse-storage \
+  --version {patch-version} \
+  --namespace longhorn-system | kubectl delete -f -
+----

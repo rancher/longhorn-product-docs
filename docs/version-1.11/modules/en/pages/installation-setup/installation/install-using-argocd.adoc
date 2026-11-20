@@ -24,6 +24,17 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/st
 ----
 +
 Allow some time for the deployment of Argo CD components in the `argocd` namespace.
+ ** Create the `longhorn-system` namespace and, following the https://docs.apps.rancher.io/get-started/authentication/#kubernetes[Kubernetes authentication documentation], a secret that allows Kubernetes to pull images from SUSE Application Collection.
++
+[,bash]
+----
+kubectl create namespace longhorn-system
+kubectl create secret docker-registry application-collection \
+  --docker-server=dp.apps.rancher.io \
+  --namespace=longhorn-system \
+  --docker-username=<your-username-or-service-account-username> \
+  --docker-password=<access-token-or-service-account-secret>
+----
 
 ____
 The xref:longhorn-system/system-access/longhorn-cli.adoc[Longhorn Command Line Tool] can be used to check the {longhorn-product-name} environment for potential issues.
@@ -45,6 +56,18 @@ ____
  kubectl config set-context --current --namespace=argocd
 ----
 
+. Add the SUSE Application Collection OCI chart repository to Argo CD.
++
+[,bash]
+----
+ argocd repo add dp.apps.rancher.io/charts \
+   --type helm \
+   --name application-collection \
+   --enable-oci \
+   --username <your-username-or-service-account-username> \
+   --password <access-token-or-service-account-secret>
+----
+
 . Create the {longhorn-product-name} Application custom resource.
 +
 [subs="+attributes",bash]
@@ -61,11 +84,13 @@ spec:
       - CreateNamespace=true
   project: default
   sources:
-    - chart: longhorn
-      repoURL: https://charts.longhorn.io/
-      targetRevision: v{{<current-version>}} # Replace with the Longhorn version you'd like to install or upgrade to
+    - chart: suse-storage
+      repoURL: dp.apps.rancher.io/charts
+      targetRevision: {patch-version} # Replace with the {longhorn-product-name} version you'd like to install or upgrade to
       helm:
         values: |
+          global:
+            imagePullSecrets: [application-collection]
           preUpgradeChecker:
             jobEnabled: false
   destination:

@@ -171,9 +171,8 @@ Update the value of `helm.version` in the `fleet` YAML file of your GitOps repos
 [subs="+attributes",yaml]
 ----
 helm:
-  repo: https://charts.longhorn.io
-  chart: longhorn
-  version: v{patch-version} # Replace with the {longhorn-product-name} version you would like to upgrade to
+  chart: oci://dp.apps.rancher.io/charts/suse-storage
+  version: {patch-version} # Replace with the {longhorn-product-name} version you would like to upgrade to
   releaseName: longhorn
 ----
 
@@ -186,12 +185,12 @@ Update the value of `spec.chart.spec.version` in the `HelmRelease` YAML file of 
 spec:
   chart:
     spec:
-      chart: longhorn
+      chart: suse-storage
       reconcileStrategy: ChartVersion
       sourceRef:
         kind: HelmRepository
-        name: longhorn
-      version: v{patch-version} # Replace with the {longhorn-product-name} version you would like to upgrade to
+        name: longhorn-repo
+      version: {patch-version} # Replace with the {longhorn-product-name} version you would like to upgrade to
 ----
 
 === Upgrade with Argo CD
@@ -203,9 +202,9 @@ Update the value of `targetRevision` in the `Application` YAML file of your GitO
 spec:
   project: default
   sources:
-    - chart: longhorn
-      repoURL: https://charts.longhorn.io
-      targetRevision: v{patch-version} # Replace with the {longhorn-product-name} version you would like to upgrade to
+    - chart: suse-storage
+      repoURL: dp.apps.rancher.io/charts
+      targetRevision: {patch-version} # Replace with the {longhorn-product-name} version you would like to upgrade to
 ----
 
 Then wait for all the pods to become running and {longhorn-product-name} UI working. For example:
