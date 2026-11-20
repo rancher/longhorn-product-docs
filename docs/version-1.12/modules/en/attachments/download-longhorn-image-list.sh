@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-CHART_REF=oci://dp.apps.rancher.io/charts/suse-storage:{patch-version}
+CHART_REF=oci://dp.apps.rancher.io/charts/suse-storage:1.12.1
 
 set -euo pipefail
 setopt shwordsplit 2>/dev/null || true

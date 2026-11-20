@@ -33,19 +33,11 @@ helm uninstall longhorn -n longhorn-system
 
 == Uninstalling {longhorn-product-name} Using Helm Controller
 
-Run the following command:
+Uninstall the Helm release first, and then delete the HelmChart CR. With older RKE2 and K3s releases, deleting the HelmChart CR first can make the Helm Controller restart its uninstallation job while the `longhorn-uninstall` job is still running, and the uninstallation does not complete. This order works with all releases.
 
 [,shell]
 ----
-kubectl delete helmchart <HelmChart name> -n <HelmChart namespace>
-----
-
-== Uninstalling {longhorn-product-name} Using Helm Controller
-
-Run the following command:
-
-[,shell]
-----
+helm uninstall <HelmChart name> --namespace <HelmChart target namespace> --wait
 kubectl delete helmchart <HelmChart name> -n <HelmChart namespace>
 ----
 

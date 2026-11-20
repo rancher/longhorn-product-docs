@@ -62,7 +62,7 @@ Obtain the {longhorn-product-name} Chart and decompress the downloaded tarball:
 +
 [subs="+attributes",bash]
 ----
-helm pull longhorn oci://dp.apps.rancher.io/charts/suse-storage:{patch-version}
+helm pull oci://dp.apps.rancher.io/charts/suse-storage --version {patch-version}
 tar -zxf suse-storage-{patch-version}.tgz
 cd suse-storage
 ----
