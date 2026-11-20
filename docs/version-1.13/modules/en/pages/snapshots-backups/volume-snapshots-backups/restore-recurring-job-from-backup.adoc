@@ -53,7 +53,7 @@ metadata:
   namespace: longhorn-system
 spec:
   restoreVolumeRecurringJob: ignored
-  engineImage: longhornio/longhorn-engine:v1.4.0
+  image: dp.apps.rancher.io/containers/longhorn-engine:{patch-version}
   fromBackup: "s3://backupbucket@us-east-1?volume=minio-vol01&backup=backup-eeb2782d5b2f42bb"
   frontend: blockdev
 ----

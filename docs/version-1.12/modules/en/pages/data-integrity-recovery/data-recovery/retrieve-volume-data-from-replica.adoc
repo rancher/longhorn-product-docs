@@ -68,20 +68,33 @@ From the result above, you can see the volume size is `1073741824` (1 GiB). Note
 . To export the content of the volume, follow the instructions below that correspond to your environment.
 * *Docker (RKE1)*
 +
-To export the content of the volume in a Docker environment, use the following command to create a single-replica Longhorn volume container:
+To export the content of the volume in a Docker environment, log in to SUSE Application Collection with `docker login dp.apps.rancher.io` (see the https://docs.apps.rancher.io/get-started/authentication/#docker[Docker authentication documentation]), and then use the following command to create a single-replica Longhorn volume container:
 +
+[subs="+attributes"]
 ----
-docker run -v /dev:/host/dev -v /proc:/host/proc -v <data_path>:/volume --privileged longhornio/longhorn-engine:v{patch-version} launch-simple-longhorn <volume_name> <volume_size>
+docker run -v /dev:/host/dev -v /proc:/host/proc -v <data_path>:/volume --privileged dp.apps.rancher.io/containers/longhorn-engine:{patch-version} launch-simple-longhorn <volume_name> <volume_size>
 ----
 +
 For example, based on the information above, the command should be:
 +
+[subs="+attributes"]
 ----
-docker run -v /dev:/host/dev -v /proc:/host/proc -v /var/lib/longhorn/replicas/pvc-06b4a8a8-b51d-42c6-a8cc-d8c8d6bc65bc-d890efb2:/volume --privileged longhornio/longhorn-engine:v{patch-version} launch-simple-longhorn pvc-06b4a8a8-b51d-42c6-a8cc-d8c8d6bc65bc 1073741824
+docker run -v /dev:/host/dev -v /proc:/host/proc -v /var/lib/longhorn/replicas/pvc-06b4a8a8-b51d-42c6-a8cc-d8c8d6bc65bc-d890efb2:/volume --privileged dp.apps.rancher.io/containers/longhorn-engine:{patch-version} launch-simple-longhorn pvc-06b4a8a8-b51d-42c6-a8cc-d8c8d6bc65bc 1073741824
 ----
 * *Containerd (RKE2/K3s)*
 +
 To export the content of the volume in RKE2 or K3s environments, you need to create a static pod manifest. This manifest launches the Longhorn engine and exposes the volume.
++
+Static pods cannot use image pull secrets, so the node must be able to pull the engine image from SUSE Application Collection. Configure authentication for `dp.apps.rancher.io` in `/etc/rancher/rke2/registries.yaml` (`/etc/rancher/k3s/registries.yaml` for K3s), and then restart the `rke2-server` or `rke2-agent` service (`k3s` or `k3s-agent` for K3s). For details, see https://documentation.suse.com/cloudnative/rke2/latest/en/install/private_registry.html[{rke2-product-name} - Private Registry Configuration] or https://documentation.suse.com/cloudnative/k3s/latest/en/installation/private-registry.html[{k3s-product-name} - Private Registry Configuration].
++
+[,yaml]
+----
+configs:
+  "dp.apps.rancher.io":
+    auth:
+      username: <your-username-or-service-account-username>
+      password: <access-token-or-service-account-secret>
+----
 +
 Create a file named `longhorn-recovery.yaml` in the `/var/lib/rancher/rke2/agent/pod-manifests/` directory with the following content:
 +
@@ -97,7 +110,7 @@ spec:
   hostPID: true
   containers:
   - name: engine
-    image: longhornio/longhorn-engine:v<current-version>
+    image: dp.apps.rancher.io/containers/longhorn-engine:<current-version>
     securityContext:
       privileged: true
     command: ["launch-simple-longhorn"]
