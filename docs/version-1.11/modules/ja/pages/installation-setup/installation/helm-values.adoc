@@ -97,12 +97,12 @@
 
 | `image.csi.attacher.repository`
 | 文字列
-| `"longhornio/csi-attacher"`
+| `"containers/kubernetes-csi-external-attacher"`
 | CSIアタッチャーイメージのリポジトリ。指定されていない場合、{longhorn-product-name}はデフォルト値を使用します。
 
 | `image.csi.attacher.tag`
 | 文字列
-| `"v4.10.0-20251226"`
+| `"4.12.0"`
 | CSIアタッチャーイメージのタグ。指定されていない場合、{longhorn-product-name}はデフォルト値を使用します。
 
 | `image.csi.livenessProbe.registry`
@@ -112,12 +112,12 @@
 
 | `image.csi.livenessProbe.repository`
 | 文字列
-| `"longhornio/livenessprobe"`
+| `"containers/kubernetes-csi-livenessprobe"`
 | CSIライブネスプローブイメージのリポジトリ。指定されていない場合、{longhorn-product-name}はデフォルト値を使用します。
 
 | `image.csi.livenessProbe.tag`
 | 文字列
-| `"v2.17.0-20251226"`
+| `"2.19.0"`
 | CSIライブネスプローブイメージのタグ。指定されていない場合、{longhorn-product-name}はデフォルト値を使用します。
 
 | `image.csi.nodeDriverRegistrar.registry`
@@ -127,12 +127,12 @@
 
 | `image.csi.nodeDriverRegistrar.repository`
 | 文字列
-| `"longhornio/csi-node-driver-registrar"`
+| `"containers/kubernetes-csi-node-driver-registrar"`
 | CSIノードドライバー Registrar イメージのリポジトリ。指定されていない場合、{longhorn-product-name}はデフォルト値を使用します。
 
 | `image.csi.nodeDriverRegistrar.tag`
 | 文字列
-| `"v2.15.0-20251226"`
+| `"2.17.0"`
 | CSIノードドライバー Registrar イメージのタグ。指定されていない場合、{longhorn-product-name}はデフォルト値を使用します。
 
 | `image.csi.provisioner.registry`
@@ -142,12 +142,12 @@
 
 | `image.csi.provisioner.repository`
 | 文字列
-| `"longhornio/csi-provisioner"`
+| `"containers/kubernetes-csi-external-provisioner"`
 | CSIプロビジョナーイメージのリポジトリ。指定されていない場合、{longhorn-product-name}はデフォルト値を使用します。
 
 | `image.csi.provisioner.tag`
 | 文字列
-| `"v5.3.0-20251226"`
+| `"6.3.0"`
 | CSIプロビジョナーイメージのタグ。指定されていない場合、{longhorn-product-name}はデフォルト値を使用します。
 
 | `image.csi.resizer.registry`
@@ -157,12 +157,12 @@
 
 | `image.csi.resizer.repository`
 | 文字列
-| `"longhornio/csi-resizer"`
+| `"containers/kubernetes-csi-external-resizer"`
 | CSIリサイズイメージのリポジトリ。指定されていない場合、{longhorn-product-name}はデフォルト値を使用します。
 
 | `image.csi.resizer.tag`
 | 文字列
-| `"v2.0.0-20251226"`
+| `"2.2.1"`
 | CSIリサイズイメージのタグ。指定されていない場合、{longhorn-product-name}はデフォルト値を使用します。
 
 | `image.csi.snapshotter.registry`
@@ -172,12 +172,12 @@
 
 | `image.csi.snapshotter.repository`
 | 文字列
-| `"longhornio/csi-snapshotter"`
+| `"containers/kubernetes-csi-external-snapshotter"`
 | CSIスナップショットイメージのリポジトリ。指定されていない場合、{longhorn-product-name}はデフォルト値を使用します。
 
 | `image.csi.snapshotter.tag`
 | 文字列
-| `"v8.4.0-20251226"`
+| `"8.6.0"`
 | CSIスナップショットイメージのタグ。指定されていない場合、{longhorn-product-name}はデフォルト値を使用します。
 
 | `image.longhorn.backingImageManager.registry`
@@ -187,12 +187,12 @@
 
 | `image.longhorn.backingImageManager.repository`
 | 文字列
-| `"longhornio/backing-image-manager"`
+| `"containers/longhorn-backing-image-manager"`
 | バックイメージマネージャーイメージのリポジトリ。指定されていない場合、{longhorn-product-name}はデフォルト値を使用します。
 
 | `image.longhorn.backingImageManager.tag`
 | 文字列
-| `"v1.11.0"`
+| `"1.11.3"`
 | バックイメージマネージャーイメージのタグ。指定されていない場合、{longhorn-product-name}はデフォルト値を使用します。
 
 | `image.longhorn.engine.registry`
@@ -202,12 +202,12 @@
 
 | `image.longhorn.engine.repository`
 | 文字列
-| `"longhornio/longhorn-engine"`
+| `"containers/longhorn-engine"`
 | Longhorn Engineイメージのリポジトリ。
 
 | `image.longhorn.engine.tag`
 | 文字列
-| `"v1.11.0"`
+| `"1.11.3"`
 | Longhorn Engineイメージのタグ。
 
 | `image.longhorn.instanceManager.registry`
@@ -217,12 +217,12 @@
 
 | `image.longhorn.instanceManager.repository`
 | 文字列
-| `"longhornio/longhorn-instance-manager"`
+| `"containers/longhorn-instance-manager"`
 | Longhorn Instance Managerイメージのリポジトリ。
 
 | `image.longhorn.instanceManager.tag`
 | 文字列
-| `"v1.11.0"`
+| `"1.11.3"`
 | Longhorn Instance Managerイメージのタグ。
 
 | `image.longhorn.manager.registry`
@@ -232,12 +232,12 @@
 
 | `image.longhorn.manager.repository`
 | 文字列
-| `"longhornio/longhorn-manager"`
+| `"containers/longhorn-manager"`
 | Longhorn Managerイメージのリポジトリ。
 
 | `image.longhorn.manager.tag`
 | 文字列
-| `"v1.11.0"`
+| `"1.11.3"`
 | Longhorn Managerイメージのタグ。
 
 | `image.longhorn.shareManager.registry`
@@ -247,12 +247,12 @@
 
 | `image.longhorn.shareManager.repository`
 | 文字列
-| `"longhornio/longhorn-share-manager"`
+| `"containers/longhorn-share-manager"`
 | Longhorn Share Managerイメージのリポジトリ。
 
 | `image.longhorn.shareManager.tag`
 | 文字列
-| `"v1.11.0"`
+| `"1.11.3"`
 | Longhorn Share Managerイメージのタグ。
 
 | `image.longhorn.supportBundleKit.registry`
@@ -262,12 +262,12 @@
 
 | `image.longhorn.supportBundleKit.repository`
 | 文字列
-| `"longhornio/support-bundle-kit"`
+| `"containers/rancher-support-bundle-kit"`
 | Longhorn Support Bundle Managerイメージのリポジトリ。
 
 | `image.longhorn.supportBundleKit.tag`
 | 文字列
-| `"v0.0.79"`
+| `"0.0.88"`
 | Longhorn Support Bundle Managerイメージのタグ。
 
 | `image.longhorn.ui.registry`
@@ -277,12 +277,12 @@
 
 | `image.longhorn.ui.repository`
 | 文字列
-| `"longhornio/longhorn-ui"`
+| `"containers/longhorn-ui"`
 | {longhorn-product-name} UIイメージのリポジトリです。
 
 | `image.longhorn.ui.tag`
 | 文字列
-| `"v1.11.0"`
+| `"1.11.3"`
 | {longhorn-product-name} UIイメージのタグです。
 
 | `image.openshift.oauthProxy.registry`

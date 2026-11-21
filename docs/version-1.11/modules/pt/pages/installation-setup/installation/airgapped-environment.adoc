@@ -33,11 +33,12 @@ Executar este script requer autenticação do Docker para acessar o registro OCI
 +
 Para puxar e salvar imagens do Longhorn em um arquivo `tar.gz` (por exemplo, `longhorn-images.tar.gz`), execute os seguintes comandos:
 +
-[subs="+attributes",bash]
+[,bash]
 ----
-wget https://raw.githubusercontent.com/longhorn/longhorn/v{patch-version}/scripts/save-images.sh
-chmod +x save-images.sh
-./save-images.sh --image-list longhorn-images.txt --images longhorn-images.tar.gz
+for image in $(cat longhorn-images.txt); do
+  docker pull "$image"
+done
+docker save $(cat longhorn-images.txt) | gzip > longhorn-images.tar.gz
 ----
 +
 Em seguida, copie o `longhorn-images.tar.gz` arquivo gerado para o seu ambiente air-gapped. Se você não especificar um nome de arquivo usando a flag `--images`, o script apenas puxará as imagens para o cache local de imagens do Docker sem salvá-las em um arquivo.
@@ -45,11 +46,14 @@ Em seguida, copie o `longhorn-images.tar.gz` arquivo gerado para o seu ambiente 
 . **Carregar e enviar imagens {longhorn-product-name} para seu registro privado** +
 {longhorn-product-name} fornece outro script, https://raw.githubusercontent.com/longhorn/longhorn/v{patch-version}/scripts/load-images.sh[`load-images.sh`] script, para enviar imagens para seu registro de contêiner privado. Para carregar imagens de um arquivo `tar.gz` (por exemplo, `longhorn-images.tar.gz`) e enviá-las para seu registro, execute os seguintes comandos. Substitua `<YOUR-PRIVATE-REGISTRY>` pelo endereço real do seu registro privado.
 +
-[subs="+attributes",bash]
+[,bash]
 ----
-wget https://raw.githubusercontent.com/longhorn/longhorn/v{patch-version}/scripts/load-images.sh
-chmod +x load-images.sh
-./load-images.sh --image-list longhorn-images.txt --images longhorn-images.tar.gz --registry <YOUR-PRIVATE-REGISTRY>
+docker load -i longhorn-images.tar.gz
+for image in $(cat longhorn-images.txt); do
+  target="<YOUR-PRIVATE-REGISTRY>/${image#dp.apps.rancher.io/}"
+  docker tag "$image" "$target"
+  docker push "$target"
+done
 ----
 +
 Se você não especificar um `tar.gz` arquivo usando a flag `--images`, o script encontrará imagens no seu cache local do Docker e as enviará para o registro.
@@ -61,7 +65,7 @@ Obtenha o {longhorn-product-name} Chart e descompacte o tarball baixado:
 +
 [subs="+attributes",bash]
 ----
-helm pull longhorn oci://dp.apps.rancher.io/charts/suse-storage:{patch-version}
+helm pull oci://dp.apps.rancher.io/charts/suse-storage --version {patch-version}
 tar -zxf suse-storage-{patch-version}.tgz
 cd suse-storage
 ----
@@ -130,19 +134,19 @@ Especifique o `repository` e `tag` para as imagens dos componentes do CSI Driver
 ----
     csi:
       attacher:
-        repository: <USERNAME>/csi-attacher
+        repository: <USERNAME>/kubernetes-csi-external-attacher
         tag: <CSI_ATTACHER_IMAGE_TAG>
       provisioner:
-        repository: <USERNAME>/csi-provisioner
+        repository: <USERNAME>/kubernetes-csi-external-provisioner
         tag: <CSI_PROVISIONER_IMAGE_TAG>
       nodeDriverRegistrar:
-        repository: <USERNAME>/csi-node-driver-registrar
+        repository: <USERNAME>/kubernetes-csi-node-driver-registrar
         tag: <CSI_NODE_DRIVER_REGISTRAR_IMAGE_TAG>
       resizer:
-        repository: <USERNAME>/csi-resizer
+        repository: <USERNAME>/kubernetes-csi-external-resizer
         tag: <CSI_RESIZER_IMAGE_TAG>
       snapshotter:
-        repository: <USERNAME>/csi-snapshotter
+        repository: <USERNAME>/kubernetes-csi-external-snapshotter
         tag: <CSI_SNAPSHOTTER_IMAGE_TAG>
 ----
 Por fim, especifique seu `Private registry URL`. Se o registro exigir autenticação, especifique `Private registry user`, `Private registry password` e `Private registry secret`. {longhorn-product-name} gerará automaticamente um segredo com essas informações e o usará para puxar imagens do seu registro privado.

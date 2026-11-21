@@ -37,15 +37,7 @@ Ejecute el comando siguiente:
 
 [,shell]
 ----
-kubectl delete helmchart <HelmChart name> -n <HelmChart namespace>
-----
-
-== Desinstalando {longhorn-product-name} usando el controlador de Helm
-
-Ejecute el comando siguiente:
-
-[,shell]
-----
+helm uninstall <HelmChart name> --namespace <HelmChart target namespace> --wait
 kubectl delete helmchart <HelmChart name> -n <HelmChart namespace>
 ----
 
@@ -62,7 +54,9 @@ Después de que la tarea de `longhorn-uninstall` se complete, ejecuta el siguien
 
 [subs="+attributes",shell]
 ----
-kubectl delete -f https://raw.githubusercontent.com/longhorn/longhorn/v{patch-version}/deploy/longhorn.yaml
+helm template longhorn oci://dp.apps.rancher.io/charts/suse-storage \
+  --version {patch-version} \
+  --namespace longhorn-system | kubectl delete -f -
 ----
 
 == Desinstalando {longhorn-product-name} usando Flux

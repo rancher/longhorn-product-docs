@@ -33,11 +33,12 @@
 +
 要将 Longhorn 镜像拉取并保存到 `tar.gz` 文件（例如，`longhorn-images.tar.gz`），请运行以下命令：
 +
-[subs="+attributes",bash]
+[,bash]
 ----
-wget https://raw.githubusercontent.com/longhorn/longhorn/v{patch-version}/scripts/save-images.sh
-chmod +x save-images.sh
-./save-images.sh --image-list longhorn-images.txt --images longhorn-images.tar.gz
+for image in $(cat longhorn-images.txt); do
+  docker pull "$image"
+done
+docker save $(cat longhorn-images.txt) | gzip > longhorn-images.tar.gz
 ----
 +
 然后，将生成的 `longhorn-images.tar.gz` 文件复制到您的隔离的环境中。如果您未使用 `--images` 标志指定文件名，则脚本将仅将镜像拉取到您的本地 Docker 镜像缓存中，而不保存到文件。
@@ -45,11 +46,14 @@ chmod +x save-images.sh
 . **加载并推送 {longhorn-product-name} 镜像到您的私有注册表** +
 {longhorn-product-name} 提供了另一个脚本， https://raw.githubusercontent.com/longhorn/longhorn/v{patch-version}/scripts/load-images.sh[`load-images.sh`] 脚本，用于将镜像推送到您的私有容器注册表。要从 `tar.gz` 文件（例如，`longhorn-images.tar.gz`）加载镜像并将其推送到您的注册表，请运行以下命令。将 `<YOUR-PRIVATE-REGISTRY>` 替换为您私有注册表的实际地址。
 +
-[subs="+attributes",bash]
+[,bash]
 ----
-wget https://raw.githubusercontent.com/longhorn/longhorn/v{patch-version}/scripts/load-images.sh
-chmod +x load-images.sh
-./load-images.sh --image-list longhorn-images.txt --images longhorn-images.tar.gz --registry <YOUR-PRIVATE-REGISTRY>
+docker load -i longhorn-images.tar.gz
+for image in $(cat longhorn-images.txt); do
+  target="<YOUR-PRIVATE-REGISTRY>/${image#dp.apps.rancher.io/}"
+  docker tag "$image" "$target"
+  docker push "$target"
+done
 ----
 +
 如果您未使用 `--images` 标志指定 `tar.gz` 文件，脚本将会在您的本地 Docker 缓存中查找镜像并将其推送到注册表。
@@ -61,7 +65,7 @@ chmod +x load-images.sh
 +
 [subs="+attributes",bash]
 ----
-helm pull longhorn oci://dp.apps.rancher.io/charts/suse-storage:{patch-version}
+helm pull oci://dp.apps.rancher.io/charts/suse-storage --version {patch-version}
 tar -zxf suse-storage-{patch-version}.tgz
 cd suse-storage
 ----
@@ -130,19 +134,19 @@ privateRegistry:
 ----
     csi:
       attacher:
-        repository: <USERNAME>/csi-attacher
+        repository: <USERNAME>/kubernetes-csi-external-attacher
         tag: <CSI_ATTACHER_IMAGE_TAG>
       provisioner:
-        repository: <USERNAME>/csi-provisioner
+        repository: <USERNAME>/kubernetes-csi-external-provisioner
         tag: <CSI_PROVISIONER_IMAGE_TAG>
       nodeDriverRegistrar:
-        repository: <USERNAME>/csi-node-driver-registrar
+        repository: <USERNAME>/kubernetes-csi-node-driver-registrar
         tag: <CSI_NODE_DRIVER_REGISTRAR_IMAGE_TAG>
       resizer:
-        repository: <USERNAME>/csi-resizer
+        repository: <USERNAME>/kubernetes-csi-external-resizer
         tag: <CSI_RESIZER_IMAGE_TAG>
       snapshotter:
-        repository: <USERNAME>/csi-snapshotter
+        repository: <USERNAME>/kubernetes-csi-external-snapshotter
         tag: <CSI_SNAPSHOTTER_IMAGE_TAG>
 ----
 最后，指定您的 `Private registry URL`。如果注册表需要身份验证，请指定 `Private registry user`、`Private registry password` 和 `Private registry secret`。{longhorn-product-name} 将自动生成一个包含该信息的密钥，并使用它从您的私有注册表中拉取镜像。

@@ -33,11 +33,12 @@ L'exécution de ce script nécessite une authentification Docker pour accéder a
 +
 Pour télécharger et enregistrer les images Longhorn dans un fichier `tar.gz` (par exemple, `longhorn-images.tar.gz`), exécutez les commandes suivantes{nbsp}:
 +
-[subs="+attributes",bash]
+[,bash]
 ----
-wget https://raw.githubusercontent.com/longhorn/longhorn/v{patch-version}/scripts/save-images.sh
-chmod +x save-images.sh
-./save-images.sh --image-list longhorn-images.txt --images longhorn-images.tar.gz
+for image in $(cat longhorn-images.txt); do
+  docker pull "$image"
+done
+docker save $(cat longhorn-images.txt) | gzip > longhorn-images.tar.gz
 ----
 +
 Ensuite, copiez le fichier `longhorn-images.tar.gz` généré dans votre environnement isolé physiquement. Si vous ne spécifiez pas de nom de fichier en utilisant le drapeau `--images`, le script ne fera que télécharger les images dans votre cache d'images Docker local sans les enregistrer dans un fichier.
@@ -45,11 +46,14 @@ Ensuite, copiez le fichier `longhorn-images.tar.gz` généré dans votre environ
 . **Chargez et poussez les {longhorn-product-name} images vers votre registre privé** +
 {longhorn-product-name} fournit un autre script, https://raw.githubusercontent.com/longhorn/longhorn/v{patch-version}/scripts/load-images.sh[`load-images.sh`] script, pour pousser des images vers votre registre de conteneurs privé. Pour charger des images à partir d'un fichier `tar.gz` (par exemple, `longhorn-images.tar.gz`) et les pousser vers votre registre, exécutez les commandes suivantes. Remplacez `<YOUR-PRIVATE-REGISTRY>` par l'adresse réelle de votre registre privé.
 +
-[subs="+attributes",bash]
+[,bash]
 ----
-wget https://raw.githubusercontent.com/longhorn/longhorn/v{patch-version}/scripts/load-images.sh
-chmod +x load-images.sh
-./load-images.sh --image-list longhorn-images.txt --images longhorn-images.tar.gz --registry <YOUR-PRIVATE-REGISTRY>
+docker load -i longhorn-images.tar.gz
+for image in $(cat longhorn-images.txt); do
+  target="<YOUR-PRIVATE-REGISTRY>/${image#dp.apps.rancher.io/}"
+  docker tag "$image" "$target"
+  docker push "$target"
+done
 ----
 +
 Si vous ne spécifiez pas de fichier `tar.gz` en utilisant le drapeau `--images`, le script trouvera des images dans votre cache Docker local et les poussera vers le registre.
@@ -61,7 +65,7 @@ Obtenez le {longhorn-product-name} Chart et décompressez l'archive tar téléch
 +
 [subs="+attributes",bash]
 ----
-helm pull longhorn oci://dp.apps.rancher.io/charts/suse-storage:{patch-version}
+helm pull oci://dp.apps.rancher.io/charts/suse-storage --version {patch-version}
 tar -zxf suse-storage-{patch-version}.tgz
 cd suse-storage
 ----
@@ -128,22 +132,22 @@ Spécifiez le `repository` et le `tag` pour les images des composants du pilote 
 
 [,yaml]
 ----
-    csi:
-      attacher:
-        repository: <USERNAME>/csi-attacher
-        tag: <CSI_ATTACHER_IMAGE_TAG>
-      provisioner:
-        repository: <USERNAME>/csi-provisioner
-        tag: <CSI_PROVISIONER_IMAGE_TAG>
-      nodeDriverRegistrar:
-        repository: <USERNAME>/csi-node-driver-registrar
-        tag: <CSI_NODE_DRIVER_REGISTRAR_IMAGE_TAG>
-      resizer:
-        repository: <USERNAME>/csi-resizer
-        tag: <CSI_RESIZER_IMAGE_TAG>
-      snapshotter:
-        repository: <USERNAME>/csi-snapshotter
-        tag: <CSI_SNAPSHOTTER_IMAGE_TAG>
+csi:
+  attacher:
+    repository: <USERNAME>/kubernetes-csi-external-attacher
+    tag: <CSI_ATTACHER_IMAGE_TAG>
+  provisioner:
+    repository: <USERNAME>/kubernetes-csi-external-provisioner
+    tag: <CSI_PROVISIONER_IMAGE_TAG>
+  nodeDriverRegistrar:
+    repository: <USERNAME>/kubernetes-csi-node-driver-registrar
+    tag: <CSI_NODE_DRIVER_REGISTRAR_IMAGE_TAG>
+  resizer:
+    repository: <USERNAME>/kubernetes-csi-external-resizer
+    tag: <CSI_RESIZER_IMAGE_TAG>
+  snapshotter:
+    repository: <USERNAME>/kubernetes-csi-external-snapshotter
+    tag: <CSI_SNAPSHOTTER_IMAGE_TAG>
 ----
 Enfin, spécifiez votre `Private registry URL`. Si le registre nécessite une authentification, spécifiez `Private registry user`, `Private registry password` et `Private registry secret`. {longhorn-product-name} générera automatiquement un secret avec ces informations et l'utilisera pour télécharger des images de votre registre privé.
 

@@ -54,7 +54,7 @@
 
 支持包管理器镜像的示例：
 
-*默认值*：`longhornio/support-bundle-kit:v0.0.14`
+*默认值*：`dp.apps.rancher.io/containers/rancher-support-bundle-kit:0.0.88`
 
 === 当前{longhorn-product-name}版本
 

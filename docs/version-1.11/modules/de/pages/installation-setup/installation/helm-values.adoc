@@ -97,12 +97,12 @@ Die `values.yaml` enthält Elemente, die verwendet werden, um eine Implementieru
 
 | `image.csi.attacher.repository`
 | Zeichenfolge
-| `"longhornio/csi-attacher"`
+| `"containers/kubernetes-csi-external-attacher"`
 | Repository für das CSI-Attacher-Image. Wenn nicht angegeben, verwendet {longhorn-product-name} den Standardwert.
 
 | `image.csi.attacher.tag`
 | Zeichenfolge
-| `"v4.10.0-20251226"`
+| `"4.12.0"`
 | Tag für das CSI-Attacher-Image. Wenn nicht angegeben, verwendet {longhorn-product-name} den Standardwert.
 
 | `image.csi.livenessProbe.registry`
@@ -112,12 +112,12 @@ Die `values.yaml` enthält Elemente, die verwendet werden, um eine Implementieru
 
 | `image.csi.livenessProbe.repository`
 | Zeichenfolge
-| `"longhornio/livenessprobe"`
+| `"containers/kubernetes-csi-livenessprobe"`
 | Repository für das CSI-Liveness-Probe-Image. Wenn nicht angegeben, verwendet {longhorn-product-name} den Standardwert.
 
 | `image.csi.livenessProbe.tag`
 | Zeichenfolge
-| `"v2.17.0-20251226"`
+| `"2.19.0"`
 | Tag für das CSI-Liveness-Probe-Image. Wenn nicht angegeben, verwendet {longhorn-product-name} den Standardwert.
 
 | `image.csi.nodeDriverRegistrar.registry`
@@ -127,12 +127,12 @@ Die `values.yaml` enthält Elemente, die verwendet werden, um eine Implementieru
 
 | `image.csi.nodeDriverRegistrar.repository`
 | Zeichenfolge
-| `"longhornio/csi-node-driver-registrar"`
+| `"containers/kubernetes-csi-node-driver-registrar"`
 | Repository für das CSI-Node-Driver-Registrar-Image. Wenn nicht angegeben, verwendet {longhorn-product-name} den Standardwert.
 
 | `image.csi.nodeDriverRegistrar.tag`
 | Zeichenfolge
-| `"v2.15.0-20251226"`
+| `"2.17.0"`
 | Tag für das CSI-Node-Driver-Registrar-Image. Wenn nicht angegeben, verwendet {longhorn-product-name} den Standardwert.
 
 | `image.csi.provisioner.registry`
@@ -142,12 +142,12 @@ Die `values.yaml` enthält Elemente, die verwendet werden, um eine Implementieru
 
 | `image.csi.provisioner.repository`
 | Zeichenfolge
-| `"longhornio/csi-provisioner"`
+| `"containers/kubernetes-csi-external-provisioner"`
 | Repository für das CSI-Provisioner-Image. Wenn nicht angegeben, verwendet {longhorn-product-name} den Standardwert.
 
 | `image.csi.provisioner.tag`
 | Zeichenfolge
-| `"v5.3.0-20251226"`
+| `"6.3.0"`
 | Tag für das CSI-Provisioner-Image. Wenn nicht angegeben, verwendet {longhorn-product-name} den Standardwert.
 
 | `image.csi.resizer.registry`
@@ -157,12 +157,12 @@ Die `values.yaml` enthält Elemente, die verwendet werden, um eine Implementieru
 
 | `image.csi.resizer.repository`
 | Zeichenfolge
-| `"longhornio/csi-resizer"`
+| `"containers/kubernetes-csi-external-resizer"`
 | Repository für das CSI-Resizer-Image. Wenn nicht angegeben, verwendet {longhorn-product-name} den Standardwert.
 
 | `image.csi.resizer.tag`
 | Zeichenfolge
-| `"v2.0.0-20251226"`
+| `"2.2.1"`
 | Tag für das CSI-Resizer-Image. Wenn nicht angegeben, verwendet {longhorn-product-name} den Standardwert.
 
 | `image.csi.snapshotter.registry`
@@ -172,12 +172,12 @@ Die `values.yaml` enthält Elemente, die verwendet werden, um eine Implementieru
 
 | `image.csi.snapshotter.repository`
 | Zeichenfolge
-| `"longhornio/csi-snapshotter"`
+| `"containers/kubernetes-csi-external-snapshotter"`
 | Repository für das CSI-Snapshotter-Image. Wenn nicht angegeben, verwendet {longhorn-product-name} den Standardwert.
 
 | `image.csi.snapshotter.tag`
 | Zeichenfolge
-| `"v8.4.0-20251226"`
+| `"8.6.0"`
 | Tag für das CSI-Snapshotter-Image. Wenn nicht angegeben, verwendet {longhorn-product-name} den Standardwert.
 
 | `image.longhorn.backingImageManager.registry`
@@ -187,12 +187,12 @@ Die `values.yaml` enthält Elemente, die verwendet werden, um eine Implementieru
 
 | `image.longhorn.backingImageManager.repository`
 | Zeichenfolge
-| `"longhornio/backing-image-manager"`
+| `"containers/longhorn-backing-image-manager"`
 | Repository für das Backing-Image-Manager-Image. Wenn nicht angegeben, verwendet {longhorn-product-name} den Standardwert.
 
 | `image.longhorn.backingImageManager.tag`
 | Zeichenfolge
-| `"v1.11.0"`
+| `"1.11.3"`
 | Tag für das Backing Image Manager-Image. Wenn nicht angegeben, verwendet {longhorn-product-name} den Standardwert.
 
 | `image.longhorn.engine.registry`
@@ -202,12 +202,12 @@ Die `values.yaml` enthält Elemente, die verwendet werden, um eine Implementieru
 
 | `image.longhorn.engine.repository`
 | Zeichenfolge
-| `"longhornio/longhorn-engine"`
+| `"containers/longhorn-engine"`
 | Repository für das Longhorn Engine-Image.
 
 | `image.longhorn.engine.tag`
 | Zeichenfolge
-| `"v1.11.0"`
+| `"1.11.3"`
 | Tag für das Longhorn Engine-Image.
 
 | `image.longhorn.instanceManager.registry`
@@ -217,12 +217,12 @@ Die `values.yaml` enthält Elemente, die verwendet werden, um eine Implementieru
 
 | `image.longhorn.instanceManager.repository`
 | Zeichenfolge
-| `"longhornio/longhorn-instance-manager"`
+| `"containers/longhorn-instance-manager"`
 | Repository für das Longhorn Instance Manager-Image.
 
 | `image.longhorn.instanceManager.tag`
 | Zeichenfolge
-| `"v1.11.0"`
+| `"1.11.3"`
 | Tag für das Longhorn Instance Manager-Image.
 
 | `image.longhorn.manager.registry`
@@ -232,12 +232,12 @@ Die `values.yaml` enthält Elemente, die verwendet werden, um eine Implementieru
 
 | `image.longhorn.manager.repository`
 | Zeichenfolge
-| `"longhornio/longhorn-manager"`
+| `"containers/longhorn-manager"`
 | Repository für das Longhorn Manager-Image.
 
 | `image.longhorn.manager.tag`
 | Zeichenfolge
-| `"v1.11.0"`
+| `"1.11.3"`
 | Tag für das Longhorn Manager-Image.
 
 | `image.longhorn.shareManager.registry`
@@ -247,12 +247,12 @@ Die `values.yaml` enthält Elemente, die verwendet werden, um eine Implementieru
 
 | `image.longhorn.shareManager.repository`
 | Zeichenfolge
-| `"longhornio/longhorn-share-manager"`
+| `"containers/longhorn-share-manager"`
 | Repository für das Longhorn Share Manager-Image.
 
 | `image.longhorn.shareManager.tag`
 | Zeichenfolge
-| `"v1.11.0"`
+| `"1.11.3"`
 | Tag für das Longhorn Share Manager-Image.
 
 | `image.longhorn.supportBundleKit.registry`
@@ -262,12 +262,12 @@ Die `values.yaml` enthält Elemente, die verwendet werden, um eine Implementieru
 
 | `image.longhorn.supportBundleKit.repository`
 | Zeichenfolge
-| `"longhornio/support-bundle-kit"`
+| `"containers/rancher-support-bundle-kit"`
 | Repository für das Longhorn Support Bundle Manager-Image.
 
 | `image.longhorn.supportBundleKit.tag`
 | Zeichenfolge
-| `"v0.0.79"`
+| `"0.0.88"`
 | Tag für das Longhorn Support Bundle Manager-Image.
 
 | `image.longhorn.ui.registry`
@@ -277,12 +277,12 @@ Die `values.yaml` enthält Elemente, die verwendet werden, um eine Implementieru
 
 | `image.longhorn.ui.repository`
 | Zeichenfolge
-| `"longhornio/longhorn-ui"`
+| `"containers/longhorn-ui"`
 | Repository für das {longhorn-product-name} UI-Image.
 
 | `image.longhorn.ui.tag`
 | Zeichenfolge
-| `"v1.11.0"`
+| `"1.11.3"`
 | Tag für das {longhorn-product-name} UI-Image.
 
 | `image.openshift.oauthProxy.registry`

@@ -54,7 +54,7 @@ Se proporciona una imagen por defecto durante la instalación y actualización, 
 
 Un ejemplo de la imagen del gestor de paquetes de soporte:
 
-*Valor predeterminado*: `longhornio/support-bundle-kit:v0.0.14`
+*Valor predeterminado*: `dp.apps.rancher.io/containers/rancher-support-bundle-kit:0.0.88`
 
 === Versión {longhorn-product-name} Actual
 

@@ -33,11 +33,12 @@ link:{attachmentsdir}/download-longhorn-image-list.sh[スクリプト]を実行�
 +
 Longhornイメージを`tar.gz`ファイル（例：`longhorn-images.tar.gz`）にプルして保存するには、次のコマンドを実行します：
 +
-[subs="+attributes",bash]
+[,bash]
 ----
-wget https://raw.githubusercontent.com/longhorn/longhorn/v{patch-version}/scripts/save-images.sh
-chmod +x save-images.sh
-./save-images.sh --image-list longhorn-images.txt --images longhorn-images.tar.gz
+for image in $(cat longhorn-images.txt); do
+  docker pull "$image"
+done
+docker save $(cat longhorn-images.txt) | gzip > longhorn-images.tar.gz
 ----
 +
 次に、生成された`longhorn-images.tar.gz`ファイルをエアギャップ環境にコピーします。`--images`フラグを使用してファイル名を指定しない場合、スクリプトはイメージをローカルのDockerイメージキャッシュにのみプルし、ファイルに保存しません。
@@ -45,11 +46,14 @@ chmod +x save-images.sh
 . **プライベートレジストリに{longhorn-product-name}のイメージをロードしてプッシュします** +
 {longhorn-product-name}は、イメージをプライベートコンテナレジストリにプッシュするための別のスクリプト、 https://raw.githubusercontent.com/longhorn/longhorn/v{patch-version}/scripts/load-images.sh[`load-images.sh`]スクリプトを提供します。`tar.gz`ファイル（例えば、`longhorn-images.tar.gz`）からイメージをロードし、それらをレジストリにプッシュするには、次のコマンドを実行してください。`<YOUR-PRIVATE-REGISTRY>`をプライベートレジストリの実際のアドレスに置き換えてください。
 +
-[subs="+attributes",bash]
+[,bash]
 ----
-wget https://raw.githubusercontent.com/longhorn/longhorn/v{patch-version}/scripts/load-images.sh
-chmod +x load-images.sh
-./load-images.sh --image-list longhorn-images.txt --images longhorn-images.tar.gz --registry <YOUR-PRIVATE-REGISTRY>
+docker load -i longhorn-images.tar.gz
+for image in $(cat longhorn-images.txt); do
+  target="<YOUR-PRIVATE-REGISTRY>/${image#dp.apps.rancher.io/}"
+  docker tag "$image" "$target"
+  docker push "$target"
+done
 ----
 +
 `--images`フラグを使用して`tar.gz`ファイルを指定しない場合、スクリプトはローカルのDockerキャッシュ内のイメージを見つけて、それらをレジストリにプッシュします。
@@ -61,7 +65,7 @@ chmod +x load-images.sh
 +
 [subs="+attributes",bash]
 ----
-helm pull longhorn oci://dp.apps.rancher.io/charts/suse-storage:{patch-version}
+helm pull oci://dp.apps.rancher.io/charts/suse-storage --version {patch-version}
 tar -zxf suse-storage-{patch-version}.tgz
 cd suse-storage
 ----
@@ -130,19 +134,19 @@ CSIドライバーコンポーネントイメージの`repository`と`tag`を指
 ----
     csi:
       attacher:
-        repository: <USERNAME>/csi-attacher
+        repository: <USERNAME>/kubernetes-csi-external-attacher
         tag: <CSI_ATTACHER_IMAGE_TAG>
       provisioner:
-        repository: <USERNAME>/csi-provisioner
+        repository: <USERNAME>/kubernetes-csi-external-provisioner
         tag: <CSI_PROVISIONER_IMAGE_TAG>
       nodeDriverRegistrar:
-        repository: <USERNAME>/csi-node-driver-registrar
+        repository: <USERNAME>/kubernetes-csi-node-driver-registrar
         tag: <CSI_NODE_DRIVER_REGISTRAR_IMAGE_TAG>
       resizer:
-        repository: <USERNAME>/csi-resizer
+        repository: <USERNAME>/kubernetes-csi-external-resizer
         tag: <CSI_RESIZER_IMAGE_TAG>
       snapshotter:
-        repository: <USERNAME>/csi-snapshotter
+        repository: <USERNAME>/kubernetes-csi-external-snapshotter
         tag: <CSI_SNAPSHOTTER_IMAGE_TAG>
 ----
 最後に、`Private registry URL`を指定してください。レジストリが認証を必要とする場合は、`Private registry user`、`Private registry password`、および`Private registry secret`を指定してください。{longhorn-product-name}はその情報を使用して秘密を自動的に生成し、プライベートレジストリからイメージをプルします。

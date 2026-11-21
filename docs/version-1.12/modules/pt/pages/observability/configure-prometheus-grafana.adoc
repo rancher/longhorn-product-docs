@@ -82,7 +82,11 @@ Crie um ServiceMonitor para o Longhorn Manager.
 +
 [subs="+attributes",bash]
 ----
-helm upgrade longhorn longhorn/longhorn --namespace longhorn-system -f values.yaml
+helm upgrade longhorn oci://dp.apps.rancher.io/charts/suse-storage \
+  --namespace longhorn-system \
+  --version {patch-version} \
+  --set global.imagePullSecrets=<PULL_IMAGE_SECRET> \
+  -f values.yaml
 ----
 
 O Longhorn ServiceMonitor é um recurso personalizado do https://prometheus-operator.dev/[Prometheus Operator]. Esta configuração permite que o servidor Prometheus descubra todos os pods do Longhorn Manager e seus respectivos endpoints.

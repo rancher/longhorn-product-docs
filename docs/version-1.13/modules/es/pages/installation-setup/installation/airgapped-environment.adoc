@@ -33,11 +33,12 @@ Ejecutar este script requiere autenticación de Docker para acceder al registro 
 +
 Para extraer y guardar imágenes de Longhorn en un archivo `tar.gz` (por ejemplo, `longhorn-images.tar.gz`), ejecuta los siguientes comandos:
 +
-[subs="+attributes",bash]
+[,bash]
 ----
-wget https://raw.githubusercontent.com/longhorn/longhorn/v{patch-version}/scripts/save-images.sh
-chmod +x save-images.sh
-./save-images.sh --image-list longhorn-images.txt --images longhorn-images.tar.gz
+for image in $(cat longhorn-images.txt); do
+  docker pull "$image"
+done
+docker save $(cat longhorn-images.txt) | gzip > longhorn-images.tar.gz
 ----
 +
 Luego, copie el archivo `longhorn-images.tar.gz` generado a su entorno aislado. Si no especifica un nombre de archivo utilizando la opción `--images`, el script solo extraerá las imágenes a su caché local de imágenes de Docker sin guardarlas en un archivo.
@@ -45,11 +46,14 @@ Luego, copie el archivo `longhorn-images.tar.gz` generado a su entorno aislado. 
 . **Cargar y subir imágenes {longhorn-product-name} a su registro privado** +
 {longhorn-product-name} proporciona otro script, https://raw.githubusercontent.com/longhorn/longhorn/v{patch-version}/scripts/load-images.sh[`load-images.sh`] script, para subir imágenes a su registro de contenedores privado. Para cargar imágenes desde un archivo `tar.gz` (por ejemplo, `longhorn-images.tar.gz`) y subirlas a su registro, ejecute los siguientes comandos. Reemplace `<YOUR-PRIVATE-REGISTRY>` con la dirección real de su registro privado.
 +
-[subs="+attributes",bash]
+[,bash]
 ----
-wget https://raw.githubusercontent.com/longhorn/longhorn/v{patch-version}/scripts/load-images.sh
-chmod +x load-images.sh
-./load-images.sh --image-list longhorn-images.txt --images longhorn-images.tar.gz --registry <YOUR-PRIVATE-REGISTRY>
+docker load -i longhorn-images.tar.gz
+for image in $(cat longhorn-images.txt); do
+  target="<YOUR-PRIVATE-REGISTRY>/${image#dp.apps.rancher.io/}"
+  docker tag "$image" "$target"
+  docker push "$target"
+done
 ----
 +
 Si no especifica un archivo `tar.gz` utilizando la opción `--images`, el script encontrará imágenes en su caché local de Docker y las subirá al registro.
@@ -61,7 +65,7 @@ Obtenga el chart {longhorn-product-name} y descomprima el tarball descargado:
 +
 [subs="+attributes",bash]
 ----
-helm pull longhorn oci://dp.apps.rancher.io/charts/suse-storage:{patch-version}
+helm pull oci://dp.apps.rancher.io/charts/suse-storage --version {patch-version}
 tar -zxf suse-storage-{patch-version}.tgz
 cd suse-storage
 ----
@@ -128,22 +132,22 @@ Especifique el `repository` y `tag` para las imágenes de componentes del contro
 
 [,yaml]
 ----
-    csi:
-      attacher:
-        repository: <USERNAME>/csi-attacher
-        tag: <CSI_ATTACHER_IMAGE_TAG>
-      provisioner:
-        repository: <USERNAME>/csi-provisioner
-        tag: <CSI_PROVISIONER_IMAGE_TAG>
-      nodeDriverRegistrar:
-        repository: <USERNAME>/csi-node-driver-registrar
-        tag: <CSI_NODE_DRIVER_REGISTRAR_IMAGE_TAG>
-      resizer:
-        repository: <USERNAME>/csi-resizer
-        tag: <CSI_RESIZER_IMAGE_TAG>
-      snapshotter:
-        repository: <USERNAME>/csi-snapshotter
-        tag: <CSI_SNAPSHOTTER_IMAGE_TAG>
+csi:
+  attacher:
+    repository: <USERNAME>/kubernetes-csi-external-attacher
+    tag: <CSI_ATTACHER_IMAGE_TAG>
+  provisioner:
+    repository: <USERNAME>/kubernetes-csi-external-provisioner
+    tag: <CSI_PROVISIONER_IMAGE_TAG>
+  nodeDriverRegistrar:
+    repository: <USERNAME>/kubernetes-csi-node-driver-registrar
+    tag: <CSI_NODE_DRIVER_REGISTRAR_IMAGE_TAG>
+  resizer:
+    repository: <USERNAME>/kubernetes-csi-external-resizer
+    tag: <CSI_RESIZER_IMAGE_TAG>
+  snapshotter:
+    repository: <USERNAME>/kubernetes-csi-external-snapshotter
+    tag: <CSI_SNAPSHOTTER_IMAGE_TAG>
 ----
 Por último, especifique su `Private registry URL`. Si el registro requiere autenticación, especifique `Private registry user`, `Private registry password` y `Private registry secret`. {longhorn-product-name} generará automáticamente un secreto con esa información y lo utilizará para obtener imágenes de su registro privado.
 

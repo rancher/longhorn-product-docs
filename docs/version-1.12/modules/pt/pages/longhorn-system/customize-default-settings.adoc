@@ -96,9 +96,11 @@ Use o comando Helm com a flag `--set` para modificar as configurações padrão.
 
 [subs="+attributes",shell]
 ----
-helm install longhorn longhorn/longhorn \
+helm install longhorn oci://dp.apps.rancher.io/charts/suse-storage \
   --namespace longhorn-system \
   --create-namespace \
+  --version {patch-version} \
+  --set global.imagePullSecrets=<PULL_IMAGE_SECRET> \
   --set defaultSettings.taintToleration="key1=value1:NoSchedule; key2:NoExecute"
 ----
 
@@ -108,7 +110,7 @@ Você também pode fornecer uma cópia do arquivo `values.yaml` com as configura
 +
 [subs="+attributes",shell]
 ----
-curl -Lo values.yaml https://raw.githubusercontent.com/longhorn/charts/master/charts/longhorn/values.yaml
+helm show values oci://dp.apps.rancher.io/charts/suse-storage --version {patch-version} > values.yaml
 ----
 
 . Modifique as configurações padrão no arquivo YAML. Veja a seguir um exemplo de trecho de `values.yaml`:
@@ -148,9 +150,11 @@ defaultSettings:
 +
 [subs="+attributes",shell]
 ----
-helm install longhorn longhorn/longhorn \
+helm install longhorn oci://dp.apps.rancher.io/charts/suse-storage \
   --namespace longhorn-system \
   --create-namespace \
+  --version {patch-version} \
+  --set global.imagePullSecrets=<PULL_IMAGE_SECRET> \
   --values values.yaml
 ----
 
@@ -210,7 +214,7 @@ kubectl edit settings.longhorn.io <SETTING-NAME> -n longhorn-system
 Modifique as configurações padrão no arquivo YAML conforme descrito em <<_using_helm,Instalação Limpa > Usando o Helm>> e, em seguida, atualize as configurações usando
 
 ----
-helm upgrade longhorn longhorn/longhorn --namespace longhorn-system --values ./values.yaml --version `helm list -n longhorn-system -o json | jq -r .'[0].app_version'`
+helm upgrade longhorn oci://dp.apps.rancher.io/charts/suse-storage --namespace longhorn-system --values ./values.yaml --set global.imagePullSecrets=<PULL_IMAGE_SECRET> --version `helm list -n longhorn-system -o json | jq -r .'[0].app_version'`
 ----
 
 == Upgrade

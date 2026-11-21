@@ -97,12 +97,12 @@ O `values.yaml` contém itens usados para ajustar uma implantação deste gráfi
 
 | `image.csi.attacher.repository`
 | string
-| `"longhornio/csi-attacher"`
+| `"containers/kubernetes-csi-external-attacher"`
 | Repositório da imagem do CSI attacher. Quando não especificado, {longhorn-product-name} utiliza o valor padrão.
 
 | `image.csi.attacher.tag`
 | string
-| `"v4.10.0-20251226"`
+| `"4.12.0"`
 | Tag da imagem do CSI attacher. Quando não especificado, {longhorn-product-name} utiliza o valor padrão.
 
 | `image.csi.livenessProbe.registry`
@@ -112,12 +112,12 @@ O `values.yaml` contém itens usados para ajustar uma implantação deste gráfi
 
 | `image.csi.livenessProbe.repository`
 | string
-| `"longhornio/livenessprobe"`
+| `"containers/kubernetes-csi-livenessprobe"`
 | Repositório da imagem do CSI liveness probe. Quando não especificado, {longhorn-product-name} utiliza o valor padrão.
 
 | `image.csi.livenessProbe.tag`
 | string
-| `"v2.17.0-20251226"`
+| `"2.19.0"`
 | Tag da imagem do CSI liveness probe. Quando não especificado, {longhorn-product-name} utiliza o valor padrão.
 
 | `image.csi.nodeDriverRegistrar.registry`
@@ -127,12 +127,12 @@ O `values.yaml` contém itens usados para ajustar uma implantação deste gráfi
 
 | `image.csi.nodeDriverRegistrar.repository`
 | string
-| `"longhornio/csi-node-driver-registrar"`
+| `"containers/kubernetes-csi-node-driver-registrar"`
 | Repositório da imagem do CSI Node Driver Registrar. Quando não especificado, {longhorn-product-name} utiliza o valor padrão.
 
 | `image.csi.nodeDriverRegistrar.tag`
 | string
-| `"v2.15.0-20251226"`
+| `"2.17.0"`
 | Tag da imagem do CSI Node Driver Registrar. Quando não especificado, {longhorn-product-name} utiliza o valor padrão.
 
 | `image.csi.provisioner.registry`
@@ -142,12 +142,12 @@ O `values.yaml` contém itens usados para ajustar uma implantação deste gráfi
 
 | `image.csi.provisioner.repository`
 | string
-| `"longhornio/csi-provisioner"`
+| `"containers/kubernetes-csi-external-provisioner"`
 | Repositório da imagem do CSI Provisioner. Quando não especificado, {longhorn-product-name} utiliza o valor padrão.
 
 | `image.csi.provisioner.tag`
 | string
-| `"v5.3.0-20251226"`
+| `"6.3.0"`
 | Tag da imagem do CSI Provisioner. Quando não especificado, {longhorn-product-name} utiliza o valor padrão.
 
 | `image.csi.resizer.registry`
@@ -157,12 +157,12 @@ O `values.yaml` contém itens usados para ajustar uma implantação deste gráfi
 
 | `image.csi.resizer.repository`
 | string
-| `"longhornio/csi-resizer"`
+| `"containers/kubernetes-csi-external-resizer"`
 | Repositório da imagem do CSI Resizer. Quando não especificado, {longhorn-product-name} utiliza o valor padrão.
 
 | `image.csi.resizer.tag`
 | string
-| `"v2.0.0-20251226"`
+| `"2.2.1"`
 | Tag da imagem do CSI Resizer. Quando não especificado, {longhorn-product-name} utiliza o valor padrão.
 
 | `image.csi.snapshotter.registry`
@@ -172,12 +172,12 @@ O `values.yaml` contém itens usados para ajustar uma implantação deste gráfi
 
 | `image.csi.snapshotter.repository`
 | string
-| `"longhornio/csi-snapshotter"`
+| `"containers/kubernetes-csi-external-snapshotter"`
 | Repositório da imagem do CSI Snapshotter. Quando não especificado, {longhorn-product-name} utiliza o valor padrão.
 
 | `image.csi.snapshotter.tag`
 | string
-| `"v8.4.0-20251226"`
+| `"8.6.0"`
 | Tag da imagem do CSI Snapshotter. Quando não especificado, {longhorn-product-name} utiliza o valor padrão.
 
 | `image.longhorn.backingImageManager.registry`
@@ -187,12 +187,12 @@ O `values.yaml` contém itens usados para ajustar uma implantação deste gráfi
 
 | `image.longhorn.backingImageManager.repository`
 | string
-| `"longhornio/backing-image-manager"`
+| `"containers/longhorn-backing-image-manager"`
 | Repositório da imagem do Backing Image Manager. Quando não especificado, {longhorn-product-name} utiliza o valor padrão.
 
 | `image.longhorn.backingImageManager.tag`
 | string
-| `"v1.11.0"`
+| `"1.11.3"`
 | Tag da imagem do Backing Image Manager. Quando não especificado, {longhorn-product-name} utiliza o valor padrão.
 
 | `image.longhorn.engine.registry`
@@ -202,12 +202,12 @@ O `values.yaml` contém itens usados para ajustar uma implantação deste gráfi
 
 | `image.longhorn.engine.repository`
 | string
-| `"longhornio/longhorn-engine"`
+| `"containers/longhorn-engine"`
 | Repositório da imagem do Longhorn Engine.
 
 | `image.longhorn.engine.tag`
 | string
-| `"v1.11.0"`
+| `"1.11.3"`
 | Tag da imagem do Longhorn Engine.
 
 | `image.longhorn.instanceManager.registry`
@@ -217,12 +217,12 @@ O `values.yaml` contém itens usados para ajustar uma implantação deste gráfi
 
 | `image.longhorn.instanceManager.repository`
 | string
-| `"longhornio/longhorn-instance-manager"`
+| `"containers/longhorn-instance-manager"`
 | Repositório da imagem do Gerenciador de Instâncias Longhorn.
 
 | `image.longhorn.instanceManager.tag`
 | string
-| `"v1.11.0"`
+| `"1.11.3"`
 | Tag da imagem do Gerenciador de Instâncias Longhorn.
 
 | `image.longhorn.manager.registry`
@@ -232,12 +232,12 @@ O `values.yaml` contém itens usados para ajustar uma implantação deste gráfi
 
 | `image.longhorn.manager.repository`
 | string
-| `"longhornio/longhorn-manager"`
+| `"containers/longhorn-manager"`
 | Repositório da imagem do Longhorn Manager.
 
 | `image.longhorn.manager.tag`
 | string
-| `"v1.11.0"`
+| `"1.11.3"`
 | Tag da imagem do Longhorn Manager.
 
 | `image.longhorn.shareManager.registry`
@@ -247,12 +247,12 @@ O `values.yaml` contém itens usados para ajustar uma implantação deste gráfi
 
 | `image.longhorn.shareManager.repository`
 | string
-| `"longhornio/longhorn-share-manager"`
+| `"containers/longhorn-share-manager"`
 | Repositório da imagem do Gerenciador de Compartilhamento Longhorn.
 
 | `image.longhorn.shareManager.tag`
 | string
-| `"v1.11.0"`
+| `"1.11.3"`
 | Tag da imagem do Gerenciador de Compartilhamento Longhorn.
 
 | `image.longhorn.supportBundleKit.registry`
@@ -262,12 +262,12 @@ O `values.yaml` contém itens usados para ajustar uma implantação deste gráfi
 
 | `image.longhorn.supportBundleKit.repository`
 | string
-| `"longhornio/support-bundle-kit"`
+| `"containers/rancher-support-bundle-kit"`
 | Repositório da imagem do Gerenciador de Pacotes de Suporte Longhorn.
 
 | `image.longhorn.supportBundleKit.tag`
 | string
-| `"v0.0.79"`
+| `"0.0.88"`
 | Tag da imagem do Gerenciador de Pacotes de Suporte Longhorn.
 
 | `image.longhorn.ui.registry`
@@ -277,12 +277,12 @@ O `values.yaml` contém itens usados para ajustar uma implantação deste gráfi
 
 | `image.longhorn.ui.repository`
 | string
-| `"longhornio/longhorn-ui"`
+| `"containers/longhorn-ui"`
 | Repositório da imagem da interface do usuário {longhorn-product-name}.
 
 | `image.longhorn.ui.tag`
 | string
-| `"v1.11.0"`
+| `"1.11.3"`
 | Tag da imagem da interface do usuário {longhorn-product-name}.
 
 | `image.openshift.oauthProxy.registry`

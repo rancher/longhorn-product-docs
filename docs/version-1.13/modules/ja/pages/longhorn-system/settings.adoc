@@ -54,7 +54,7 @@
 
 サポートバンドルマネージャーイメージの例：
 
-*デフォルト値*: `longhornio/support-bundle-kit:v0.0.14`
+*デフォルト値*: `dp.apps.rancher.io/containers/rancher-support-bundle-kit:1.0.5`
 
 === 現在の{longhorn-product-name}バージョン
 

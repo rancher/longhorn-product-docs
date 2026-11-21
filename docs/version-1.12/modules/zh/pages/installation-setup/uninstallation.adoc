@@ -37,15 +37,7 @@ helm uninstall longhorn -n longhorn-system
 
 [,shell]
 ----
-kubectl delete helmchart <HelmChart name> -n <HelmChart namespace>
-----
-
-== 使用 Helm 控制器卸载 {longhorn-product-name}
-
-运行以下命令：
-
-[,shell]
-----
+helm uninstall <HelmChart name> --namespace <HelmChart target namespace> --wait
 kubectl delete helmchart <HelmChart name> -n <HelmChart namespace>
 ----
 
@@ -62,7 +54,9 @@ kubectl delete GitRepo longhorn -n fleet-local
 
 [subs="+attributes",shell]
 ----
-kubectl delete -f https://raw.githubusercontent.com/longhorn/longhorn/v{patch-version}/deploy/longhorn.yaml
+helm template longhorn oci://dp.apps.rancher.io/charts/suse-storage \
+  --version {patch-version} \
+  --namespace longhorn-system | kubectl delete -f -
 ----
 
 == 使用 Flux 卸载 {longhorn-product-name}

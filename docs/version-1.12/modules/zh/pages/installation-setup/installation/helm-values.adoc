@@ -97,12 +97,12 @@
 
 | `image.csi.attacher.repository`
 | 字符串
-| `"longhornio/csi-attacher"`
+| `"containers/kubernetes-csi-external-attacher"`
 | CSI 附加器镜像的储存库。未指定时，{longhorn-product-name} 使用默认值。
 
 | `image.csi.attacher.tag`
 | 字符串
-| `"v4.10.0-20251226"`
+| `"4.13.0"`
 | CSI 附加器镜像的标签。未指定时，{longhorn-product-name} 使用默认值。
 
 | `image.csi.livenessProbe.registry`
@@ -112,12 +112,12 @@
 
 | `image.csi.livenessProbe.repository`
 | 字符串
-| `"longhornio/livenessprobe"`
+| `"containers/kubernetes-csi-livenessprobe"`
 | CSI 存活探针镜像的储存库。未指定时，{longhorn-product-name} 使用默认值。
 
 | `image.csi.livenessProbe.tag`
 | 字符串
-| `"v2.17.0-20251226"`
+| `"2.20.0"`
 | CSI 存活探针镜像的标签。未指定时，{longhorn-product-name} 使用默认值。
 
 | `image.csi.nodeDriverRegistrar.registry`
@@ -127,12 +127,12 @@
 
 | `image.csi.nodeDriverRegistrar.repository`
 | 字符串
-| `"longhornio/csi-node-driver-registrar"`
+| `"containers/kubernetes-csi-node-driver-registrar"`
 | CSI 节点驱动注册器镜像的储存库。未指定时，{longhorn-product-name} 使用默认值。
 
 | `image.csi.nodeDriverRegistrar.tag`
 | 字符串
-| `"v2.15.0-20251226"`
+| `"2.18.0"`
 | CSI 节点驱动注册器镜像的标签。未指定时，{longhorn-product-name} 使用默认值。
 
 | `image.csi.provisioner.registry`
@@ -142,12 +142,12 @@
 
 | `image.csi.provisioner.repository`
 | 字符串
-| `"longhornio/csi-provisioner"`
+| `"containers/kubernetes-csi-external-provisioner"`
 | CSI 提供者镜像的储存库。未指定时，{longhorn-product-name} 使用默认值。
 
 | `image.csi.provisioner.tag`
 | 字符串
-| `"v5.3.0-20251226"`
+| `"5.3.0"`
 | CSI 提供者镜像的标签。未指定时，{longhorn-product-name} 使用默认值。
 
 | `image.csi.resizer.registry`
@@ -157,12 +157,12 @@
 
 | `image.csi.resizer.repository`
 | 字符串
-| `"longhornio/csi-resizer"`
+| `"containers/kubernetes-csi-external-resizer"`
 | CSI 调整器镜像的储存库。未指定时，{longhorn-product-name} 使用默认值。
 
 | `image.csi.resizer.tag`
 | 字符串
-| `"v2.0.0-20251226"`
+| `"2.3.0"`
 | CSI 调整器镜像的标签。未指定时，{longhorn-product-name} 使用默认值。
 
 | `image.csi.snapshotter.registry`
@@ -172,12 +172,12 @@
 
 | `image.csi.snapshotter.repository`
 | 字符串
-| `"longhornio/csi-snapshotter"`
+| `"containers/kubernetes-csi-external-snapshotter"`
 | CSI 快照器镜像的储存库。未指定时，{longhorn-product-name} 使用默认值。
 
 | `image.csi.snapshotter.tag`
 | 字符串
-| `"v8.4.0-20251226"`
+| `"8.7.0"`
 | CSI 快照器镜像的标签。未指定时，{longhorn-product-name} 使用默认值。
 
 | `image.longhorn.backingImageManager.registry`
@@ -187,12 +187,12 @@
 
 | `image.longhorn.backingImageManager.repository`
 | 字符串
-| `"longhornio/backing-image-manager"`
+| `"containers/longhorn-backing-image-manager"`
 | 备份镜像管理器镜像的储存库。未指定时，{longhorn-product-name} 使用默认值。
 
 | `image.longhorn.backingImageManager.tag`
 | 字符串
-| `"v1.11.0"`
+| `"1.12.2"`
 | 备份镜像管理器镜像的标签。未指定时，{longhorn-product-name} 使用默认值。
 
 | `image.longhorn.engine.registry`
@@ -202,12 +202,12 @@
 
 | `image.longhorn.engine.repository`
 | 字符串
-| `"longhornio/longhorn-engine"`
+| `"containers/longhorn-engine"`
 | 用于 Longhorn Engine 镜像的储存库。
 
 | `image.longhorn.engine.tag`
 | 字符串
-| `"v1.11.0"`
+| `"1.12.2"`
 | 用于 Longhorn Engine 镜像的标签。
 
 | `image.longhorn.instanceManager.registry`
@@ -217,12 +217,12 @@
 
 | `image.longhorn.instanceManager.repository`
 | 字符串
-| `"longhornio/longhorn-instance-manager"`
+| `"containers/longhorn-instance-manager"`
 | 用于 Longhorn Instance Manager 镜像的储存库。
 
 | `image.longhorn.instanceManager.tag`
 | 字符串
-| `"v1.11.0"`
+| `"1.12.2"`
 | 用于 Longhorn Instance Manager 镜像的标签。
 
 | `image.longhorn.manager.registry`
@@ -232,12 +232,12 @@
 
 | `image.longhorn.manager.repository`
 | 字符串
-| `"longhornio/longhorn-manager"`
+| `"containers/longhorn-manager"`
 | 用于 Longhorn Manager 镜像的储存库。
 
 | `image.longhorn.manager.tag`
 | 字符串
-| `"v1.11.0"`
+| `"1.12.2"`
 | 用于 Longhorn Manager 镜像的标签。
 
 | `image.longhorn.shareManager.registry`
@@ -247,12 +247,12 @@
 
 | `image.longhorn.shareManager.repository`
 | 字符串
-| `"longhornio/longhorn-share-manager"`
+| `"containers/longhorn-share-manager"`
 | 用于 Longhorn Share Manager 镜像的储存库。
 
 | `image.longhorn.shareManager.tag`
 | 字符串
-| `"v1.11.0"`
+| `"1.12.2"`
 | 用于 Longhorn Share Manager 镜像的标签。
 
 | `image.longhorn.supportBundleKit.registry`
@@ -262,12 +262,12 @@
 
 | `image.longhorn.supportBundleKit.repository`
 | 字符串
-| `"longhornio/support-bundle-kit"`
+| `"containers/rancher-support-bundle-kit"`
 | 用于 Longhorn Support Bundle Manager 镜像的储存库。
 
 | `image.longhorn.supportBundleKit.tag`
 | 字符串
-| `"v0.0.79"`
+| `"1.0.5"`
 | 用于 Longhorn Support Bundle Manager 镜像的标签。
 
 | `image.longhorn.ui.registry`
@@ -277,12 +277,12 @@
 
 | `image.longhorn.ui.repository`
 | 字符串
-| `"longhornio/longhorn-ui"`
+| `"containers/longhorn-ui"`
 | 用于 {longhorn-product-name} UI 镜像的储存库。
 
 | `image.longhorn.ui.tag`
 | 字符串
-| `"v1.11.0"`
+| `"1.12.2"`
 | 用于 {longhorn-product-name} UI 镜像的标签。
 
 | `image.openshift.oauthProxy.registry`

@@ -54,7 +54,7 @@ Ein Standard-Image wird während der Installation und des Upgrades bereitgestell
 
 Ein Beispiel für das Support-Bundle-Manager-Image:
 
-*Standardwert*: `longhornio/support-bundle-kit:v0.0.14`
+*Standardwert*: `dp.apps.rancher.io/containers/rancher-support-bundle-kit:0.0.88`
 
 === Aktuelle {longhorn-product-name} Version
 

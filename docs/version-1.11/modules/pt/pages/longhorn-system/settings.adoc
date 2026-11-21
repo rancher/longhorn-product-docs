@@ -54,7 +54,7 @@ Uma imagem padrão é fornecida durante a instalação e upgrade, e você també
 
 Um exemplo da imagem do gerenciador de pacotes de suporte:
 
-*Valor padrão*: `longhornio/support-bundle-kit:v0.0.14`
+*Valor padrão*: `dp.apps.rancher.io/containers/rancher-support-bundle-kit:0.0.88`
 
 === Versão atual de {longhorn-product-name}
 

@@ -97,12 +97,12 @@ Le `values.yaml` contient des éléments utilisés pour ajuster un déploiement 
 
 | `image.csi.attacher.repository`
 | chaîne
-| `"longhornio/csi-attacher"`
+| `"containers/kubernetes-csi-external-attacher"`
 | Dépôt pour l'image de l'attacheur CSI. Lorsqu'il n'est pas spécifié, {longhorn-product-name} utilise la valeur par défaut.
 
 | `image.csi.attacher.tag`
 | chaîne
-| `"v4.10.0-20251226"`
+| `"4.13.0"`
 | Étiquette pour l'image de l'attacheur CSI. Lorsqu'il n'est pas spécifié, {longhorn-product-name} utilise la valeur par défaut.
 
 | `image.csi.livenessProbe.registry`
@@ -112,12 +112,12 @@ Le `values.yaml` contient des éléments utilisés pour ajuster un déploiement 
 
 | `image.csi.livenessProbe.repository`
 | chaîne
-| `"longhornio/livenessprobe"`
+| `"containers/kubernetes-csi-livenessprobe"`
 | Dépôt pour l'image de sonde de vivacité CSI. Lorsqu'il n'est pas spécifié, {longhorn-product-name} utilise la valeur par défaut.
 
 | `image.csi.livenessProbe.tag`
 | chaîne
-| `"v2.17.0-20251226"`
+| `"2.20.0"`
 | Étiquette pour l'image de sonde de vivacité CSI. Lorsqu'il n'est pas spécifié, {longhorn-product-name} utilise la valeur par défaut.
 
 | `image.csi.nodeDriverRegistrar.registry`
@@ -127,12 +127,12 @@ Le `values.yaml` contient des éléments utilisés pour ajuster un déploiement 
 
 | `image.csi.nodeDriverRegistrar.repository`
 | chaîne
-| `"longhornio/csi-node-driver-registrar"`
+| `"containers/kubernetes-csi-node-driver-registrar"`
 | Dépôt pour l'image du registraire de pilote de nœud CSI. Lorsqu'il n'est pas spécifié, {longhorn-product-name} utilise la valeur par défaut.
 
 | `image.csi.nodeDriverRegistrar.tag`
 | chaîne
-| `"v2.15.0-20251226"`
+| `"2.18.0"`
 | Étiquette pour l'image du registraire de pilote de nœud CSI. Lorsqu'il n'est pas spécifié, {longhorn-product-name} utilise la valeur par défaut.
 
 | `image.csi.provisioner.registry`
@@ -142,12 +142,12 @@ Le `values.yaml` contient des éléments utilisés pour ajuster un déploiement 
 
 | `image.csi.provisioner.repository`
 | chaîne
-| `"longhornio/csi-provisioner"`
+| `"containers/kubernetes-csi-external-provisioner"`
 | Dépôt pour l'image du provisionneur CSI. Lorsqu'il n'est pas spécifié, {longhorn-product-name} utilise la valeur par défaut.
 
 | `image.csi.provisioner.tag`
 | chaîne
-| `"v5.3.0-20251226"`
+| `"5.3.0"`
 | Étiquette pour l'image du provisionneur CSI. Lorsqu'il n'est pas spécifié, {longhorn-product-name} utilise la valeur par défaut.
 
 | `image.csi.resizer.registry`
@@ -157,12 +157,12 @@ Le `values.yaml` contient des éléments utilisés pour ajuster un déploiement 
 
 | `image.csi.resizer.repository`
 | chaîne
-| `"longhornio/csi-resizer"`
+| `"containers/kubernetes-csi-external-resizer"`
 | Dépôt pour l'image du redimensionneur CSI. Lorsqu'il n'est pas spécifié, {longhorn-product-name} utilise la valeur par défaut.
 
 | `image.csi.resizer.tag`
 | chaîne
-| `"v2.0.0-20251226"`
+| `"2.3.0"`
 | Étiquette pour l'image du redimensionneur CSI. Lorsqu'il n'est pas spécifié, {longhorn-product-name} utilise la valeur par défaut.
 
 | `image.csi.snapshotter.registry`
@@ -172,12 +172,12 @@ Le `values.yaml` contient des éléments utilisés pour ajuster un déploiement 
 
 | `image.csi.snapshotter.repository`
 | chaîne
-| `"longhornio/csi-snapshotter"`
+| `"containers/kubernetes-csi-external-snapshotter"`
 | Dépôt pour l'image du créateur d'instantanés CSI. Lorsqu'il n'est pas spécifié, {longhorn-product-name} utilise la valeur par défaut.
 
 | `image.csi.snapshotter.tag`
 | chaîne
-| `"v8.4.0-20251226"`
+| `"8.7.0"`
 | Étiquette pour l'image du créateur d'instantanés CSI. Lorsqu'il n'est pas spécifié, {longhorn-product-name} utilise la valeur par défaut.
 
 | `image.longhorn.backingImageManager.registry`
@@ -187,12 +187,12 @@ Le `values.yaml` contient des éléments utilisés pour ajuster un déploiement 
 
 | `image.longhorn.backingImageManager.repository`
 | chaîne
-| `"longhornio/backing-image-manager"`
+| `"containers/longhorn-backing-image-manager"`
 | Dépôt pour l'image du gestionnaire d'images de support. Lorsqu'il n'est pas spécifié, {longhorn-product-name} utilise la valeur par défaut.
 
 | `image.longhorn.backingImageManager.tag`
 | chaîne
-| `"v1.11.0"`
+| `"1.12.2"`
 | Étiquette pour l'image du gestionnaire d'images de support. Lorsqu'il n'est pas spécifié, {longhorn-product-name} utilise la valeur par défaut.
 
 | `image.longhorn.engine.registry`
@@ -202,12 +202,12 @@ Le `values.yaml` contient des éléments utilisés pour ajuster un déploiement 
 
 | `image.longhorn.engine.repository`
 | chaîne
-| `"longhornio/longhorn-engine"`
+| `"containers/longhorn-engine"`
 | Dépôt pour l'image de Longhorn Engine.
 
 | `image.longhorn.engine.tag`
 | chaîne
-| `"v1.11.0"`
+| `"1.12.2"`
 | Étiquette pour l'image de Longhorn Engine.
 
 | `image.longhorn.instanceManager.registry`
@@ -217,12 +217,12 @@ Le `values.yaml` contient des éléments utilisés pour ajuster un déploiement 
 
 | `image.longhorn.instanceManager.repository`
 | chaîne
-| `"longhornio/longhorn-instance-manager"`
+| `"containers/longhorn-instance-manager"`
 | Dépôt pour l'image du gestionnaire d'instances Longhorn.
 
 | `image.longhorn.instanceManager.tag`
 | chaîne
-| `"v1.11.0"`
+| `"1.12.2"`
 | Étiquette pour l'image du gestionnaire d'instances Longhorn.
 
 | `image.longhorn.manager.registry`
@@ -232,12 +232,12 @@ Le `values.yaml` contient des éléments utilisés pour ajuster un déploiement 
 
 | `image.longhorn.manager.repository`
 | chaîne
-| `"longhornio/longhorn-manager"`
+| `"containers/longhorn-manager"`
 | Dépôt pour l'image de Longhorn Manager.
 
 | `image.longhorn.manager.tag`
 | chaîne
-| `"v1.11.0"`
+| `"1.12.2"`
 | Étiquette pour l'image de Longhorn Manager.
 
 | `image.longhorn.shareManager.registry`
@@ -247,12 +247,12 @@ Le `values.yaml` contient des éléments utilisés pour ajuster un déploiement 
 
 | `image.longhorn.shareManager.repository`
 | chaîne
-| `"longhornio/longhorn-share-manager"`
+| `"containers/longhorn-share-manager"`
 | Dépôt pour l'image de Longhorn Share Manager.
 
 | `image.longhorn.shareManager.tag`
 | chaîne
-| `"v1.11.0"`
+| `"1.12.2"`
 | Étiquette pour l'image de Longhorn Share Manager.
 
 | `image.longhorn.supportBundleKit.registry`
@@ -262,12 +262,12 @@ Le `values.yaml` contient des éléments utilisés pour ajuster un déploiement 
 
 | `image.longhorn.supportBundleKit.repository`
 | chaîne
-| `"longhornio/support-bundle-kit"`
+| `"containers/rancher-support-bundle-kit"`
 | Dépôt pour l'image de Longhorn Support Bundle Manager.
 
 | `image.longhorn.supportBundleKit.tag`
 | chaîne
-| `"v0.0.79"`
+| `"1.0.5"`
 | Étiquette pour l'image de Longhorn Support Bundle Manager.
 
 | `image.longhorn.ui.registry`
@@ -277,12 +277,12 @@ Le `values.yaml` contient des éléments utilisés pour ajuster un déploiement 
 
 | `image.longhorn.ui.repository`
 | chaîne
-| `"longhornio/longhorn-ui"`
+| `"containers/longhorn-ui"`
 | Dépôt pour l'image de l'interface utilisateur {longhorn-product-name}.
 
 | `image.longhorn.ui.tag`
 | chaîne
-| `"v1.11.0"`
+| `"1.12.2"`
 | Étiquette pour l'image de l'interface utilisateur {longhorn-product-name}.
 
 | `image.openshift.oauthProxy.registry`

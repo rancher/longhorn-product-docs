@@ -96,9 +96,11 @@ data:
 
 [subs="+attributes",shell]
 ----
-helm install longhorn longhorn/longhorn \
+helm install longhorn oci://dp.apps.rancher.io/charts/suse-storage \
   --namespace longhorn-system \
   --create-namespace \
+  --version {patch-version} \
+  --set global.imagePullSecrets=<PULL_IMAGE_SECRET> \
   --set defaultSettings.taintToleration="key1=value1:NoSchedule; key2:NoExecute"
 ----
 
@@ -108,7 +110,7 @@ Helmコマンドを実行する際に、デフォルト設定が変更された`
 +
 [subs="+attributes",shell]
 ----
-curl -Lo values.yaml https://raw.githubusercontent.com/longhorn/charts/master/charts/longhorn/values.yaml
+helm show values oci://dp.apps.rancher.io/charts/suse-storage --version {patch-version} > values.yaml
 ----
 
 . YAMLファイル内のデフォルト設定を修正します。以下は`values.yaml`の例のスニペットです。
@@ -148,9 +150,11 @@ defaultSettings:
 +
 [subs="+attributes",shell]
 ----
-helm install longhorn longhorn/longhorn \
+helm install longhorn oci://dp.apps.rancher.io/charts/suse-storage \
   --namespace longhorn-system \
   --create-namespace \
+  --version {patch-version} \
+  --set global.imagePullSecrets=<PULL_IMAGE_SECRET> \
   --values values.yaml
 ----
 
@@ -210,7 +214,7 @@ kubectl edit settings.longhorn.io <SETTING-NAME> -n longhorn-system
 <<_using_helm,新規インストール > Helmの使用>>に記載されているように、YAMLファイルのデフォルト設定を変更し、その後、設定を更新します。
 
 ----
-helm upgrade longhorn longhorn/longhorn --namespace longhorn-system --values ./values.yaml --version `helm list -n longhorn-system -o json | jq -r .'[0].app_version'`
+helm upgrade longhorn oci://dp.apps.rancher.io/charts/suse-storage --namespace longhorn-system --values ./values.yaml --set global.imagePullSecrets=<PULL_IMAGE_SECRET> --version `helm list -n longhorn-system -o json | jq -r .'[0].app_version'`
 ----
 
 == アップグレード

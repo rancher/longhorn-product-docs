@@ -33,11 +33,12 @@ Das Ausführen dieses Skripts erfordert eine Docker-Authentifizierung, um auf di
 +
 Um Longhorn-Bilder in eine `tar.gz` Datei (zum Beispiel `longhorn-images.tar.gz`) zu ziehen und zu speichern, führen Sie die folgenden Befehle aus:
 +
-[subs="+attributes",bash]
+[,bash]
 ----
-wget https://raw.githubusercontent.com/longhorn/longhorn/v{patch-version}/scripts/save-images.sh
-chmod +x save-images.sh
-./save-images.sh --image-list longhorn-images.txt --images longhorn-images.tar.gz
+for image in $(cat longhorn-images.txt); do
+  docker pull "$image"
+done
+docker save $(cat longhorn-images.txt) | gzip > longhorn-images.tar.gz
 ----
 +
 Kopieren Sie dann die generierte `longhorn-images.tar.gz` Datei in Ihre Air-Gapped-Umgebung. Wenn Sie keinen Dateinamen mit dem `--images` Flag angeben, zieht das Skript nur die Bilder in Ihren lokalen Docker-Bildcache, ohne sie in einer Datei zu speichern.
@@ -45,11 +46,14 @@ Kopieren Sie dann die generierte `longhorn-images.tar.gz` Datei in Ihre Air-Gapp
 . **Laden und Pushen von {longhorn-product-name} Bildern in Ihre private Registry** +
 {longhorn-product-name} bietet ein weiteres Skript, https://raw.githubusercontent.com/longhorn/longhorn/v{patch-version}/scripts/load-images.sh[`load-images.sh`] Skript, um Bilder in Ihre private Container-Registry zu pushen. Um Bilder aus einer `tar.gz` Datei (zum Beispiel `longhorn-images.tar.gz`) zu laden und in Ihre Registry zu pushen, führen Sie die folgenden Befehle aus. Ersetzen Sie `<YOUR-PRIVATE-REGISTRY>` durch die tatsächliche Adresse Ihrer privaten Registry.
 +
-[subs="+attributes",bash]
+[,bash]
 ----
-wget https://raw.githubusercontent.com/longhorn/longhorn/v{patch-version}/scripts/load-images.sh
-chmod +x load-images.sh
-./load-images.sh --image-list longhorn-images.txt --images longhorn-images.tar.gz --registry <YOUR-PRIVATE-REGISTRY>
+docker load -i longhorn-images.tar.gz
+for image in $(cat longhorn-images.txt); do
+  target="<YOUR-PRIVATE-REGISTRY>/${image#dp.apps.rancher.io/}"
+  docker tag "$image" "$target"
+  docker push "$target"
+done
 ----
 +
 Wenn Sie keine `tar.gz` Datei mit dem `--images` Flag angeben, findet das Skript Bilder in Ihrem lokalen Docker-Cache und pusht sie in Ihre Registry.
@@ -61,7 +65,7 @@ Erhalten Sie das {longhorn-product-name} Chart und entpacken Sie das heruntergel
 +
 [subs="+attributes",bash]
 ----
-helm pull longhorn oci://dp.apps.rancher.io/charts/suse-storage:{patch-version}
+helm pull oci://dp.apps.rancher.io/charts/suse-storage --version {patch-version}
 tar -zxf suse-storage-{patch-version}.tgz
 cd suse-storage
 ----
@@ -128,22 +132,22 @@ Geben Sie die `repository` und `tag` für die Bilder der CSI-Treiberkomponenten 
 
 [,yaml]
 ----
-    csi:
-      attacher:
-        repository: <USERNAME>/csi-attacher
-        tag: <CSI_ATTACHER_IMAGE_TAG>
-      provisioner:
-        repository: <USERNAME>/csi-provisioner
-        tag: <CSI_PROVISIONER_IMAGE_TAG>
-      nodeDriverRegistrar:
-        repository: <USERNAME>/csi-node-driver-registrar
-        tag: <CSI_NODE_DRIVER_REGISTRAR_IMAGE_TAG>
-      resizer:
-        repository: <USERNAME>/csi-resizer
-        tag: <CSI_RESIZER_IMAGE_TAG>
-      snapshotter:
-        repository: <USERNAME>/csi-snapshotter
-        tag: <CSI_SNAPSHOTTER_IMAGE_TAG>
+csi:
+  attacher:
+    repository: <USERNAME>/kubernetes-csi-external-attacher
+    tag: <CSI_ATTACHER_IMAGE_TAG>
+  provisioner:
+    repository: <USERNAME>/kubernetes-csi-external-provisioner
+    tag: <CSI_PROVISIONER_IMAGE_TAG>
+  nodeDriverRegistrar:
+    repository: <USERNAME>/kubernetes-csi-node-driver-registrar
+    tag: <CSI_NODE_DRIVER_REGISTRAR_IMAGE_TAG>
+  resizer:
+    repository: <USERNAME>/kubernetes-csi-external-resizer
+    tag: <CSI_RESIZER_IMAGE_TAG>
+  snapshotter:
+    repository: <USERNAME>/kubernetes-csi-external-snapshotter
+    tag: <CSI_SNAPSHOTTER_IMAGE_TAG>
 ----
 Geben Sie schließlich Ihr `Private registry URL` an. Wenn die Registry eine Authentifizierung erfordert, geben Sie `Private registry user`, `Private registry password` und `Private registry secret` an. {longhorn-product-name} generiert automatisch ein Secret mit diesen Informationen und verwendet es, um Bilder aus Ihrer privaten Registry abzurufen.
 
