@@ -62,77 +62,79 @@ The `values.yaml` file contains items used to tweak a deployment of this chart.
 
 === Image Settings
 
+Each image also has a `registry` key, which defaults to `dp.apps.rancher.io` (SUSE Application Collection).
+
 |===
 | Key | Type | Default | Description
 
 | image.csi.attacher.repository
 | string
-| `"containers/csi-attacher"`
+| `"containers/kubernetes-csi-external-attacher"`
 | Repository for the CSI attacher image. When unspecified, Longhorn uses the default value.
 
 | image.csi.attacher.tag
 | string
-| `"v4.9.0"`
+| `"4.12.0"`
 | Tag for the CSI attacher image. When unspecified, Longhorn uses the default value.
 
 | image.csi.livenessProbe.repository
 | string
-| `"containers/livenessprobe"`
+| `"containers/kubernetes-csi-livenessprobe"`
 | Repository for the CSI liveness probe image. When unspecified, Longhorn uses the default value.
 
 | image.csi.livenessProbe.tag
 | string
-| `"v2.16.0"`
+| `"2.19.0"`
 | Tag for the CSI liveness probe image. When unspecified, Longhorn uses the default value.
 
 | image.csi.nodeDriverRegistrar.repository
 | string
-| `"containers/csi-node-driver-registrar"`
+| `"containers/kubernetes-csi-node-driver-registrar"`
 | Repository for the CSI Node Driver Registrar image. When unspecified, Longhorn uses the default value.
 
 | image.csi.nodeDriverRegistrar.tag
 | string
-| `"v2.14.0"`
+| `"2.17.0"`
 | Tag for the CSI Node Driver Registrar image. When unspecified, Longhorn uses the default value.
 
 | image.csi.provisioner.repository
 | string
-| `"containers/csi-provisioner"`
+| `"containers/kubernetes-csi-external-provisioner"`
 | Repository for the CSI Provisioner image. When unspecified, Longhorn uses the default value.
 
 | image.csi.provisioner.tag
 | string
-| `"v5.3.0"`
+| `"5.3.0"`
 | Tag for the CSI Provisioner image. When unspecified, Longhorn uses the default value.
 
 | image.csi.resizer.repository
 | string
-| `"containers/csi-resizer"`
+| `"containers/kubernetes-csi-external-resizer"`
 | Repository for the CSI Resizer image. When unspecified, Longhorn uses the default value.
 
 | image.csi.resizer.tag
 | string
-| `"v1.14.0"`
+| `"1.14.0"`
 | Tag for the CSI Resizer image. When unspecified, Longhorn uses the default value.
 
 | image.csi.snapshotter.repository
 | string
-| `"containers/csi-snapshotter"`
+| `"containers/kubernetes-csi-external-snapshotter"`
 | Repository for the CSI Snapshotter image. When unspecified, Longhorn uses the default value.
 
 | image.csi.snapshotter.tag
 | string
-| `"v8.3.0"`
+| `"8.6.0"`
 | Tag for the CSI Snapshotter image. When unspecified, Longhorn uses the default value.
 
 | image.longhorn.backingImageManager.repository
 | string
-| `"containers/backing-image-manager"`
+| `"containers/longhorn-backing-image-manager"`
 | Repository for the Backing Image Manager image. When unspecified, Longhorn uses the default value.
 
 | image.longhorn.backingImageManager.tag
 | string
-| `"v1.9.1"`
+| `"1.9.6"`
 | Tag for the Backing Image Manager image. When unspecified, Longhorn uses the default value.
 
 | image.longhorn.engine.repository
@@ -142,7 +144,7 @@ The `values.yaml` file contains items used to tweak a deployment of this chart.
 
 | image.longhorn.engine.tag
 | string
-| `"v1.9.1"`
+| `"1.9.6"`
 | Tag for the Longhorn Engine image.
 
 | image.longhorn.instanceManager.repository
@@ -152,7 +154,7 @@ The `values.yaml` file contains items used to tweak a deployment of this chart.
 
 | image.longhorn.instanceManager.tag
 | string
-| `"v1.9.1"`
+| `"1.9.6"`
 | Tag for the Longhorn Instance Manager image.
 
 | image.longhorn.manager.repository
@@ -162,7 +164,7 @@ The `values.yaml` file contains items used to tweak a deployment of this chart.
 
 | image.longhorn.manager.tag
 | string
-| `"v1.9.1"`
+| `"1.9.6"`
 | Tag for the Longhorn Manager image.
 
 | image.longhorn.shareManager.repository
@@ -172,17 +174,17 @@ The `values.yaml` file contains items used to tweak a deployment of this chart.
 
 | image.longhorn.shareManager.tag
 | string
-| `"v1.9.1"`
+| `"1.9.6"`
 | Tag for the Longhorn Share Manager image.
 
 | image.longhorn.supportBundleKit.repository
 | string
-| `"containers/support-bundle-kit"`
+| `"containers/rancher-support-bundle-kit"`
 | Repository for the Longhorn Support Bundle Manager image.
 
 | image.longhorn.supportBundleKit.tag
 | string
-| `"v0.0.61"`
+| `"0.0.87"`
 | Tag for the Longhorn Support Bundle Manager image.
 
 | image.longhorn.ui.repository
@@ -192,7 +194,7 @@ The `values.yaml` file contains items used to tweak a deployment of this chart.
 
 | image.longhorn.ui.tag
 | string
-| `"v1.9.1"`
+| `"1.9.6"`
 | Tag for the Longhorn UI image.
 
 | image.pullPolicy

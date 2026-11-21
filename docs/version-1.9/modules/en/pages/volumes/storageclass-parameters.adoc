@@ -407,4 +407,4 @@ ____
 
 == Helm Installs
 
-If {longhorn-product-name} is installed via Helm, values in the default storage class can be set by editing the corresponding item in https://github.com/longhorn/longhorn/blob/v{patch-version}/chart/values.yaml[`values.yaml`].  All of the Storage Class parameters have a prefix of `"persistence"`.  For example, `persistence.defaultNodeSelector`.
+If {longhorn-product-name} is installed via Helm, values in the default storage class can be set by editing the corresponding item in xref:installation-setup/installation/helm-values.adoc[`values.yaml`].  All of the Storage Class parameters have a prefix of `"persistence"`.  For example, `persistence.defaultNodeSelector`.

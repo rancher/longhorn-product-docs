@@ -384,7 +384,7 @@ There will be a default image given during installation and upgrade. You can als
 
 An example of the support bundle manager image:
 
-*Default value*: `longhornio/support-bundle-kit:v0.0.14`
+*Default value*: `dp.apps.rancher.io/containers/rancher-support-bundle-kit:0.0.87`
 
 === Support Bundle Failed History Limit
 

@@ -70,11 +70,13 @@ The following Helm values control HTTPRoute generation:
 
 Install {longhorn-product-name} with HTTPRoute enabled:
 
-[,shell]
+[subs="+attributes",shell]
 ----
-helm install longhorn longhorn/longhorn \
+helm install longhorn oci://dp.apps.rancher.io/charts/suse-storage \
   --namespace longhorn-system \
   --create-namespace \
+  --version {patch-version} \
+  --set global.imagePullSecrets=<PULL_IMAGE_SECRET> \
   --set "httproute.enabled=true" \
   --set "httproute.parentRefs[0].name=my-gateway" \
   --set "httproute.parentRefs[0].namespace=default" \
@@ -106,11 +108,13 @@ httproute:
 
 Install with the values file:
 
-[,shell]
+[subs="+attributes",shell]
 ----
-helm install longhorn longhorn/longhorn \
+helm install longhorn oci://dp.apps.rancher.io/charts/suse-storage \
   --namespace longhorn-system \
   --create-namespace \
+  --version {patch-version} \
+  --set global.imagePullSecrets=<PULL_IMAGE_SECRET> \
   --values values.yaml
 ----
 
@@ -152,11 +156,13 @@ httproute:
 
 Install {longhorn-product-name} using the same values file:
 
-[,shell]
+[subs="+attributes",shell]
 ----
-helm install longhorn longhorn/longhorn \
+helm install longhorn oci://dp.apps.rancher.io/charts/suse-storage \
   --namespace longhorn-system \
   --create-namespace \
+  --version {patch-version} \
+  --set global.imagePullSecrets=<PULL_IMAGE_SECRET> \
   --values values.yaml
 ----
 
